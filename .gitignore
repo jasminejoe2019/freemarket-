@@ -10,6 +10,7 @@
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
+/public/uploads/*
 !/log/.keep
 !/tmp/.keep
 
@@ -22,6 +23,8 @@
 
 /public/assets
 .byebug_history
+.vscode/*
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+/config/secrets.yml
