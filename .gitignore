@@ -10,6 +10,7 @@
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
+/public/uploads/*
 !/log/.keep
 !/tmp/.keep
 
@@ -25,3 +26,4 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+/config/secrets.yml
