@@ -2,7 +2,8 @@
   .container
     .header
       = image_tag "fmarket_logo_white.svg", :class => "header__logo"
-      = link_to ""
+      = link_to "#"
+
     .contents
       .contents__container
         %h2.contents__title
@@ -18,6 +19,7 @@
             =link_to "http://www.google.com/", class: "btn-default link-google" do
               = icon('fab', 'google', class: "google-icon")
               Googleで登録する
+
   .footer
     %nav
       %ul.clearfix
@@ -30,7 +32,7 @@
         %li
           %a{href:"#"}
             特定商取引に関する表記
-    %a{herf:"#", class: "footer-logo"}
+    %a{href:"#", class: "footer-logo"}
       =image_tag "logo_gray.svg"
     %p
       %small
