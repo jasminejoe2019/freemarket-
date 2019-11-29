@@ -29,7 +29,6 @@
     background-color: white;
 
     &__container {
-      // padding: 32px;
       font-size: 18px;
       text-align: center;
       line-height: 1.5;
@@ -91,6 +90,10 @@
   .footer a {
     color: #333;
     text-decoration: none;
+  }
+
+  a:hover{
+    color : #928e8e;
   }
 
   .footer p {
