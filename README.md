@@ -40,6 +40,8 @@
 
 
 ### paymentテーブル
+|Column|Type|Options|
+|------|----|-------|
 |credit_card_number|integer|null: false|
 |expiration_date|date|null: false|
 |security_code|integer|null: false|
@@ -51,6 +53,8 @@
 
 
 ### bankテーブル
+|Column|Type|Options|
+|------|----|-------|
 |bank_name|string|null: false|
 |account_type|string|null: false|
 |branch_code|integer|null: false|
