@@ -5,15 +5,21 @@
 ### userテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|-------|
-|furigana|string|-------|
-|birthday|date|-------|
-|telephone|int|-------|
-|payment|string|-------|
-|mail_address|string|-------|
-|google_account|----|-------|
-|profile|text|-------|
-|sales|bigint|-------|
+|nickname|string|null: false|
+|email|string|null: false, unique: true|
+|password|string|null: false|
+|name|string|null: false|
+|furigana|string|null: false|
+|birthday|date|null: false|
+|telephone|integer|null: false|
+|google_account|string||
+|facebook_account|string||
+|profile|text||
+|sales|bigint|null: false|
+|payment_id|references|null: false, foreign_key: true|
+|bank_id|references|foreign_key: true|
+|address_id|references|foreign_key: true|
+|shipping_address_id|references|null: false, foreign_key: true|
 
 #### Association
 - has many items
@@ -24,46 +30,74 @@
 - has many iines
 - has many comments
 - has many ngs
+- belongs to payment
+- belongs to bank
 - belongs to address
 - belongs to shipping_address
 
+
 #### index
+
+
+### paymentテーブル
+|credit_card_number|integer|null: false|
+|expiration_date|date|null: false|
+|security_code|integer|null: false|
+
+#### Association
+- has many users
+
+#### index
+
+
+### bankテーブル
+|bank_name|string|null: false|
+|account_type|string|null: false|
+|branch_code|integer|null: false|
+|account_number|integer|null: false|
+|first_name|string|null: false|
+
+#### Association
+- has many user
+
+#### index
+
 
 ### itemテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|-------|
-|price|intger|-------|
-|size|string|-------|
-|condition|string|-------|
-|shipping_charge|string|-------|
-|shipping_method|string|-------|
-|delivery_area|string|-------|
-|estimated_shipping_date|string|-------|
-|description|text|-------|
-|status|string|-------|
-|user_id|references|-------|
+|name|string|null: false|
+|image||null: false|
+|price|intger|null: false|
+|size|string||
+|condition|string|null: false|
+|shipping_charge|string|null: false|
+|shipping_method|string|null: false|
+|delivery_area|string|null: false|
+|estimated_shipping_date|string|null: false|
+|description|text|null: false|
+|status|string|null: false|
+|user_id|references|null: false, foreign_key: true|
 
 #### Association
 - has many iines
 - has many comments
 - has many ngs
+- has_many  :categories
+- has_many  :brands
 - belings to user
 - belongs to trade
-- has_many  :categories,  through:  :items_categories
-- has_many  :brands,  through:  :items_brands
 
 #### index
 
 ### addressテーブル
 |Column|Type|Options|
 |------|----|-------|
-|postal_code|string|-------|
-|prefecture|string|-------|
-|city|string|-------|
-|address|int|-------|
+|postal_code|string|null: false|
+|prefecture|string|null: false|
+|city|string|null: false|
+|address|integer|null: false|
 |building_name|string|-------|
-|user_id|references|-------|
 
 #### Association
 - has many users
@@ -73,24 +107,23 @@
 ### shipping_addressテーブル
 |Column|Type|Options|
 |------|----|-------|
-|postal_code|string|-------|
-|prefecture|string|-------|
-|city|string|-------|
-|address|int|-------|
-|building_name|string|-------|
-|user_id|references|-------|
+|postal_code|string|null: false|
+|prefecture|string|null: false|
+|city|string|null: false|
+|address|integer|null: false|
+|building_name|string||
 
 #### Association
-- belongs to user
+- has many users
 
 #### index
 
 ### pointテーブル
 |Column|Type|Options|
 |------|----|-------|
-|amount|intger|-------|
-|date|datetime|-------|
-|user_id|references|-------|
+|amount|integer|null: false|
+|date|datetime|null: false|
+|user_id|references|null: false, foreign_key: true|
 
 #### Association
 - belongs to user
@@ -100,10 +133,10 @@
 ### noticeテーブル
 |Column|Type|Options|
 |------|----|-------|
-|date|datetime|-------|
-|title|string|-------|
-|text|text|-------|
-|user_id|references|-------|
+|date|datetime|null: false|
+|title|string|null: false|
+|text|text|null: false|
+|user_id|references|null: false, foreign_key: true|
 
 #### Association
 - belongs to user
@@ -113,22 +146,24 @@
 ### todoテーブル
 |Column|Type|Options|
 |------|----|-------|
-|date|datetime|-------|
-|title|string|-------|
-|text|text|-------|
-|user_id|references|-------|
+|date|datetime|null: false|
+|title|string|null: false|
+|text|text|null: false|
+|user_id|references|null: false, foreign_key: true|
+|trade_id|references|null: false, foreign_key: true|
 
 #### Association
 - belongs to user
+- belongs to trade
 
 #### index
 
-### iine!テーブル
+### iineテーブル
 |Column|Type|Options|
 |------|----|-------|
-|date|datetime|-------|
-|user_id|references|-------|
-|item_id|references|-------|
+|date|datetime|null: false|
+|user_id|references|null: false, foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
 
 #### Association
 - belongs to user
@@ -139,9 +174,9 @@
 ### tradeテーブル
 |Column|Type|Options|
 |------|----|-------|
-|date|datetime|-------|
-|user_id|references|-------|
-|item_id|references|-------|
+|date|datetime|null: false|
+|user_id|references|null: false, foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
 
 #### Association
 - belongs to user
@@ -152,10 +187,10 @@
 ### commentテーブル
 |Column|Type|Options|
 |------|----|-------|
-|date|datetime|-------|
-|text|text|-------|
-|user_id|references|-------|
-|item_id|references|-------|
+|date|datetime|null: false|
+|text|text|null: false|
+|user_id|references|null: false, foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
 
 #### Association
 - belongs to user
@@ -166,16 +201,7 @@
 ### brandテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|-------|
-
-#### Association
-#### index
-
-### item_brandテーブル
-|Column|Type|Options|
-|------|----|-------|
-|item_id|references|-------|
-|brand_id|references|-------|
+|name|string|null: false|
 
 #### Association
 #### index
@@ -183,22 +209,11 @@
 ### categoryテーブル
 |Column|Type|Options|
 |------|----|-------|
-|major_classification|string|-------|
-|medium_classification|string|-------|
-|small_classification|string|-------|
+|major_classification|string|null: false|
+|medium_classification|string|null: false|
+|small_classification|string|null: false|
 
 #### Association
-- has_many  :items,  through:  :items_categories
-
-#### index
-
-### item_brandテーブル
-|Column|Type|Options|
-|------|----|-------|
-|item_id|references|-------|
-|category_id|references|-------|
-
-#### Association
-- has_many  :items,  through:  :items_brands
+- has_many  :items
 
 #### index
