@@ -50,5 +50,5 @@ test:
 production:
   <<: *default
   database: freemarket_sample_58b_production
-  username: freemarket_sample_58b
+  username: root
   password: <%= ENV['FREEMARKET_SAMPLE_58B_DATABASE_PASSWORD'] %>
