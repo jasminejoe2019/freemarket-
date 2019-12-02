@@ -9,20 +9,6 @@
   text-decoration: none;
   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
 
-  .header {
-    height: 128px;
-    line-height: 128px;
-
-    &__logo {
-      height: 49px;
-      width: 189px;
-      display: block;
-      margin: 0 auto;
-      text-align: center;
-      padding: 43px 0;
-      line-height: 128px;
-    }
-  }
   .contents {
     width: 700px;
     margin: 0 auto;
@@ -53,53 +39,92 @@
           margin: 0 auto;
         }
       }
-  }
+    }
 
-  .footer {
+
+  .contents-panel {
+    max-width: none;
     width: 456px;
-    height: 140px;
     margin: 0 auto;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    padding: 40px 0;
-    text-align: center;
-  }
+    background-color: white;
 
-  .clearfix {
-    font-size: 0;
-    text-decoration: none;
-    display: inline-block;
-  }
+      &__login-no {
+        padding: 40px 64px;
+        text-align: center;
 
-  .footer-logo {
-    display: block;
-    color: #333;
-    width: 80px;
-    height: 65px;
-    margin: 40px auto 0;
-  }
+        a {
+          display: block;
+          margin: 8px 0 0;
+          border: 1px solid #0099e8;
+          background-color: #0099e8;
+          color: white;
+          line-height: 40px;
+          text-decoration: none;
+        }
+      }
+    &__login__form-sns {
+      border-top: 1px solid #eee;
+      padding: 32px 64px;
 
-  .footer li {
-    display: inline-block;
-    margin: 0 0 0 16px;
-    font-size: 12px;
-    color: #333;
-    text-decoration: none;
-  }
-  .footer a {
-    color: #333;
-    text-decoration: none;
-  }
+      .link-fb2 {
+        background: #385185;
+        color: #fff;
+        text-decoration: none;
+        width: 100%;
 
-  a:hover{
-    color : #928e8e;
-  }
+        .fb-icon2 {
+          font-size: 30px;
+          position: relative;
+          right: 75px;
+          top: 7px;
+        }
+      }
+      .link-google2 {
+        margin-top: 16px;
+        background: #fff
+        url(/jp/assets/img/common/common/google.svg) no-repeat 3px top;
+        border: #979797 solid 1px;
+        color: #333;
+        text-decoration: none;
+        width: 100%;
 
-  .footer p {
-    margin: 8px 0 0;
-  }
+        .google-icon2 {
+          font-size: 20px;
+          position: relative;
+          right: 85px;
+        }
+      }
+    }
 
+    &__login__form-inner {
+
+      .form-group {
+        padding: 0 64px 32px 64px;
+        margin-top: 24px;
+
+        .input-default {
+          width: 100%;
+          height: 48px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: #fff;
+          line-height: 1.5;
+          font-size: 16px;
+        }
+      }
+      .form-group:first-child{
+        margin:0;
+        padding-bottom: 0;
+        padding-top: 30px;
+      }
+
+      a {
+        display: block;
+        margin: 40px 0 0;
+        color: #0099e8;
+        text-decoration: none;
+      }
+    }
 }
 
 .btn-default {
@@ -113,6 +138,12 @@
   cursor: pointer;
   text-align: center;
   border-radius: 4px;
+}
+.btn-red{
+  background-color: #ea352d;
+  border: 1px solid #ea352d;
+  color: #fff;
+  width: 100%;
 }
 
 .link-mail {
@@ -157,4 +188,5 @@
     position: relative;
     right: 85px;
   }
+}
 }

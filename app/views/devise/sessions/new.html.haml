@@ -1,18 +1,49 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+-# %h2 Log in
+-# = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+-#   .field
+-#     = f.label :email
+-#     %br/
+-#     = f.email_field :email, autofocus: true, autocomplete: "email"
+-#   .field
+-#     = f.label :password
+-#     %br/
+-#     = f.password_field :password, autocomplete: "current-password"
+-#   - if devise_mapping.rememberable?
+-#     .field
+-#       = f.check_box :remember_me
+-#       = f.label :remember_me
+-#   .actions
+-#     = f.submit "Log in"
+-# = render "devise/shared/links"
+
+
+.wrapper
+  = render partial: 'devise/shared/user_header'
+
+  .contents-panel
+    .contents-panel__login
+      .contents-panel__login-no
+        %p
+          アカウントをお持ちでない方はこちら
+        %a{href:"#"}
+          新規会員登録
+      .contents-panel__login__form-sns
+        =link_to "https://www.facebook.com/", class: "btn-default link-fb2" do
+          = icon('fab', 'facebook-square',  class: "fb-icon2")
+          Facebookでログイン
+        =link_to "http://www.google.com/", class: "btn-default link-google2" do
+          = icon('fab', 'google', class: "google-icon2")
+          Googleでログイン
+      .contents-panel__login__form-inner
+        .form-group
+          %input.input-default{ :placeholder => "  メールアドレス", :type => "email", :value => ""}
+        .form-group
+          %input.input-default{ :placeholder => "  パスワード", :type => "password", :value => ""}
+        .form-group
+          %button.btn-default.btn-red{type:"submit"} ログイン
+          %a{href:"#"}
+            パスワードをお忘れの方
+
+
+  = render 'devise/shared/user_footer'
 
