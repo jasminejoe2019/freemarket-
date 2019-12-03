@@ -12,8 +12,8 @@
 |furigana|string|null: false|
 |birthday|date|null: false|
 |telephone|integer|null: false|
-|google_account|string||
-|facebook_account|string||
+|google_account|string|unique: true|
+|facebook_account|string|unique: true|
 |profile|text||
 |sales|bigint|null: false|
 |payment_id|references|null: false, foreign_key: true|
@@ -60,9 +60,10 @@
 |branch_code|integer|null: false|
 |account_number|integer|null: false|
 |first_name|string|null: false|
+|family_name|string|null: false|
 
 #### Association
-- has many user
+- has many users
 
 #### index
 
@@ -70,8 +71,8 @@
 ### itemテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
-|image||null: false|
+|item_name|string|null: false|
+|image|string|null: false|
 |price|intger|null: false|
 |size|string||
 |condition|string|null: false|
@@ -87,12 +88,17 @@
 - has many iines
 - has many comments
 - has many ngs
-- has_many  :categories
-- has_many  :brands
+- has_many categories
+- has_many brands
 - belings to user
 - belongs to trade
 
 #### index
+- add_index :items, :size
+- add_index :items, :price
+- add_index :items, :condition
+- add_index :items, :shipping_charge
+- add_index :items, :status
 
 ### addressテーブル
 |Column|Type|Options|
@@ -101,7 +107,7 @@
 |prefecture|string|null: false|
 |city|string|null: false|
 |address|integer|null: false|
-|building_name|string|-------|
+|building_name|string||
 
 #### Association
 - has many users
@@ -111,11 +117,11 @@
 ### shipping_addressテーブル
 |Column|Type|Options|
 |------|----|-------|
-|postal_code|string|null: false|
-|prefecture|string|null: false|
-|city|string|null: false|
-|address|integer|null: false|
-|building_name|string||
+|shipping_postal_code|string|null: false|
+|shipping_prefecture|string|null: false|
+|shipping_city|string|null: false|
+|shipping_address|integer|null: false|
+|shipping_building_name|string||
 
 #### Association
 - has many users
@@ -138,8 +144,8 @@
 |Column|Type|Options|
 |------|----|-------|
 |date|datetime|null: false|
-|title|string|null: false|
-|text|text|null: false|
+|notice_title|string|null: false|
+|notice_text|text|null: false|
 |user_id|references|null: false, foreign_key: true|
 
 #### Association
@@ -151,8 +157,8 @@
 |Column|Type|Options|
 |------|----|-------|
 |date|datetime|null: false|
-|title|string|null: false|
-|text|text|null: false|
+|todo_title|string|null: false|
+|todo_text|text|null: false|
 |user_id|references|null: false, foreign_key: true|
 |trade_id|references|null: false, foreign_key: true|
 
@@ -208,6 +214,8 @@
 |name|string|null: false|
 
 #### Association
+- has_many items
+
 #### index
 
 ### categoryテーブル
@@ -218,6 +226,6 @@
 |small_classification|string|null: false|
 
 #### Association
-- has_many  :items
+- has_many items
 
 #### index
