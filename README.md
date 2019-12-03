@@ -117,11 +117,11 @@
 ### shipping_addressテーブル
 |Column|Type|Options|
 |------|----|-------|
-|shipping_postal_code|string|null: false|
-|shipping_prefecture|string|null: false|
-|shipping_city|string|null: false|
-|shipping_address|integer|null: false|
-|shipping_building_name|string||
+|postal_code|string|null: false|
+|prefecture|string|null: false|
+|city|string|null: false|
+|address|integer|null: false|
+|building_name|string||
 
 #### Association
 - has many users
@@ -144,8 +144,8 @@
 |Column|Type|Options|
 |------|----|-------|
 |date|datetime|null: false|
-|notice_title|string|null: false|
-|notice_text|text|null: false|
+|title|string|null: false|
+|text|text|null: false|
 |user_id|references|null: false, foreign_key: true|
 
 #### Association
@@ -157,8 +157,8 @@
 |Column|Type|Options|
 |------|----|-------|
 |date|datetime|null: false|
-|todo_title|string|null: false|
-|todo_text|text|null: false|
+|title|string|null: false|
+|text|text|null: false|
 |user_id|references|null: false, foreign_key: true|
 |trade_id|references|null: false, foreign_key: true|
 
