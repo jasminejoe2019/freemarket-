@@ -35,9 +35,35 @@
 - belongs to address
 - belongs to shipping_address
 
+#### index
+
+### addressテーブル
+|Column|Type|Options|
+|------|----|-------|
+|postal_code|string|null: false|
+|prefecture|string|null: false|
+|city|string|null: false|
+|address|integer|null: false|
+|building_name|string||
+
+#### Association
+- has many users
 
 #### index
 
+### shipping_addressテーブル
+|Column|Type|Options|
+|------|----|-------|
+|postal_code|string|null: false|
+|prefecture|string|null: false|
+|city|string|null: false|
+|address|integer|null: false|
+|building_name|string||
+
+#### Association
+- has many users
+
+#### index
 
 ### paymentテーブル
 |Column|Type|Options|
@@ -100,33 +126,7 @@
 - add_index :items, :shipping_charge
 - add_index :items, :status
 
-### addressテーブル
-|Column|Type|Options|
-|------|----|-------|
-|postal_code|string|null: false|
-|prefecture|string|null: false|
-|city|string|null: false|
-|address|integer|null: false|
-|building_name|string||
 
-#### Association
-- has many users
-
-#### index
-
-### shipping_addressテーブル
-|Column|Type|Options|
-|------|----|-------|
-|postal_code|string|null: false|
-|prefecture|string|null: false|
-|city|string|null: false|
-|address|integer|null: false|
-|building_name|string||
-
-#### Association
-- has many users
-
-#### index
 
 ### pointテーブル
 |Column|Type|Options|
@@ -184,7 +184,9 @@
 ### tradeテーブル
 |Column|Type|Options|
 |------|----|-------|
-|date|datetime|null: false|
+|transaction_date|datetime|null: false|
+|trading_date|datetime||
+|grade|string||
 |user_id|references|null: false, foreign_key: true|
 |item_id|references|null: false, foreign_key: true|
 
@@ -217,6 +219,7 @@
 - has_many items
 
 #### index
+- add_index :brand, :name
 
 ### categoryテーブル
 |Column|Type|Options|
@@ -229,3 +232,6 @@
 - has_many items
 
 #### index
+- add_index :category, :major_classification
+- add_index :category, :medium_classification
+- add_index :category, :small_classification
