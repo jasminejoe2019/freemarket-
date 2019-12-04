@@ -42,10 +42,10 @@
 ### addressテーブル
 |Column|Type|Options|
 |------|----|-------|
-|postal_code|string|null: false|
-|prefecture|string|null: false|
-|city|string|null: false|
-|address|integer|null: false|
+|postal_code|string||
+|prefecture|string||
+|city|string||
+|address|integer||
 |building_name|string||
 
 #### Association
@@ -79,7 +79,6 @@
 
 #### index
 
-
 ### bankテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -94,41 +93,6 @@
 - has many users
 
 #### index
-
-
-### itemテーブル
-|Column|Type|Options|
-|------|----|-------|
-|item_name|string|null: false|
-|image|string|null: false|
-|price|intger|null: false|
-|size|string||
-|condition|string|null: false|
-|shipping_charge|string|null: false|
-|shipping_method|string|null: false|
-|delivery_area|string|null: false|
-|estimated_shipping_date|string|null: false|
-|description|text|null: false|
-|status|string|null: false|
-|user_id|references|null: false, foreign_key: true|
-
-#### Association
-- has many iines
-- has many comments
-- has many ngs
-- has_many categories
-- has_many brands
-- belings to user
-- belongs to trade
-
-#### index
-- add_index :items, :size
-- add_index :items, :price
-- add_index :items, :condition
-- add_index :items, :shipping_charge
-- add_index :items, :status
-
-
 
 ### pointテーブル
 |Column|Type|Options|
@@ -170,6 +134,9 @@
 
 #### index
 
+
+
+
 ### iineテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -183,20 +150,37 @@
 
 #### index
 
-### tradeテーブル
+### itemテーブル
 |Column|Type|Options|
 |------|----|-------|
-|transaction_date|datetime|null: false|
-|trading_date|datetime||
-|grade|string||
+|item_name|string|null: false|
+|image|string|null: false|
+|price|intger|null: false|
+|size|string||
+|condition|string|null: false|
+|shipping_charge|string|null: false|
+|shipping_method|string|null: false|
+|delivery_area|string|null: false|
+|estimated_shipping_date|string|null: false|
+|description|text|null: false|
+|status|string|null: false|
 |user_id|references|null: false, foreign_key: true|
-|item_id|references|null: false, foreign_key: true|
 
 #### Association
-- belongs to user
-- belongs to item
+- has many iines
+- has many comments
+- has many ngs
+- has_many categories
+- has_many brands
+- belings to user
+- belongs to trade
 
 #### index
+- add_index :items, :size
+- add_index :items, :price
+- add_index :items, :condition
+- add_index :items, :shipping_charge
+- add_index :items, :status
 
 ### commentテーブル
 |Column|Type|Options|
@@ -237,3 +221,21 @@
 - add_index :category, :major_classification
 - add_index :category, :medium_classification
 - add_index :category, :small_classification
+
+### tradeテーブル
+|Column|Type|Options|
+|------|----|-------|
+|transaction_date|datetime|null: false|
+|trading_date|datetime||
+|grade|string||
+|user_id|references|null: false, foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
+
+#### Association
+- belongs to user
+- belongs to item
+
+#### index
+
+
+
