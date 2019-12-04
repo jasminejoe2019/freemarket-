@@ -8,8 +8,10 @@
 |nickname|string|null: false|
 |email|string|null: false, unique: true|
 |password|string|null: false|
-|name|string|null: false|
-|furigana|string|null: false|
+|first_name|string|null: false|
+|first_furigana|string|null: false|
+|family_name|string|null: false|
+|family_furigana|string|null: false|
 |birthday|date|null: false|
 |telephone|integer|null: false|
 |google_account|string|unique: true|
