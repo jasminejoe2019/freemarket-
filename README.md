@@ -200,26 +200,50 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
+|item_id|references|null: false, foreign_key: true|
 
 #### Association
-- has_many items
+- belongs to item
 
 #### index
 - add_index :brand, :name
 
-### categoryテーブル
+### majorcategoryテーブル
 |Column|Type|Options|
 |------|----|-------|
 |major_classification|string|null: false|
-|medium_classification|string|null: false|
-|small_classification|string|null: false|
+|item_id|references|null: false, foreign_key: true|
 
 #### Association
-- has_many items
+- belongs to item
+- has_many mediumcategories
 
 #### index
 - add_index :category, :major_classification
-- add_index :category, :medium_classification
+
+### mediumcategoryテーブル
+|Column|Type|Options|
+|------|----|-------|
+|medium_classification|string|null: false|
+|major_classification_id|references|null: false, foreign_key: true|
+
+#### Association
+- has_many smallcategories
+- belongs to majorcategory
+
+#### index
+- add_index :category, :major_classification
+
+### smallcategoryテーブル
+|Column|Type|Options|
+|------|----|-------|
+|small_classification|string|null: false|
+|medium_classification_id|references|null: false, foreign_key: true|
+
+#### Association
+- belongs to mediumcategory
+
+#### index
 - add_index :category, :small_classification
 
 ### tradeテーブル
