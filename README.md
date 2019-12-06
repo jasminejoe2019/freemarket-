@@ -14,8 +14,7 @@
 |family_furigana|string|null: false|
 |birthday|date|null: false|
 |telephone|integer|null: false|
-|google_account|string|unique: true|
-|facebook_account|string|unique: true|
+|sns_credential|string|unique: true|
 |profile|text||
 |sales|bigint|null: false|
 |payment_id|references|null: false, foreign_key: true|
