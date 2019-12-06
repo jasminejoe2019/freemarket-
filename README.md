@@ -155,14 +155,7 @@
 |item_name|string|null: false|
 |image|string|null: false|
 |price|intger|null: false|
-|size|string||
-|condition|string|null: false|
-|shipping_charge|string|null: false|
-|shipping_method|string|null: false|
-|delivery_area|string|null: false|
-|estimated_shipping_date|string|null: false|
 |description|text|null: false|
-|status|string|null: false|
 |user_id|references|null: false, foreign_key: true|
 
 #### Association
@@ -171,8 +164,27 @@
 - has many ngs
 - has_many categories
 - has_many brands
+- has_many item_informations
 - belings to user
 - belongs to trade
+
+#### index
+
+
+#### item_informationテーブル
+|Column|Type|Options|
+|------|----|-------|
+|size|string||
+|condition|string|null: false|
+|shipping_charge|string|null: false|
+|shipping_method|string|null: false|
+|delivery_area|string|null: false|
+|estimated_shipping_date|string|null: false|
+|status|string|null: false|
+|item_id|references|null: false, foreign_key: true|
+
+#### Association
+- belongs to item
 
 #### index
 - add_index :items, :size
