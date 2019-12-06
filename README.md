@@ -262,7 +262,21 @@
 |------|----|-------|
 |transaction_date|datetime|null: false|
 |trading_date|datetime||
-|grade|string||
+|user_id|references|null: false, foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
+
+#### Association
+- belongs to user
+- belongs to item
+
+#### index
+
+### trade_commentテーブル
+|Column|Type|Options|
+|------|----|-------|
+|date|datetime|null: false|
+|text|text|null: false|
+|grade|string|null: false|
 |user_id|references|null: false, foreign_key: true|
 |item_id|references|null: false, foreign_key: true|
 
