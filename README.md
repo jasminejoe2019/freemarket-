@@ -155,7 +155,7 @@
 |item_name|string|null: false, limit: 40|
 |image|string|null: false|
 |price|intger|null: false|
-|description|text|null: false|
+|description|text|null: false, limit: 1000|
 |user_id|references|null: false, foreign_key: true|
 
 #### Association
