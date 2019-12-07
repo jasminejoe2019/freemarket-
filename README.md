@@ -153,7 +153,6 @@
 |Column|Type|Options|
 |------|----|-------|
 |item_name|string|null: false, limit: 40|
-|image|string|null: false, limit: 10|
 |price|intger|null: false|
 |description|text|null: false, limit: 1000|
 |size_id|integer|null: false, foreign_key: true|
@@ -171,6 +170,7 @@
 - has many ngs
 - has_many categories
 - has_many brands
+- has_many images
 - has_many sizes
 - has_many conditions
 - has_many shipping_charges
@@ -183,6 +183,16 @@
 #### index
 - add_index :items, :price
 
+#### imageテーブル
+|Column|Type|Options|
+|------|----|-------|
+|image|string|null: false, limit: 10|
+|item_id|references|null: false, foreign_key: true|
+
+#### Association
+- belongs to item
+
+#### index
 
 #### sizeテーブル
 |Column|Type|Options|
