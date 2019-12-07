@@ -152,7 +152,7 @@
 ### itemテーブル
 |Column|Type|Options|
 |------|----|-------|
-|item_name|string|null: false, limit: 40|
+|name|string|null: false, limit: 40|
 |price|intger|null: false|
 |description|text|null: false, limit: 1000|
 |size_id|integer|null: false, foreign_key: true|
