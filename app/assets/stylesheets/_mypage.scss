@@ -1,8 +1,48 @@
-.content {
-  width: 100%;
+.container {
+  margin: 40px auto 0;
+  width: 1020px;
 
-  &__user {
-    height: 200px;
-    padding: 20px;
+  .content {
+    float: right;
+    width: 700px;
+
+    &__user {
+      display: block;
+      height: 200px;
+      padding: 20px;
+      background-color: lightgray;
+
+      a {
+        display: block;
+        top: 50%;
+        left: 0;
+        right: 0;
+        text-decoration: none;
+        text-align: center;
+
+        figure {
+          overflow: hidden;
+          width: 60px;
+          height: 60px;
+          margin: 0 auto;
+          border-radius: 50%;
+        }
+        h2 {
+          margin: 8px 0 0;
+          font-size: 14px;
+          line-height: 1.4;
+        }
+        &__number {
+          margin: 8px 0 0;
+          font-size: 0;
+
+          span {
+            margin: 0 0 0 8px;
+            font-size: 16px;
+            font-weight: 600;
+          }
+        }
+      }
+    }
   }
 }
