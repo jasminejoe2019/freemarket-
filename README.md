@@ -156,6 +156,13 @@
 |image|string|null: false, limit: 10|
 |price|intger|null: false|
 |description|text|null: false, limit: 1000|
+|size_id|integer|null: false, foreign_key: true|
+|condition_id|integer|null: false, foreign_key: true|
+|shipping_charge_id|integer|null: false, foreign_key: true|
+|shipping_method_id|integer|null: false, foreign_key: true|
+|delivery_area_id|integer|null: false, foreign_key: true|
+|status_id|references|null: false, foreign_key: true|
+|estimated_shipping_date_id|integer|null: false, foreign_key: true|
 |user_id|references|null: false, foreign_key: true|
 
 #### Association
@@ -164,34 +171,109 @@
 - has many ngs
 - has_many categories
 - has_many brands
-- has_many item_informations
+- has_many sizes
+- has_many conditions
+- has_many shipping_charges
+- has_many shipping_methods
+- has_many shipping_methods
+- has_many statuses
 - belings to user
 - belongs to trade
 
 #### index
+- add_index :items, :price
 
 
-#### item_informationテーブル
+#### sizeテーブル
 |Column|Type|Options|
 |------|----|-------|
-|size|string||
+|size|string|null: false|
+|size_id|integer|null: false, foreign_key: true|
+
+#### Association
+- belongs to item
+
+#### index
+- add_index :size, :size
+
+
+#### conditionテーブル
+|Column|Type|Options|
+|------|----|-------|
 |condition|string|null: false|
+|condition_id|integer|null: false, foreign_key: true|
+
+#### Association
+- belongs to item
+
+#### index
+- add_index :condition, :condition
+
+
+#### shipping_chargeテーブル
+|Column|Type|Options|
+|------|----|-------|
 |shipping_charge|string|null: false|
+|shipping_charge_id|integer|null: false, foreign_key: true|
+
+#### Association
+- belongs to item
+
+#### index
+- add_index :condition, :condition
+
+
+#### shipping_methodテーブル
+|Column|Type|Options|
+|------|----|-------|
 |shipping_method|string|null: false|
+|shipping_method_id|integer|null: false, foreign_key: true|
+
+#### Association
+- belongs to item
+
+#### index
+- add_index :condition, :condition
+
+
+#### delivery_areaテーブル
+|Column|Type|Options|
+|------|----|-------|
 |delivery_area|string|null: false|
+|delivery_area_id|integer|null: false, foreign_key: true|
+
+#### Association
+- belongs to item
+
+#### index
+- add_index :delivery_area, :delivery_area
+
+
+#### estimated_shipping_dateテーブル
+|Column|Type|Options|
+|------|----|-------|
 |estimated_shipping_date|string|null: false|
+|estimated_shipping_date_id|integer|null: false, foreign_key: true|
+
+#### Association
+- belongs to item
+
+#### index
+- add_index :estimated_shipping_date, :estimated_shipping_date
+
+
+#### statusテーブル
+|Column|Type|Options|
+|------|----|-------|
 |status|string|null: false|
-|item_id|references|null: false, foreign_key: true|
+|status_id|references|null: false, foreign_key: true|
 
 #### Association
 - belongs to item
 
 #### index
 - add_index :items, :size
-- add_index :items, :price
-- add_index :items, :condition
-- add_index :items, :shipping_charge
-- add_index :items, :status
+
 
 ### commentテーブル
 |Column|Type|Options|
