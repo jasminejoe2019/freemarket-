@@ -152,7 +152,7 @@
 ### itemテーブル
 |Column|Type|Options|
 |------|----|-------|
-|item_name|string|null: false|
+|item_name|string|null: false, limit: 40|
 |image|string|null: false|
 |price|intger|null: false|
 |description|text|null: false|
