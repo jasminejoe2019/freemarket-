@@ -220,7 +220,7 @@
 - belongs to item
 
 #### index
-- add_index :condition, :condition
+- add_index :shipping_charge, :shipping_charge
 
 
 #### shipping_methodテーブル
@@ -233,7 +233,7 @@
 - belongs to item
 
 #### index
-- add_index :condition, :condition
+- add_index :shipping_method, :shipping_method
 
 
 #### delivery_areaテーブル
@@ -272,7 +272,7 @@
 - belongs to item
 
 #### index
-- add_index :items, :size
+- add_index :status, :status
 
 
 ### commentテーブル
