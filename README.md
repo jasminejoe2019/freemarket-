@@ -31,10 +31,10 @@
 - has many iines
 - has many comments
 - has many ngs
-- belongs to payment
-- belongs to bank
-- belongs to address
-- belongs to shipping_address
+- has many payments
+- has many banks
+- has many addresses
+- has many shipping_addresses
 
 #### index
 
@@ -48,7 +48,7 @@
 |building_name|string||
 
 #### Association
-- has many users
+- belongs to user
 
 #### index
 
@@ -62,7 +62,7 @@
 |building_name|string||
 
 #### Association
-- has many users
+- belongs to user
 
 #### index
 
@@ -74,7 +74,7 @@
 |security_code|integer|null: false|
 
 #### Association
-- has many users
+- belongs to user
 
 #### index
 
@@ -89,7 +89,7 @@
 |family_name|string|null: false|
 
 #### Association
-- has many users
+- belongs to user
 
 #### index
 
