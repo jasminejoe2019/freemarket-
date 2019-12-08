@@ -162,6 +162,7 @@
 |delivery_area_id|integer|null: false, foreign_key: true|
 |status_id|references|null: false, foreign_key: true|
 |estimated_shipping_date_id|integer|null: false, foreign_key: true|
+|category_id|references|null: false, foreign_key: true|
 |user_id|references|null: false, foreign_key: true|
 
 #### Association
@@ -311,43 +312,20 @@
 #### index
 - add_index :brand, :name
 
-### majorcategoryテーブル
+### categoryテーブル
 |Column|Type|Options|
 |------|----|-------|
-|major_classification|string|null: false|
-|item_id|references|null: false, foreign_key: true|
+|name|string|null: false|
+|tree_parent|integer||
+
 
 #### Association
 - belongs to item
 - has_many mediumcategories
 
 #### index
-- add_index :category, :major_classification
+- add_index :category, :name
 
-### mediumcategoryテーブル
-|Column|Type|Options|
-|------|----|-------|
-|medium_classification|string|null: false|
-|major_classification_id|references|null: false, foreign_key: true|
-
-#### Association
-- has_many smallcategories
-- belongs to majorcategory
-
-#### index
-- add_index :category, :major_classification
-
-### smallcategoryテーブル
-|Column|Type|Options|
-|------|----|-------|
-|small_classification|string|null: false|
-|medium_classification_id|references|null: false, foreign_key: true|
-
-#### Association
-- belongs to mediumcategory
-
-#### index
-- add_index :category, :small_classification
 
 ### tradeテーブル
 |Column|Type|Options|
