@@ -23,18 +23,18 @@
 |shipping_address_id|references|null: false, foreign_key: true|
 
 #### Association
-- has many items
-- has many trades
-- has many points
-- has many notices
-- has many todos
-- has many iines
-- has many comments
+- has many items, dependent: :destroy
+- has many trades, dependent: :destroy
+- has many points, dependent: :destroy
+- has many notices, dependent: :destroy
+- has many todos, dependent: :destroy
+- has many iines, dependent: :destroy
+- has many comments, dependent: :destroy  
 - has many ngs
-- has many payments
-- has many banks
-- has many addresses
-- has many shipping_addresses
+- has many payments, dependent: :destroy
+- has many banks, dependent: :destroy
+- has many addresses, dependent: :destroy
+- has many shipping_addresses, dependent: :destroy
 
 #### index
 
@@ -166,18 +166,18 @@
 |user_id|references|null: false, foreign_key: true|
 
 #### Association
-- has many iines
-- has many comments
+- has many iines, dependent: :destroy
+- has many comments, dependent: :destroy
 - has many ngs
-- has_many categories
-- has_many brands
-- has_many images
-- has_many sizes
-- has_many conditions
-- has_many shipping_charges
-- has_many shipping_methods
-- has_many shipping_methods
-- has_many statuses
+- has_many categories, dependent: :destroy
+- has_many brands, dependent: :destroy
+- has_many images, dependent: :destroy
+- has_many sizes, dependent: :destroy
+- has_many conditions, dependent: :destroy
+- has_many shipping_charges, dependent: :destroy
+- has_many shipping_methods, dependent: :destroy
+- has_many shipping_methods, dependent: :destroy
+- has_many statuses, dependent: :destroy
 - belings to user
 - belongs to trade
 
@@ -321,7 +321,6 @@
 
 #### Association
 - belongs to item
-- has_many mediumcategories
 
 #### index
 - add_index :category, :name
