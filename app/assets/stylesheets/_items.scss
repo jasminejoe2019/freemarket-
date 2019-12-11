@@ -4,35 +4,44 @@
     height: 260px;
     background-color: red;
     display: flex;
+    justify-content: center;
     &__left {
       width: 417px;
       height: 260px;
-      &__firsttext {
+      background-color: green;
+      position: relative;
+      &__inner {
         width: 417px;
-        height: 24px;
-        margin-bottom: 15px;
-        color: white;
-        font-size: 24px;
-      }
-      &__secondtext {
-        width: 417px;
-        height: 24px;
-        margin-bottom: 15px;
-        color: white;
-        font-size: 30px;
-      }
-      &__icon {
-        &__freemarket {
+        height: 166px;
+        background-color: blue;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        &__firsttext {
           width: 417px;
-          height: 260px;
+          height: 24px;
+          margin-bottom: 15px;
+          color: white;
+          font-size: 24px;
         }
-        &__ios {
+        &__secondtext {
           width: 417px;
-          height: 260px;
+          height: 24px;
+          margin-bottom: 15px;
+          color: white;
+          font-size: 34px;
         }
-        &__android {
-          width: 417px;
-          height: 260px;
+        &__icon {
+          display: flex;
+          justify-content: space-around;
+          margin-top: 20px;
+          &__freemarket {
+          }
+          &__ios {
+          }
+          &__android {
+            background-image: url:;
+          }
         }
       }
     }
