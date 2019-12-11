@@ -1,0 +1,45 @@
+.AppBanner {
+  &__container {
+    width: 1440px;
+    height: 260px;
+    background-color: red;
+    display: flex;
+    &__left {
+      width: 417px;
+      height: 260px;
+      &__firsttext {
+        width: 417px;
+        height: 24px;
+        margin-bottom: 15px;
+        color: white;
+        font-size: 24px;
+      }
+      &__secondtext {
+        width: 417px;
+        height: 24px;
+        margin-bottom: 15px;
+        color: white;
+        font-size: 30px;
+      }
+      &__icon {
+        &__freemarket {
+          width: 417px;
+          height: 260px;
+        }
+        &__ios {
+          width: 417px;
+          height: 260px;
+        }
+        &__android {
+          width: 417px;
+          height: 260px;
+        }
+      }
+    }
+    &__right {
+      width: 300px;
+      height: 260px;
+      background-color: aqua;
+    }
+  }
+}
