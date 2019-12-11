@@ -1,0 +1,11 @@
+.profile
+  %section.profile--container
+    %h2.profile--container--head プロフィール
+    = form_with url: users_path do |form|
+      .profile--container--name
+        icon
+        = form.text_field :nickname, placeholder: "例)AYA☆セール中"
+      .profile--container--description
+        = form.text_area :profile, placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"
+      .profile--container--submit
+        = form.submit "変更する"
