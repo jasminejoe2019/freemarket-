@@ -15,22 +15,41 @@
       background-color: white;
     }
     &__name {
-      width: 652px;
-      height: 156px;
-      padding: 8px 24px;
+      width: 668px;
+      height: 60px;
+      padding: 72px 16px 24px;
+      margin: 0 auto;
       background-color: yellow;
+      display: flex;
+      justify-content: center;
+      &__input {
+        width: 186px;
+        height: 28px;
+        padding: 10px 16px 8px;
+        border: 1px;
+        margin-left: 8px;
+      }
     }
     &__description {
-      width: 652px;
-      height: 362px;
-      padding: 8px 24px;
+      width: 668px;
+      height: 282px;
+      padding: 40px 16px;
       background-color: green;
-    }
-    &__submit {
-      width: 652px;
-      height: 33px;
-      padding: 8px 24px;
-      background-color: blue;
+      &__input {
+        width: 646px;
+        height: 194px;
+        padding: 10px;
+        border: 1px;
+      }
+      &__btn {
+        width: 666px;
+        height: 48px;
+        border: 1px;
+        margin-top: 16px;
+        font-size: 14px;
+        color: #fff;
+        background-color: #ea352d;
+      }
     }
   }
 }

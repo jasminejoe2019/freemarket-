@@ -3,9 +3,9 @@
     %h2.profile__container__head プロフィール
     = form_with url: users_path do |form|
       .profile__container__name
-        icon
-        = form.text_field :nickname, placeholder: "例)AYA☆セール中"
+        .profile__container__name__icon
+          %i.fas.fa-user
+        = form.text_field :nickname, class: "profile__container__name__input", placeholder: "例)AYA☆セール中"
       .profile__container__description
-        = form.text_area :profile, placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"
-      .profile__container__submit
-        = form.submit "変更する"
+        = form.text_area :profile, class: "profile__container__description__input", placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"
+        = form.submit "変更する", class: "profile__container__description__btn"
