@@ -33,24 +33,49 @@
         }
         &__icon {
           width: 417px;
-          display: flex;
           display: inline-flex;
-          justify-content: space-around;
-          align-items: flex-end;
+          align-items: center;
           margin-top: 20px;
           &__freemarket {
             width: 68px;
             height: 68px;
             margin-right: 20px;
+            position: relative;
+            &__btn {
+              position: absolute;
+              top: 50%;
+              transform: translateY(-50%);
+            }
+            &__btn :hover {
+              opacity: 0.9;
+            }
           }
           &__ios {
             width: 133px;
             height: 68px;
             margin-right: 8px;
+            position: relative;
+            &__btn {
+              position: absolute;
+              top: 50%;
+              transform: translateY(-50%);
+            }
+            &__btn :hover {
+              opacity: 0.9;
+            }
           }
           &__android {
             width: 156px;
             height: 68px;
+            position: relative;
+            &__btn {
+              position: absolute;
+              top: 50%;
+              transform: translateY(-50%);
+            }
+            &__btn :hover {
+              opacity: 0.9;
+            }
           }
         }
       }
