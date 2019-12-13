@@ -32,15 +32,25 @@
           font-size: 34px;
         }
         &__icon {
+          width: 417px;
           display: flex;
+          display: inline-flex;
           justify-content: space-around;
+          align-items: flex-end;
           margin-top: 20px;
           &__freemarket {
+            width: 68px;
+            height: 68px;
+            margin-right: 20px;
           }
           &__ios {
+            width: 133px;
+            height: 68px;
+            margin-right: 8px;
           }
           &__android {
-            background-image: url:;
+            width: 156px;
+            height: 68px;
           }
         }
       }
