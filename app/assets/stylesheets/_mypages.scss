@@ -1,15 +1,18 @@
-// Place all the styles related to the mypages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.default-container {
+  display: flex;
+  background-color: #b3d4fc;
+}
 
 .profile {
   width: 700px;
   height: 568px;
+  order: 1;
   &__container {
     &__head {
       width: 652px;
       height: 33px;
       font-size: 24px;
+      font-weight: bold;
       text-align: center;
       padding: 8px 24px;
       background-color: white;
@@ -19,14 +22,17 @@
       height: 60px;
       padding: 72px 16px 24px;
       margin: 0 auto;
-      background-color: yellow;
       display: flex;
       justify-content: center;
+      background: image-url("profile_sample.jpg");
+      &__icon {
+        font-size: 60px;
+      }
       &__input {
         width: 186px;
         height: 28px;
         padding: 10px 16px 8px;
-        border: 1px;
+        border: 1px solid #cccccc;
         margin-left: 8px;
       }
     }
@@ -34,12 +40,12 @@
       width: 668px;
       height: 282px;
       padding: 40px 16px;
-      background-color: green;
+      background-color: white;
       &__input {
         width: 646px;
         height: 194px;
         padding: 10px;
-        border: 1px;
+        border: 1px solid #cccccc;
       }
       &__btn {
         width: 666px;
