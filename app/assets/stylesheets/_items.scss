@@ -5,16 +5,14 @@
     background-color: red;
     display: flex;
     justify-content: center;
-    // background: image-url("sample.png");
+    background: image-url("YAT923_1_TP_V.jpg");
     &__left {
       width: 417px;
       height: 260px;
-      background-color: green;
       position: relative;
       &__inner {
         width: 417px;
         height: 166px;
-        background-color: blue;
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
@@ -84,7 +82,6 @@
     &__right {
       width: 300px;
       height: 260px;
-      background-color: aqua;
       // background: image-url("sample.png");
     }
   }
