@@ -1,3 +1,128 @@
-// Place all the styles related to the mainmypages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.mypage {
+  width: 700px;
+  background-color: aqua;
+  &__icon {
+    width: 660px;
+    height: 160px;
+    padding: 20px;
+    background-color: red;
+    &__nickname {
+      widows: 700px;
+      height: 19px;
+      margin-top: 8px;
+      font-weight: bold;
+      text-align: center;
+    }
+    &__history {
+      height: 16px;
+      display: flex;
+      justify-content: center;
+      &__good {
+        widows: 350px;
+        height: 72px;
+        text-align: center;
+      }
+      &__number {
+        widows: 350px;
+        height: 72px;
+        margin-left: 16px;
+        text-align: center;
+      }
+    }
+  }
+  &__firstMenu {
+    &__tags {
+      widows: 700px;
+      height: 72px;
+      display: flex;
+      justify-content: center;
+      .active {
+        width: 350px;
+        height: 72px;
+        text-align: center;
+        background-color: green;
+        &__notice {
+          width: 350px;
+          height: 72px;
+        }
+      }
+      &__todo {
+        width: 350px;
+        height: 72px;
+        text-align: center;
+        background-color: green;
+      }
+    }
+    &__contents {
+      width: 700px;
+      &__notice {
+        width: 668px;
+        padding: 16px;
+        &__sample {
+          width: 668px;
+          min-height: 80px;
+          padding: 16px;
+          text-align: center;
+          background-color: palegreen;
+          box-sizing: border-box;
+          &__text {
+            text-align: center;
+          }
+          .fas.fa-chevron-right.fa-pull-right {
+          }
+        }
+        &__list {
+          width: 668px;
+          min-height: 80px;
+          padding: 16px;
+          text-align: center;
+          background-color: blue;
+          box-sizing: border-box;
+        }
+      }
+    }
+  }
+  &__secondMenu {
+    &__head {
+      width: 668px;
+      height: 48px;
+      padding: 16px;
+      background-color: white;
+    }
+    &__tabs {
+      widows: 700px;
+      height: 72px;
+      display: flex;
+      justify-content: center;
+      .active {
+        width: 350px;
+        height: 72px;
+        text-align: center;
+        background-color: green;
+        &__transactionNow {
+        }
+      }
+      &__transactionOld {
+        width: 350px;
+        height: 72px;
+        text-align: center;
+        background-color: green;
+      }
+    }
+    &__contents {
+      &__transactionNow {
+        &__sample {
+          &__text {
+            text-align: center;
+          }
+        }
+        &__list {
+          width: 668px;
+          height: 48px;
+          padding: 16px;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
