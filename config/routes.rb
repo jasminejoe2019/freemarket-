@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :users
   resources :items
   resources :addresses
+  resources :shipping_addresses
 end
