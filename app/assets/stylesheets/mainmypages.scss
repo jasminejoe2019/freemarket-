@@ -1,11 +1,22 @@
 .mypage {
   width: 700px;
-  background-color: aqua;
+  background-color: #eee;
   &__icon {
     width: 660px;
     height: 160px;
     padding: 20px;
     background-color: red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .fas.fa-user {
+      text-align: center;
+      font-size: 60px;
+      text-decoration: none;
+      display: flex;
+      justify-content: center;
+    }
     &__nickname {
       widows: 700px;
       height: 19px;
@@ -20,73 +31,102 @@
       &__good {
         widows: 350px;
         height: 72px;
+        font-size: 14px;
         text-align: center;
       }
       &__number {
         widows: 350px;
         height: 72px;
+        font-size: 14px;
         margin-left: 16px;
         text-align: center;
       }
     }
   }
   &__firstMenu {
-    &__tags {
+    &__tabs {
       widows: 700px;
       height: 72px;
       display: flex;
       justify-content: center;
-      .active {
+
+      &__notice.active {
         width: 350px;
-        height: 72px;
+        line-height: 72px;
         text-align: center;
-        background-color: green;
-        &__notice {
-          width: 350px;
-          height: 72px;
-        }
+        background-color: lightgreen;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
+
       &__todo {
         width: 350px;
-        height: 72px;
+        line-height: 72px;
         text-align: center;
         background-color: green;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
     }
     &__contents {
       width: 700px;
       &__notice {
-        width: 668px;
-        padding: 16px;
-        &__sample {
-          width: 668px;
+        &__article {
+          width: 700px;
           min-height: 80px;
-          padding: 16px;
-          text-align: center;
+          border-bottom: 1px solid #eee;
           background-color: palegreen;
-          box-sizing: border-box;
-          &__text {
-            text-align: center;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          &__sample {
+            padding-left: 20px;
+            padding-right: 5px;
+            &__text {
+              width: 560px;
+              line-height: 1.5;
+              font-size: 14px;
+              text-align: left;
+              text-overflow: ellipsis;
+            }
+            &__time {
+              font-size: 14px;
+              color: #000;
+            }
           }
           .fas.fa-chevron-right.fa-pull-right {
+            display: inline-flex;
+            align-items: center;
           }
         }
         &__list {
           width: 668px;
-          min-height: 80px;
+          line-height: 56px;
           padding: 16px;
           text-align: center;
           background-color: blue;
-          box-sizing: border-box;
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          a {
+            width: 668px;
+            line-height: 56px;
+            color: #333;
+            background-color: #eee;
+            text-decoration: none;
+          }
         }
       }
     }
   }
   &__secondMenu {
+    margin-top: 40px;
     &__head {
       width: 668px;
-      height: 48px;
-      padding: 16px;
+      line-height: 72px;
+      padding: 0 16px;
       background-color: white;
     }
     &__tabs {
@@ -94,33 +134,68 @@
       height: 72px;
       display: flex;
       justify-content: center;
-      .active {
+      &__transactionNow.active {
         width: 350px;
         height: 72px;
         text-align: center;
-        background-color: green;
-        &__transactionNow {
-        }
+        background-color: lightgreen;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
       &__transactionOld {
         width: 350px;
         height: 72px;
         text-align: center;
         background-color: green;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
     }
     &__contents {
+      width: 700px;
       &__transactionNow {
-        &__sample {
-          &__text {
-            text-align: center;
+        &__article {
+          width: 700px;
+          min-height: 80px;
+          border-bottom: 1px solid #eee;
+          background-color: palegreen;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          &__sample {
+            padding-left: 20px;
+            padding-right: 5px;
+            &__text {
+              width: 560px;
+              line-height: 1.5;
+              font-size: 14px;
+              text-align: left;
+              text-overflow: ellipsis;
+            }
+            &__time {
+              font-size: 14px;
+              color: #000;
+            }
           }
         }
         &__list {
           width: 668px;
-          height: 48px;
+          line-height: 56px;
           padding: 16px;
           text-align: center;
+          background-color: blue;
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          a {
+            width: 668px;
+            line-height: 56px;
+            color: #333;
+            background-color: #eee;
+            text-decoration: none;
+          }
         }
       }
     }
