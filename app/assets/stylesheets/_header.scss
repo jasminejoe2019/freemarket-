@@ -6,9 +6,13 @@
     height: 49px;
     width: 189px;
     display: block;
-    margin: 0 auto;
+    margin: auto;
     text-align: center;
-    padding: 43px 0;
+    // padding: 43px 0;
     line-height: 128px;
   }
+}
+
+.header h1 {
+  padding: 40px 0 0;
 }
