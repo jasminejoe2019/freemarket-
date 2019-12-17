@@ -47,7 +47,7 @@
       display: flex;
       justify-content: center;
 
-      &__notice.active {
+      &__menu.active {
         width: 350px;
         line-height: 72px;
         text-align: center;
@@ -58,7 +58,7 @@
         border-top: 2px solid #ea352d;
       }
 
-      &__todo {
+      &__menu {
         width: 350px;
         line-height: 72px;
         text-align: center;
@@ -70,7 +70,64 @@
     }
     &__contents {
       width: 700px;
+      &__notice.show {
+        display: block;
+        :hover {
+          background: #fafafa;
+        }
+        &__article {
+          width: 700px;
+          min-height: 80px;
+          border-bottom: 1px solid #eee;
+          background-color: white;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          &__sample {
+            padding-left: 20px;
+            padding-right: 5px;
+            &__text {
+              width: 560px;
+              line-height: 1.5;
+              font-size: 14px;
+              text-align: left;
+              text-overflow: ellipsis;
+            }
+            &__time {
+              font-size: 14px;
+              color: #000;
+            }
+          }
+          .fas.fa-chevron-right.fa-pull-right {
+            display: inline-flex;
+            align-items: center;
+          }
+        }
+        &__list {
+          width: 668px;
+          line-height: 56px;
+          padding: 16px;
+          text-align: center;
+          background-color: white;
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          a {
+            width: 668px;
+            line-height: 56px;
+            color: #333;
+            font-size: 14px;
+            background-color: #eee;
+            text-decoration: none;
+          }
+          :hover {
+            background-color: white;
+          }
+        }
+      }
       &__notice {
+        display: none;
         :hover {
           background: #fafafa;
         }
@@ -140,20 +197,21 @@
       height: 72px;
       display: flex;
       justify-content: center;
-      &__transactionNow.active {
+      &__menu.active2 {
         width: 350px;
-        height: 72px;
+        line-height: 72px;
         text-align: center;
-        background-color: lightgreen;
+        background-color: white;
         display: flex;
         justify-content: center;
         align-items: center;
+        border-top: 2px solid #ea352d;
       }
-      &__transactionOld {
+      &__menu {
         width: 350px;
-        height: 72px;
+        line-height: 72px;
         text-align: center;
-        background-color: green;
+        background-color: #eee;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -161,12 +219,13 @@
     }
     &__contents {
       width: 700px;
-      &__transactionNow {
+      &__transactionNow.show2 {
+        display: block;
         &__article {
           width: 700px;
           min-height: 80px;
           border-bottom: 1px solid #eee;
-          background-color: palegreen;
+          background-color: white;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -192,6 +251,50 @@
           padding: 16px;
           text-align: center;
           background-color: blue;
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          a {
+            width: 668px;
+            line-height: 56px;
+            color: #333;
+            background-color: #eee;
+            text-decoration: none;
+          }
+        }
+      }
+      &__transactionNow {
+        display: none;
+        &__article {
+          width: 700px;
+          min-height: 80px;
+          border-bottom: 1px solid #eee;
+          background-color: white;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          &__sample {
+            padding-left: 20px;
+            padding-right: 5px;
+            &__text {
+              width: 560px;
+              line-height: 1.5;
+              font-size: 14px;
+              text-align: left;
+              text-overflow: ellipsis;
+            }
+            &__time {
+              font-size: 14px;
+              color: #000;
+            }
+          }
+        }
+        &__list {
+          width: 668px;
+          line-height: 56px;
+          padding: 16px;
+          text-align: center;
+          background-color: white;
           display: inline-flex;
           justify-content: center;
           align-items: center;
