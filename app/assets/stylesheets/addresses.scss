@@ -10,7 +10,6 @@
 
 .single-container {
   padding: 0 0 300px;
-  
 }
 
 .single-header {
@@ -45,14 +44,12 @@
   border: 0;
 }
 }
-.new-clearfix {
-}
 
 li {
   display: inline-block;
   position: relative;
   z-index: 1;
-  font-size: 12px;
+  font-size: 15px;
   color: #888;
   margin: 0 40px 0 0;
 }
@@ -96,16 +93,17 @@ li {
   height: 2px;
   background: #ccc;
 }
+
 .firstbar-none::before {
   display: none;
 }
+
 #first {
   background-color: red;
 }
 
 .main {
   display: block;
-  height: 1338px;
 
   &__container {
     width: 700px;
