@@ -5,7 +5,7 @@
     width: 660px;
     height: 160px;
     padding: 20px;
-    background-color: red;
+    background-color: greenyellow;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -13,16 +13,13 @@
     .fas.fa-user {
       text-align: center;
       font-size: 60px;
-      text-decoration: none;
       display: flex;
       justify-content: center;
     }
     &__nickname {
-      widows: 700px;
-      height: 19px;
+      line-height: 1.4;
       margin-top: 8px;
       font-weight: bold;
-      text-align: center;
     }
     &__history {
       height: 16px;
@@ -54,17 +51,18 @@
         width: 350px;
         line-height: 72px;
         text-align: center;
-        background-color: lightgreen;
+        background-color: white;
         display: flex;
         justify-content: center;
         align-items: center;
+        border-top: 2px solid #ea352d;
       }
 
       &__todo {
         width: 350px;
         line-height: 72px;
         text-align: center;
-        background-color: green;
+        background-color: #eee;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -73,14 +71,18 @@
     &__contents {
       width: 700px;
       &__notice {
+        :hover {
+          background: #fafafa;
+        }
         &__article {
           width: 700px;
           min-height: 80px;
           border-bottom: 1px solid #eee;
-          background-color: palegreen;
+          background-color: white;
           display: flex;
           justify-content: center;
           align-items: center;
+
           &__sample {
             padding-left: 20px;
             padding-right: 5px;
@@ -106,7 +108,7 @@
           line-height: 56px;
           padding: 16px;
           text-align: center;
-          background-color: blue;
+          background-color: white;
           display: inline-flex;
           justify-content: center;
           align-items: center;
@@ -114,8 +116,12 @@
             width: 668px;
             line-height: 56px;
             color: #333;
+            font-size: 14px;
             background-color: #eee;
             text-decoration: none;
+          }
+          :hover {
+            background-color: white;
           }
         }
       }
