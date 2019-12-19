@@ -37,3 +37,9 @@
     }
   }
 }
+
+@mixin sideMenuFormNow() {
+  @include sideMenuForm;
+  background-color: #eeeeee;
+  font-weight: bold;
+}

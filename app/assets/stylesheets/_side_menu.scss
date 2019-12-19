@@ -64,9 +64,7 @@
   }
   .menu__setting {
     &__profile {
-      @include sideMenuForm();
-      background-color: #eeeeee;
-      font-weight: bold;
+      @include sideMenuFormNow();
     }
     &__deliverAddress {
       @include sideMenuForm();
