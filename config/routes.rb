@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users
   resources :items
-  resources :mypages
+  resources :mypages, only:[:edit]
 end
