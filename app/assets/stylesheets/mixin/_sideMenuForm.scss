@@ -38,8 +38,13 @@
   }
 }
 
-@mixin sideMenuFormNow() {
+@mixin sideMenuFormSelected() {
   @include sideMenuForm;
   background-color: #eeeeee;
   font-weight: bold;
+  a {
+    .fas.fa-chevron-right {
+      color: black;
+    }
+  }
 }
