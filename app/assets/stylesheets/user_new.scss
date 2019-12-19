@@ -1,15 +1,11 @@
-h3 {
-  font-size: 16px;
-  font-weight: bold;
-}
-
-a {
-  text-decoration: none;
-  color: #0099e8;
-  font-weight: 100;
-}
-
-.single-text {
-  margin: 8px 0 0;
-  padding: 0;
+.signup_address{
+  #through .progress-status_bar{
+    background: #ea352d;
+  }
+  #active{
+    color: #ea352d;
+    .progress-status {
+      background: #ea352d;
+    }
+  }
 }
