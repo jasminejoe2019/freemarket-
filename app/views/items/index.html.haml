@@ -1,4 +1,9 @@
 = render '/shared/item-header'
-.top-eyecatch
-  = link_to image_tag 'top.jpg',{class:'top-eyecatch__image'}
+= render '/shared/eyecatch'
+= render '/shared/elements'
+.exhibit-btn
+  .exhibit-btn__text
+    = link_to '出品',root_path
+  .exhibit-btn__icon
+    =icon 'fas','camera'
 = render '/shared/item-footer'
