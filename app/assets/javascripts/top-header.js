@@ -53,7 +53,7 @@ $(function() {
     $(this).css("background-color","white");
     $(".item-header__login").css("color","#0095ee")
   });
-  $(".item-header__info__title").hover(function(){
+  $(".item-header__info").hover(function(){
     $(".item-header__info__list").css("display","block");
     $(".item-header__info__title").css("color","#0095ee");
   },function(){

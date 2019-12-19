@@ -190,6 +190,7 @@
   position: relative;
   align-items: center;
   font-size:14px;
+  z-index:3;
   &__title{
     height:44px;
     padding:0 14px;
@@ -199,7 +200,7 @@
       color:#333333;
     }
   }
-  &__list__topic{
+  &__list{
     background-color: white;
     box-shadow: rgba(0,0,0,0.18) 0 2px 4px;
     display:none;
@@ -299,9 +300,9 @@
 .icon-batch{
   background-color: #ea352e;
   color:white;
-  font-size:12px;
+  font-size:10px;
   height:20px;
-  left:6px;
+  left:18px;
   line-height:20px;
   position:absolute;
   text-align: center;
