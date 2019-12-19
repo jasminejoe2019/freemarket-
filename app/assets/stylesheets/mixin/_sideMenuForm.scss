@@ -20,6 +20,9 @@
     color: #333;
     .fas.fa-chevron-right {
       color: #ccc;
+      transform-origin: top right;
+      transform: translateX(-5px);
+      transition: transform 0.3s;
     }
   }
   &:hover {
