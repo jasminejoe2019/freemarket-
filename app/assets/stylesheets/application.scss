@@ -4,4 +4,9 @@
 @import "./user";
 @import "./header";
 @import "./footer";
-@import "./mainmypages";
+@import "./mixin/icon";
+@import "./mixin/notificationContents";
+@import "./mixin/notificationTab";
+@import "./mixin/itemListTab";
+@import "./mixin/itemListContents";
+@import "./mainmypages.scss";

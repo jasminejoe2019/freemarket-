@@ -1,0 +1,21 @@
+@mixin itemListTab {
+  widows: 700px;
+  height: 72px;
+  display: flex;
+  justify-content: center;
+  &__menu {
+    width: 350px;
+    line-height: 72px;
+    text-align: center;
+    background-color: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  &__menu.active2 {
+    @extend .mypage__secondMenu__tabs__menu;
+    background-color: white;
+    border-top: 2px solid #ea352d;
+  }
+}

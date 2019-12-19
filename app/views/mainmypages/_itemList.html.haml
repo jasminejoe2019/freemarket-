@@ -1,0 +1,32 @@
+%section.mypage__secondMenu
+  %h2.mypage__secondMenu__head 購入した商品
+  %ul.mypage__secondMenu__tabs
+    %li
+      %h3.mypage__secondMenu__tabs__menu.active2  取引中
+    %li
+      %h3.mypage__secondMenu__tabs__menu  過去の取引
+  .mypage__secondMenu__contents
+    %ul.mypage__secondMenu__contents__transactionNow.show2
+      %li.mypage__secondMenu__contents__transactionNow__article
+        = image_tag 'logo_red.svg',size: "48x48"
+        .mypage__secondMenu__contents__transactionNow__article__sample
+          .mypage__secondMenu__contents__transactionNow__article__sample__text 取引中商品のサンプルです
+          .mypage__secondMenu__contents__transactionNow__article__sample__time
+            %i.far.fa-clock
+            %span 3時間前
+        %i.fas.fa-chevron-right.fa-pull-right
+      %li.mypage__secondMenu__contents__transactionNow__list 
+        =link_to "#" do
+          一覧を見る
+    %ul.mypage__secondMenu__contents__transactionNow
+      %li.mypage__secondMenu__contents__transactionNow__article
+        = image_tag 'logo_red.svg',size: "48x48"
+        .mypage__secondMenu__contents__transactionNow__article__sample
+          .mypage__secondMenu__contents__transactionNow__article__sample__text 購入した商品のサンプルです
+          .mypage__secondMenu__contents__transactionNow__article__sample__time
+            %i.far.fa-clock
+            %span 3時間前
+        %i.fas.fa-chevron-right.fa-pull-right
+      %li.mypage__secondMenu__contents__transactionNow__list 
+        =link_to "#" do
+          一覧を見る
