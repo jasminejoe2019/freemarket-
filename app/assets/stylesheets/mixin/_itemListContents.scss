@@ -1,6 +1,6 @@
 @mixin itemListContents {
   width: 700px;
-  &__transactionNow {
+  &__list {
     display: none;
     :hover {
       background: #fafafa;
@@ -29,7 +29,7 @@
         }
       }
     }
-    &__list {
+    &__link {
       width: 668px;
       line-height: 56px;
       padding: 16px;
@@ -47,8 +47,8 @@
       }
     }
   }
-  &__transactionNow.show2 {
-    @extend .mypage__secondMenu__contents__transactionNow;
+  &__list.show2 {
+    @extend .mypage__secondMenu__contents__list;
     display: block;
   }
 }

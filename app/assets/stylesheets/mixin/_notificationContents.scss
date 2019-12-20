@@ -1,6 +1,6 @@
 @mixin notificaitonContents {
   width: 700px;
-  &__notice {
+  &__list {
     display: none;
     :hover {
       background: #fafafa;
@@ -33,7 +33,7 @@
         align-items: center;
       }
     }
-    &__list {
+    &__link {
       width: 668px;
       line-height: 56px;
       padding: 16px;
@@ -55,8 +55,8 @@
       }
     }
   }
-  &__notice.show {
-    @extend .mypage__firstMenu__contents__notice;
+  &__list.show {
+    @extend .mypage__firstMenu__contents__list;
     display: block;
   }
 }

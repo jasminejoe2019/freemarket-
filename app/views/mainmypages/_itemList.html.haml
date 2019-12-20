@@ -6,27 +6,27 @@
     %li
       %h3.mypage__secondMenu__tabs__menu  過去の取引
   .mypage__secondMenu__contents
-    %ul.mypage__secondMenu__contents__transactionNow.show2
-      %li.mypage__secondMenu__contents__transactionNow__article
+    %ul.mypage__secondMenu__contents__list.show2
+      %li.mypage__secondMenu__contents__list__article
         = image_tag 'logo_red.svg',size: "48x48"
-        .mypage__secondMenu__contents__transactionNow__article__sample
-          .mypage__secondMenu__contents__transactionNow__article__sample__text 取引中商品のサンプルです
-          .mypage__secondMenu__contents__transactionNow__article__sample__time
+        .mypage__secondMenu__contents__list__article__sample
+          .mypage__secondMenu__contents__list__article__sample__text 取引中商品のサンプルです
+          .mypage__secondMenu__contents__list__article__sample__time
             %i.far.fa-clock
             %span 3時間前
         %i.fas.fa-chevron-right.fa-pull-right
-      %li.mypage__secondMenu__contents__transactionNow__list 
+      %li.mypage__secondMenu__contents__list__link
         =link_to "#" do
           一覧を見る
-    %ul.mypage__secondMenu__contents__transactionNow
-      %li.mypage__secondMenu__contents__transactionNow__article
+    %ul.mypage__secondMenu__contents__list
+      %li.mypage__secondMenu__contents__list__article
         = image_tag 'logo_red.svg',size: "48x48"
-        .mypage__secondMenu__contents__transactionNow__article__sample
-          .mypage__secondMenu__contents__transactionNow__article__sample__text 購入した商品のサンプルです
-          .mypage__secondMenu__contents__transactionNow__article__sample__time
+        .mypage__secondMenu__contents__list__article__sample
+          .mypage__secondMenu__contents__list__article__sample__text 購入した商品のサンプルです
+          .mypage__secondMenu__contents__list__article__sample__time
             %i.far.fa-clock
             %span 3時間前
         %i.fas.fa-chevron-right.fa-pull-right
-      %li.mypage__secondMenu__contents__transactionNow__list 
+      %li.mypage__secondMenu__contents__list__link 
         =link_to "#" do
           一覧を見る
