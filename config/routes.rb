@@ -4,4 +4,4 @@ Rails.application.routes.draw do
   resources :users
   resources :items
   resources :mainmypages, only: :index
-end
+  resources :mypages, only:[:edit]

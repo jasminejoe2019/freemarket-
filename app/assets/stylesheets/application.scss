@@ -1,6 +1,11 @@
 @import "reset";
+@import "variable";
+@import "slick-theme";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "item-header";
+@import "item-footer";
+@import "items";
 @import "./user";
 @import "./header";
 @import "./footer";
@@ -10,3 +15,7 @@
 @import "./mixin/itemListTab";
 @import "./mixin/itemListContents";
 @import "./mainmypages.scss";
+@import "./main-container";
+@import "./mixin/sideMenuForm";
+@import "./mypages";
+@import "./side_menu";
