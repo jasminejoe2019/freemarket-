@@ -23,7 +23,7 @@
   position: absolute;
   top: 50%;
   font-size: 2em;
-  color: white;
+  color: $app-white;
   z-index:3;
   &-left{
     left:50px;
@@ -34,7 +34,7 @@
 }
 .item-group{
   padding: 56px 0 30px;
-  background-color: white;
+  background-color: $app-white;
   position: relative;
   top:0;
   &__title{
@@ -51,13 +51,13 @@
   position:fixed;
   bottom:32px;
   font-size: 32px;
-  color:white;
+  color:$app-white;
   text-align:center;
   right:32px;
   width:160px;
   height:160px;
   padding-top:32px;
-  background-color:#ea352e;
+  background-color:$app-red;
   border-radius:50%;
   z-index:2;
 }
@@ -82,7 +82,7 @@
   margin:0 auto;
   padding:42px 0 100px;
   a {
-    color:#0095ee;
+    color:$app-blue;
   }
   &__title{
     font-size:24px;
@@ -101,7 +101,7 @@
       width:16px;
       height:16px;
       z-index:3;
-      color:#0095ee;
+      color:$app-blue;
     }
   }
 }
@@ -113,7 +113,7 @@
 .items-element{
   width:20%;
   padding:4px;
-  box-shadow:rgba(0,0,0,0.18) 0 2px 4px;
+  box-shadow:$app-box-shadow;
   position:relative;
   &__image{
     object-fit: cover;
@@ -122,7 +122,7 @@
   }
 }
 .items-element__name{
-  background-image: white;
+  background-image: $app-white;
   height:3.5em;
   overflow:hidden;
 }
@@ -130,7 +130,7 @@
   position: absolute;
   top:160px;
   background-color: rgba(0,0,0,0.4);
-  color: white;
+  color: $app-white;
   z-index: 2;
   border-radius: 0 14px 14px 0;
   display: inline-flex;

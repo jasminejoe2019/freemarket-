@@ -1,6 +1,6 @@
 .item-footer__wrapper{
-  background-color: #222222;
-  color:#ffffff;
+  background-color: $app-black;
+  color:$app-white;
   padding:0 20px 10px;
 }
 .item-footer__main{
@@ -34,7 +34,7 @@
 }
 a{
   text-decoration: none;
-  color:white;
+  color:$app-white;
 }
 a :hover{
   text-decoration: underline;
@@ -64,7 +64,7 @@ a :hover{
   &__logo{
     height:40px;
     width:124px;
-    background-color: #ffffff;
+    background-color: $app-white;
   }
   &__company{
     text-align: center;

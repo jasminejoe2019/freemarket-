@@ -48,7 +48,7 @@
   }
 }
 .fa-search{
-  color:black;
+  color:$app-black;
 }
 
 .item-header__bottom{
@@ -78,17 +78,17 @@
   z-index:3;
   line-height: 36px;
   &__title a{
-    color:#333333;
+    color:$app-black;
   }
   &__major{
     display:none;
     position: absolute;
     top:44px;
-    background-color: white;
+    background-color: $app-white;
     width:224px;
     z-index:1;
     &__list{
-      box-shadow:rgba(0,0,0,0.18) 0 2px 4px;
+      box-shadow:$app-box-shadow;
     }
   }
   &__medium{
@@ -96,10 +96,10 @@
     position: absolute;
     top:0;
     left:224px;
-    background-color: white;
-    box-shadow:rgba(0,0,0,0.18) 0 2px 4px;
+    background-color: $app-white;
+    box-shadow:$app-box-shadow;
     width:224px;
-    color:black;
+    color:$app-black;
   }
   &__small{
     display:none;
@@ -107,10 +107,10 @@
     top:0;
     bottom:0;
     left:224px;
-    background-color: white;
-    box-shadow:rgba(0,0,0,0.18) 0 2px 4px;
+    background-color:$app-white;
+    box-shadow:$app-box-shadow;
     width:320px;
-    color:black;
+    color:$app-black;
   }
 }
 .item-header__brand{
@@ -122,17 +122,17 @@
   z-index:3;
   line-height: 36px;
   &__title a{
-    color:#333333;
+    color:$app-black;
   }
   &__list{
     display: none;
     position: absolute;
     top:44px;
-    background-color: white;
+    background-color:$app-white;
     width:224px;
     z-index:1;
     &__topic{
-      box-shadow:rgba(0,0,0,0.18) 0 2px 4px;
+      box-shadow:$app-box-shadow;
     }
   }
 }
@@ -141,27 +141,27 @@
   text-align: center;
 }
 .item-header__signup{
-  background-color: #ea352e;
-  color:white;
+  background-color:$app-red;
+  color:$app-white;
   border-radius: 4px;
   font-size:14px;
   border-width:1px;
   border-style:solid;
-  border-color: #ea352e;
+  border-color: $app-red;
   padding:8px 10px;
 }
 .item-header__signin{
-  background-color: white;
-  color:#0095ee;
+  background-color: $app-white;
+  color:$app-blue;
   font-size:14px;
   border-style: solid;
-  border-color: #0095ee;
+  border-color: $app-blue;
   border-width:1pt;
   border-radius: 4px;
   margin-left: 11px;
   a:visited{
     text-decoration: none;
-    color:#0095ee;
+    color:$app-blue;
   }
   padding:8px 10px;
 }
@@ -179,7 +179,7 @@
     padding:0 14px;
     line-height: 44px;
     & a{
-      color:#333333;
+      color:$app-black;
       height:32px;
     }
   }
@@ -197,12 +197,12 @@
     line-height: 44px;
     & a{
       height:32px;
-      color:#333333;
+      color:$app-black;
     }
   }
   &__list{
-    background-color: white;
-    box-shadow: rgba(0,0,0,0.18) 0 2px 4px;
+    background-color: $app-white;
+    box-shadow: $app-box-shadow;
     display:none;
     position: absolute;
     left:50%;
@@ -215,6 +215,10 @@
     display:flex;
     min-height:80px;
     padding:16px;
+    &__logo{
+      height:48px;
+      width:48px;
+    }
   }
 }
 .item-header__todo{
@@ -228,14 +232,14 @@
     line-height: 44px;
     & a{
       height:32px;
-      color:#333333;
+      color:$app-black;
     }
   }
   &__list{
     left:50%;
     transform:translate(-50%,0);
-    background-color: white;
-    box-shadow: rgba(0,0,0,0.18)0 2px 4px;
+    background-color: $app-white;
+    box-shadow: $app-box-shadow;
     display:none;
     position: absolute;
     top:44px;
@@ -244,7 +248,7 @@
     &__empty{
       background-image: url(logo_gray.svg);
       background-size: 78px 85px;
-      color:#cccccc;
+      color:$app-grey;
       font-size: 16px;
       font-weight:600;
       text-align: center;
@@ -264,14 +268,14 @@
     padding:0 14px;
     line-height: 44px;
     & a{
-      color:#333333;
+      color:$app-black;
       height:32px;
     }
   }
   &__list{
     right:0;
-    background-color: white;
-    box-shadow: rgba(0,0,0,0.18)0 2px 4px;
+    background-color: $app-white;
+    box-shadow: $app-box-shadow;
     display:none;
     position: absolute;
     top:44px;
@@ -280,26 +284,26 @@
   }
 }
 .fa-list-ul{
-  color:#ea352e;
+  color:$app-red;
 }
 .fa-tag{
-  color:#ea352e;
+  color:$app-red;
 }
 .fa-heart{
-  color:#cccccc;
+  color:$app-grey;
 }
 .fa-bell{
-  color:#cccccc;
+  color:$app-grey;
 }
 .fa-check{
-  color:#cccccc;
+  color:$app-grey;
 }
 .fa-user-circle{
-  color:#cccccc;
+  color:$app-grey;
 }
 .icon-batch{
-  background-color: #ea352e;
-  color:white;
+  background-color: $app-red;
+  color:$app-white;
   font-size:10px;
   height:20px;
   left:18px;
