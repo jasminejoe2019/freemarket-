@@ -1,0 +1,20 @@
+.AppBanner
+  .AppBanner__container
+    .AppBanner__container__left
+      .AppBanner__container__left__inner
+        %p.AppBanner__container__left__inner__firsttext
+          スマホでかんたんフリマアプリ
+        %h2.AppBanner__container__left__inner__secondtext
+          今すぐ無料ダウンロード！
+        .AppBanner__container__left__inner__icon
+          %label.AppBanner__container__left__inner__icon__freemarket
+            = link_to '#',class: "AppBanner__container__left__inner__icon__freemarket__btn", target: :_blank do
+              = image_tag 'logo_red.svg',size: "68x68"
+          %label.AppBanner__container__left__inner__icon__ios
+            = link_to 'https://apps.apple.com/jp/app/id667861049?l=ja',class: "AppBanner__container__left__inner__icon__ios__btn", target: :_blank do
+              = image_tag 'App_Store_Badge.svg'
+            
+          %label.AppBanner__container__left__inner__icon__android
+            = link_to 'https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja',class: "AppBanner__container__left__inner__icon__android__btn", target: :_blank do
+              = image_tag 'google-play-badge.png'
+    .AppBanner__container__right

@@ -3,7 +3,13 @@
 @import "slick-theme";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import "users";
 @import "item-header";
 @import "item-footer";
 @import "items";
+@import "./user";
+@import "./header";
+@import "./footer";
+@import "./main-container";
+@import "./mixin/sideMenuForm";
+@import "./mypages";
+@import "./side_menu";
