@@ -120,24 +120,24 @@
     width:200px;
     height:200px;
   }
-}
-.items-element__name{
-  background-image: $app-white;
-  height:3.5em;
-  overflow:hidden;
-}
-.items-element__price{
-  position: absolute;
-  top:160px;
-  background-color: rgba(0,0,0,0.4);
-  color: $app-white;
-  z-index: 2;
-  border-radius: 0 14px 14px 0;
-  display: inline-flex;
-  font-size:17px;
-  height:28px;
-  letter-spacing: 0.02em;
-  padding:0 12px;
+  &__name{
+    background-image: $app-white;
+    height:3.5em;
+    overflow:hidden;
+  }
+  &__price{
+    position: absolute;
+    top:160px;
+    background-color: rgba(0,0,0,0.4);
+    color: $app-white;
+    z-index: 2;
+    border-radius: 0 14px 14px 0;
+    display: inline-flex;
+    font-size:17px;
+    height:28px;
+    letter-spacing: 0.02em;
+    padding:0 12px;
+  }
 }
 .AppBanner {
   &__container {
