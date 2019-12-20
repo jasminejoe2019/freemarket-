@@ -1,0 +1,87 @@
+.AppBanner {
+  &__container {
+    width: 1440px;
+    height: 260px;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    background: image-url("YAT923_1_TP_V.jpg");
+    &__left {
+      width: 417px;
+      height: 260px;
+      position: relative;
+      &__inner {
+        width: 417px;
+        height: 166px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        &__firsttext {
+          width: 417px;
+          height: 24px;
+          margin-bottom: 15px;
+          color: white;
+          font-size: 24px;
+        }
+        &__secondtext {
+          width: 417px;
+          height: 24px;
+          margin-bottom: 15px;
+          color: white;
+          font-size: 34px;
+        }
+        &__icon {
+          width: 417px;
+          display: inline-flex;
+          align-items: center;
+          margin-top: 20px;
+          &__freemarket {
+            width: 68px;
+            height: 68px;
+            margin-right: 20px;
+            position: relative;
+            &__btn {
+              position: absolute;
+              top: 50%;
+              transform: translateY(-50%);
+            }
+            &__btn :hover {
+              opacity: 0.8;
+            }
+          }
+          &__ios {
+            width: 133px;
+            height: 68px;
+            margin-right: 8px;
+            position: relative;
+            &__btn {
+              position: absolute;
+              top: 50%;
+              transform: translateY(-50%);
+            }
+            &__btn :hover {
+              opacity: 0.8;
+            }
+          }
+          &__android {
+            width: 156px;
+            height: 68px;
+            position: relative;
+            &__btn {
+              position: absolute;
+              top: 50%;
+              transform: translateY(-50%);
+            }
+            &__btn :hover {
+              opacity: 0.9;
+            }
+          }
+        }
+      }
+    }
+    &__right {
+      width: 300px;
+      height: 260px;
+    }
+  }
+}
