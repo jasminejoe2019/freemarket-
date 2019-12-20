@@ -1,32 +1,32 @@
-%section.mypage__firstMenu
-  %ul.mypage__firstMenu__tabs
+%section.mypage__notification
+  %ul.mypage__notification__tabs
     %li
-      %h3.mypage__firstMenu__tabs__menu.active お知らせ
+      %h3.mypage__notification__tabs__menu.active お知らせ
     %li
-      %h3.mypage__firstMenu__tabs__menu やることリスト
-  .mypage__firstMenu__contents
-    %ul.mypage__firstMenu__contents__list.show
-      %li.mypage__firstMenu__contents__list__article
+      %h3.mypage__notification__tabs__menu やることリスト
+  .mypage__notification__contents
+    %ul.mypage__notification__contents__list.show
+      %li.mypage__notification__contents__list__article
         = image_tag 'logo_red.svg',size: "48x48"
-        .mypage__firstMenu__contents__list__article__sample
-          .mypage__firstMenu__contents__list__article__sample__text お知らせのサンプルです
-          .mypage__firstMenu__contents__list__article__sample__time
+        .mypage__notification__contents__list__article__sample
+          .mypage__notification__contents__list__article__sample__text お知らせのサンプルです
+          .mypage__notification__contents__list__article__sample__time
             %i.far.fa-clock
             %span 3時間前
         %i.fas.fa-chevron-right.fa-pull-right
-      %li.mypage__firstMenu__contents__list__link 
+      %li.mypage__notification__contents__list__link 
         =link_to "#" do
           一覧を見る
-    %ul.mypage__firstMenu__contents__list
-      %li.mypage__firstMenu__contents__list__article
+    %ul.mypage__notification__contents__list
+      %li.mypage__notification__contents__list__article
         = image_tag 'logo_red.svg',size: "48x48"
-        .mypage__firstMenu__contents__list__article__sample
-          .mypage__firstMenu__contents__list__article__sample__text やることリストのサンプルです
-          .mypage__firstMenu__contents__list__article__sample__time
+        .mypage__notification__contents__list__article__sample
+          .mypage__notification__contents__list__article__sample__text やることリストのサンプルです
+          .mypage__notification__contents__list__article__sample__time
             %i.far.fa-clock
             %span 3時間前
         %i.fas.fa-chevron-right.fa-pull-right
-      %li.mypage__firstMenu__contents__list__link 
+      %li.mypage__notification__contents__list__link 
         =link_to "#" do
           一覧を見る
 

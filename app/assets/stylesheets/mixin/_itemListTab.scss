@@ -14,7 +14,7 @@
     cursor: pointer;
   }
   &__menu.active2 {
-    @extend .mypage__secondMenu__tabs__menu;
+    @extend .mypage__itemList__tabs__menu;
     background-color: white;
     border-top: 2px solid #ea352d;
   }

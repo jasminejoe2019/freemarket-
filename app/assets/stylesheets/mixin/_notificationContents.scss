@@ -56,7 +56,7 @@
     }
   }
   &__list.show {
-    @extend .mypage__firstMenu__contents__list;
+    @extend .mypage__notification__contents__list;
     display: block;
   }
 }

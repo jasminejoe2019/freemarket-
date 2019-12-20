@@ -48,7 +48,7 @@
     }
   }
   &__list.show2 {
-    @extend .mypage__secondMenu__contents__list;
+    @extend .mypage__itemList__contents__list;
     display: block;
   }
 }

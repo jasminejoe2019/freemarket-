@@ -15,7 +15,7 @@
   }
 
   &__menu.active {
-    @extend .mypage__firstMenu__tabs__menu;
+    @extend .mypage__notification__tabs__menu;
     background-color: white;
     border-top: 2px solid #ea352d;
   }

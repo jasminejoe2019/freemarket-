@@ -4,7 +4,7 @@
   &__icon {
     @include icon(660, 160);
   }
-  &__firstMenu {
+  &__notification {
     &__tabs {
       @include notificationTab;
     }
@@ -12,7 +12,7 @@
       @include notificaitonContents;
     }
   }
-  &__secondMenu {
+  &__itemList {
     margin-top: 40px;
     &__head {
       width: 668px;
