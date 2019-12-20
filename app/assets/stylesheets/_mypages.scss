@@ -5,12 +5,9 @@
 
 .profile {
   width: 700px;
-  height: 568px;
   order: 1;
   &__container {
     &__head {
-      width: 652px;
-      height: 33px;
       font-size: 24px;
       font-weight: bold;
       text-align: center;
@@ -18,8 +15,6 @@
       background-color: white;
     }
     &__name {
-      width: 668px;
-      height: 60px;
       padding: 72px 16px 24px;
       margin: 0 auto;
       display: flex;
@@ -29,32 +24,33 @@
         font-size: 60px;
       }
       &__input {
-        width: 186px;
-        height: 28px;
+        width: 220px;
+        height: 48px;
         padding: 10px 16px 8px;
         border: 1px solid #cccccc;
         margin-left: 8px;
       }
     }
     &__description {
-      width: 668px;
-      height: 282px;
       padding: 40px 16px;
       background-color: white;
       &__input {
-        width: 646px;
-        height: 194px;
+        width: 100%;
+        max-width: 100%;
+        min-height: 216px;
         padding: 10px;
         border: 1px solid #cccccc;
+        font-size: 16px;
+        line-height: 1.5;
       }
       &__btn {
-        width: 666px;
-        height: 48px;
-        border: 1px;
+        width: 100%;
+        line-height: 48px;
         margin-top: 16px;
         font-size: 14px;
         color: #fff;
         background-color: #ea352d;
+        border: 1px solid #ea352d;
       }
     }
   }
