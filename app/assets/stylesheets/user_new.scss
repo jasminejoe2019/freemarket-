@@ -1,11 +1,108 @@
-.signup_address{
+.progress-status_bar {
+  position: absolute;
+  left: 50%;
+  top: 25px;
+  bottom: 5px;
+  display: block;
+  width: 130px;
+  height: 2px;
+  background: gray;
+  z-index: 10;
+  }
+
+  .end .progress-status_bar {
+  width: 0px;
+  }
+  .payment .progress-status_bar {
+  width: 100px;
+  }
+  #through{
+  color: #ea352d;
+  .progress-status{
+    background: #ea352d;
+  }
+  }
+
   #through .progress-status_bar{
     background: #ea352d;
   }
   #active{
-    color: #ea352d;
-    .progress-status {
-      background: #ea352d;
+    color: gray;
+    .progress-status{
+      background: gray;
     }
   }
+
+#through {
+  .progress-status_bar.red {
+    background: #ea352d;
+  }
+}
+
+.through#through.gray {
+  color: gray;
+}
+
+.active#active.red {
+  color: #ea352d;
+}
+
+#active {
+  .progress-status.red {
+    background: #ea352d;
+  }
+}
+
+#active {
+  .progress-status_bar.red {
+    background: #ea352d;
+  }
+}
+
+.address#address.red {
+  color: #ea352d;
+}
+
+#address {
+  .progress-status.red {
+    background: #ea352d;
+  }
+}
+
+#address {
+  .progress-status_bar.red {
+    background: #ea352d;
+  }
+}
+
+.payment#payment.red {
+  color: #ea352d;
+}
+
+#payment {
+  .progress-status.red {
+    background: #ea352d;
+  }
+}
+
+#payment {
+  .progress-status_bar.red {
+    background: #ea352d;
+  }
+}
+
+#end {
+  .progress-status.red {
+    background: #ea352d;
+  }
+}
+
+#end {
+  .progress-status_bar.red {
+    background: #ea352d;
+  }
+}
+
+.end#end.red {
+  color: #ea352d;
 }

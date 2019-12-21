@@ -1,0 +1,92 @@
+.rapper
+  .single-container
+    .signup_address
+      .single-header
+        %h1.single-header__logo
+          = link_to "#" do
+            =image_tag "fmarket_logo_red.svg"
+        %nav.progress
+          %ul.progress-bar
+            %li.through#through.gray
+              会員情報
+              .progress-status
+              .progress-status_bar.red
+            %li.active#active.gary
+              電話番号認証
+              .progress-status.red
+              .progress-status_bar.red
+            %li.address#address.gray
+              お届け先住所入力
+              .progress-status.red
+              .progress-status_bar.red
+            %li.payment#payment.red
+              支払い方法
+              .progress-status.red
+              .progress-status_bar
+            %li.end#end
+              完了
+              .progress-status
+              .progress-status_bar
+
+    .main
+      .main__container
+        %h2.main__container__head
+          支払い方法
+        .main__container__form
+          .main__container__list
+            .form-groups
+              %label(for="credit")
+                カード番号
+              %span.form-require
+                必須
+              %input.input-default2{ placeholder: "半角数字のみ", type: "text", value:""}
+                %h3
+                  = image_tag("card_5brand", class: "credit-logo")
+            .form-groups
+              %div
+                %label 有効期限
+                %span.form-require 必須
+            .name-form
+              %select{name: "month", class: "input-select"}
+                %option(label="01")
+                %option(label="02")
+                %option(label="03")
+                %option(label="04")
+                %option(label="05")
+                %option(label="06")
+                %option(label="07")
+                %option(label="08")
+                %option(label="09")
+                %option(label="10")
+                %option(label="11")
+                %option(label="12")
+              %span.input-select__data 月
+              %select{name: "year", class: "input-select"}
+                %option(label="19")
+                %option(label="20")
+                %option(label="21")
+                %option(label="22")
+                %option(label="23")
+                %option(label="24")
+                %option(label="25")
+                %option(label="26")
+                %option(label="27")
+              %span.input-select__data 年
+            .form-groups
+              %label(for="security")
+                セキュリティコード
+              %span.form-require
+                必須
+              %input.input-default2{ placeholder: "カード背面４桁もしくは３桁の番号", type: "text", value:""}
+              .signup-seqcode
+                %span.question ?
+                カードの背面の番号とは？
+            %button{type:"submit", class:"btn-default btn-red"}
+              次へ進む
+
+
+
+
+
+
+  = render '/devise/shared/user_footer'

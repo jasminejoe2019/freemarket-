@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :items
   resources :addresses
   resources :shipping_addresses
+  resources :payments
 end

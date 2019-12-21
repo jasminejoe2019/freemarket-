@@ -1,44 +1,54 @@
 .rapper
   .single-container
     .signup_address
-      = render '/devise/shared/sign-up'
-
+      .single-header
+        %h1.single-header__logo
+          = link_to "#" do
+            =image_tag "fmarket_logo_red.svg"
+        %nav.progress
+          %ul.progress-bar
+            %li.through#through.gray
+              会員情報
+              .progress-status
+              .progress-status_bar.red
+            %li.active#active.red
+              電話番号認証
+              .progress-status.red
+              .progress-status_bar
+            %li.address#address
+              お届け先住所入力
+              .progress-status
+              .progress-status_bar
+            %li.payment#payment
+              支払い方法
+              .progress-status
+              .progress-status_bar
+            %li.end#end
+              完了
+              .progress-status
+              .progress-status_bar
 
     .main
       .main__container
         %h2.main__container__head
-          電話番号認証
+          電話番号の確認
         .main__container__form
           .main__container__list
             .form-groups
-              %label(for="capcha")
-                認証番号
-              %input.input-default2{ placeholder: "認証番号を入力", type: "number", value: ""}
+              %label(for="tel")
+                携帯電話の番号
+              %input.input-default2{ placeholder: "携帯電話の番号を入力", type: "tel", value: ""}
               %p.form-info-text
-                SMSで届いた認証番号を入力してください
+                本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
               %button{type:"submit", class:"btn-default btn-red"}
-                認証して完了
-        .main__container__form
-          .main__container__list
-            %h3.chapter-sub-header
-              30秒たっても認証番号が届かない方へ
-            %p.single-text
-              電話で認証番号を聞くこともできます。
-            .form-groups
-              %button{type:"submit", class:"btn-default btn-red"}
-                電話で認証番号を聞く(通話無料)
-        .main__container__form
-          .main__container__list
-            %h3.chapter-sub-header
-              認証番号を再送することもできます。もう一度電話番号を入力して下さい。
-              %p
-                = link_to "#" do
-                  電話番号を再度入力する
-            .single-text
-              ※SMSが届かない場合は
-              = link_to "#" do
-                SMS受信設定
-              を確認して、もう一度電話番号を入力してください。
+                SMSを送信する
+              %p.form-info-text
+                ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーには公開されることはありません。
+              .form-groups.text-right
+                %p
+                =link_to "#" do
+                  電話番号に確認が必要な理由 >
+
 
 
   = render '/devise/shared/user_footer'
