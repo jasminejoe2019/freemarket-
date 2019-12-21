@@ -1,0 +1,77 @@
+$(function() {
+  $(".item-header__category").hover(function(){
+    $(".item-header__category__major").css("display","block");
+    $(".item-header__category__title").css("color","#0095ee");
+  },function(){
+    $(".item-header__category__major").css("display","none");
+    $(".item-header__category__title").css("color","black");
+  });
+
+  $(".item-header__category__major__element").hover(function(){
+    $(this).children().css("display","block");
+    $(this).css("background-color","#ea352e");
+    $(this).css("color","white");
+  },function(){
+    $(this).children().css("display","none");
+    $(this).css("background-color","white");
+    $(this).css("color","black")
+  });
+
+  $(".item-header__category__medium__element").hover(function(){
+    $(this).children().css("display","block");
+    $(this).css("background-color","#999999");
+  },function(){
+    $(this).children().css("display","none");
+    $(this).css("background-color","white");
+  });
+
+  $(".item-header__category__small__element").hover(function(){
+    $(this).css("background-color","#999999");
+  },function(){
+    $(this).css("background-color","white");
+  });
+
+  $(".item-header__brand").hover(function(){
+    $(".item-header__brand__list").css("display","block");
+    $(".item-header__brand__title").css("color","#0095ee");
+  },function(){
+    $(".item-header__brand__list").css("display","none");
+    $(".item-header__brand__title").css("color","black");
+  });
+
+  $(".item-header__brand__element").hover(function(){
+    $(this).css("background-color","#ea352e");
+    $(this).css("color","white");
+  },function(){
+    $(this).css("background-color","white");
+    $(this).css("color","black")
+  });
+  $(".item-header__signin").hover(function(){
+    $(this).css("background-color","#0095ee");
+    $(".item-header__login").css("color","white");
+  },function(){
+    $(this).css("background-color","white");
+    $(".item-header__login").css("color","#0095ee")
+  });
+  $(".item-header__info").hover(function(){
+    $(".item-header__info__list").css("display","block");
+    $(".item-header__info__title").css("color","#0095ee");
+  },function(){
+    $(".item-header__info__list").css("display","none");
+    $(".item-header__info__title").css("color","black");
+  });
+  $(".item-header__todo__title").hover(function(){
+    $(".item-header__todo__list").css("display","block");
+    $(".item-header__todo__title").css("color","#0095ee");
+  },function(){
+    $(".item-header__todo__list").css("display","none");
+    $(".item-header__todo__title").css("color","black");
+  });
+  $(".item-header__mypage__title").hover(function(){
+    $(".item-header__mypage__list").css("display","block");
+    $(".item-header__mypage__title").css("color","#0095ee");
+  },function(){
+    $(".item-header__mypage__list").css("display","none");
+    $(".item-header__mypage__title").css("color","black");
+  });
+})
