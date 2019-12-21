@@ -1,0 +1,228 @@
+.top-eyecatch{
+  height:390px;
+  width:1020px;
+  margin:0 auto;
+  &__image{
+    height:100%;
+    width:100%;
+  }
+}
+.slick-dots {
+  position: absolute;
+  bottom: 20px;
+  li {
+    font-size: 20px;
+    button:before {
+      content: "●";
+      font-size: 14px;
+      color: rgb(60, 60, 60);
+    }
+  }
+}
+.arrow{
+  position: absolute;
+  top: 50%;
+  font-size: 2em;
+  color: $app-white;
+  z-index:3;
+  &-left{
+    left:50px;
+  }
+  &-right{
+    right:50px;
+  }
+}
+.item-group{
+  padding: 56px 0 30px;
+  background-color: $app-white;
+  position: relative;
+  top:0;
+  &__title{
+    margin-bottom: 16px;
+    text-align:center;
+    font-size: 28px;
+    font-weight: 600;
+    line-height:1.4em;
+    margin:0;
+    padding:0;
+  }
+}
+.exhibit-btn{
+  position:fixed;
+  bottom:32px;
+  font-size: 32px;
+  color:$app-white;
+  text-align:center;
+  right:32px;
+  width:160px;
+  height:160px;
+  padding-top:32px;
+  background-color:$app-red;
+  border-radius:50%;
+  z-index:2;
+}
+.item-group{
+  text-align:center;
+  overflow-x: auto;
+  &__topic{
+    display:flex;
+    justify-content: center;
+  }
+  &__element{
+    margin: 10px 0 0 10px;
+    background-color:#efefef;
+    cursor: pointer;
+    font-weight:600;
+    border-radius: 15px;
+    padding:8px 16px;
+  }
+}
+.items{
+  width:1020px;
+  margin:0 auto;
+  padding:42px 0 100px;
+  a {
+    color:$app-blue;
+  }
+  &__title{
+    font-size:24px;
+    font-weight: 600;
+    line-height:1.4em;
+    margin:0;
+    padding:0;
+  }
+  &__list{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom: 16px;
+  }
+  &__watchmore{
+    &__right{
+      width:16px;
+      height:16px;
+      z-index:3;
+      color:$app-blue;
+    }
+  }
+}
+.items-elements{
+  margin:-10px;
+  display:flex;
+  flex-wrap:wrap;
+}
+.items-element{
+  width:20%;
+  padding:4px;
+  box-shadow:$app-box-shadow;
+  position:relative;
+  &__image{
+    object-fit: cover;
+    width:200px;
+    height:200px;
+  }
+  &__name{
+    background-image: $app-white;
+    height:3.5em;
+    overflow:hidden;
+  }
+  &__price{
+    position: absolute;
+    top:160px;
+    background-color: rgba(0,0,0,0.4);
+    color: $app-white;
+    z-index: 2;
+    border-radius: 0 14px 14px 0;
+    display: inline-flex;
+    font-size:17px;
+    height:28px;
+    letter-spacing: 0.02em;
+    padding:0 12px;
+  }
+}
+.AppBanner {
+  &__container {
+    width: 1440px;
+    height: 260px;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    background: image-url("YAT923_1_TP_V.jpg");
+    &__left {
+      width: 417px;
+      height: 260px;
+      position: relative;
+      &__inner {
+        width: 417px;
+        height: 166px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        &__firsttext {
+          width: 417px;
+          height: 24px;
+          margin-bottom: 15px;
+          color: white;
+          font-size: 24px;
+        }
+        &__secondtext {
+          width: 417px;
+          height: 24px;
+          margin-bottom: 15px;
+          color: white;
+          font-size: 34px;
+        }
+        &__icon {
+          width: 417px;
+          display: inline-flex;
+          align-items: center;
+          margin-top: 20px;
+          &__freemarket {
+            width: 68px;
+            height: 68px;
+            margin-right: 20px;
+            position: relative;
+            &__btn {
+              position: absolute;
+              top: 50%;
+              transform: translateY(-50%);
+            }
+            &__btn :hover {
+              opacity: 0.8;
+            }
+          }
+          &__ios {
+            width: 133px;
+            height: 68px;
+            margin-right: 8px;
+            position: relative;
+            &__btn {
+              position: absolute;
+              top: 50%;
+              transform: translateY(-50%);
+            }
+            &__btn :hover {
+              opacity: 0.8;
+            }
+          }
+          &__android {
+            width: 156px;
+            height: 68px;
+            position: relative;
+            &__btn {
+              position: absolute;
+              top: 50%;
+              transform: translateY(-50%);
+            }
+            &__btn :hover {
+              opacity: 0.9;
+            }
+          }
+        }
+      }
+    }
+    &__right {
+      width: 300px;
+      height: 260px;
+    }
+  }
+}
