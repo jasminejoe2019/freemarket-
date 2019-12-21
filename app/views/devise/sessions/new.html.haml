@@ -1,28 +1,31 @@
 .wrapper
-  = render partial: 'devise/shared/user_header'
+  .container
+    = render partial: 'devise/shared/user_header'
 
-  .contents-panel
-    .contents-panel__login
-      .contents-panel__login-no
-        %p
-          アカウントをお持ちでない方はこちら
-        %a{href:"#"}
-          新規会員登録
-      .contents-panel__login__form-sns
-        =link_to "https://www.facebook.com/", class: "btn-default link-fb2" do
-          = icon('fab', 'facebook-square',  class: "fb-icon2")
-          Facebookでログイン
-        =link_to "http://www.google.com/", class: "btn-default link-google2" do
-          = icon('fab', 'google', class: "google-icon2")
-          Googleでログイン
-      .contents-panel__login__form-inner
-        .form-group
-          %input.input-default{ placeholder: "メールアドレス", type: "email", value: ""}
-        .form-group
-          %input.input-default{ placeholder: "パスワード", type: "password", value: ""}
-        .form-group
-          %button.btn-default.btn-red{type:"submit"} ログイン
-          =link_to "#" do
-            パスワードをお忘れの方
-  = render '/devise/shared/user_footer'
+    .contents-panel
+      .contents-panel__login
+        .contents-panel__login-no
+          %p
+            アカウントをお持ちでない方はこちら
+          %a{href:"#"}
+            新規会員登録
+        .contents-panel__login__form-sns
+          =link_to "https://www.facebook.com/", class: "btn-default link-fb2" do
+            = icon('fab', 'facebook-square',  class: "fb-icon2")
+            Facebookでログイン
+          =link_to "http://www.google.com/", class: "btn-default link-google2" do
+            = icon('fab', 'google', class: "google-icon2")
+            Googleでログイン
+        .contents-panel__login__form-inner
+          .form-group
+            %input.input-default{ placeholder: "メールアドレス", type: "email", value: ""}
+          .form-group
+            %input.input-default{ placeholder: "パスワード", type: "password", value: ""}
+          .form-group
+            %button.btn-default.btn-red{type:"submit"} ログイン
+            =link_to "#" do
+              パスワードをお忘れの方
+
+
+    = render '/devise/shared/user_footer'
 
