@@ -1,8 +1,7 @@
-@mixin icon($Width, $Height) {
-  width: $Width;
-  height: $Height;
+@mixin icon {
+  width: 700px;
+  height: 200px;
   padding: 20px;
-  background-color: greenyellow;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -16,6 +15,7 @@
   &__nickname {
     line-height: 1.4;
     margin-top: 8px;
+    color: #000;
     font-weight: bold;
   }
   &__history {

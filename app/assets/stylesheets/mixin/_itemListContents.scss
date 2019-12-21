@@ -30,7 +30,6 @@
       }
     }
     &__link {
-      width: 668px;
       line-height: 56px;
       padding: 16px;
       text-align: center;
@@ -44,6 +43,9 @@
         color: #333;
         background-color: #eee;
         text-decoration: none;
+      }
+      :hover {
+        background-color: white;
       }
     }
   }

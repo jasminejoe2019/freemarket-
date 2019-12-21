@@ -1,8 +1,11 @@
 .mypage {
-  width: 700px;
-  background-color: #eee;
+  padding: 40px 0;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
   &__icon {
-    @include icon(660, 160);
+    @include icon;
+    background: image-url("YAT923_1_TP_V.jpg");
   }
   &__notification {
     &__tabs {
@@ -15,11 +18,10 @@
   &__itemList {
     margin-top: 40px;
     &__head {
-      width: 668px;
       line-height: 72px;
       font-weight: bold;
       padding: 0 16px;
-      background-color: white;
+      background-color: #fafafa;
     }
     &__tabs {
       @include itemListTab;

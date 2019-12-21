@@ -1,5 +1,10 @@
+= render partial: "./shared/item-header"
 .mypage
-  = render partial: "user"
-  = render partial: "notification"
-  = render partial: "itemList"
+  = render partial: "./mypages/side_menu"
+  .mypage__wrapper
+    = render partial: "user"
+    = render partial: "notification"
+    = render partial: "itemList"
+= render partial: "./items/appbanner"
+= render partial: "./shared/item-footer"
 
