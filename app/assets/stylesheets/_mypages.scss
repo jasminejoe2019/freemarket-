@@ -27,7 +27,7 @@
         width: 220px;
         height: 48px;
         padding: 10px 16px 8px;
-        border: 1px solid #cccccc;
+        border: 1px solid $app-grey;
         margin-left: 8px;
       }
     }
@@ -39,7 +39,7 @@
         max-width: 100%;
         min-height: 216px;
         padding: 10px;
-        border: 1px solid #cccccc;
+        border: 1px solid $app-grey;
         font-size: 16px;
         line-height: 1.5;
         resize: vertical;
