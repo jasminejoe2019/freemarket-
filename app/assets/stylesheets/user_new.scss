@@ -8,30 +8,34 @@
   height: 2px;
   background: gray;
   z-index: 10;
-  }
+}
 
-  .end .progress-status_bar {
+.end .progress-status_bar {
   width: 0px;
-  }
-  .payment .progress-status_bar {
+}
+
+.payment .progress-status_bar {
   width: 100px;
-  }
-  #through{
+}
+
+#through{
   color: #ea352d;
+
   .progress-status{
     background: #ea352d;
   }
-  }
+}
 
-  #through .progress-status_bar{
-    background: #ea352d;
+#through .progress-status_bar{
+  background: #ea352d;
+}
+
+#active{
+  color: gray;
+  .progress-status{
+    background: gray;
   }
-  #active{
-    color: gray;
-    .progress-status{
-      background: gray;
-    }
-  }
+}
 
 #through {
   .progress-status_bar.red {
