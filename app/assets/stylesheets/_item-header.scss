@@ -3,6 +3,8 @@
   height:100px;
   z-index:3;
   font-size:14px;
+  background-color: $app-white;
+  box-shadow:$app-box-shadow;
 }
 .item-header__inner{
   width:1020px;
