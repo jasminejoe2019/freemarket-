@@ -1,7 +1,6 @@
 .wrapper
   .container
     = render partial: 'devise/shared/user_header'
-
     .contents-panel
       .contents-panel__login
         .contents-panel__login-no
@@ -25,7 +24,5 @@
             %button.btn-default.btn-red{type:"submit"} ログイン
             =link_to "#" do
               パスワードをお忘れの方
-
-
-    = render '/devise/shared/user_footer'
+  = render '/devise/shared/user_footer'
 
