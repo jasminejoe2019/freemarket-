@@ -3,12 +3,14 @@
 @import "slick-theme";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "./index";
+@import "./user_new";
+@import "./user_header";
+@import "./user_footer";
+@import "./addresses";
 @import "item-header";
 @import "item-footer";
 @import "items";
-@import "./user";
-@import "./header";
-@import "./footer";
 @import "./mixin/icon";
 @import "./mixin/notificationContents";
 @import "./mixin/notificationTab";

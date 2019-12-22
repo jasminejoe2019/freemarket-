@@ -1,22 +1,160 @@
-.wrapper
-  .container
-    = render '/devise/shared/user_header'
+.rapper
+  .single-container
+    .signup_address
+      .single-header
+        %h1.single-header__logo
+          = link_to "#" do
+            =image_tag "fmarket_logo_red.svg"
+        %nav.progress
+          %ul.progress-bar
+            %li.through#through
+              会員情報
+              .progress-status
+              .progress-status_bar
+            %li.active#active
+              電話番号認証
+              .progress-status
+              .progress-status_bar
+            %li.address#address
+              お届け先住所入力
+              .progress-status
+              .progress-status_bar
+            %li.payment#payment
+              支払い方法
+              .progress-status
+              .progress-status_bar
+            %li.end#end
+              完了
+              .progress-status
+              .progress-status_bar
 
-    .contents
-      .contents__container
 
-        %h2.contents__title
-          新規会員登録
-        .contents__main
-          .contents__main__menu
-            =link_to "#", class: "btn-default link-mail" do
-              = icon('far', 'envelope', class: "mail-icon")
-              メールアドレスで登録する
-            =link_to "https://www.facebook.com/", class: "btn-default link-fb" do
-              = icon('fab', 'facebook-square',  class: "fb-icon")
-              Facebookで登録する
-            =link_to "http://www.google.com/", class: "btn-default link-google" do
-              = icon('fab', 'google', class: "google-icon")
-              Googleで登録する
-
+    .main
+      .main__container
+        %h2.main__container__head
+          会員情報入力
+        .main__container__form
+          .main__container__list
+            .form-groups
+              %label(for="nickname")
+                ニックネーム
+              %span.form-require
+                必須
+              %input.input-default2{ placeholder: "例）メルカリ太郎", type: "text", value:""}
+            .form-groups
+              %label(for="email")
+                メールアドレス
+              %span.form-require
+                必須
+              %input.input-default2{ placeholder: "PC・携帯どちらでも可", type: "email", value:""}
+            .form-groups
+              %label(for="password")
+                パスワード
+              %span.form-require
+                必須
+              %input.input-default2{ placeholder: "７文字以上の半角英数字", type: "password", value:""}
+              %p.form-info-text
+                ※ 英字と数字の両方を含めて設定してください
+              .form-password-revelation-toggle
+                .checkbox-default
+                  %input{type: "checkbox", class: "reveal-password"}
+                  %i.icon-check
+                  %label(for="reveal-password")
+                    パスワードを表示する
+            .form-groups
+              %h3.text-left
+                本人確認
+              %p.single-text
+                安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+            .form-groups
+              %div
+                %label お名前(全角)
+                %span.form-require 必須
+            .name-form
+              %input{type: "text", valuename: "famiry_name_kanji", placeholder: "例) 山田", class: "input-default2 half"}
+              %input{type: "text", valuename: "famiry_name_kanji", placeholder: "例) 彩", class: "input-default2 half"}
+            .form-groups
+              %div
+                %label お名前カナ(全角)
+                %span.form-require 必須
+            .name-form
+              %input{type: "text", valuename: "famiry_name_kana", placeholder: "例) ヤマダ", class: "input-default2 half"}
+              %input{type: "text", valuename: "famiry_name_kana", placeholder: "例) アヤ", class: "input-default2 half"}
+            .form-groups
+              %div
+                %label 生年月日
+                %span.form-require 必須
+                %br/
+                .form-birthday
+                  .form-birthday__wrap
+                    %select{name: "year", class: "select-default"}
+                      %option(label="--")
+                      %option(label="2019")
+                      %option(label="2018")
+                      %option(label="2017")
+                      %option(label="2016")
+                      %option(label="2015")
+                      %option(label="2014")
+                      %option(label="2013")
+                      %option(label="2012")
+                      %option(label="2011")
+                      %option(label="2010")
+                      %option(label="2009")
+                  %span.data-list 年
+                  .form-birthday__wrap
+                    %select{name: "month", class: "select-default"}
+                      %option(label="--")
+                      %option(label="1")
+                      %option(label="2")
+                      %option(label="3")
+                      %option(label="4")
+                      %option(label="5")
+                      %option(label="6")
+                      %option(label="7")
+                      %option(label="8")
+                      %option(label="9")
+                      %option(label="10")
+                      %option(label="11")
+                      %option(label="12")
+                  %sapn.data-list 月
+                  .form-birthday__wrap
+                    %select{name: "day", class: "select-default"}
+                      %option(label="--")
+                      %option(label="1")
+                      %option(label="2")
+                      %option(label="3")
+                      %option(label="4")
+                      %option(label="5")
+                      %option(label="6")
+                      %option(label="7")
+                      %option(label="8")
+                      %option(label="9")
+                      %option(label="10")
+                      %option(label="11")
+                      %option(label="12")
+                      %option(label="13")
+                  %span.data-list 日
+            %p.form-groups.info-text
+              本人情報は正しく入力してください。会員登録後、修正するにはお時間をいただく場合があります。
+            .form-groups.second
+              %p.text-center
+                「次へ進む」のボタンを押すことにより、
+                =link_to "#" do
+                  利用規約
+                に同意したものとみなします
+            %button{type:"submit", class:"btn-default btn-red"}
+              次へ進む
+            .form-groups.text-right
+              %p
+              =link_to "#" do
+                本人情報の登録について >
+            .form-groups.recaptcha-term
+              %p
+                This site is protected by reCAPCHA and the Google
+                =link_to "#" do
+                  PrivacyPolicy
+                and
+                =link_to "#" do
+                  Terms of Service
+                apply
   = render '/devise/shared/user_footer'

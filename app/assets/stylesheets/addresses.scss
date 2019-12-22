@@ -1,0 +1,356 @@
+.rapper {
+  position: relative;
+  min-height: 100vh;
+  background: #f5f5f5;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  font-size: 15px;
+  color: #333;
+  line-height: 1;
+}
+
+.single-container {
+  padding: 0 0 300px;
+}
+
+.single-header {
+  height: 128px;
+  text-align: center;
+
+  &__logo {
+    display: inline-block;
+    margin: 40px 0 0;
+
+    a {
+      width: 185px;
+      height: 49px;
+      line-height: 49px;
+
+      img {
+        width: 185px;
+        height: 49px;
+      }
+    }
+  }
+}
+
+
+
+.progress {
+  padding: 40px 0 0 44px;
+  border: 0;
+  display: inline-block;
+  vertical-align: top;
+  font-size: 0;
+  text-align: center;
+  &-bar{
+    margin: 0;
+    li{
+      margin: 0 40px 0 0;
+      padding: 0;
+      position: relative;
+      z-index: 40;
+      display: inline-block;
+      min-width: 60px;
+      font-size: 12px;
+      color: gray;
+      .progress-status{
+        position: absolute;
+        left: 40%;
+        width: 12px;
+        height: 12px;
+        margin: 8px auto 0;
+        background: gray;
+        border-radius: 50%;
+        z-index: 30;
+      }
+    }
+  }
+}
+
+.progress-status_bar {
+  position: absolute;
+  left: 50%;
+  top: 25px;
+  bottom: 5px;
+  display: block;
+  width: 130px;
+  height: 2px;
+  background: gray;
+  z-index: 10;
+}
+
+.end .progress-status_bar {
+  width: 0px;
+}
+.payment .progress-status_bar {
+  width: 100px;
+}
+#through{
+  color: #ea352d;
+  .progress-status{
+    background: #ea352d;
+  }
+}
+
+#through .progress-status_bar{
+  background: gray;
+}
+#active{
+  color: gray;
+  .progress-status{
+    background: gray;
+  }
+}
+
+
+
+.main {
+  display: block;
+
+  &__container {
+    width: 700px;
+    height: 100%;
+    margin: 0 auto;
+    background: #fff;
+    padding-bottom: 60px;
+
+    &__head {
+      font-size: 22px;
+      padding: 40px;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    &__form {
+      padding: 40px 40px 64px;
+      border-top: 1px solid #f5f5f5;
+      height: 100%;
+    }
+
+    &__list {
+      max-width: 343px;
+      margin: 0 auto;
+
+    }
+  }
+}
+
+.main__container p {
+  margin: 8px 0 0;
+  line-height: 1.5;
+}
+
+.input-default2 {
+  display: inline-block;
+  width: 100%;
+  margin: 8px 0 0;
+  height: 48px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+.form-groups {
+  margin-top: 32px;
+
+  label {
+    font-weight: 600;
+  }
+}
+
+.last-text {
+  text-align: center;
+  font-size: 20px;
+  margin: 10px;
+}
+.form-groups:first-child {
+  margin: 0;
+}
+
+.form-require {
+  background-color: red;
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  vertical-align: top;
+
+  &__option {
+    background-color: #ccc;
+  }
+}
+
+.form-info-text {
+  margin: 16px 0 0;
+  line-height: 1.5;
+  color: #888;
+}
+
+.form-password-revelation-toggle {
+  margin: 16px 0 0;
+  color: #888;
+  display: flex;
+}
+
+.reveal-password {
+  width: 20px;
+  height: 20px;
+  border-radius: 2px;
+  background: #fff;
+  border: 1px solid #ccc;
+  font-size: 10px;
+}
+
+.text-left {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.input-select {
+  position: relative;
+  z-index: 2;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  cursor: pointer;
+  width: calc(100% - 38px);
+  margin: 5px;
+
+  &__data {
+    margin: auto 10px;
+  }
+}
+.name-form {
+  display: flex;
+}
+.half {
+  width: calc(50% - 6px);
+}
+.half:first-of-type {
+  margin-right: 8px;
+}
+
+.form-birthday {
+  margin: 8px 0 0;
+  display: flex;
+
+  &__wrap {
+    width: 76px;
+    position: relative;
+    background: #fff;
+  }
+}
+
+
+.form-group select {
+  width: 100%;
+}
+.select-default {
+    position: relative;
+    z-index: 2;
+    height: 48px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: 0;
+    font-size: 17px;
+    line-height: 1.5;
+    cursor: pointer;
+    padding: 0 10px;
+    width: 100%;
+}
+
+.signup-seqcode {
+  position: relative;
+  margin: 8px 0 0;
+  text-align: right;
+  color: #0099e8;
+}
+
+.question {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #0099e8;
+  color: #fff;
+  line-height: 14px;
+  font-size: 12px;
+  text-align: center;
+}
+
+.data-list {
+  margin: 0 3px;
+  position: relative;
+  top: 20px;
+  color: #888;
+}
+
+.info-text {
+  margin: 8px 0 0;
+  color: #888;
+}
+
+.text-center {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.text-center a {
+  text-decoration: none;
+  color: #0099e8;
+}
+
+.btn-red {
+  background: #ea352d;
+  border: 1px solid #ea352d;
+  color: #fff;
+  margin-top: 32px;
+  display: block;
+  width: 343px;
+  line-height: 48px;
+  font-size: 14px;
+  border: 0.5px solid transparent;
+  -webkit-transition: all ease-out .3s;
+  transition: all ease-out .3s;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.text-right {
+  text-align: right;
+
+  a {
+    text-decoration: none;
+    color: #0099e8;
+  }
+}
+
+.recaptcha-term {
+  background-color: #f5f5f5;
+  padding: 8px 16px;
+
+  p {
+    color: #888888;
+    font-size: 12px;
+
+    a {
+      text-decoration: none;
+      color: #0099e8;
+    }
+  }
+}
+
+.credit-logo {
+  width: 200px;
+  height: 25px;
+  margin: 10px;
+}
