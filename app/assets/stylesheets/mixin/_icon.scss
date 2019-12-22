@@ -1,0 +1,39 @@
+@mixin icon {
+  width: 700px;
+  height: 200px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .fas.fa-user {
+    text-align: center;
+    font-size: 60px;
+    display: flex;
+    justify-content: center;
+  }
+  &__nickname {
+    line-height: 1.4;
+    margin-top: 8px;
+    color: #000;
+    font-weight: bold;
+  }
+  &__history {
+    height: 16px;
+    display: flex;
+    justify-content: center;
+    &__good {
+      widows: 350px;
+      height: 72px;
+      font-size: 14px;
+      text-align: center;
+    }
+    &__number {
+      widows: 350px;
+      height: 72px;
+      font-size: 14px;
+      margin-left: 16px;
+      text-align: center;
+    }
+  }
+}
