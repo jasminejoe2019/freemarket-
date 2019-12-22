@@ -1,10 +1,10 @@
-.top-eyecatch{
-  height:390px;
-  width:1020px;
-  margin:0 auto;
-  &__image{
-    height:100%;
-    width:100%;
+.top-eyecatch {
+  height: 390px;
+  width: 1020px;
+  margin: 0 auto;
+  &__image {
+    height: 100%;
+    width: 100%;
   }
 }
 .slick-dots {
@@ -19,129 +19,129 @@
     }
   }
 }
-.arrow{
+.arrow {
   position: absolute;
   top: 50%;
   font-size: 2em;
   color: $app-white;
-  z-index:3;
-  &-left{
-    left:50px;
+  z-index: 3;
+  &-left {
+    left: 50px;
   }
-  &-right{
-    right:50px;
+  &-right {
+    right: 50px;
   }
 }
-.item-group{
+.item-group {
   padding: 56px 0 30px;
   background-color: $app-white;
   position: relative;
-  top:0;
-  &__title{
+  top: 0;
+  &__title {
     margin-bottom: 16px;
-    text-align:center;
+    text-align: center;
     font-size: 28px;
     font-weight: 600;
-    line-height:1.4em;
-    margin:0;
-    padding:0;
+    line-height: 1.4em;
+    margin: 0;
+    padding: 0;
   }
 }
-.exhibit-btn{
-  position:fixed;
-  bottom:32px;
+.exhibit-btn {
+  position: fixed;
+  bottom: 32px;
   font-size: 32px;
-  color:$app-white;
-  text-align:center;
-  right:32px;
-  width:160px;
-  height:160px;
-  padding-top:32px;
-  background-color:$app-red;
-  border-radius:50%;
-  z-index:2;
+  color: $app-white;
+  text-align: center;
+  right: 32px;
+  width: 160px;
+  height: 160px;
+  padding-top: 32px;
+  background-color: $app-red;
+  border-radius: 50%;
+  z-index: 2;
 }
-.item-group{
-  text-align:center;
+.item-group {
+  text-align: center;
   overflow-x: auto;
-  &__topic{
-    display:flex;
+  &__topic {
+    display: flex;
     justify-content: center;
   }
-  &__element{
+  &__element {
     margin: 10px 0 0 10px;
-    background-color:#efefef;
+    background-color: #efefef;
     cursor: pointer;
-    font-weight:600;
+    font-weight: 600;
     border-radius: 15px;
-    padding:8px 16px;
+    padding: 8px 16px;
   }
 }
-.items{
-  width:1020px;
-  margin:0 auto;
-  padding:42px 0 100px;
+.items {
+  width: 1020px;
+  margin: 0 auto;
+  padding: 42px 0 100px;
   a {
-    color:$app-blue;
+    color: $app-blue;
   }
-  &__title{
-    font-size:24px;
+  &__title {
+    font-size: 24px;
     font-weight: 600;
-    line-height:1.4em;
-    margin:0;
-    padding:0;
+    line-height: 1.4em;
+    margin: 0;
+    padding: 0;
   }
-  &__list{
-    display:flex;
-    justify-content:space-between;
+  &__list {
+    display: flex;
+    justify-content: space-between;
     margin-bottom: 16px;
   }
-  &__watchmore{
-    &__right{
-      width:16px;
-      height:16px;
-      z-index:3;
-      color:$app-blue;
+  &__watchmore {
+    &__right {
+      width: 16px;
+      height: 16px;
+      z-index: 3;
+      color: $app-blue;
     }
   }
 }
-.items-elements{
-  margin:-10px;
-  display:flex;
-  flex-wrap:wrap;
+.items-elements {
+  margin: -10px;
+  display: flex;
+  flex-wrap: wrap;
 }
-.items-element{
-  width:20%;
-  padding:4px;
-  box-shadow:$app-box-shadow;
-  position:relative;
-  &__image{
+.items-element {
+  width: 20%;
+  padding: 4px;
+  box-shadow: $app-box-shadow;
+  position: relative;
+  &__image {
     object-fit: cover;
-    width:200px;
-    height:200px;
+    width: 200px;
+    height: 200px;
   }
-  &__name{
+  &__name {
     background-image: $app-white;
-    height:3.5em;
-    overflow:hidden;
+    height: 3.5em;
+    overflow: hidden;
   }
-  &__price{
+  &__price {
     position: absolute;
-    top:160px;
-    background-color: rgba(0,0,0,0.4);
+    top: 160px;
+    background-color: rgba(0, 0, 0, 0.4);
     color: $app-white;
     z-index: 2;
     border-radius: 0 14px 14px 0;
     display: inline-flex;
-    font-size:17px;
-    height:28px;
+    font-size: 17px;
+    height: 28px;
     letter-spacing: 0.02em;
-    padding:0 12px;
+    padding: 0 12px;
   }
 }
 .AppBanner {
   &__container {
-    width: 1440px;
+    // width: 1440px;
     height: 260px;
     background-color: red;
     display: flex;
