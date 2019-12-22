@@ -11,6 +11,12 @@
 @import "item-header";
 @import "item-footer";
 @import "items";
+@import "./mixin/icon";
+@import "./mixin/notificationContents";
+@import "./mixin/notificationTab";
+@import "./mixin/itemListTab";
+@import "./mixin/itemListContents";
+@import "./mainmypages.scss";
 @import "./main-container";
 @import "./mixin/sideMenuForm";
 @import "./mypages";

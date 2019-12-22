@@ -1,0 +1,33 @@
+.mypage {
+  padding: 40px 0;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  &__icon {
+    @include icon;
+    background: image-url("YAT923_1_TP_V.jpg");
+  }
+  &__notification {
+    &__tabs {
+      @include notificationTab;
+    }
+    &__contents {
+      @include notificaitonContents;
+    }
+  }
+  &__itemList {
+    margin-top: 40px;
+    &__head {
+      line-height: 72px;
+      font-weight: bold;
+      padding: 0 16px;
+      background-color: #fafafa;
+    }
+    &__tabs {
+      @include itemListTab;
+    }
+    &__contents {
+      @include itemListContents;
+    }
+  }
+}

@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :shipping_addresses
   resources :payments
   resources :mypages, only:[:edit]
+  resources :mainmypages, only: [:index]
 end

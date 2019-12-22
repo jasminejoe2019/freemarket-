@@ -1,0 +1,22 @@
+@mixin notificationTab {
+  widows: 700px;
+  height: 72px;
+  display: flex;
+  justify-content: center;
+  &__menu {
+    width: 350px;
+    line-height: 72px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: #eee;
+  }
+
+  &__menu.active {
+    @extend .mypage__notification__tabs__menu;
+    background-color: white;
+    border-top: 2px solid #ea352d;
+  }
+}
