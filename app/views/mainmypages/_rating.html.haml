@@ -1,0 +1,24 @@
+.profile
+  .profile__rating
+    .profile__rating__good
+      %i.fas.fa-laugh
+    .profile__rating__good__count 5
+    .profile__rating__normal
+      %i.fas.fa-meh
+    .profile__rating__normal__count 0
+    .profile__rating__bad
+      %i.fas.fa-frown
+    .profile__rating__bad__count 0 
+.socialMedia
+  %ul.socialMedia__list
+    %li.socialMedia__list-facebook
+      = link_to "https://www.facebook.com/", class: "fa-stack fa-2x",style: "color:#385185" do
+        %i.fas.fa-square.fa-stack-2x
+        %i.fab.fa-facebook-square.fa-stack-1x.fa-inverse
+    %li.socialMedia__list-twitter
+      = link_to "https://twitter.com/", class: "fa-stack fa-2x",style: "color:#5d9dc9" do
+        %i.fas.fa-square.fa-stack-2x
+        %i.fab.fa-twitter.fa-stack-1x.fa-inverse
+    %li.socialMedia-line
+      = link_to "https://line.me/ja/", class: "fa-stack fa-2x",style: "color:#00c137;" do
+        %i.fab.fa-line.fa-stack-2x

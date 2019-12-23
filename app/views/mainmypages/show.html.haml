@@ -1,6 +1,9 @@
 = render partial: "./shared/item-header"
 .main_container
   = render partial: "./mypages/side_menu"
+  .main_container__user
+    = render partial: "user"
+    = render partial: "rating"
   
 = render partial: "./items/appbanner"
 = render partial: "./shared/item-footer"
