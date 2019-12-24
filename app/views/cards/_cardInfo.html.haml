@@ -1,0 +1,22 @@
+
+.cardInfo
+  %section.cardInfo__container
+    %h2.cardInfo__container__head
+      支払い方法
+    %section.cardInfo__container__inner
+      .cardInfo__container__inner__content
+        %h3.cardInfo__container__inner__content__subHead
+          クレジットカード一覧
+      %ul.cardInfo__container__inner__list
+        %li
+        =link_to "#", class: "cardInfo__container__inner__list__btn" do
+          %i.fas.fa-credit-card
+          クレジットカードを追加する
+      .cardInfo__container__foot
+        =link_to "#" do
+          %span 支払い方法について
+          %i.fas.fa-chevron-right.fa-pull-right
+
+
+      
+
