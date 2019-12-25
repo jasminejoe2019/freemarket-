@@ -22,7 +22,7 @@
         max-width: 320px;
         margin: 0 auto;
         padding: 24px 0;
-        border-bottom: 1px solid #eee;
+        border-bottom: $app-line;
         &__form {
           display: flex;
           justify-content: space-between;
@@ -43,8 +43,8 @@
               padding: 4px 6px;
               background: #fff;
               border-radius: 3px;
-              border: 1px solid #ea352d;
-              color: #ea352d;
+              border: 1px solid $app-red;
+              color: $app-red;
             }
           }
         }
