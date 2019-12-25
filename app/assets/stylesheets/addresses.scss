@@ -9,7 +9,7 @@
 }
 
 .single-container {
-  padding: 0 0 300px;
+  padding: 0 0 30px;
 }
 
 .single-header {
@@ -154,7 +154,7 @@
 }
 
 .form-groups {
-  margin-top: 32px;
+  margin: 40px 0 0;
 
   label {
     font-weight: 600;
@@ -181,6 +181,12 @@
 
   &__option {
     background-color: #ccc;
+    margin: 0 0 0 8px;
+    padding: 2px 4px;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 12px;
+    vertical-align: top;
   }
 }
 
@@ -265,6 +271,7 @@
     cursor: pointer;
     padding: 0 10px;
     width: 100%;
+    margin: 8px 0 0;
 }
 
 .signup-seqcode {
