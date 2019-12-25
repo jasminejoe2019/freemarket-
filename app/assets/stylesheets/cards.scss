@@ -23,6 +23,31 @@
         margin: 0 auto;
         padding: 24px 0;
         border-bottom: 1px solid #eee;
+        &__form {
+          display: flex;
+          justify-content: space-between;
+          &__item {
+            &__num {
+              margin-top: 8px;
+              font-size: 16px;
+            }
+            &__expirationDate {
+              margin-top: 8px;
+              font-size: 16px;
+            }
+          }
+          &__delete {
+            width: 84px;
+            height: 14px;
+            input {
+              padding: 4px 6px;
+              background: #fff;
+              border-radius: 3px;
+              border: 1px solid #ea352d;
+              color: #ea352d;
+            }
+          }
+        }
         &__btn {
           cursor: pointer;
           text-align: center;
