@@ -1,48 +1,46 @@
-
-    %table.item-detail-table
-      %tbody
-        %tr
-          %th 出品者
-          %td
-            %a{:href => "https://www.mercari.com/"} ししまる
-            %div
-              .item-user-ratings
-                %i.icon-good
-                %span 270
-              .item-user-ratings
-                %i.icon-normal
-                %span 4
-              .item-user-ratings
-                %i.icon-bad
-                %span 1
-        %tr
-          %th カテゴリー
-          %td
-            %a{:href => "https://www.mercari.com/"}
-              %div おもちゃ・ホビー・グッズ
-            %a{:href => "https://www.mercari.com/"}
-              .item-detail-table-sub-category
-                %i.icon-arrow-right
-                おもちゃ
-            %a{:href => "https://www.mercari.com/"}
-              .item-detail-table-sub-sub-category
-                %i.icon-arrow-right
-                キャラクターグッズ
-        %tr
-          %th ブランド
-          %td
-        %tr
-          %th 商品の状態
-          %td 新品、未使用
-        %tr
-          %th 配送料の負担
-          %td 送料込み(出品者負担)
-        %tr
-          %th 配送の方法
-          %td らくらくメルカリ便
-        %tr
-          %th 配送元地域
-          %td 未定
-        %tr
-          %th 発送日の目安
-          %td 2~3日で発送
+%table.itemInfo
+  %tbody.itemInfo__table
+    %tr
+      %th 出品者
+      %td
+        = link_to "https://www.mercari.com/" do
+          ししまる
+        %div
+          .itemInfo__table_ratings
+            %i.fas.fa-laugh
+            %span 270
+          .itemInfo__table_ratings
+            %i.fas.fa-meh
+            %span 4
+          .itemInfo__table_ratings
+            %i.fas.fa-frown
+            %span 1
+    %tr
+      %th カテゴリー
+      %td.itemInfo__table__Category
+        = link_to "https://www.mercari.com/", class:"itemInfo__table__Category-main" do
+          おもちゃ・ホビー・グッズ
+        %i.fas.fa-chevron-right
+        = link_to "https://www.mercari.com/", class:"itemInfo__table__Category-sub" do
+          おもちゃ
+        %i.fas.fa-chevron-right
+        = link_to "https://www.mercari.com/", class:"itemInfo__table__Category-small" do
+          キャラクターグッズ
+    %tr
+      %th ブランド
+      %td
+    %tr
+      %th 商品の状態
+      %td 新品、未使用
+    %tr
+      %th 配送料の負担
+      %td 送料込み(出品者負担)
+    %tr
+      %th 配送の方法
+      %td らくらくメルカリ便
+    %tr
+      %th 配送元地域
+      %td 未定
+    %tr
+      %th 発送日の目安
+      %td 2~3日で発送
