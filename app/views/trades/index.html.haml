@@ -1,0 +1,37 @@
+.confirmMain
+  %section.confirmMain__wrapper
+    %h2.confirmMain__wrapper__head
+      購入内容の確認
+    %section.confirmMain__wrapper__item
+      .confirmMain__wrapper__item__info
+        .confirmMain__wrapper__item__info__inner
+          .confirmMain__wrapper__item__info__inner__box
+            %h3.confirmMain__wrapper__item__info__inner__box__image
+              イメージ画像
+          .confirmMain__wrapper__item__info__inner__detail
+            .confirmMain__wrapper__item__info__inner__detail__name
+            .confirmMain__wrapper__item__info__inner__detail__price
+              ¥6,000 (税込み) 送料込み
+    %section.confirmMain__wrapper__buyerInfo
+      .confirmMain__wrapper__buyerInfo__inner
+        = form_with url: users_path do |form|
+          .confirmMain__wrapper__buyerInfo__inner__price
+            .confirmMain__wrapper__buyerInfo__inner__price__label
+              支払金額
+            .confirmMain__wrapper__buyerInfo__inner__price__main
+              %span ¥6,000
+          .confirmMain__wrapper__buyerInfo__inner__point
+            = form.check_box :point
+          %section.confirmMain__wrapper__buyerInfo__inner__payMethod
+            .confirmMain__wrapper__buyerInfo__inner__payMethod__wrapper
+              .confirmMain__wrapper__buyerInfo__inner__payMethod__wrapper__first
+                %h3.confirmMain__wrapper__buyerInfo__inner__payMethod__wrapper__first
+                  支払い方法
+                = link_to "#" do
+                  変更する
+          %section.confirmMain__wrapper__buyerInfo__inner__shippingAddress
+            .confirmMain__wrapper__buyerInfo__inner__shippingAddress__first
+              %h3.confirmMain__wrapper__buyerInfo__inner__shippingAddress__first
+                配送先
+              %address.confirmMain__wrapper__buyerInfo__inner__shippingAddress__second
+                〒542-0076 大阪府大阪市中央区難波５丁目１−６０
