@@ -33,5 +33,13 @@
             .confirmMain__wrapper__buyerInfo__inner__shippingAddress__first
               %h3.confirmMain__wrapper__buyerInfo__inner__shippingAddress__first
                 配送先
+              = link_to "#" do
+                変更する
               %address.confirmMain__wrapper__buyerInfo__inner__shippingAddress__second
-                〒542-0076 大阪府大阪市中央区難波５丁目１−６０
+                〒542-0076
+                %br 
+                大阪府大阪市中央区難波５丁目１−６０
+                %br
+                中元一徹
+          %section.confirmMain__wrapper__buyerInfo__inner__btn
+            = form.submit "購入する"
