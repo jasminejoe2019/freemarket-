@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   resources :payments
   resources :mypages, only:[:edit,:index]
   resources :cards
+  resources :trades
 end

@@ -1,0 +1,62 @@
+.confirmMain
+  %section.confirmMain__wrapper
+    %h2.confirmMain__wrapper__head
+      購入内容の確認
+    %section.confirmMain__wrapper__item
+      .confirmMain__wrapper__item__info
+        .confirmMain__wrapper__item__info__inner
+          .confirmMain__wrapper__item__info__inner__box
+            %h3.confirmMain__wrapper__item__info__inner__box__image
+              = image_tag 'logo_red.svg'
+          .confirmMain__wrapper__item__info__inner__detail
+            .confirmMain__wrapper__item__info__inner__detail__name
+              商品名サンプル
+            .confirmMain__wrapper__item__info__inner__detail__price
+              ¥ 6,000 (税込み) 送料込み
+    %section.confirmMain__wrapper__buyerInfo
+      .confirmMain__wrapper__buyerInfo__inner
+        = form_with url: users_path do |form|
+          .confirmMain__wrapper__buyerInfo__inner__price
+            .confirmMain__wrapper__buyerInfo__inner__price__label
+              支払い金額
+            .confirmMain__wrapper__buyerInfo__inner__price__main
+              %span ¥ 6,000
+          .confirmMain__wrapper__buyerInfo__inner__point
+            = form.check_box :pointUse, {checked: false}, "true", "false"
+            = form.label :pointUse, "ポイントを使用 (所持ポイント: P1000)"
+            %br
+            .confirmMain__wrapper__buyerInfo__inner__point__use
+              = form.radio_button :point,"1"
+              すべてのポイント(P1000)を使う
+              %br
+              = form.radio_button :point,"2"
+              ポイントの一部を使う
+              %br
+              = form.label :point, "使用するポイント:"
+              = form.number_field :point,class: "confirmMain__wrapper__buyerInfo__inner__point__use__amount",min: 1
+          %section.confirmMain__wrapper__buyerInfo__inner__payMethod
+            .confirmMain__wrapper__buyerInfo__inner__payMethod__wrapper
+              .confirmMain__wrapper__buyerInfo__inner__payMethod__wrapper__first
+                %h3.confirmMain__wrapper__buyerInfo__inner__payMethod__wrapper__first
+                  支払い方法
+                = link_to "#" do
+                  変更する
+              %p.confirmMain__wrapper__buyerInfo__inner__payMethod__wrapper__second
+                ************1234
+                %br
+                有効期限 01 / 99
+                %br
+          %section.confirmMain__wrapper__buyerInfo__inner__shippingAddress
+            .confirmMain__wrapper__buyerInfo__inner__shippingAddress__first
+              %h3.confirmMain__wrapper__buyerInfo__inner__shippingAddress__first
+                配送先
+              = link_to "#" do
+                変更する
+            %address.confirmMain__wrapper__buyerInfo__inner__shippingAddress__second
+              〒542-0076
+              %br 
+              大阪府大阪市中央区難波５丁目１−６０
+              %br
+              中元一徹
+          %section.confirmMain__wrapper__buyerInfo__inner__btn
+            = form.submit "購入する",class: "confirmMain__wrapper__buyerInfo__inner__btn-red"
