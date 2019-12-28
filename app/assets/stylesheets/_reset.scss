@@ -13,7 +13,9 @@ html{
   TODO test putting a class on HEAD.
       - Fails on FF.
 */
-body,
+body {
+  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+}
 div,
 dl,
 dt,

@@ -93,21 +93,9 @@ section.item-box-cotainer{
 				top: 24px;
 				font-size: 28px;
 			}
+
 		
-		.item-price-box{
-			display: none;
-			.item-price{
-				margin: 0 16px 0 0;
-				font-size: 50px;
-			}
-			.item-tax{
-				font-size: 10px;
-			}
-			.item-shipping-fee{
-				display: inline-block;
-				font-size: 16px;
-			}
-		}
+
 
 		.visible-sp{
 			display: none;
@@ -147,25 +135,3 @@ section.item-box-cotainer{
 				}
 						
 		}
-	
-
-
-.item-price-box{
-	margin: 24px 0 0;
-	.item-price{
-		margin:0 16px 0 0;
-		font-size: 50px;
-	}
-	.item-tax{
-		font-size: 10px;
-	}
-	.item-shipping-fee{
-		display: inline-block;
-		font-size: 16px;
-	}
-}
-
-.item-buy-btn.disabled{
-	background: #888;
-	cursor: not-allowed;
-}
