@@ -10,16 +10,17 @@
               イメージ画像
           .confirmMain__wrapper__item__info__inner__detail
             .confirmMain__wrapper__item__info__inner__detail__name
+              はがねのつるぎ
             .confirmMain__wrapper__item__info__inner__detail__price
-              ¥6,000 (税込み) 送料込み
+              ¥ 6,000 (税込み) 送料込み
     %section.confirmMain__wrapper__buyerInfo
       .confirmMain__wrapper__buyerInfo__inner
         = form_with url: users_path do |form|
           .confirmMain__wrapper__buyerInfo__inner__price
             .confirmMain__wrapper__buyerInfo__inner__price__label
-              支払金額
+              支払い金額
             .confirmMain__wrapper__buyerInfo__inner__price__main
-              %span ¥6,000
+              %span ¥ 6,000
           .confirmMain__wrapper__buyerInfo__inner__point
             = form.check_box :point
           %section.confirmMain__wrapper__buyerInfo__inner__payMethod
@@ -29,17 +30,22 @@
                   支払い方法
                 = link_to "#" do
                   変更する
+              %p.confirmMain__wrapper__buyerInfo__inner__payMethod__wrapper__second
+                ************1234
+                %br
+                有効期限 01 / 99
+                %br
           %section.confirmMain__wrapper__buyerInfo__inner__shippingAddress
             .confirmMain__wrapper__buyerInfo__inner__shippingAddress__first
               %h3.confirmMain__wrapper__buyerInfo__inner__shippingAddress__first
                 配送先
               = link_to "#" do
                 変更する
-              %address.confirmMain__wrapper__buyerInfo__inner__shippingAddress__second
-                〒542-0076
-                %br 
-                大阪府大阪市中央区難波５丁目１−６０
-                %br
-                中元一徹
+            %address.confirmMain__wrapper__buyerInfo__inner__shippingAddress__second
+              〒542-0076
+              %br 
+              大阪府大阪市中央区難波５丁目１−６０
+              %br
+              中元一徹
           %section.confirmMain__wrapper__buyerInfo__inner__btn
-            = form.submit "購入する"
+            = form.submit "購入する",class: "confirmMain__wrapper__buyerInfo__inner__btn-red"

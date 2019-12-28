@@ -1,0 +1,127 @@
+.confirmMain {
+  &__wrapper {
+    width: 700px;
+    margin: 0 auto;
+    background: #fff;
+    &__head {
+      font-size: 22px;
+      font-weight: 700;
+      padding: 32px;
+      text-align: center;
+      line-height: 1.5;
+    }
+    &__item {
+      padding: 32px 16px;
+      text-align: center;
+      border-top: 1px solid #f5f5f5;
+      &__info {
+        max-width: 343px;
+        margin: 0 auto;
+        &__inner {
+          display: flex;
+          &__box {
+            &__image {
+              height: 80px;
+              width: 80px;
+              min-width: 80px;
+              justify-content: center;
+            }
+          }
+          &__detail {
+            margin-left: 16px;
+            &__name {
+              font-size: 14px;
+              padding-bottom: 8px;
+              line-height: 1.5;
+              text-align: left;
+            }
+            &__price {
+              font-size: 15px;
+              font-weight: 600;
+              text-align: left;
+            }
+          }
+        }
+      }
+    }
+    &__buyerInfo {
+      padding: 32px 16px 48px;
+      text-align: center;
+      border-top: 1px solid #f5f5f5;
+      &__inner {
+        max-width: 343px;
+        margin: 0 auto;
+        &__price {
+          display: flex;
+          justify-content: space-between;
+          &__label {
+            font-size: 18px;
+            font-weight: 600;
+          }
+          &__main {
+            font-size: 30px;
+            font-weight: 600;
+          }
+        }
+        &__point {
+          margin: 24px 0 32px;
+        }
+        &__payMethod {
+          padding: 32px 0;
+          border-top: 1px solid #f5f5f5;
+          &__wrapper {
+            max-width: 343px;
+            margin: 0 auto;
+            &__first {
+              font-size: 14px;
+              font-weight: 700;
+              display: flex;
+              justify-content: space-between;
+              a {
+                color: #0099e8;
+              }
+            }
+            &__second {
+              text-align: left;
+              margin-top: 8px;
+              font-size: 14px;
+              line-height: 1.5;
+            }
+          }
+        }
+        &__shippingAddress {
+          padding: 32px 0;
+          border-top: 1px solid #f5f5f5;
+          &__first {
+            font-size: 14px;
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+            a {
+              color: #0099e8;
+            }
+          }
+          &__second {
+            text-align: left;
+            margin-top: 8px;
+            font-size: 14px;
+            line-height: 1.5;
+          }
+        }
+        &__btn {
+          padding: 32px 0;
+          border-top: 1px solid #f5f5f5;
+          &-red {
+            display: block;
+            width: 100%;
+            line-height: 48px;
+            font-size: 14px;
+            background: #ea352d;
+            border: 1px solid #ea352d;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
