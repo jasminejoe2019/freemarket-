@@ -5,7 +5,7 @@
 
 section.item-box-cotainer{
   padding: 24px 40px 40px;
-
+}
 	h1.item-name{
 		font-size: 24px;
 		text-align: center;
@@ -22,32 +22,36 @@ section.item-box-cotainer{
 
 	.item-main-content{
 		margin: 16px 0 0;
+	}
 		.item-photo{
 			float: left;
 			min-width: 300px;
 			max-width: 300px;
 			min-height: 375px;
+		}
 			.owl-carousel{
 				position: relative;
+			}
 				.owl-stage-outer{
 					position: relative;
 					overflow: hidden;
+				}
 					.owl-stage{
 						left: 0px;
 						width: 600px;
+					}
 						.owl-item{
 							min-height: 1px;
 							float: left;
 							user-select: none;
+						}
 							.owl-item-inner{
 								position: relative;
 								width: 100%;
 								height: 0;
 								padding: 0 0 100%;
 							}
-						}
-					}
-				}
+				
 				.owl-nav{
 					display: none;
 					.owl-prev{
@@ -84,12 +88,12 @@ section.item-box-cotainer{
 						padding: 0;
 					}
 				}
-			}
+			
 			.item-sold-out-badge{
 				top: 24px;
 				font-size: 28px;
 			}
-		}
+		
 		.item-price-box{
 			display: none;
 			.item-price{
@@ -143,8 +147,8 @@ section.item-box-cotainer{
 				}
 						
 		}
-	}
-}
+	
+
 
 .item-price-box{
 	margin: 24px 0 0;
