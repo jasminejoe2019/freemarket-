@@ -2,6 +2,9 @@
   background-color: $app-black;
   color:$app-white;
   padding:0 20px 10px;
+  a :hover{
+    text-decoration: underline;
+  }
 }
 .item-footer__main{
   width:1020px;
@@ -36,9 +39,7 @@ a{
   text-decoration: none;
   color:$app-white;
 }
-a :hover{
-  text-decoration: underline;
-}
+
 .item-footer__privacy{
   width:43%;
 }
