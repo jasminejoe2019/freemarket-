@@ -10,47 +10,58 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_19_084141) do
+ActiveRecord::Schema.define(version: 2019_12_29_113548) do
+
+  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "postal_code"
+    t.string "prefecture"
+    t.string "city"
+    t.string "address"
+    t.string "building_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "banks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "bank_name", null: false
+    t.string "account_type", null: false
+    t.integer "branch_code", null: false
+    t.integer "account_number", null: false
+    t.string "first_name", null: false
+    t.string "family_name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "brand", null: false
-    t.bigint "brand_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["brand_id"], name: "index_brands_on_brand_id"
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "category", null: false
     t.integer "tree_parent"
-    t.bigint "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_categories_on_category_id"
   end
 
   create_table "conditions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "condition", null: false
-    t.bigint "condition_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["condition_id"], name: "index_conditions_on_condition_id"
   end
 
   create_table "delivery_areas", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "delivery_area", null: false
-    t.bigint "delivery_area_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["delivery_area_id"], name: "index_delivery_areas_on_delivery_area_id"
   end
 
   create_table "estimated_shipping_dates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "estimated_shipping_date", null: false
-    t.bigint "estimated_shipping_date_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["estimated_shipping_date_id"], name: "index_estimated_shipping_dates_on_estimated_shipping_date_id"
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -90,36 +101,38 @@ ActiveRecord::Schema.define(version: 2019_12_19_084141) do
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
-  create_table "shipping_charges", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "shipping_charge", null: false
-    t.bigint "shipping_charge_id", null: false
+  create_table "shipping_addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "postal_code", null: false
+    t.string "prefecture", null: false
+    t.string "city", null: false
+    t.string "address", null: false
+    t.string "building_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["shipping_charge_id"], name: "index_shipping_charges_on_shipping_charge_id"
+  end
+
+  create_table "shipping_charges", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "shipping_charge", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "shipping_methods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "shipping_method", null: false
-    t.bigint "shipping_method_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["shipping_method_id"], name: "index_shipping_methods_on_shipping_method_id"
   end
 
   create_table "sizes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "size", null: false
-    t.bigint "size_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["size_id"], name: "index_sizes_on_size_id"
   end
 
   create_table "statuses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "status", null: false
-    t.bigint "status_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["status_id"], name: "index_statuses_on_status_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -127,6 +140,16 @@ ActiveRecord::Schema.define(version: 2019_12_19_084141) do
     t.datetime "updated_at", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.string "nickname", null: false
+    t.string "first_name", null: false
+    t.string "first_furigana", null: false
+    t.string "family_name", null: false
+    t.string "family_furigana", null: false
+    t.date "birthday", null: false
+    t.string "telephone", null: false
+    t.string "sns_credential"
+    t.text "profile"
+    t.bigint "sales", default: 0, null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -134,11 +157,6 @@ ActiveRecord::Schema.define(version: 2019_12_19_084141) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "brands", "brands"
-  add_foreign_key "categories", "categories"
-  add_foreign_key "conditions", "conditions"
-  add_foreign_key "delivery_areas", "delivery_areas"
-  add_foreign_key "estimated_shipping_dates", "estimated_shipping_dates"
   add_foreign_key "items", "brands"
   add_foreign_key "items", "categories"
   add_foreign_key "items", "conditions"
@@ -150,8 +168,4 @@ ActiveRecord::Schema.define(version: 2019_12_19_084141) do
   add_foreign_key "items", "sizes"
   add_foreign_key "items", "statuses"
   add_foreign_key "items", "users"
-  add_foreign_key "shipping_charges", "shipping_charges"
-  add_foreign_key "shipping_methods", "shipping_methods"
-  add_foreign_key "sizes", "sizes"
-  add_foreign_key "statuses", "statuses"
 end
