@@ -5,27 +5,29 @@
       %td
         = link_to "https://www.mercari.com/" do
           ししまる
-        %div
-          .itemInfo__table_ratings
+        %div.itemInfo__table_ratings
+          .itemInfo__table_ratings-good
             %i.fas.fa-laugh
             %span 270
-          .itemInfo__table_ratings
+          .itemInfo__table_ratings-normal
             %i.fas.fa-meh
             %span 4
-          .itemInfo__table_ratings
+          .itemInfo__table_ratings-bad
             %i.fas.fa-frown
             %span 1
     %tr
       %th カテゴリー
       %td.itemInfo__table__Category
-        = link_to "https://www.mercari.com/", class:"itemInfo__table__Category-main" do
+        = link_to "https://www.mercari.com/", class:"itemInfo__table__Category-mainCategory" do
           おもちゃ・ホビー・グッズ
-        %i.fas.fa-chevron-right
-        = link_to "https://www.mercari.com/", class:"itemInfo__table__Category-sub" do
-          おもちゃ
-        %i.fas.fa-chevron-right
-        = link_to "https://www.mercari.com/", class:"itemInfo__table__Category-small" do
-          キャラクターグッズ
+        .itemInfo__table__Category-subCategory
+          %i.fas.fa-chevron-right
+          = link_to "https://www.mercari.com/" do
+            おもちゃ
+        .itemInfo__table__Category-smallCategory
+          %i.fas.fa-chevron-right
+            = link_to "https://www.mercari.com/" do
+              キャラクターグッズ
     %tr
       %th ブランド
       %td

@@ -2,9 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.item-box-container_l-single-container{
+	width:700px;
+	margin:0 auto;
+}
 
-section.item-box-cotainer{
-  padding: 24px 40px 40px;
+.item-box-cotainer{
+	padding: 24px 40px 40px;
+	&_l-single-container{
+		width:700px;
+	}
 }
 	h1.item-name{
 		font-size: 24px;
@@ -22,6 +29,8 @@ section.item-box-cotainer{
 
 	.item-main-content{
 		margin: 16px 0 0;
+		display:flex;
+		justify-content: center;
 	}
 		.item-photo{
 			float: left;
