@@ -1,0 +1,88 @@
+.message-container
+  .message-content
+    %ul.message-items
+      %li.clearfix
+        = link_to "https://www.mercari.com/", class: "message-user" do
+          %figure
+            %div
+              %img{:alt => "", :src => "//static.mercdn.net/"}/
+            %figcaption.bold
+              詩島
+        .message-body
+          .message-body-text
+            はじめまして！
+            %br/
+          .message-icons.clearfix
+            %time.message-icon-left
+              %i.icon-time
+              %span 4 日前
+            .message-icon-right
+              %form{:action => "https://www.mercari.com/", :method => "POST"}
+                %button{:type => "submit"}
+                  %i.icon-flag
+                %input{:name => "redirect_url_key", :type => "hidden", :value => "item_detail"}/
+          %i.icon-balloon
+      %li.clearfix
+        = link_to "https://www.mercari.com/", class: "message-user" do
+          %figure
+            %div
+              %img{:alt => "", :src => "//static.mercdn.net/"}/
+            %figcaption.bold
+              ししまる
+          .message-is-seller 出品者
+        .message-body
+          .message-body-text
+            詩島様
+          .message-icons.clearfix
+            %time.message-icon-left
+              %i.icon-time
+              %span 4 日前
+            .message-icon-right
+              %form{:action => "https://www.mercari.com/", :method => "POST"}
+                %button{:type => "submit"}
+                  %i.icon-flag
+                %input{:name => "redirect_url_key", :type => "hidden", :value => "item_detail"}/
+          %i.icon-balloon
+      %li.clearfix
+        = link_to "https://www.mercari.com/", class: "message-user" do
+          %figure
+            %div
+              %img{:alt => "", :src => "//static.mercdn.net/"}/
+            %figcaption.bold
+              詩島
+        .message-body
+          .message-body-text
+            ししまる様
+            %br/
+            有難うございます。
+          .message-icons.clearfix
+            %time.message-icon-left
+              %i.icon-time
+              %span 4 日前
+            .message-icon-right
+              %form{:action => "https://www.mercari.com/", :method => "POST"}
+                %button{:type => "submit"}
+                  %i.icon-flag
+                %input{:name => "redirect_url_key", :type => "hidden", :value => "item_detail"}/
+          %i.icon-balloon
+      %li.clearfix
+        = link_to "https://www.mercari.com/", class: "message-user" do
+          %figure
+            %div
+              %img{:alt => "", :src => "//static.mercdn.net/"}/
+            %figcaption.bold
+              ししまる
+          .message-is-seller 出品者
+        .message-body
+          .message-body-text
+            ありがとうございます。
+          .message-icons.clearfix
+            %time.message-icon-left
+              %i.icon-time
+              %span 4 日前
+            .message-icon-right
+              %form{:action => "https://www.mercari.com/", :method => "POST"}
+                %button{:type => "submit"}
+                  %i.icon-flag
+                %input{:name => "redirect_url_key", :type => "hidden", :value => "item_detail"}/
+          %i.icon-balloon

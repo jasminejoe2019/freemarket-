@@ -1,0 +1,47 @@
+.item-detail-message{
+	width: 700px;
+}
+
+.message-content{
+	padding: 24px;
+}
+
+.message-items{
+	margin: 0;
+}
+
+.message-user{
+	float: left;
+	position: relative;
+	top: -20px;
+	display: inline-block;
+	color: #333;
+}
+
+.message-body{
+	width: 600px;
+	float: right;
+	position: relative;
+	width: calc(100% - 56px);
+	padding: 16px;
+	background: #eef0f4;
+	border-radius: 15px;
+	line-height: 1.5;
+	word-break: break-all;
+}
+
+.message-icons{
+	margin: 8px 0 0;
+	&__time{
+		display: block;
+		color: #aaa;
+	}
+}
+
+.message-icon-left{
+	float: left;
+}
+
+.message-icon-right{
+	float: right;
+}
