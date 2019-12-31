@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_29_113548) do
+ActiveRecord::Schema.define(version: 2019_12_30_081303) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "postal_code"
@@ -101,6 +101,11 @@ ActiveRecord::Schema.define(version: 2019_12_29_113548) do
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
+  create_table "payments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "shipping_addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "postal_code", null: false
     t.string "prefecture", null: false
@@ -153,8 +158,16 @@ ActiveRecord::Schema.define(version: 2019_12_29_113548) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.bigint "payment_id"
+    t.bigint "bank_id"
+    t.bigint "address_id"
+    t.bigint "shipping_address_id"
+    t.index ["address_id"], name: "index_users_on_address_id"
+    t.index ["bank_id"], name: "index_users_on_bank_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["payment_id"], name: "index_users_on_payment_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["shipping_address_id"], name: "index_users_on_shipping_address_id"
   end
 
   add_foreign_key "items", "brands"
@@ -168,4 +181,8 @@ ActiveRecord::Schema.define(version: 2019_12_29_113548) do
   add_foreign_key "items", "sizes"
   add_foreign_key "items", "statuses"
   add_foreign_key "items", "users"
+  add_foreign_key "users", "addresses"
+  add_foreign_key "users", "banks"
+  add_foreign_key "users", "payments"
+  add_foreign_key "users", "shipping_addresses"
 end

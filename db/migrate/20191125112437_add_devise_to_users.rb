@@ -16,8 +16,7 @@ class AddDeviseToUsers < ActiveRecord::Migration[5.2]
       t.string :sns_credential,unique: true
       t.text :profile
       t.bigint :sales,null: false,default: 0
-      # t.references :payment,null: false,foreign_key: true
-
+      
 
       ## Recoverable
       t.string   :reset_password_token
