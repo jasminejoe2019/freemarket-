@@ -15,25 +15,34 @@
       display: flex;
       &-good {
         color: #ef5185;
+        span {
+          color: #333;
+        }
       }
       &-normal {
         color: #fba933;
         padding-left: 8px;
+        span {
+          color: #333;
+        }
       }
       &-bad {
         color: #6ab5d8;
         padding-left: 8px;
+        span {
+          color: #333;
+        }
       }
     }
   }
   .itemInfo__table__Category {
     display: flex;
     flex-direction: column;
-    &-mainCategory {
-    }
     &-subCategory {
+      color: #0099e8;
     }
     &-smallCategory {
+      color: #0099e8;
     }
   }
   tr {
