@@ -9,11 +9,14 @@ Rails.application.routes.draw do
   resources :mypages, only:[:edit,:index]
   resources :cards
   resources :trades
+  get "signup", to: "signup#index"
   resources :signup do
-    get 'registration'
-    post 'sms_credential'
-    post 'shipping_address'
-    get 'complete_signup'
+    collection do
+      get 'registration'
+      post 'sms_credential'
+      post 'shipping_address'
+      get 'complete_signup'
+    end
   end
 
 end
