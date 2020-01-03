@@ -61,7 +61,7 @@
   color: #888;
   font-size: 14px;
 
-  a {
+  .question  {
     display: inline-block;
     width: 14px;
     height: 14px;
@@ -103,8 +103,8 @@
 
 .l-right.sell-price-input {
   text-align: right;
-  line-height: 48px;
-  width: 100%;
+  line-height: 58px;
+  width: 80%;
 }
 
 .bold {
@@ -139,8 +139,8 @@
 }
 
 .price-input {
-  width: 30%;
-  line-height: 48px;
+  width: 20%;
+  line-height: 58px;
   text-align: left;
   margin: 0;
 }
