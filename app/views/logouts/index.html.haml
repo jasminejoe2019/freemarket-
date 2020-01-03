@@ -1,7 +1,10 @@
 = render partial: "./shared/item-header"
-.logtou
-  = render partial: "./mypages/side_menu"
-  %h1.logout__wrapper
-    ログアウト
+.main_container
+  = render partial: "./mypages/side_menu" 
+  .profile
+    .profile_container
+      .profile__container__description
+        %button.btn-default.btn-red.logout-btn
+          ログアウト
 = render partial: "./items/appbanner"
 = render partial: "./shared/item-footer"
