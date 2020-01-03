@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   resources :mypages, only:[:edit,:index]
   resources :cards
   resources :trades
-  resources :logout
+  resources :logouts
 end
