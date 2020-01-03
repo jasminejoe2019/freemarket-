@@ -1,0 +1,29 @@
+
+.cardInfo
+  %section.cardInfo__container
+    %h2.cardInfo__container__head
+      支払い方法
+    %section.cardInfo__container__inner
+      .cardInfo__container__inner__content
+        %h3.cardInfo__container__inner__content__subHead
+          クレジットカード一覧
+      %ul.cardInfo__container__inner__list
+        %li
+          = form_with url: users_path,class: "cardInfo__container__inner__list__form" do |form|
+            .cardInfo__container__inner__list__form__item
+              %i.fab.fa-cc-jcb.fa-lg
+              .cardInfo__container__inner__list__form__item__num
+                ************1234
+              .cardInfo__container__inner__list__form__item__expirationDate 
+                01/99
+            .cardInfo__container__inner__list__form__delete
+              = form.submit "削除する"
+        -# カード情報がない場合は下の「クレジットカードを追加する」ボタンを表示させる。
+        -# =link_to "#", class: "cardInfo__container__inner__list__btn" do
+        -#   %i.fas.fa-credit-card
+        -#   クレジットカードを追加する
+      .cardInfo__container__foot
+        =link_to "#" do
+          %span 支払い方法について
+          %i.fas.fa-chevron-right.fa-pull-right
+

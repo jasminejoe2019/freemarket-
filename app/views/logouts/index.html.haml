@@ -1,0 +1,10 @@
+= render partial: "./shared/item-header"
+.main_container
+  = render partial: "./mypages/side_menu" 
+  .profile
+    .profile__container
+      .profile__container__description
+        %button.btn-default.btn-red.logout-btn
+          ログアウト
+= render partial: "./items/appbanner"
+= render partial: "./shared/item-footer"

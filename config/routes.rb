@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :addresses
   resources :shipping_addresses
   resources :payments
-  resources :mypages, only:[:edit]
-  resources :mainmypages, only: [:index]
+  resources :mypages, only:[:edit,:index]
+  resources :cards
+  resources :trades
+  resources :logouts
 end
