@@ -1,9 +1,11 @@
 .sell-form{
   border-top:1px solid #eee;
   height: 100%;
+  width: 100%;
   &__content{
-    // width:620px;
     padding:40px;
+    width: 100%;
+    height: 100%;
   }
 }
 
@@ -58,6 +60,18 @@
   float: left;
   color: #888;
   font-size: 14px;
+
+  a {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #0099e8;
+    color: #fff;
+    line-height: 14px;
+    font-size: 12px;
+    text-align: center;
+  }
 }
 
 .sell-form-box {
@@ -65,9 +79,87 @@
   float: right;
 }
 
-.select-default.select-product {
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+  font-size: 14px;
+}
 
+.clearfix {
+  font-size: 16px;
+}
+.form-groups.select-box {
+  font-size: 16px;
+}
+
+.l-left {
+  float: left;
+}
+
+.form-groups label {
+  font-weight: 600;
+}
+
+.l-right.sell-price-input {
+  text-align: right;
+  line-height: 48px;
+  width: 100%;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.l-left {
+  float: left;
+  font-size: 16px;
+}
+
+.l-right {
+  float: right;
+  font-size: 16px;
+}
+
+.sell-price li {
+  padding: 24px 0;
+  border-top: 1px solid #ccc;
+  display: list-item;
+  list-style-type: none;
+  text-transform: uppercase;
+}
+
+.l-right.bold {
+  font-size: 30px;
+}
+
+.sell-price li:first-child {
+  padding: 0 0 24px;
+  border: 0;
+}
+
+.price-input {
+  width: 30%;
+  line-height: 48px;
+  text-align: left;
+  margin: 0;
 }
 
 .form-groups.select-box {
+}
+
+.sell-form__content a {
+  color: #0099e8;
+  text-decoration: none;
+}
+
+.btn-default.btn-red.shipping-wide {
+  width: 100%;
+}
+
+.btn-default.btn-gray {
+  background: #aaa;
+  border: 1px solid #aaa;
+  color: #fff;
+  margin: 24px auto 0;
 }
