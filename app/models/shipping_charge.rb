@@ -1,4 +1,4 @@
 class ShippingCharge < ApplicationRecord
-  # belongs to item
+  # belongs_to :item
   validates :shipping_charge ,presence: true
 end
