@@ -1,3 +1,4 @@
 class Category < ApplicationRecord
-  belongs to item
+  # belongs to item
+  validates :category,presence: true
 end

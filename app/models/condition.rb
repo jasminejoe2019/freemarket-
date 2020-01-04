@@ -1,3 +1,4 @@
 class Condition < ApplicationRecord
-  belongs to item
+  # belongs to item
+  validates :condition,presence: true
 end

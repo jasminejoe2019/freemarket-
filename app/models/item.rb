@@ -1,14 +1,19 @@
 class Item < ApplicationRecord
-  has_many categories, dependent: :destroy
-  has_many brands, dependent: :destroy
-  has_many images, dependent: :destroy
-  has_many sizes, dependent: :destroy
-  has_many conditions, dependent: :destroy
-  has_many shipping_charges, dependent: :destroy
-  has_many shipping_methods, dependent: :destroy
-  has_many delivery_areas, dependent: :destroy
-  has_many estimated_shipping_dates, dependent: :destroy
-  has_many statuses, dependent: :destroy
-  belings to user
-  belongs to trade
+  # belongs_to :category, dependent: :destroy,optional: true
+  # belongs_to :brand, dependent: :destroy,optional: true
+  # has_many :images
+  # belongs_to :size, dependent: :destroy,optional: true
+  # belongs_to :condition, dependent: :destroy,optional: true
+  # belongs_to :shipping_charge, dependent: :destroy,optional: true
+  # belongs_to :shipping_method, dependent: :destroy,optional: true
+  # belongs_to :delivery_areas, dependent: :destroy,optional: true
+  # belongs_to :estimated_shipping_date, dependent: :destroy,optional: true
+  # belongs_to :status, dependent: :destroy,optional: true
+  # belongs to :user,dependent: :destroy,optional: true
+  # belongs to :trade,dependent: :destroy,optional: true
+  validates :name,presence: true,length: {maximum: 40}
+  validates :price,presence: true
+  validates :description,presence: true,length: {maximum: 1000}
+
+
 end

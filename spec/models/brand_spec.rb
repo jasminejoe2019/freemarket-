@@ -1,5 +1,10 @@
 require 'rails_helper'
-
-RSpec.describe Brand, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Brand do
+  describe '#create' do
+    it "is invalid without a brand" do
+      image = build(:brand,brand: "")
+      image.valid?
+      expect(image.errors[:brand]).to include("can't be blank")
+    end
+  end
 end

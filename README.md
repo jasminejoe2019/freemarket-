@@ -29,7 +29,7 @@
 - has many notices, dependent: :destroy
 - has many todos, dependent: :destroy
 - has many iines, dependent: :destroy
-- has many comments, dependent: :destroy  
+- has many comments, dependent: :destroy
 - has many ngs
 - has many payments, dependent: :destroy
 - has many banks, dependent: :destroy
@@ -163,23 +163,23 @@
 |status_id|references|null: false, foreign_key: true|
 |estimated_shipping_date_id|integer|null: false, foreign_key: true|
 |category_id|references|null: false, foreign_key: true|
+|brand_id|references|null: false, foreign_key: true|
 |user_id|references|null: false, foreign_key: true|
 
 #### Association
-- has many iines, dependent: :destroy
-- has many comments, dependent: :destroy
-- has many ngs
-- has_many categories, dependent: :destroy
-- has_many brands, dependent: :destroy
+- has_many iines
+- has_many comments, dependent: :destroy
+- has_many ngs
+- belongs_to categories, dependent: :destroy
+- belongs_to brands, dependent: :destroy
 - has_many images, dependent: :destroy
-- has_many sizes, dependent: :destroy
-- has_many conditions, dependent: :destroy
-- has_many shipping_charges, dependent: :destroy
-- has_many shipping_methods, dependent: :destroy
-- has_many shipping_methods, dependent: :destroy
-- has_many statuses, dependent: :destroy
+- belongs_to sizes, dependent: :destroy
+- belongs_to conditions, dependent: :destroy
+- belongs_to shipping_charges, dependent: :destroy
+- belongs_to shipping_methods, dependent: :destroy
+- belongs_to statuses, dependent: :destroy
 - belings to user
-- belongs to trade
+- has_many trades
 
 #### index
 - add_index :items, :price
@@ -187,7 +187,7 @@
 #### imageテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image|string|null: false, limit: 10|
+|image|string|null: false|
 |item_id|references|null: false, foreign_key: true|
 
 #### Association
@@ -199,10 +199,9 @@
 |Column|Type|Options|
 |------|----|-------|
 |size|string|null: false|
-|size_id|integer|null: false, foreign_key: true|
 
 #### Association
-- belongs to item
+- has_many items
 
 #### index
 - add_index :size, :size
@@ -212,10 +211,9 @@
 |Column|Type|Options|
 |------|----|-------|
 |condition|string|null: false|
-|condition_id|integer|null: false, foreign_key: true|
 
 #### Association
-- belongs to item
+- has_many items
 
 #### index
 - add_index :condition, :condition
@@ -225,10 +223,9 @@
 |Column|Type|Options|
 |------|----|-------|
 |shipping_charge|string|null: false|
-|shipping_charge_id|integer|null: false, foreign_key: true|
 
 #### Association
-- belongs to item
+- has_many items
 
 #### index
 - add_index :shipping_charge, :shipping_charge
@@ -238,10 +235,9 @@
 |Column|Type|Options|
 |------|----|-------|
 |shipping_method|string|null: false|
-|shipping_method_id|integer|null: false, foreign_key: true|
 
 #### Association
-- belongs to item
+- has_many items
 
 #### index
 - add_index :shipping_method, :shipping_method
@@ -251,10 +247,10 @@
 |Column|Type|Options|
 |------|----|-------|
 |delivery_area|string|null: false|
-|delivery_area_id|integer|null: false, foreign_key: true|
+
 
 #### Association
-- belongs to item
+- has_many items
 
 #### index
 - add_index :delivery_area, :delivery_area
@@ -264,10 +260,9 @@
 |Column|Type|Options|
 |------|----|-------|
 |estimated_shipping_date|string|null: false|
-|estimated_shipping_date_id|integer|null: false, foreign_key: true|
 
 #### Association
-- belongs to item
+- has_many items
 
 #### index
 - add_index :estimated_shipping_date, :estimated_shipping_date
@@ -277,10 +272,9 @@
 |Column|Type|Options|
 |------|----|-------|
 |status|string|null: false|
-|status_id|references|null: false, foreign_key: true|
 
 #### Association
-- belongs to item
+- has_many item
 
 #### index
 - add_index :status, :status
@@ -303,11 +297,10 @@
 ### brandテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
-|item_id|references|null: false, foreign_key: true|
+|brand|string|null: false|
 
 #### Association
-- belongs to item
+- has_many items
 
 #### index
 - add_index :brand, :name
@@ -315,12 +308,12 @@
 ### categoryテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
+|category|string|null: false|
 |tree_parent|integer||
 
 
 #### Association
-- belongs to item
+- has_many items
 
 #### index
 - add_index :category, :name
