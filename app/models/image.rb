@@ -1,4 +1,4 @@
 class Image < ApplicationRecord
-  # belongs to item
+  # belongs_to :item
   validates :image,presence: true
 end

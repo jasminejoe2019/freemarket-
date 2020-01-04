@@ -1,4 +1,4 @@
 class DeliveryArea < ApplicationRecord
-  # belongs to item
+  # belongs_to :item
   validates :delivery_area ,presence: true
 end

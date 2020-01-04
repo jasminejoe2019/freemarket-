@@ -1,4 +1,4 @@
 class Status < ApplicationRecord
-  # belongs to item
+  # belongs_to :item
   validates :status,presence: true
 end

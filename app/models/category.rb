@@ -1,4 +1,4 @@
 class Category < ApplicationRecord
-  # belongs to item
+  # belongs_to :item
   validates :category,presence: true
 end

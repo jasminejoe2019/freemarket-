@@ -1,4 +1,4 @@
 class ShippingMethod < ApplicationRecord
-  # belongs to item
+  # belongs_to :item
   validates :shipping_method ,presence: true
 end

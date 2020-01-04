@@ -1,4 +1,4 @@
 class EstimatedShippingDate < ApplicationRecord
-  # belongs to item
+  # belongs_to :item
   validates :estimated_shipping_date,presence: true
 end
