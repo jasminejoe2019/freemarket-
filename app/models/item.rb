@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
   # belongs_to :category, dependent: :destroy,optional: true
   # belongs_to :brand, dependent: :destroy,optional: true
-  # has_many :images
+  has_many :images
   # belongs_to :size, dependent: :destroy,optional: true
   # belongs_to :condition, dependent: :destroy,optional: true
   # belongs_to :shipping_charge, dependent: :destroy,optional: true
