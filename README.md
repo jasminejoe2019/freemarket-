@@ -14,13 +14,8 @@
 |family_furigana|string|null: false|
 |birthday|date|null: false|
 |telephone|integer|null: false|
-|sns_credential|string|unique: true|
 |profile|text||
 |sales|bigint|null: false|
-|payment_id|references|null: false, foreign_key: true|
-|bank_id|references|foreign_key: true|
-|address_id|references|foreign_key: true|
-|shipping_address_id|references|null: false, foreign_key: true|
 
 #### Association
 - has many items, dependent: :destroy
@@ -46,9 +41,10 @@
 |city|string||
 |address|integer||
 |building_name|string||
+|user_id|references|null: false,foreign_key:true|
 
 #### Association
-- belongs to user
+- belongs to user,optional: true
 
 #### index
 
@@ -60,21 +56,34 @@
 |city|string|null: false|
 |address|integer|null: false|
 |building_name|string||
+|user_id|references|null: false,foreign_key:true|
 
 #### Association
-- belongs to user
+- belongs to user,optional: true
 
 #### index
 
 ### paymentテーブル
 |Column|Type|Options|
 |------|----|-------|
-|credit_card_number|integer|null: false|
-|expiration_date|date|null: false|
-|security_code|integer|null: false|
+|customer_id|string|null: false|
+|card_id|string|null: false|
+|user_id|references|null: false,foreign_key:true|
 
 #### Association
-- belongs to user
+- belongs to user,optional: true
+
+#### index
+
+### sns_credentialテーブル
+|Column|Type|Options|
+|------|----|-------|
+|provider|string||
+|uid|string||
+|user_id|references|null: false,foreign_key:true|
+
+#### Association
+- belongs to user,optional: true
 
 #### index
 
@@ -87,9 +96,10 @@
 |account_number|integer|null: false|
 |first_name|string|null: false|
 |family_name|string|null: false|
+|user_id|references|null: false,foreign_key:true|
 
 #### Association
-- belongs to user
+- belongs to user,optional: true
 
 #### index
 
