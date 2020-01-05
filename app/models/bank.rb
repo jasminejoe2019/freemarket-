@@ -1,2 +1,3 @@
 class Bank < ApplicationRecord
+  belongs_to :user,optional: true
 end

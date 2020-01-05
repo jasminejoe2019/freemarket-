@@ -13,10 +13,10 @@ class AddDeviseToUsers < ActiveRecord::Migration[5.2]
       t.string :family_furigana, null: false
       t.date :birthday, null: false
       t.string :telephone,null: false
-      t.string :sns_credential,unique: true
       t.text :profile
       t.bigint :sales,null: false,default: 0
-      
+      t.string :mobile,null: false
+      t.references :payment
 
       ## Recoverable
       t.string   :reset_password_token

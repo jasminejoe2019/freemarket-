@@ -57,6 +57,11 @@ describe User do
       user.valid?
       expect(user.errors[:sales]).to include("can't be blank")
     end
+    it "is invalid without a mobile" do
+      user = build(:user,mobile: "")
+      user.valid?
+      expect(user.errors[:mobile]).to include("can't be blank")
+    end
     # it "is invalid with a duplicate sns_credential" do
     #   shipping_address=create(:shipping_address)
     #   user=create(:user)
@@ -73,6 +78,37 @@ describe User do
       user = build(:user,family_furigana: "a")
       user.valid?
       expect(user.errors[:family_furigana]).to include("はカタカナで入力して下さい。")
+    end
+    it "is invalid with a wrong birthday" do
+      user = build(:user,birthday: "20200231")
+      user.valid?
+      expect(user.errors[:birthday]).to include("日付の値が不正です")
+    end
+    it "is valid with a birthday" do
+      user = build(:user)
+      user.valid?
+      expect(user).to be_valid
+    end
+    it "is invalid with a regulation email" do
+      user = build(:user,email: "a")
+      user.valid?
+      expect(user.errors[:email]).to include("メールアドレスが正しくありません。")
+    end
+    it "is invalid with a regulation telephone" do
+      user = build(:user,telephone: "012345678901")
+      user.valid?
+      expect(user.errors[:telephone]).to include("電話番号が正しくありません（ハイフンなし）。")
+    end
+    it "is invalid with a regulation mobile" do
+      user = build(:user,mobile: "012345678901")
+      user.valid?
+      expect(user.errors[:mobile]).to include("携帯番号が正しくありません（ハイフンなし）。")
+    end
+    it "is invalid with a duplicate email address" do
+      user=create(:user)
+      another_user = build(:user,email: user.email)
+      another_user.valid?
+      expect(another_user.errors[:email]).to include("has already been taken")
     end
   end
 end

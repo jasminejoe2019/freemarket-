@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_30_081303) do
+ActiveRecord::Schema.define(version: 2020_01_05_070212) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "postal_code"
@@ -18,8 +18,10 @@ ActiveRecord::Schema.define(version: 2019_12_30_081303) do
     t.string "city"
     t.string "address"
     t.string "building_name"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
   create_table "banks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -29,8 +31,10 @@ ActiveRecord::Schema.define(version: 2019_12_30_081303) do
     t.integer "account_number", null: false
     t.string "first_name", null: false
     t.string "family_name", null: false
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_banks_on_user_id"
   end
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -102,8 +106,12 @@ ActiveRecord::Schema.define(version: 2019_12_30_081303) do
   end
 
   create_table "payments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "customer_id", null: false
+    t.string "card_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_payments_on_user_id"
   end
 
   create_table "shipping_addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -112,8 +120,10 @@ ActiveRecord::Schema.define(version: 2019_12_30_081303) do
     t.string "city", null: false
     t.string "address", null: false
     t.string "building_name"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_shipping_addresses_on_user_id"
   end
 
   create_table "shipping_charges", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -134,6 +144,15 @@ ActiveRecord::Schema.define(version: 2019_12_30_081303) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "provider"
+    t.string "uid"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sns_credentials_on_user_id"
+  end
+
   create_table "statuses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "status", null: false
     t.datetime "created_at", null: false
@@ -152,24 +171,20 @@ ActiveRecord::Schema.define(version: 2019_12_30_081303) do
     t.string "family_furigana", null: false
     t.date "birthday", null: false
     t.string "telephone", null: false
-    t.string "sns_credential"
     t.text "profile"
     t.bigint "sales", default: 0, null: false
+    t.string "mobile", null: false
+    t.bigint "payment_id"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.bigint "payment_id"
-    t.bigint "bank_id"
-    t.bigint "address_id"
-    t.bigint "shipping_address_id"
-    t.index ["address_id"], name: "index_users_on_address_id"
-    t.index ["bank_id"], name: "index_users_on_bank_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["payment_id"], name: "index_users_on_payment_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["shipping_address_id"], name: "index_users_on_shipping_address_id"
   end
 
+  add_foreign_key "addresses", "users"
+  add_foreign_key "banks", "users"
   add_foreign_key "items", "brands"
   add_foreign_key "items", "categories"
   add_foreign_key "items", "conditions"
@@ -181,8 +196,7 @@ ActiveRecord::Schema.define(version: 2019_12_30_081303) do
   add_foreign_key "items", "sizes"
   add_foreign_key "items", "statuses"
   add_foreign_key "items", "users"
-  add_foreign_key "users", "addresses"
-  add_foreign_key "users", "banks"
-  add_foreign_key "users", "payments"
-  add_foreign_key "users", "shipping_addresses"
+  add_foreign_key "payments", "users"
+  add_foreign_key "shipping_addresses", "users"
+  add_foreign_key "sns_credentials", "users"
 end
