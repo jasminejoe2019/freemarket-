@@ -112,12 +112,12 @@
 }
 .items-element {
   width: 20%;
-  padding: 4px;
+  padding: 10px;
   box-shadow: $app-box-shadow;
   position: relative;
   &__image {
     object-fit: cover;
-    width: 200px;
+    width: 100%;
     height: 200px;
   }
   &__name {
@@ -133,6 +133,7 @@
     z-index: 2;
     border-radius: 0 14px 14px 0;
     display: inline-flex;
+    align-items: center;
     font-size: 17px;
     height: 28px;
     letter-spacing: 0.02em;
