@@ -97,6 +97,9 @@
     margin-bottom: 16px;
   }
   &__watchmore {
+    font-size: 14px;
+    display: inline-flex;
+    align-items: flex-end;
     &__right {
       width: 16px;
       height: 16px;
@@ -113,7 +116,7 @@
 .items-element {
   width: 20%;
   padding: 10px;
-  box-shadow: $app-box-shadow;
+
   position: relative;
   &__image {
     object-fit: cover;
@@ -121,13 +124,16 @@
     height: 200px;
   }
   &__name {
+    font-size: 14px;
+    padding: 0 12px;
     background-image: $app-white;
-    height: 3.4em;
+    height: 3.2em;
     overflow: hidden;
+    box-shadow: $app-box-shadow;
   }
   &__price {
     position: absolute;
-    top: 160px;
+    top: 175px;
     background-color: rgba(0, 0, 0, 0.4);
     color: $app-white;
     z-index: 2;
