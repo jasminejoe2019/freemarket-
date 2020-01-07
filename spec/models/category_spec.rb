@@ -1,5 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe Category, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Category do
+  describe '#create' do
+    it "is invalid without a category" do
+      category = build(:category,category: "")
+      category.valid?
+      expect(category.errors[:category]).to include("can't be blank")
+    end
+  end
 end

@@ -1,5 +1,10 @@
 require 'rails_helper'
-
-RSpec.describe ShippingCharge, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe ShippingCharge do
+  describe '#create' do
+    it "is invalid without a shipping_charge" do
+      shipping_charge = build(:shipping_charge,shipping_charge: "")
+      shipping_charge.valid?
+      expect(shipping_charge.errors[:shipping_charge]).to include("can't be blank")
+    end
+  end
 end

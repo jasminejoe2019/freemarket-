@@ -19,63 +19,10 @@
       = link_to 'もっと見る >',root_path
   .items-elements__wrapper
     %ul.items-elements
-      %li.items-element
-        = link_to image_tag 'element.jpg',class: 'items-element__image'
-        .items-element__name
-          生後半年経ちました。
-        .items-element__price
-          ¥10,000
-      %li.items-element
-        = link_to image_tag 'element.jpg',class: 'items-element__image'
-        .items-element__name
-          生後半年経ちました。
-        .items-element__price
-          ¥10,000
-      %li.items-element
-        = link_to image_tag 'element.jpg',class: 'items-element__image'
-        .items-element__name
-          生後半年経ちました。
-        .items-element__price
-          ¥10,000
-      %li.items-element
-        = link_to image_tag 'element.jpg',class: 'items-element__image'
-        .items-element__name
-          生後半年経ちました。
-        .items-element__price
-          ¥10,000
-      %li.items-element
-        = link_to image_tag 'element.jpg',class: 'items-element__image'
-        .items-element__name
-          生後半年経ちました。
-        .items-element__price
-          ¥10,000
-      %li.items-element
-        = link_to image_tag 'neko3.jpg',class: 'items-element__image'
-        .items-element__name
-          末っ子の猫
-        .items-element__price
-          ¥10,000
-      %li.items-element
-        = link_to image_tag 'neko3.jpg',class: 'items-element__image'
-        .items-element__name
-          末っ子の猫
-        .items-element__price
-          ¥10,000
-      %li.items-element
-        = link_to image_tag 'neko3.jpg',class: 'items-element__image'
-        .items-element__name
-          末っ子の猫
-        .items-element__price
-          ¥10,000
-      %li.items-element
-        = link_to image_tag 'neko3.jpg',class: 'items-element__image'
-        .items-element__name
-          末っ子の猫
-        .items-element__price
-          ¥10,000
-      %li.items-element
-        = link_to image_tag 'neko3.jpg',class: 'items-element__image'
-        .items-element__name
-          末っ子の猫
-        .items-element__price
-          ¥10,000
+      - @item.each do |item|
+        %li.items-element
+          = link_to image_tag item.images[0].image ,class: 'items-element__image'
+          .items-element__name
+            = item.name
+          .items-element__price
+            = number_to_currency item.price
