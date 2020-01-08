@@ -1,0 +1,3 @@
+$(function(){
+  $('.dropbox-text').draggable();
+}

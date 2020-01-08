@@ -1,3 +1,7 @@
+%head
+  %script{src: "http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"}
+  %script{src: "https://code.jquery.com/ui/1.12.1/jquery-ui.js"}
+  %script{src: "./shipping.js"}
 .single-container
   .main
     .main__container
@@ -140,6 +144,7 @@
               加盟店規約
             に同意したことになります。
         .sell-form__content
-          %button.btn-default.btn-red.shipping-wide{type:"submit"} 出品する
-          =link_to "#", class: "btn-default btn-gray" do
+          = form_for @item do |f|
+            = f.submit '出品する', class: 'btn-default btn-red shipping-wide'
+          =link_to :back, class: "btn-default btn-gray" do
             もどる
