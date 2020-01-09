@@ -9,7 +9,7 @@ class Item < ApplicationRecord
   # belongs_to :shipping_method, dependent: :destroy,optional: true
   # belongs_to :delivery_areas, dependent: :destroy,optional: true
   # belongs_to :estimated_shipping_date, dependent: :destroy,optional: true
-  # belongs_to :status, dependent: :destroy,optional: true
+  belongs_to :status, dependent: :destroy,optional: true
   # belongs to :user,dependent: :destroy,optional: true
   # belongs to :trade,dependent: :destroy,optional: true
   validates :name,presence: true,length: {maximum: 40}
