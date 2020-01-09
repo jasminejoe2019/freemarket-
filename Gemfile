@@ -80,6 +80,7 @@ gem 'mini_magick'
 gem 'pry-rails'
 gem 'fog-aws'
 gem 'sprockets-es6'
+gem 'payjp'
 
 group :production do
   gem 'unicorn', '5.4.1'
