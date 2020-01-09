@@ -142,5 +142,49 @@
 						}
 					}
 				}
-						
 		}
+.other-items{
+	width: 700px;
+	margin: 0 auto;
+}
+.item-box__head{
+	font-size: 22px;
+	margin: 24px 0 8px;
+	line-height:1.4;
+	& a{
+		color:#0099e8;
+		text-decoration: none;
+		touch-action:manipulation;
+	}
+}
+.item-box__contents{
+	display:flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.item-box__container{
+	width:220px;
+	margin:0 13px 20px 0;
+	&__image{
+		width:220px;
+		height:220px;
+	}
+	&__body{
+		padding:16px;
+		height:110px;
+	}
+	&__name{
+		overflow: hidden;
+		text-overflow: clip;
+		position:relative;
+		font-weight:400;
+		height:3em;
+		line-height:1.5;
+		white-space: normal;
+	}
+	&__num{
+		display:flex;
+		justify-content: space-between;
+		margin:8px 0 0;
+	}
+}
