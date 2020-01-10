@@ -1,0 +1,53 @@
+.profile {
+  width: 700px;
+  order: 1;
+  &__container {
+    &__head {
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+      padding: 8px 24px;
+      background-color: white;
+    }
+    &__name {
+      padding: 72px 16px 24px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      background: image-url("name.jpg");
+      &__icon {
+        font-size: 60px;
+      }
+      &__input {
+        width: 220px;
+        height: 48px;
+        padding: 10px 16px 8px;
+        border: 1px solid $app-grey;
+        margin-left: 8px;
+      }
+    }
+    &__description {
+      padding: 40px 16px;
+      background-color: white;
+      &__input {
+        width: 100%;
+        max-width: 100%;
+        min-height: 216px;
+        padding: 10px;
+        border: 1px solid $app-grey;
+        font-size: 16px;
+        line-height: 1.5;
+        resize: vertical;
+      }
+      &__btn {
+        width: 100%;
+        line-height: 48px;
+        margin-top: 16px;
+        font-size: 14px;
+        color: #fff;
+        background-color: #ea352d;
+        border: 1px solid #ea352d;
+      }
+    }
+  }
+}

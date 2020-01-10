@@ -1,0 +1,145 @@
+.single-container
+  .main
+    .main__container
+      %h2.main__container__head
+        商品の情報を入力
+      .sell-form
+        .sell-form__content
+          %h3.item-upload-head
+            出品画像
+            %span.form-require
+              必須
+            %p
+              最大10枚までアップロードできます
+          .dropbox-container
+            .dropbox-text-container
+              %pre.dropbox-text
+                ドラッグアンドドロップ
+                またはクリックしてファイルをアップロード
+      .sell-form
+        .form-groups.product-box
+          %label(for="productname")
+            商品名
+          %span.form-require
+            必須
+          %input.input-default2{ placeholder: "商品名（必須 40文字まで）", type: "text", value:""}
+        .form-groups.product-box
+          %label(for="description")
+            商品の説明
+          %span.form-require
+            必須
+          %textarea.textarea-default{ placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など） 例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", type: "text", value:""}
+      .sell-form
+        .sell-form__content.clearfix
+          %h3.sell-sub-head
+            商品の詳細
+          .sell-form-box
+            .form-groups.select-box
+              %label(for="categories")
+                カテゴリー
+              %span.form-require
+                必須
+              %select{name: "categories", class: "select-default select-product"}
+                %option(label="--")
+                %option(label="レディース")
+                %option(label="メンズ")
+                %option(label="ベビー・キッズ")
+                %option(label="インテリア・住まい・小物")
+                %option(label="本・音楽・ゲーム")
+            .form-groups.select-box
+              %label(for="status")
+                商品の状態
+              %span.form-require
+                必須
+              %select{name: "status", class: "select-default select-product"}
+                %option(label="--")
+                %option(label="新品、未使用")
+                %option(label="未使用に近い")
+                %option(label="目立った傷や汚れなし")
+                %option(label="やや傷や汚れあり")
+                %option(label="全体的に状態が悪い")
+      .sell-form
+        .sell-form__content.clearfix
+          %h3.sell-sub-head
+            配送について
+          .sell-form-box
+            .form-groups.select-box
+              %label(for="delivery")
+                配送料の負担
+              %span.form-require
+                必須
+              %select{name: "delivery", class: "select-default select-product"}
+                %option(label="--")
+                %option(label="送料込み（出品者負担）")
+                %option(label="着払い（購入者負担）")
+            .form-groups.select-box
+              %label(for="shipping")
+                発送元の地域
+              %span.form-require
+                必須
+              %select{name: "shipping", class: "select-default select-product"}
+                %option(label="北海道")
+                %option(label="青森")
+                %option(label="岩手")
+                %option(label="秋田")
+                %option(label="新潟")
+            .form-groups.select-box
+              %label(for="days")
+                発送までの日数
+              %span.form-require
+                必須
+              %select{name: "shipping", class: "select-default select-product"}
+                %option(label="1~2日で発送")
+                %option(label="2~3日で発送")
+                %option(label="4~7日で発送")
+      .sell-form
+        .sell-form__content.clearfix
+          %h3.sell-sub-head
+            販売価格(300~9,999,999)
+            = link_to '#', class: "question" do
+              ?
+          .sell-form-box
+            %ul.sell-price
+              %li.form-groups.select-box.clearfix
+                .price-input.l-left
+                  %label.l-left(for="price")
+                    価格
+                  %span.form-require
+                    必須
+                .l-right.sell-price-input
+                  ¥
+                  %input{type: "text", valuename: "price", placeholder: "例) 300", class: "input-default2 half clearfix"}
+                %li.clearfix
+                  .l-left
+                    販売手数料(10%)
+                  .l-right
+                    \-
+                %li.clearfix.bold
+                  .l-left
+                    販売利益
+                  .l-right.bold
+                    \-
+      .sell-form
+        .sell-form__content
+          %p
+            =link_to "#" do
+              禁止されている出品
+            、
+            =link_to "#" do
+              行為
+            を必ずご確認ください。
+          %p
+            %div
+              またブランド品でシリアルナンバー等がある場合はご記載ください。
+              =link_to "#" do
+                偽ブランドの販売
+              は犯罪であり処罰される可能性があります。
+          %p
+            また、出品をもちまして
+            =link_to "#" do
+              加盟店規約
+            に同意したことになります。
+        .sell-form__content
+          %button.btn-default.btn-red.shipping-wide{type:"submit"} 出品する
+          =link_to "#", class: "btn-default btn-gray" do
+            もどる

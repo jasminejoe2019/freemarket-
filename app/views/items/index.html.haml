@@ -1,1 +1,10 @@
-= render partial: "detail_info"
+= render '/shared/item-header'
+= render '/shared/eyecatch'
+= render '/shared/elements'
+.exhibit-btn
+  .exhibit-btn__text
+    = link_to '出品',root_path
+  .exhibit-btn__icon
+    =icon 'fas','camera'
+= render partial: "appbanner"
+= render '/shared/item-footer'

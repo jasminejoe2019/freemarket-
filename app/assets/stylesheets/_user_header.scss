@@ -1,0 +1,17 @@
+.header {
+  height: 128px;
+  line-height: 128px;
+
+  &__logo {
+    height: 49px;
+    width: 189px;
+    display: block;
+    margin: auto;
+    text-align: center;
+    line-height: 128px;
+  }
+}
+
+.header h1 {
+  padding: 40px 0 0;
+}

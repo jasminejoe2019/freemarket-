@@ -1,0 +1,87 @@
+.menu {
+  width: 280px;
+  background-color: white;
+  margin-right: 40px;
+  order: 0;
+  &__feature {
+    &__myPage {
+      @include sideMenuForm();
+    }
+    &__notice {
+      @include sideMenuForm();
+    }
+    &__todo {
+      @include sideMenuForm();
+    }
+    &__iineList {
+      @include sideMenuForm();
+    }
+    &__trade {
+      @include sideMenuForm();
+    }
+    &__tradingListing {
+      @include sideMenuForm();
+    }
+    &__tradingInProgress {
+      @include sideMenuForm();
+    }
+    &__tradingCompleted {
+      @include sideMenuForm();
+    }
+    &__purchase {
+      @include sideMenuForm();
+    }
+    &__purchased {
+      @include sideMenuForm();
+    }
+    &__news {
+      @include sideMenuForm();
+    }
+    &__grade {
+      @include sideMenuForm();
+    }
+    &__guide {
+      @include sideMenuForm();
+    }
+    &__support {
+      @include sideMenuForm();
+    }
+  }
+  &__titleReceipt {
+    @include sideMenuFormTitle();
+  }
+  .menu__receipt {
+    &__sales {
+      @include sideMenuForm();
+    }
+    &__point {
+      @include sideMenuForm();
+    }
+  }
+  &__titleSetting {
+    @include sideMenuFormTitle();
+  }
+  .menu__setting {
+    &__profile {
+      @include sideMenuFormSelected();
+    }
+    &__deliverAddress {
+      @include sideMenuForm();
+    }
+    &__card {
+      @include sideMenuForm();
+    }
+    &__emailPassword {
+      @include sideMenuForm();
+    }
+    &__identification {
+      @include sideMenuForm();
+    }
+    &__smsConfirmation {
+      @include sideMenuForm();
+    }
+    &__logout {
+      @include sideMenuForm();
+    }
+  }
+}

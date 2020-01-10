@@ -1,0 +1,60 @@
+@mixin notificaitonContents {
+  width: 700px;
+  &__list {
+    display: none;
+    :hover {
+      background: #fafafa;
+    }
+    &__article {
+      width: 700px;
+      min-height: 80px;
+      border-bottom: $app-line;
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &__sample {
+        padding-left: 20px;
+        padding-right: 5px;
+        &__text {
+          width: 560px;
+          line-height: 1.5;
+          font-size: 14px;
+          text-align: left;
+          text-overflow: ellipsis;
+        }
+        &__time {
+          font-size: 14px;
+          color: #000;
+        }
+      }
+      .fas.fa-chevron-right.fa-pull-right {
+        display: inline-flex;
+        align-items: center;
+      }
+    }
+    &__link {
+      line-height: 56px;
+      padding: 16px;
+      text-align: center;
+      background-color: white;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      a {
+        width: 668px;
+        line-height: 56px;
+        color: #333;
+        background-color: #eee;
+        text-decoration: none;
+      }
+      :hover {
+        background-color: white;
+      }
+    }
+  }
+  &__list.show {
+    @extend .mypage__notification__contents__list;
+    display: block;
+  }
+}
