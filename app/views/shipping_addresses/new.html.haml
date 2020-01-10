@@ -1,5 +1,7 @@
 .rapper
   = render partial: "./shared/item-header"
+  -breadcrumb :shipping_addresses
+  = render partial: "./shared/breadcrumbs"
   .main
     = render partial: "./mypages/side_menu"
     .main__container.all-contents
