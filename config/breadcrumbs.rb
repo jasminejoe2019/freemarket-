@@ -22,6 +22,11 @@ crumb :profile do
   parent :mypages
 end
 
+# crumb :profile do
+#   link "プロフィール", edit_mypage_path (current_user.id)
+#   parent :mypages
+# end
+
 # crumb : do
 #   link "商品名", show_item_path
 #   parent :root
