@@ -74,8 +74,8 @@
                 =f.label "お名前カナ(全角)"
                 %span.form-require 必須
               .name-form
-                %input{type: "text", valuename: "famiry_name_kana", placeholder: "例) ヤマダ", class: "input-default2 half"}
-                %input{type: "text", valuename: "famiry_name_kana", placeholder: "例) アヤ", class: "input-default2 half"}
+              = f.text_field :family_furigana ,class: "input-default2 half", placeholder: "例) ヤマダ"
+              = f.text_field :first_furigana ,class: "input-default2 half", placeholder: "例) アヤ"
               .form-groups
                 =f.label "生年月日"
                 %span.form-require 必須
