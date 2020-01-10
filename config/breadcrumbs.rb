@@ -23,6 +23,6 @@ crumb :profile do
 end
 
 # crumb : do
-#   link "商品名", show_items_path
+#   link "商品名", show_item_path
 #   parent :root
 # end
