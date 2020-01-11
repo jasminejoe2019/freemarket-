@@ -34,18 +34,18 @@
         %h2.main__container__head
           会員情報入力
         .main__container__form
-          =form_with model:@user,url: create3_signup_index_path do |f|
+          =form_with model:@user,url: create3_signup_index_path, method: :get, local: true do |f|
             .main__container__list
               .form-groups
                 =f.label "ニックネーム",for: "nickname"
                 %span.form-require
                   必須
-                = f.text_field :name, { placeholder: "例）メルカリ太郎", type: "text",class: "input-default2"}
+                = f.text_field :nickname, { placeholder: "例）メルカリ太郎", type: "text",class: "input-default2"}
               .form-groups
                 =f.label "メールアドレス", for: "email"
                 %span.form-require
                   必須
-                = f.text_field :email,{ placeholder: "PC・携帯どちらでも可", type: "email", class: "input-default2"}
+                = f.text_field :email, { placeholder: "PC・携帯どちらでも可", type: "email", class: "input-default2"}
               .form-groups
                 =f.label "パスワード", for: "password"
                 %span.form-require
@@ -74,8 +74,8 @@
                 =f.label "お名前カナ(全角)"
                 %span.form-require 必須
               .name-form
-              = f.text_field :family_furigana ,class: "input-default2 half", placeholder: "例) ヤマダ"
-              = f.text_field :first_furigana ,class: "input-default2 half", placeholder: "例) アヤ"
+                = f.text_field :family_furigana ,class: "input-default2 half", placeholder: "例) ヤマダ"
+                = f.text_field :first_furigana ,class: "input-default2 half", placeholder: "例) アヤ"
               .form-groups
                 =f.label "生年月日"
                 %span.form-require 必須
@@ -89,7 +89,7 @@
                   =link_to "#" do
                     利用規約
                   に同意したものとみなします
-              =f.button "次へ進む",{type:"submit", class:"btn-default btn-red"}
+              =f.submit "次へ進む",{type:"submit", class:"btn-default btn-red"}
             .form-groups.text-right
               %p
               =link_to "#" do
