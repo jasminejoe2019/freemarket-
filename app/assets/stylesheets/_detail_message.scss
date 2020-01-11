@@ -150,7 +150,6 @@
 }
 
 
-
 .nav-item-link-prev-next.clearfix{
 	margin: 24px auto 0;
 	width: 700px;
@@ -182,4 +181,12 @@
 			touch-action: manipulation;
 		}
 	}
+.message-icon-right{
+	float: right;
+}
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
 }

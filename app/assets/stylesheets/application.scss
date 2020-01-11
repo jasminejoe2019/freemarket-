@@ -1,7 +1,8 @@
 @import "reset";
+@import "variable";
+@import "slick-theme";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import "slick-theme";
 @import "users";
 @import "items";
 @import "detail_title";
@@ -9,5 +10,25 @@
 @import "detail_image";
 @import "detail_price";
 @import "detail_message";
-
-
+@import "./index";
+@import "./user_new";
+@import "./user_header";
+@import "./user_footer";
+@import "./addresses";
+@import "item-header";
+@import "item-footer";
+@import "./mixin/icon";
+@import "./mixin/notificationContents";
+@import "./mixin/notificationTab";
+@import "./mixin/itemListTab";
+@import "./mixin/itemListContents";
+@import "./mainmypages.scss";
+@import "./main-container";
+@import "./mixin/sideMenuForm";
+@import "./mypages";
+@import "./side_menu";
+@import "item-exhibit";
+@import "./shipping_addresses";
+@import "cards";
+@import "trades";
+@import "logouts";

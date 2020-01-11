@@ -1,0 +1,28 @@
+.item-group
+  %h2.item-group__title
+    人気のカテゴリー
+  .item-group__list
+    %ul.item-group__topic
+      %li.item-group__element
+        レディース
+      %li.item-group__element
+        メンズ
+      %li.item-group__element
+        家電・スマホ・カメラ
+      %li.item-group__element
+        おもちゃ・ホビー・グッズ
+.items
+  .items__list
+    %h3.items__title
+      レディース新着アイテム
+    .items__watchmore
+      = link_to 'もっと見る >',root_path
+  .items-elements__wrapper
+    %ul.items-elements
+      - @item.each do |item|
+        %li.items-element
+          = link_to image_tag item.images[0].image ,class: 'items-element__image'
+          .items-element__name
+            = item.name
+          .items-element__price
+            = number_to_currency item.price
