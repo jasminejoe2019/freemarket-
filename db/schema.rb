@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_10_120622) do
+ActiveRecord::Schema.define(version: 2020_01_11_111027) do
+
+  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "postal_code"
+    t.string "prefecture"
+    t.string "city"
+    t.string "address"
+    t.string "building_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "brand", null: false
@@ -90,6 +100,15 @@ ActiveRecord::Schema.define(version: 2020_01_10_120622) do
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
+  create_table "payments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "customer_id", null: false
+    t.string "card_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_payments_on_user_id"
+  end
+
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "delivery_area", default: 0, null: false
   end
@@ -154,6 +173,7 @@ ActiveRecord::Schema.define(version: 2020_01_10_120622) do
   add_foreign_key "items", "sizes"
   add_foreign_key "items", "statuses"
   add_foreign_key "items", "users"
+  add_foreign_key "payments", "users"
   add_foreign_key "shipping_charges", "shipping_charges"
   add_foreign_key "shipping_methods", "shipping_methods"
   add_foreign_key "sizes", "sizes"
