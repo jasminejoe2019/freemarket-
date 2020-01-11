@@ -12,10 +12,10 @@ Rails.application.routes.draw do
   get "signup", to: "signup#index"
   resources :signup do
     collection do
-      get 'registration'
-      post 'sms_credential'
-      post 'shipping_address'
-      get 'complete_signup'
+      get 'create'
+      get 'create2'
+      get 'create3'
+      get 'create4'
     end
   end
 
