@@ -423,3 +423,49 @@
     }
   }
 }
+.item-sns-box{
+  margin:24px auto;
+  padding:32px 0 24px;
+	width:700px;
+	&__list{
+		display:flex;
+		justify-content:center;
+	}
+	&__content{
+		font-family: 'icon-font';
+		color:#333;
+		& fab{
+			width:44px;
+			height:44px;
+			border-radius: 4px;
+			line-height: 44px;
+			font-size:44px;
+		}
+	}
+}
+.fa-facebook-square{
+	width:44px;
+	height:44px;
+	border-radius: 4px;
+	line-height: 44px;
+	font-size:44px;
+	text-align: center;
+}
+.fa-twitter-square{
+	width:44px;
+	height:44px;
+	border-radius: 4px;
+	line-height: 44px;
+	font-size:44px;
+	text-align: center;
+
+}
+.fa-pinterest-square{
+	width:44px;
+	height:44px;
+	border-radius: 4px;
+	line-height: 44px;
+	font-size:44px;
+	text-align: center;
+
+}
