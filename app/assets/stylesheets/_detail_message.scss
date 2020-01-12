@@ -67,17 +67,15 @@
 			.message-icons.clearfix{
 				margin: 8px 0 0;
 				width: 100%;
+				display: block;
+				color: #aaa;
 
 				.message-icon-left{
 					float: left;
-					display: block;
-					color: #aaa;
 				}
 				
 				.message-icon-right{
 					float: right;
-					display: block;
-					color: #aaa;
 					button{
 						background-color: #eef0f4;
 						border: 0;
@@ -117,12 +115,6 @@
 		background-color: #fff6de;
 	}
 
-	input{
-		border: 0;
-		outline: 0;
-		font-family: inherit;
-		-webkit-appearance: none;
-	}
 	.textarea-default{
 		margin: 8px 0;
 		display: block;
@@ -138,8 +130,6 @@
 	.message-submit{
 		width: 100%;
 		margin: 8px 0 0;
-		font-size: 24px;
-		text-align: center;
 		background: #ea352d;
 		border: 1px solid #ea352d;
 		color: #fff;
@@ -151,7 +141,6 @@
 	}
 }
 
-
 .nav-item-link-prev-next.clearfix{
 	margin: 24px auto 0;
 	width: 700px;
@@ -160,11 +149,6 @@
 		float: left;
 		padding: 0 0 0 14px;
 
-		a{
-			color: #0099e8;
-			text-decoration: none;
-			touch-action: manipulation;
-		}
 		.nav-item-link-prev-next{
 			position: absolute;
 			top: 50%;
@@ -172,16 +156,18 @@
 		}
 	}
 
+	a{
+		color: #0099e8;
+		text-decoration: none;
+		touch-action: manipulation;
+	}
+
 	.nav-item-link-next{
 		float: right;
 		padding: 0 14px 0 0;
 		text-align: right;
 		width: 45%;
-		a{
-			color: #0099e8;
-			text-decoration: none;
-			touch-action: manipulation;
-		}
+		
 	}
 }
 .message-icon-right{
