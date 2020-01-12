@@ -22,6 +22,15 @@ crumb :profile do
   parent :mypages
 end
 
+crumb :cards do
+  link "支払い方法",cards_path
+  parent :mypages
+end
+crumb :newcards do
+  link "クレジットカード情報登録",new_card_path
+  parent :cards
+end
+
 # crumb :profile do
 #   link "プロフィール", edit_mypage_path (current_user.id)
 #   parent :mypages
