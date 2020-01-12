@@ -1,12 +1,12 @@
 .breadcrumbs-list{
   background-color: #FFFFFF;
-  width: 1440px;
+  width: 100%;
   margin: 0 auto;
   padding: 8px 0 0;
   border-style: outset;
   border-width: 1px;
   box-shadow: 1px;
-  padding-left: 210px;
+  padding-left: calc((100% - 1020px)/2);
   a{
     color: black;
   }
