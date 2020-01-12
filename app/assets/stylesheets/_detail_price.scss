@@ -31,8 +31,9 @@
 .item-info {
   white-space: pre-wrap;
   display: flex;
+  
   &__inner {
-    margin: auto;
+    margin: 0 40px;
   }
 }
 
@@ -40,11 +41,14 @@
   margin: auto;
 
   &__left {
+    font-size: 14px;
     // float: left;
-    text-align: center;
-    margin-top: 16px;
+    // text-align: center;
+    margin: 16px 0;
   }
   &__right {
+    float: right;
+    padding: 8px 0;
     text-decoration: none;
     display: inline-block;
     margin: 1px 0 0 8px;
@@ -59,7 +63,7 @@
   display: inline-block;
   padding: 8px 16px;
   border-radius: 40px;
-  margin: auto;
+  margin: 0 10px 0;
   font-size: inherit;
   .icon-like {
     color: #ccc;
