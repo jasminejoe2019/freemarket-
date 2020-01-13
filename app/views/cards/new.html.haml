@@ -1,8 +1,9 @@
 = render partial: "./shared/item-header"
--breadcrumb :cards
+-breadcrumb :newcards
 = render partial: "./shared/breadcrumbs"
 .mypage
-  = render partial: "./mypages/side_menu"
-  = render partial: "cardInfo"
+  = render partial: "/mypages/side_menu"
+  .card-wrapper
+    = render partial: "/shared/card-registration"
 = render partial: "./items/appbanner"
 = render partial: "./shared/item-footer"
