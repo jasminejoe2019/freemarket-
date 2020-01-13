@@ -1,0 +1,50 @@
+%table.itemInfo
+  %tbody.itemInfo__table
+    %tr
+      %th 出品者
+      %td
+        = link_to "https://www.mercari.com/" do
+          ししまる
+        %div.itemInfo__table_ratings
+          .itemInfo__table_ratings-good
+            %i.fas.fa-laugh
+            %span 270
+          .itemInfo__table_ratings-normal
+            %i.fas.fa-meh
+            %span 4
+          .itemInfo__table_ratings-bad
+            %i.fas.fa-frown
+            %span 1
+    %tr
+      %th カテゴリー
+      %td.itemInfo__table__Category
+        = link_to "https://www.mercari.com/", class:"itemInfo__table__Category-mainCategory" do
+          おもちゃ・ホビー・グッズ
+        .itemInfo__table__Category-subCategory
+          %i.fas.fa-chevron-right
+          = link_to "https://www.mercari.com/" do
+            おもちゃ
+        .itemInfo__table__Category-smallCategory
+          %i.fas.fa-chevron-right
+          = link_to "https://www.mercari.com/" do
+            キャラクターグッズ
+    %tr
+      %th ブランド
+      %td
+    %tr
+      %th 商品の状態
+      %td 新品、未使用
+    %tr
+      %th 配送料の負担
+      %td 送料込み(出品者負担)
+    %tr
+      %th 配送の方法
+      %td らくらくメルカリ便
+    %tr
+      %th 配送元地域
+      %td 
+        = link_to "#" do
+          大阪府
+    %tr
+      %th 発送日の目安
+      %td 2~3日で発送

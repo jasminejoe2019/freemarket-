@@ -1,0 +1,12 @@
+.slick-dots {
+  position: absolute !important;
+  bottom: 20px !important;
+  li {
+    font-size: 20px !important;
+    button:before {
+      content: "●" !important;
+      font-size: 14px !important;
+      color: rgb(60, 60, 60) !important;
+    }
+  }
+}

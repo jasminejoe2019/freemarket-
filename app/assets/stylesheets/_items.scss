@@ -1,3 +1,88 @@
+
+.item-box-container_l-single-container{
+	width:700px;
+	margin:0 auto;
+}
+
+.item-box-cotainer{
+	padding: 24px 40px 40px;
+	&_l-single-container{
+		width:700px;
+	}
+}
+h1.item-name{
+font-size: 24px;
+text-align: center;
+word-wrap: break-word;
+line-height: 1.4;
+}
+
+p.item-wording{
+margin: 8px 0 0;
+font-size: 14px;
+color: #888;
+line-height: 1.5;
+}
+
+.item-main{
+  width: 700px;
+	margin: 10px 0;
+	padding: 20px 40px 40px;
+  background-color: #fff;
+}
+
+.item-main-content{
+margin: 16px 0 0;
+display:flex;
+justify-content: center;
+}
+
+
+.other-items{
+	width: 700px;
+	margin: 0 auto;
+}
+.item-box__head{
+	font-size: 22px;
+	margin: 24px 0 8px;
+	line-height:1.4;
+	& a{
+		color:#0099e8;
+		text-decoration: none;
+		touch-action:manipulation;
+	}
+}
+.item-box__contents{
+	display:flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.item-box__container{
+	width:220px;
+	margin:0 13px 20px 0;
+	&__image{
+		width:220px;
+		height:220px;
+	}
+	&__body{
+		padding:16px;
+		height:110px;
+	}
+	&__name{
+		overflow: hidden;
+		text-overflow: clip;
+		position:relative;
+		font-weight:400;
+		height:3em;
+		line-height:1.5;
+		white-space: normal;
+	}
+	&__num{
+		display:flex;
+		justify-content: space-between;
+		margin:8px 0 0;
+	}
+}
 .top-eyecatch {
   height: 390px;
   width: 1020px;
@@ -19,216 +104,56 @@
     }
   }
 }
-.arrow {
-  position: absolute;
-  top: 50%;
-  font-size: 2em;
-  color: $app-white;
-  z-index: 3;
-  &-left {
-    left: 50px;
-  }
-  &-right {
-    right: 50px;
-  }
-}
-.item-group {
-  padding: 56px 0 30px;
-  background-color: $app-white;
-  position: relative;
-  top: 0;
-  &__title {
-    margin-bottom: 16px;
-    text-align: center;
-    font-size: 28px;
-    font-weight: 600;
-    line-height: 1.4em;
-    margin: 0;
-    padding: 0;
-  }
-}
-.exhibit-btn {
-  position: fixed;
-  bottom: 32px;
-  font-size: 32px;
-  color: $app-white;
-  text-align: center;
-  right: 32px;
-  width: 160px;
-  height: 160px;
-  padding-top: 32px;
-  background-color: $app-red;
-  border-radius: 50%;
-  z-index: 2;
-}
-.item-group {
-  text-align: center;
-  overflow-x: auto;
-  &__topic {
-    display: flex;
-    justify-content: center;
-  }
-  &__element {
-    margin: 10px 0 0 10px;
-    background-color: #efefef;
-    cursor: pointer;
-    font-weight: 600;
-    border-radius: 15px;
-    padding: 8px 16px;
-  }
-}
-.items {
-  width: 1020px;
-  margin: 0 auto;
-  padding: 42px 0 100px;
-  a {
-    color: $app-blue;
-  }
-  &__title {
-    font-size: 24px;
-    font-weight: 600;
-    line-height: 1.4em;
-    margin: 0;
-    padding: 0;
-  }
-  &__list {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 16px;
-  }
-  &__watchmore {
-    font-size: 14px;
-    display: inline-flex;
-    align-items: flex-end;
-    &__right {
-      width: 16px;
-      height: 16px;
-      z-index: 3;
-      color: $app-blue;
-    }
-  }
-}
-.items-elements {
-  margin: -10px;
-  display: flex;
-  flex-wrap: wrap;
-}
-.items-element {
-  width: 20%;
-  padding: 10px;
 
-  position: relative;
-  &__image {
-    object-fit: cover;
-    width: 100%;
-    height: 200px;
-  }
-  &__name {
-    font-size: 14px;
-    padding: 0 12px;
-    background-image: $app-white;
-    height: 3.2em;
-    overflow: hidden;
-    box-shadow: $app-box-shadow;
-  }
-  &__price {
-    position: absolute;
-    top: 175px;
-    background-color: rgba(0, 0, 0, 0.4);
-    color: $app-white;
-    z-index: 2;
-    border-radius: 0 14px 14px 0;
-    display: inline-flex;
-    align-items: center;
-    font-size: 17px;
-    height: 28px;
-    letter-spacing: 0.02em;
-    padding: 0 12px;
-  }
+.item-sns-box{
+  margin:24px auto;
+  padding:32px 0 24px;
+	width:700px;
+	background-color: #fff;
+	&__list{
+		display:flex;
+		justify-content:center;
+	}
+	&__content{
+		font-family: 'icon-font';
+		color:#333;
+		& fab{
+			width:44px;
+			height:44px;
+			border-radius: 4px;
+			line-height: 44px;
+			font-size:44px;
+		}
+	}
 }
-.AppBanner {
-  &__container {
-    height: 260px;
-    background-color: red;
-    display: flex;
-    justify-content: center;
-    background: image-url("YAT923_1_TP_V.jpg");
-    &__left {
-      width: 417px;
-      height: 260px;
-      position: relative;
-      &__inner {
-        width: 417px;
-        height: 166px;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        &__firsttext {
-          width: 417px;
-          height: 24px;
-          margin-bottom: 15px;
-          color: white;
-          font-size: 24px;
-        }
-        &__secondtext {
-          width: 417px;
-          height: 24px;
-          margin-bottom: 15px;
-          color: white;
-          font-size: 34px;
-        }
-        &__icon {
-          width: 417px;
-          display: inline-flex;
-          align-items: center;
-          margin-top: 20px;
-          &__freemarket {
-            width: 68px;
-            height: 68px;
-            margin-right: 20px;
-            position: relative;
-            &__btn {
-              position: absolute;
-              top: 50%;
-              transform: translateY(-50%);
-            }
-            &__btn :hover {
-              opacity: 0.8;
-            }
-          }
-          &__ios {
-            width: 133px;
-            height: 68px;
-            margin-right: 8px;
-            position: relative;
-            &__btn {
-              position: absolute;
-              top: 50%;
-              transform: translateY(-50%);
-            }
-            &__btn :hover {
-              opacity: 0.8;
-            }
-          }
-          &__android {
-            width: 156px;
-            height: 68px;
-            position: relative;
-            &__btn {
-              position: absolute;
-              top: 50%;
-              transform: translateY(-50%);
-            }
-            &__btn :hover {
-              opacity: 0.9;
-            }
-          }
-        }
-      }
-    }
-    &__right {
-      width: 300px;
-      height: 260px;
-    }
-  }
+.fa-facebook-square{
+	width:44px;
+	height:44px;
+	border-radius: 4px;
+	line-height: 44px;
+	font-size:44px;
+	text-align: center;
+}
+.fa-twitter-square{
+	width:44px;
+	height:44px;
+	border-radius: 4px;
+	line-height: 44px;
+	font-size:44px;
+	text-align: center;
+
+}
+.fa-pinterest-square{
+	width:44px;
+	height:44px;
+	border-radius: 4px;
+	line-height: 44px;
+	font-size:44px;
+	text-align: center;
+
+}
+.space{
+	width:100%;
+	height:40px;
+	background-color: #f5f5f5;
 }
