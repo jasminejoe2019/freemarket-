@@ -18,10 +18,10 @@
               %i.far.fa-clock
               %span 4 日前
             .message-icon-right
-              %form{:action => "https://www.mercari.com/", :method => "POST"}
-                %button{:type => "submit"}
+              %form{ action: :"https://www.mercari.com/", method: :POST}
+                %button{type: :submit}
                   %i.far.fa-flag
-              %input{:name => "redirect_url_key", :type => "hidden", :value => "item_detail"}/
+              %input{ name: :redirect_url_key, type: :hidden, value: :item_detail}/
           %i.icon-balloon
       %li.message-content__items__clearfix
         = link_to "https://www.mercari.com/", class: "message-content__items__clearfix__user" do
@@ -42,29 +42,29 @@
               %i.far.fa-clock
               %span 4 日前
             .message-icon-right
-              %form{:action => "https://www.mercari.com/", :method => "POST"}
-                %button{:type => "submit"}
+              %form{ action: :"https://www.mercari.com/", method: :POST}
+                %button{type: :submit}
                   %i.far.fa-flag
-                %input{:name => "redirect_url_key", :type => "hidden", :value => "item_detail"}/
+                %input{name: :redirect_url_key, type: :hidden, value: :item_detail}/
           %i.icon-balloon
 
 
     .message-writing
-      %form.message-form{:action => "https://www.mercari.com/jp/comment/add/", :method => "POST"}
+      %form.message-form{action: :"https://www.mercari.com/jp/comment/add/", method: :POST}
         %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-        %input{:name => "redirect_url_key", :type => "hidden", :value => "item_detail"}/
-        %textarea.textarea-default{:disabled => "disabled", :name => "body", :type => "text", :value => ""}
-        %button.message-submit.btn-default.btn-red{:disabled => "disabled", :type => "submit"}
+        %input{name: :redirect_url_key, type: :hidden, value: :item_detail}/
+        %textarea.textarea-default{disabled: :disabled, name: :body, type: :text, value: :""}
+        %button.message-submit.btn-default.btn-red{disabled: :disabled, type: :submit}
           %span コメントする
 
 
 
 %ul.nav-item-link-prev-next.clearfix
   %li.nav-item-link-prev
-    %a{:href => "https://item.mercari.com/"}
+    = link_to "https://item.mercari.com/" do
       %i.icon-arrow-left>
       < ANNA SUI  ポーチ新品未使用値下げ
   %li.nav-item-link-next
-    %a{:href => "https://item.mercari.com/"}
+    = link_to "https://item.mercari.com/" do
       フランス人は10着しか服を持たない >
       %i.icon-arrow-right
