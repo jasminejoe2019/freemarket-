@@ -92,7 +92,7 @@ ActiveRecord::Schema.define(version: 2020_01_13_035923) do
   end
 
   create_table "sizes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "size", null: false
+    t.string "size"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
