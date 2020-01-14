@@ -4,7 +4,6 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.string :name, null:false, limit:40
       t.integer :price, null:false
       t.text :description, null:false, limit:1000
-      t.references :image, null:false, foreign_key: true
       t.references :size, null:false, foreign_key: true
       t.references :condition, null:false, foreign_key: true
       t.references :shipping_charge, null:false, foreign_key: true

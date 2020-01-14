@@ -1,3 +1,3 @@
 class Category < ApplicationRecord
-  belongs to item
+  belongs_to :item
 end

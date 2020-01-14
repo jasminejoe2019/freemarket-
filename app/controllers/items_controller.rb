@@ -8,8 +8,8 @@ class ItemsController < ApplicationController
   end
 
   def create
-    # Item.create(item: item_params[:item])
-    # redirect_to "/new"
+    Item.create(item: item_params[:item])
+    redirect_to "/new"
   end
 
 
