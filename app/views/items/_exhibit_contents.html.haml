@@ -39,12 +39,12 @@
             %h3.sell-sub-head
               商品の詳細
             .sell-form-box
-              -# .form-groups.select-box
-              -#   %label(for="categories")
-              -#     カテゴリー
-              -#   %span.form-require
-              -#     必須
-              -#   = f.collection_select :category_id.Category.all, :id, :category, class: 'select-default select-product'
+              .form-groups.select-box
+                %label(for="categories")
+                  カテゴリー
+                %span.form-require
+                  必須
+                -# = f.collection_select :category_id.Category.all, :id, :category, class: 'select-default select-product'
                   -# %option(label="--")
                   -# %option(label="レディース")
                   -# %option(label="メンズ")
@@ -57,12 +57,12 @@
               -#   %span.form-require
               -#     必須
               -#   = f.collection_select :status_id.Status.all, :id, :stusus, class: 'select-default select-product'
-                  -# %option(label="--")
-                  -# %option(label="新品、未使用")
-                  -# %option(label="未使用に近い")
-                  -# %option(label="目立った傷や汚れなし")
-                  -# %option(label="やや傷や汚れあり")
-                  -# %option(label="全体的に状態が悪い")
+              -#     %option(label="--")
+              -#     %option(label="新品、未使用")
+              -#     %option(label="未使用に近い")
+              -#     %option(label="目立った傷や汚れなし")
+              -#     %option(label="やや傷や汚れあり")
+              -#     %option(label="全体的に状態が悪い")
         .sell-form
           .sell-form__content.clearfix
             %h3.sell-sub-head

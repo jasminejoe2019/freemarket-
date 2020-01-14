@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-  has_many :categories, dependent: :destroy
+  belongs_to :categories, dependent: :destroy
   has_many :brands, dependent: :destroy
   has_many :images, dependent: :destroy
   has_many :sizes, dependent: :destroy
