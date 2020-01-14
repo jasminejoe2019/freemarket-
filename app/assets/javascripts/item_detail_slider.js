@@ -1,5 +1,5 @@
 $(function(){
-  $('.slider').slick({
+  $('#detail').slick({
     dots:true,
     speed: 800,
     customPaging: function(slick,index) {
