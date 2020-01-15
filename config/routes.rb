@@ -12,10 +12,12 @@ Rails.application.routes.draw do
   get "signup", to: "signup#index"
   resources :signup do
     collection do
+      get 'create1'
       get 'create2'
       get 'create3'
       get 'create4'
       get 'create5'
+      get 'create6'
     end
   end
 
