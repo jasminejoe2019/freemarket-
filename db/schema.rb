@@ -10,32 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_05_070212) do
 
-  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "postal_code"
-    t.string "prefecture"
-    t.string "city"
-    t.string "address"
-    t.string "building_name"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_addresses_on_user_id"
-  end
-
-  create_table "banks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "bank_name", null: false
-    t.string "account_type", null: false
-    t.integer "branch_code", null: false
-    t.integer "account_number", null: false
-    t.string "first_name", null: false
-    t.string "family_name", null: false
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_banks_on_user_id"
-  end
+ActiveRecord::Schema.define(version: 2020_01_13_035923) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "brand", null: false
@@ -69,17 +45,17 @@ ActiveRecord::Schema.define(version: 2020_01_05_070212) do
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "image", limit: 10, null: false
-    t.string "item_id", null: false
+    t.string "image", null: false
+    t.bigint "item_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_images_on_item_id"
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", limit: 40, null: false
     t.integer "price", null: false
     t.text "description", null: false
-    t.bigint "image_id", null: false
     t.bigint "size_id", null: false
     t.bigint "condition_id", null: false
     t.bigint "shipping_charge_id", null: false
@@ -97,7 +73,6 @@ ActiveRecord::Schema.define(version: 2020_01_05_070212) do
     t.index ["condition_id"], name: "index_items_on_condition_id"
     t.index ["delivery_area_id"], name: "index_items_on_delivery_area_id"
     t.index ["estimated_shipping_date_id"], name: "index_items_on_estimated_shipping_date_id"
-    t.index ["image_id"], name: "index_items_on_image_id"
     t.index ["shipping_charge_id"], name: "index_items_on_shipping_charge_id"
     t.index ["shipping_method_id"], name: "index_items_on_shipping_method_id"
     t.index ["size_id"], name: "index_items_on_size_id"
@@ -157,6 +132,18 @@ ActiveRecord::Schema.define(version: 2020_01_05_070212) do
     t.string "status", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+
+  end
+
+  create_table "trades", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "transaction_date", null: false
+    t.datetime "trading_date"
+    t.bigint "user_id", null: false
+    t.bigint "item_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_trades_on_item_id"
+    t.index ["user_id"], name: "index_trades_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -183,20 +170,20 @@ ActiveRecord::Schema.define(version: 2020_01_05_070212) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "addresses", "users"
-  add_foreign_key "banks", "users"
+
+  add_foreign_key "images", "items"
   add_foreign_key "items", "brands"
   add_foreign_key "items", "categories"
   add_foreign_key "items", "conditions"
   add_foreign_key "items", "delivery_areas"
   add_foreign_key "items", "estimated_shipping_dates"
-  add_foreign_key "items", "images"
   add_foreign_key "items", "shipping_charges"
   add_foreign_key "items", "shipping_methods"
   add_foreign_key "items", "sizes"
   add_foreign_key "items", "statuses"
   add_foreign_key "items", "users"
-  add_foreign_key "payments", "users"
-  add_foreign_key "shipping_addresses", "users"
+
   add_foreign_key "sns_credentials", "users"
+  add_foreign_key "trades", "items"
+  add_foreign_key "trades", "users"
 end
