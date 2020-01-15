@@ -62,13 +62,7 @@ describe User do
       user.valid?
       expect(user.errors[:mobile]).to include("can't be blank")
     end
-    # it "is invalid with a duplicate sns_credential" do
-    #   shipping_address=create(:shipping_address)
-    #   user=create(:user)
-    #   another_user = build(:user)
-    #   another_user.valid?
-    #   expect(user.errors[:sns_credential]).to include("has already been taken")
-    # end
+
     it "is invalid with a regulation first_furigana" do
       user = build(:user,first_furigana: "a")
       user.valid?
@@ -79,6 +73,7 @@ describe User do
       user.valid?
       expect(user.errors[:family_furigana]).to include("はカタカナで入力して下さい。")
     end
+
     it "is invalid with a wrong birthday" do
       user = build(:user,birthday: "20200231")
       user.valid?
@@ -100,7 +95,7 @@ describe User do
       expect(user.errors[:telephone]).to include("電話番号が正しくありません（ハイフンなし）。")
     end
     it "is invalid with a regulation mobile" do
-      user = build(:user,mobile: "012345678901")
+      user = build(:user,mobile: "12345678901")
       user.valid?
       expect(user.errors[:mobile]).to include("携帯番号が正しくありません（ハイフンなし）。")
     end
@@ -109,6 +104,16 @@ describe User do
       another_user = build(:user,email: user.email)
       another_user.valid?
       expect(another_user.errors[:email]).to include("has already been taken")
+    end
+    it "is invalid with password less 6 characters" do
+      user = build(:user,password: "aaaaaa")
+      user.valid?
+      expect(user.errors[:password]).to include("is too short (minimum is 7 characters)")
+    end
+    it "is valid with password over 7 characters" do
+      user = build(:user)
+      user.valid?
+      expect(user).to be_valid
     end
   end
 end
