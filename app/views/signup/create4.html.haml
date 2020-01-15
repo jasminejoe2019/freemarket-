@@ -32,7 +32,7 @@
       %h2.main__container__head.user-identification
         本人情報の登録
       .main__container__form
-        =form_with model:@user, url: create5_signup_index_path, method: :get, local: true do |f|
+        =form_with model:@user, url: signup_index_path, method: :post, local: true do |f|
           %div
             %p お客さまの本人情報をご登録ください。
             %br 登録されたお名前・生年月日を変更する場合、本人確認の提出が必要になります。
@@ -42,13 +42,13 @@
           .main__container__list.form-left
             .form-groups.identity
               %label お名前
-              %p ヴァレ 有生
+              %p= session[:name]
             .form-groups.identity
               %label お名前カナ
-              %p ヴァレユウイ
+              %p= session[:furigana]
             .form-groups.identity
               %label 生年月日 
-              %p 1987/05/27
+              %p= session[:birthday]
             .form-groups
             =f.fields_for :addresses do |a|
               =a.label "郵便番号",for: "zip_code"
