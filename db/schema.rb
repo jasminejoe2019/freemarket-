@@ -10,8 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 2020_01_05_070212) do
 
-ActiveRecord::Schema.define(version: 2020_01_13_035923) do
+  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "postal_code"
+    t.string "prefecture"
+    t.string "city"
+    t.string "address"
+    t.string "building_name"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_addresses_on_user_id"
+  end
+
+  create_table "banks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "bank_name", null: false
+    t.string "account_type", null: false
+    t.integer "branch_code", null: false
+    t.integer "account_number", null: false
+    t.string "first_name", null: false
+    t.string "family_name", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_banks_on_user_id"
+  end
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "brand", null: false
@@ -114,7 +138,7 @@ ActiveRecord::Schema.define(version: 2020_01_13_035923) do
   end
 
   create_table "sizes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "size", null: false
+    t.string "size"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -132,7 +156,6 @@ ActiveRecord::Schema.define(version: 2020_01_13_035923) do
     t.string "status", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-
   end
 
   create_table "trades", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -157,7 +180,6 @@ ActiveRecord::Schema.define(version: 2020_01_13_035923) do
     t.string "family_name", null: false
     t.string "family_furigana", null: false
     t.date "birthday", null: false
-    t.string "telephone", null: false
     t.text "profile"
     t.bigint "sales", default: 0, null: false
     t.string "mobile", null: false
@@ -170,7 +192,8 @@ ActiveRecord::Schema.define(version: 2020_01_13_035923) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-
+  add_foreign_key "addresses", "users"
+  add_foreign_key "banks", "users"
   add_foreign_key "images", "items"
   add_foreign_key "items", "brands"
   add_foreign_key "items", "categories"
@@ -182,7 +205,8 @@ ActiveRecord::Schema.define(version: 2020_01_13_035923) do
   add_foreign_key "items", "sizes"
   add_foreign_key "items", "statuses"
   add_foreign_key "items", "users"
-
+  add_foreign_key "payments", "users"
+  add_foreign_key "shipping_addresses", "users"
   add_foreign_key "sns_credentials", "users"
   add_foreign_key "trades", "items"
   add_foreign_key "trades", "users"

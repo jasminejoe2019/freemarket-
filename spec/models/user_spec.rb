@@ -47,11 +47,7 @@ describe User do
       user.valid?
       expect(user.errors[:birthday]).to include("can't be blank")
     end
-    it "is invalid without a telephone" do
-      user = build(:user,telephone: "")
-      user.valid?
-      expect(user.errors[:telephone]).to include("can't be blank")
-    end
+
     it "is invalid without a sales" do
       user = build(:user,sales: "")
       user.valid?
@@ -88,11 +84,6 @@ describe User do
       user = build(:user,email: "a")
       user.valid?
       expect(user.errors[:email]).to include("メールアドレスが正しくありません。")
-    end
-    it "is invalid with a regulation telephone" do
-      user = build(:user,telephone: "012345678901")
-      user.valid?
-      expect(user.errors[:telephone]).to include("電話番号が正しくありません（ハイフンなし）。")
     end
     it "is invalid with a regulation mobile" do
       user = build(:user,mobile: "12345678901")

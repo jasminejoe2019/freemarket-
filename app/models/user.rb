@@ -5,7 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   VALID_KANA_REGEX=/\A[\p{katakana}\p{blank}ー－]+\z/
   VALID_EMAIL_REGEX=/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  VALID_PHONE_REGEX=/\A[0]\d{9,10}\z/
   VALID_MOBILE_REGEX=/\A[0]+[789]+[0]\d{8}\z/
 
   validates :nickname, presence: true
@@ -16,7 +15,6 @@ class User < ApplicationRecord
   validates :family_name, presence: true
   validates :family_furigana, presence: true,format: { with: VALID_KANA_REGEX, message: 'はカタカナで入力して下さい。'}
   validates :birthday, presence: true
-  validates :telephone, presence: true,format: {with:VALID_PHONE_REGEX,message: '電話番号が正しくありません（ハイフンなし）。'}
   validates :mobile, presence: true,format: {with:VALID_MOBILE_REGEX,message: '携帯番号が正しくありません（ハイフンなし）。'}
   validate :date_valid?
   validates :sales, presence: true

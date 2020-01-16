@@ -12,7 +12,6 @@ class AddDeviseToUsers < ActiveRecord::Migration[5.2]
       t.string :family_name, null: false
       t.string :family_furigana, null: false
       t.date :birthday, null: false
-      t.string :telephone,null: false
       t.text :profile
       t.bigint :sales,null: false,default: 0
       t.string :mobile,null: false
