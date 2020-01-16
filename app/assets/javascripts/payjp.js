@@ -3,7 +3,7 @@
     number = form.find('input[name="number"]'),
     cvc = form.find('input[name="cvc"]'),
     exp_month = form.find('select[name="exp_month"]'),
-    exp_year = form.find('input[name="exp_year"]');
+    exp_year = form.find('select[name="exp_year"]');
 
   $("#charge-form").submit(function () {
     form.find("input[type=submit]").prop("disabled", true);
@@ -29,6 +29,7 @@
 
         form.append($('<input type="hidden" name="payjpToken" />').val(token));
         form.get(0).submit();
+
       }
     });
   });

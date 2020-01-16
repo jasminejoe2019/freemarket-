@@ -32,31 +32,30 @@
         %h2.main__container__head
           支払い方法
         .main__container__form
-          = form_with model: @user, url: signup_index_path, class: "main__container__list", id: "charge-form",method: :get, local: true do |f|
-            =f.fields_for :payments do |p|
-              .form-groups
-                %label(for="credit")
-                  カード番号
-                %span.form-require
-                  必須
-                = p.number_field :number, class: "input-default2", placeholder: "半角数字のみ", type: "text"
-                %h3
-                  = image_tag("card_5brand", class: "credit-logo")
-              .form-groups
-                %div
-                  %label 有効期限
-                  %span.form-require 必須
+          = form_with url: signup_index_path, class: "main__container__list", id: "charge-form",method: :post, local: true do |f|
+            .form-groups
+              %label(for="credit")
+                カード番号
+              %span.form-require
+                必須
+              = f.text_field :number, {class: "input-default2", placeholder: "半角数字のみ"}
+              %h3
+                = image_tag("card_5brand", class: "credit-logo")
+            .form-groups
+              %div
+                %label 有効期限
+                %span.form-require 必須
               .name-form
-                = p.select :exp_month, [[01,01],[02,02],[3,3],[4,4],[5,5],[6,6],[7,7],[8,8],[9,9],[10,10],[11,11],[12,12]], {}, {class: "input-select"}
+                = f.select :exp_month, [[01,01],[02,02],[3,3],[4,4],[5,5],[6,6],[7,7],[8,8],[9,9],[10,10],[11,11],[12,12]], {}, {class: "input-select"}
                 %span.input-select__data 月
-                = p.select :exp_year, [[19,19],[20,20],[21,21],[22,22],[23,23],[24,24],[25,25],[26,26],[27,27]], {}, {class: "input-select"}
+                = f.select :exp_year, [[19,19],[20,20],[21,21],[22,22],[23,23],[24,24],[25,25],[26,26],[27,27]], {}, {class: "input-select"}
                 %span.input-select__data 年
               .form-groups
                 %label(for="security")
                   セキュリティコード
                 %span.form-require
                   必須
-                = p.number_field :cvc, class: "input-default2", placeholder: "カード背面４桁もしくは３桁の番号", type: "text", value:""
+                = f.text_field :cvv,{class: "input-default2", placeholder: "カード背面４桁もしくは３桁の番号"}
                 .signup-seqcode
                   %span.question ?
                   カードの背面の番号とは？

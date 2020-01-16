@@ -23,19 +23,14 @@ class SignupController < ApplicationController
       @user.addresses.build
     end
 
-    def create6
-      session[:postal_code] = user_params[:postal_code]
-      session[:prefecture] = user_params[:prefecture]
-      session[:city] = user_params[:city]
-      session[:address] = user_params[:address]
-      session[:building_name] = user_params[:building_name]
-      # @user.payments.build
-    end
-
-    def create6
-      session[:user_id] = user_params[:user_id]
-      session[:customer_id] = user_params[:customer_id]
-      session[:card_id] = user_params[:card_id]
+    def create5
+      session[:postal_code] = user_params["addresses_attributes"]["0"]["postal_code"]
+      session[:prefecture] = user_params["addresses_attributes"]["0"]["prefecture"]
+      session[:city] = user_params["addresses_attributes"]["0"]["city"]
+      session[:address] = user_params["addresses_attributes"]["0"]["address"]
+      session[:building_name] = user_params["addresses_attributes"]["0"]["building_name"]
+      @user = User.new
+      @user.payments.build
     end
 
     def create
@@ -50,7 +45,14 @@ class SignupController < ApplicationController
       birthday: session[:birthday],
       telephone: session[:telephone]
       )
-      @user.addresses.build
+      @address = Address.new(
+      postal_code: session[:postal_code],
+      prefecture: session[:prefecture],
+      city: session[:city],
+      address: session[:address],
+      building_name: session[:building_name]
+      )
+      @user.payments.build
       if @user.save
         session[:id] = @user.id
         redirect_to "/signup/create6"
@@ -75,8 +77,8 @@ class SignupController < ApplicationController
         :first_furigana,
         :birthday,
         :telephone,
-        addresses_attributes: [:id, :postal_code, :prefecture, :city, :address, :building_name],  
-        # payments_attributes: [:id, :customer, :card]
+        addresses_attributes: [:id, :postal_code, :prefecture, :city, :address, :building_name],
+        payments_attributes: [:id, :customer, :card]
     )
     end
 end
