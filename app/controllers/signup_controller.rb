@@ -24,6 +24,7 @@ class SignupController < ApplicationController
     end
 
     def create5
+      binding.pry
       session[:postal_code] = user_params["addresses_attributes"]["0"]["postal_code"]
       session[:prefecture] = user_params["addresses_attributes"]["0"]["prefecture"]
       session[:city] = user_params["addresses_attributes"]["0"]["city"]
@@ -52,17 +53,12 @@ class SignupController < ApplicationController
       address: session[:address],
       building_name: session[:building_name]
       )
-      @user.payments.build
       if @user.save
         session[:id] = @user.id
         redirect_to "/signup/create6"
       else
         render '/signup/create1'
       end
-    end
-
-    def done
-      sign_in User.find(session[:id]) unless user_signed_in?
     end
 
     private
