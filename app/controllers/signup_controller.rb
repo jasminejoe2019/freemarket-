@@ -24,7 +24,6 @@ class SignupController < ApplicationController
     end
 
     def create5
-      binding.pry
       session[:postal_code] = user_params["addresses_attributes"]["0"]["postal_code"]
       session[:prefecture] = user_params["addresses_attributes"]["0"]["prefecture"]
       session[:city] = user_params["addresses_attributes"]["0"]["city"]
@@ -46,12 +45,12 @@ class SignupController < ApplicationController
       birthday: session[:birthday],
       telephone: session[:telephone]
       )
-      @address = Address.new(
-      postal_code: session[:postal_code],
-      prefecture: session[:prefecture],
-      city: session[:city],
-      address: session[:address],
-      building_name: session[:building_name]
+      @user.addresses.build(
+        postal_code: session[:postal_code],
+        prefecture: session[:prefecture],
+        city: session[:city],
+        address: session[:address],
+        building_name: session[:building_name]
       )
       if @user.save
         session[:id] = @user.id
