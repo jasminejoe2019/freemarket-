@@ -1,4 +1,5 @@
 class SignupController < ApplicationController
+
     def create2
       @user = User.new
     end
@@ -54,6 +55,13 @@ class SignupController < ApplicationController
       )
       if @user.save
         session[:id] = @user.id
+        Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
+        customer = Payjp::Customer.create(
+          card: params[:payjpToken]
+        )
+        binding.pry
+        @payment = Payment.new(user_id: session[:id], customer_id: customer.id, card_id: customer.default_card)
+        @payment.save
         redirect_to "/signup/create6"
       else
         render '/signup/create1'
@@ -72,8 +80,7 @@ class SignupController < ApplicationController
         :first_furigana,
         :birthday,
         :telephone,
-        addresses_attributes: [:id, :postal_code, :prefecture, :city, :address, :building_name],
-        payments_attributes: [:id, :customer, :card]
+        addresses_attributes: [:id, :postal_code, :prefecture, :city, :address, :building_name]
     )
     end
 end

@@ -31,7 +31,7 @@
       .main__container
         %h2.main__container__head
           会員登録完了
-        = form_with model: @user, url: root_path, method: :post,  local: true, html: {class: 'main__container__form'} do |f|
+        = form_with url: root_path, local: true, html: {class: 'main__container__form'} do |f|
           .main__container__list
             .form-groups
               %h2.last-text

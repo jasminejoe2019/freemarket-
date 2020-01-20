@@ -6,7 +6,8 @@ $(function () {
     exp_month = form.find('select[name="exp_month"]'),
     exp_year = form.find('select[name="exp_year"]');
 
-  $("#charge-form").submit(function () {
+  $("#charge-form").submit(function (event) {
+    event.preventDefault();
     form.find("input[type=submit]").prop("disabled", true);
     var card = {
       number: number.val(),

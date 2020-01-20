@@ -32,7 +32,7 @@
         %h2.main__container__head
           支払い方法
         .main__container__form
-          = form_with url: signup_index_path, method: :post, class: "main__container__list", id: "charge-form" do |f|
+          = form_with url: signup_index_path, method: :post, class: "main__container__list", id: "charge-form", local: true do |f|
             .form-groups
               %label(for="credit")
                 カード番号
