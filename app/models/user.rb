@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: %i[facebook google_oauth2]
+         :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
   
   def self.without_sns_data(auth)
     user=User.where(email:auth.info.email).first
