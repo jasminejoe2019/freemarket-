@@ -8,10 +8,10 @@
             アカウントをお持ちでない方はこちら
             = link_to '新規会員登録',registrations_path
         .contents-panel__login__form-sns
-          =link_to "https://www.facebook.com/", class: "btn-default link-fb2" do
+          =link_to user_facebook_omniauth_authorize_path,method: :post, class: "btn-default link-fb2" do
             = icon('fab', 'facebook-square',  class: "fb-icon2")
             Facebookでログイン
-          =link_to "http://www.google.com/", class: "btn-default link-google2" do
+          =link_to user_google_oauth2_omniauth_authorize_path,method: :post, class: "btn-default link-google2" do
             = icon('fab', 'google', class: "google-icon2")
             Googleでログイン
         .contents-panel__login__form-inner
