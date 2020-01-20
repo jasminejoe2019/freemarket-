@@ -59,7 +59,6 @@ class SignupController < ApplicationController
         customer = Payjp::Customer.create(
           card: params[:payjpToken]
         )
-        binding.pry
         @payment = Payment.new(user_id: session[:id], customer_id: customer.id, card_id: customer.default_card)
         @payment.save
         redirect_to "/signup/create6"
