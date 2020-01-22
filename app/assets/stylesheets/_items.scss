@@ -1,3 +1,88 @@
+
+.item-box-container_l-single-container{
+	width:700px;
+	margin:40px auto 0;
+}
+
+.item-box-cotainer{
+	padding: 24px 40px 40px;
+	&_l-single-container{
+		width:700px;
+	}
+}
+h1.item-name{
+font-size: 24px;
+text-align: center;
+word-wrap: break-word;
+line-height: 1.4;
+}
+
+p.item-wording{
+margin: 8px 0 0;
+font-size: 14px;
+color: #888;
+line-height: 1.5;
+}
+
+.item-main{
+  width: 700px;
+	margin: 10px 0;
+	padding: 20px 40px 40px;
+  background-color: #fff;
+}
+
+.item-main-content{
+margin: 16px 0 0;
+display:flex;
+justify-content: center;
+}
+
+
+.other-items{
+	width: 700px;
+	margin: 0 auto;
+}
+.item-box__head{
+	font-size: 22px;
+	margin: 24px 0 8px;
+	line-height:1.4;
+	& a{
+		color:#0099e8;
+		text-decoration: none;
+		touch-action:manipulation;
+	}
+}
+.item-box__contents{
+	display:flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.item-box__container{
+	width:220px;
+	margin:0 13px 20px 0;
+	&__image{
+		width:220px;
+		height:220px;
+	}
+	&__body{
+		padding:16px;
+		height:110px;
+	}
+	&__name{
+		overflow: hidden;
+		text-overflow: clip;
+		position:relative;
+		font-weight:400;
+		height:3em;
+		line-height:1.5;
+		white-space: normal;
+	}
+	&__num{
+		display:flex;
+		justify-content: space-between;
+		margin:8px 0 0;
+	}
+}
 .top-eyecatch {
   height: 390px;
   width: 1020px;
@@ -9,7 +94,8 @@
 }
 .slick-dots {
   position: absolute;
-  bottom: 20px;
+	bottom: 20px;
+	justify-content: center;
   li {
     font-size: 20px;
     button:before {
@@ -19,6 +105,55 @@
     }
   }
 }
+
+.item-sns-box{
+  margin:24px auto;
+  padding:32px 0 24px;
+	width:700px;
+	background-color: #fff;
+	&__list{
+		display:flex;
+		justify-content:center;
+	}
+	&__content{
+		font-family: 'icon-font';
+		color:#333;
+		& fab{
+			width:44px;
+			height:44px;
+			border-radius: 4px;
+			line-height: 44px;
+			font-size:44px;
+		}
+	}
+}
+.fa-facebook-square{
+	width:44px;
+	height:44px;
+	border-radius: 4px;
+	line-height: 44px;
+	font-size:44px;
+	text-align: center;
+}
+.fa-twitter-square{
+	width:44px;
+	height:44px;
+	border-radius: 4px;
+	line-height: 44px;
+	font-size:44px;
+	text-align: center;
+
+}
+.fa-pinterest-square{
+	width:44px;
+	height:44px;
+	border-radius: 4px;
+	line-height: 44px;
+	font-size:44px;
+	text-align: center;
+
+}
+
 .arrow {
   position: absolute;
   top: 50%;
