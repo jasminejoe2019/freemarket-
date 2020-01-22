@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :trades
   resources :logouts
   resources :registrations, only:[:index,:create]
-  resources :sessions, only:[:index,:destroy]
+  resources :sessions, only:[:index,:destroy,:create]
   devise_for :users,
   controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks',
