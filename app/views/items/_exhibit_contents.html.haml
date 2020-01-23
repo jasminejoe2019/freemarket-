@@ -1,7 +1,3 @@
-%head
-  %script{src: "http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"}
-  %script{src: "https://code.jquery.com/ui/1.12.1/jquery-ui.js"}
-  %script{src: "./exhibit_contents.js"}
 .single-container
   .main
     .main__container
@@ -27,7 +23,7 @@
               商品名
             %span.form-require
               必須
-            = f.text_field :name, class: 'input-default2', placeholder: '商品名（必須 40文字まで）', type: "text"
+            = f.text_field :name, class: 'input-default2', placeholder: '商品名（必須 40文字まで）', type: "text", id:"item_name"
           .form-groups.product-box
             %label(for="description")
               商品の説明
@@ -44,25 +40,14 @@
                   カテゴリー
                 %span.form-require
                   必須
-                -# = f.collection_select :category_id.Category.all, :id, :category, class: 'select-default select-product'
-                  -# %option(label="--")
-                  -# %option(label="レディース")
-                  -# %option(label="メンズ")
-                  -# %option(label="ベビー・キッズ")
-                  -# %option(label="インテリア・住まい・小物")
-                  -# %option(label="本・音楽・ゲーム")
-              -# .form-groups.select-box
-              -#   %label(for="status")
-              -#     商品の状態
-              -#   %span.form-require
-              -#     必須
-              -#   = f.collection_select :status_id.Status.all, :id, :stusus, class: 'select-default select-product'
-              -#     %option(label="--")
-              -#     %option(label="新品、未使用")
-              -#     %option(label="未使用に近い")
-              -#     %option(label="目立った傷や汚れなし")
-              -#     %option(label="やや傷や汚れあり")
-              -#     %option(label="全体的に状態が悪い")
+                .select-wrap#category_box
+                  = f.select :category_id, @category_parent_array, {}, {class: 'select-default select-product', id: 'parent_category'}
+              .form-groups.select-box
+                %label(for="status")
+                  商品の状態
+                %span.form-require
+                  必須
+                = f.select :condition_id,Condition.all.collect{|p| [p.condition, p.id]}, {}, {class: 'select-default select-product'}
         .sell-form
           .sell-form__content.clearfix
             %h3.sell-sub-head
@@ -73,7 +58,7 @@
                   配送料の負担
                 %span.form-require
                   必須
-                = f.collection_select :shipping_charge_id,ShippingCharge.all, :id, :shipping_charge,{prompt: "--"}, {class: 'select-default select-product'}
+                = f.select :shipping_charge_id,ShippingCharge.all.collect{|p| [p.shipping_charge, p.id]}, {}, {class: 'select-default select-product'}
               .form-groups.select-box
                 %label(for="shipping")
                   発送元の地域
@@ -90,7 +75,7 @@
                   発送までの日数
                 %span.form-require
                   必須
-                = f.collection_select :estimated_shipping_date_id,EstimatedShippingDate.all, :id, :estimated_shipping_date,{prompt: "--"}, {class: 'select-default select-product'}
+                = f.select :estimated_shipping_date_id,EstimatedShippingDate.all.collect{|p| [p.estimated_shipping_date, p.id]}, {}, {class: 'select-default select-product'}
         .sell-form
           .sell-form__content.clearfix
             %h3.sell-sub-head
@@ -107,7 +92,7 @@
                       必須
                   .l-right.sell-price-input
                     ¥
-                    = f.text_field :name, class: 'input-default2 half clearfix input_pricebox', placeholder: '例) 300', type: "text"
+                    = f.text_field :name, class: 'input-default2 half clearfix input_pricebox', placeholder: '例) 300', type: "text", id:"price_id"
                   %li.clearfix
                     .l-left
                       販売手数料(10%)
