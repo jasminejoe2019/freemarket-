@@ -56,7 +56,7 @@ class SignupController < ApplicationController
       birthday: session[:birthday],
       mobile: session[:mobile]
       )
-      redirect_to '/signup/create3' unless @user.valid?
+      render '/signup/create3' unless @user.valid?
     end
 
     def create5

@@ -2,12 +2,12 @@
 ja:
   attributes:
     nickname: ニックネーム
-    First name: 名
-    First furigana: 名カナ
-    Family name: 姓
-    Family furigana: 姓カナ
-    Birthday: 誕生日
-    Mobile: 携帯電話の番号
+    first_name: 名
+    first_furigana: 名カナ
+    family_name: 姓
+    family_furigana: 姓カナ
+    birthday: 誕生日
+    mobile: 携帯電話の番号
   activerecord:
     errors:
       messages:
