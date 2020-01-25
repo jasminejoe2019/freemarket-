@@ -43,7 +43,7 @@ class User < ApplicationRecord
   def self.find_oauth(auth)
     uid=auth.uid
     provider=auth.provider
-    snscredential=SnsCredential.where(uid: uid,provider: provider).first
+    snscredential=SnsCredential.find_by(uid: uid,provider: provider)
     if snscredential.present?
       user=with_sns_data(auth,snscredential)[:user]
       sns=snscredential
