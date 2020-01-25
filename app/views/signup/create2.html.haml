@@ -41,6 +41,9 @@
                 %span.form-require
                   必須
                 = f.text_field :nickname, { placeholder: "例）メルカリ太郎", type: "text",class: "input-default2"}
+                - if @user.errors.any?
+                  - @user.errors.full_messages.each do |message|
+                    %li= message
               .form-groups
                 =f.label "メールアドレス", for: "email"
                 %span.form-require

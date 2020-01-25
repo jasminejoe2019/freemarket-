@@ -15,7 +15,7 @@ class User < ApplicationRecord
   validates :family_name, presence: true
   validates :family_furigana, presence: true,format: { with: VALID_KANA_REGEX, message: 'はカタカナで入力して下さい。'}
   validates :birthday, presence: true
-  validates :mobile, presence: true,format: {with:VALID_MOBILE_REGEX,message: '携帯番号が正しくありません（ハイフンなし）。'}
+  validates :mobile, presence: true,format: {with:VALID_MOBILE_REGEX,message: 'が正しくありません（ハイフンなし）。'}
   # validate :date_valid?
   validates :sales, presence: true
   has_many :items
