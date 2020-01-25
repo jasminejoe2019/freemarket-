@@ -141,7 +141,6 @@ ActiveRecord::Schema.define(version: 2020_01_05_070212) do
     t.string "size"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_sns_credentials_on_user_id"
   end
 
   create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -183,12 +182,11 @@ ActiveRecord::Schema.define(version: 2020_01_05_070212) do
     t.date "birthday", default: "1900-01-01", null: false
     t.text "profile"
     t.bigint "sales", default: 0, null: false
-    t.string "mobile", default: "07000000000", null: false
+    t.string "mobile"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["payment_id"], name: "index_users_on_payment_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 

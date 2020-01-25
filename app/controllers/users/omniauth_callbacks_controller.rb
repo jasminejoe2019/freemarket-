@@ -18,8 +18,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       if session[:provider].present? && session[:uid].present?
         @newuser = User.create(nickname: @user.nickname, email: @user.email, password: password, first_furigana: session[:first_furigana],family_furigana: session[:family_furigana], first_name: session[:first_name], family_name: session[:family_name])
       else
-        # binding.pry
-        @newuser = User.create(nickname: @user.nickname, email: @user.email, password: password)
+
+        @newuser = User.create(nickname: @user.nickname, email: @user.email, password: password, first_furigana: @user.first_furigana,family_furigana: @user.family_furigana, first_name: @user.first_name, family_name: @user.family_name,birthday: @user.birthday)
+
         sns = SnsCredential.create(user_id: @newuser.id,uid: info[:sns][:uid], provider: info[:sns][:provider])
       end
       sign_in_and_redirect @newuser, event: :authentication
