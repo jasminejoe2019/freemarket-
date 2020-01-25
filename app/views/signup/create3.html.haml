@@ -37,7 +37,7 @@
             .main__container__list
               .form-groups
                 =f.label "携帯電話の番号",for: "tel"
-                =f.telephone_field :telephone,{placeholder: "携帯電話の番号を入力", class: "input-default2"}
+                =f.telephone_field :mobile,{placeholder: "携帯電話の番号を入力", class: "input-default2"}
                 %p.form-info-text
                   本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
                 =f.submit "SMSを送信する",{class:"btn-default btn-red"}

@@ -158,10 +158,9 @@ ActiveRecord::Schema.define(version: 2020_01_13_153159) do
     t.string "family_name", null: false
     t.string "family_furigana", null: false
     t.date "birthday", null: false
-    t.string "telephone", null: false
+    t.string "mobile", null: false
     t.text "profile"
     t.bigint "sales", default: 0, null: false
-    t.string "mobile", null: false
     t.bigint "payment_id"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"

@@ -1,10 +1,18 @@
 class SignupController < ApplicationController
+  before_action :validates_create2, only: :create3
+  before_action :validates_create3, only: :create4
 
     def create2
       @user = User.new
     end
 
     def create3
+      session[:name] = user_params[:family_name]+user_params[:first_name]
+      session[:furigana] = user_params[:family_furigana]+user_params[:first_furigana]
+      @user = User.new
+    end
+
+    def validates_create2
       session[:nickname] = user_params[:nickname]
       session[:email] = user_params[:email]
       session[:password] = user_params[:password]
@@ -15,21 +23,48 @@ class SignupController < ApplicationController
       session[:birthday] = user_params["birthday(1i)"]+"/"+user_params["birthday(2i)"]+"/"+user_params["birthday(3i)"]
       session[:name] = user_params[:family_name]+user_params[:first_name]
       session[:furigana] = user_params[:family_furigana]+user_params[:first_furigana]
-      @user = User.new
+      @user = User.new(
+      nickname: session[:nickname],
+      email: session[:email],
+      password: session[:password],
+      family_name: session[:family_name],
+      first_name: session[:first_name],
+      family_furigana: session[:family_furigana],
+      first_furigana: session[:first_furigana],
+      birthday: session[:birthday],
+      mobile: "09011112222"
+      )
+      redirect_to '/signup/create2' unless @user.valid?
     end
+    
 
     def create4
-      session[:telephone] = user_params[:telephone]
       @user = User.new
       @user.addresses.build
     end
 
+    def validates_create3
+      session[:mobile] = user_params[:mobile]
+      @user = User.new(
+      nickname: session[:nickname],
+      email: session[:email],
+      password: session[:password],
+      family_name: session[:family_name],
+      first_name: session[:first_name],
+      family_furigana: session[:family_furigana],
+      first_furigana: session[:first_furigana],
+      birthday: session[:birthday],
+      mobile: session[:mobile]
+      )
+      redirect_to '/signup/create3' unless @user.valid?
+    end
+
     def create5
-      session[:postal_code] = user_params["addresses_attributes"]["0"]["postal_code"]
-      session[:prefecture] = user_params["addresses_attributes"]["0"]["prefecture"]
-      session[:city] = user_params["addresses_attributes"]["0"]["city"]
-      session[:address] = user_params["addresses_attributes"]["0"]["address"]
-      session[:building_name] = user_params["addresses_attributes"]["0"]["building_name"]
+      session[:postal_code] = params[:user][:addresses][:postal_code]
+      session[:prefecture] = params[:user][:addresses][:prefecture]
+      session[:city] = params[:user][:addresses][:city]
+      session[:address] = params[:user][:addresses][:address]
+      session[:building_name] = params[:user][:addresses][:building_name]
       @user = User.new
       @user.payments.build
     end
@@ -44,7 +79,7 @@ class SignupController < ApplicationController
       family_furigana: session[:family_furigana],
       first_furigana: session[:first_furigana],
       birthday: session[:birthday],
-      telephone: session[:telephone]
+      mobile: session[:mobile]
       )
       @user.addresses.build(
         postal_code: session[:postal_code],
@@ -55,15 +90,16 @@ class SignupController < ApplicationController
       )
       if @user.save
         session[:id] = @user.id
-        Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
+        Payjp.api_key = 'sk_test_a02ac9116c8942dbec68459c'
         customer = Payjp::Customer.create(
           card: params[:payjpToken]
         )
         @payment = Payment.new(user_id: session[:id], customer_id: customer.id, card_id: customer.default_card)
-        @payment.save
+        if @payment.save
         redirect_to "/signup/create6"
+        end
       else
-        render '/signup/create1'
+        render '/signup/create2'
       end
     end
 
@@ -78,7 +114,7 @@ class SignupController < ApplicationController
         :family_furigana,
         :first_furigana,
         :birthday,
-        :telephone,
+        :mobile,
         addresses_attributes: [:id, :postal_code, :prefecture, :city, :address, :building_name]
     )
     end
