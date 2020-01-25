@@ -19,12 +19,14 @@ $(function () {
       if (status !== 200) {
         form.find('.payment-errors').text(response.error.message);
         form.find('button').prop('disabled', false);
+        alert("カード情報が正しくありません。");
       }
       else {
         $("#number").removeAttr("name");
         $("#cvc").removeAttr("name");
         $("#exp_month").removeAttr("name");
         $("#exp_year").removeAttr("name");
+
 
         var token = response.id;
         form.append($('<input type="hidden" name="payjpToken" />').val(token));

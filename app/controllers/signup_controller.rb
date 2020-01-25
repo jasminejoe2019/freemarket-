@@ -97,6 +97,8 @@ class SignupController < ApplicationController
         @payment = Payment.new(user_id: session[:id], customer_id: customer.id, card_id: customer.default_card)
         if @payment.save
         redirect_to "/signup/create6"
+        else
+        render '/signup/create5'
         end
       else
         render '/signup/create2'

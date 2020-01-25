@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
   root to: 'items#index'
+  get  "/signup/create2" => redirect("/signup/create1")
+  get  "/signup/create3" => redirect("/signup/create1")
+  get  "/signup/create4" => redirect("/signup/create1")
+  get  "/signup/create5" => redirect("/signup/create1")
+  get  "/signup/create6" => redirect("/signup/create1")
+
   devise_for :users
   resources :users
   resources :items
@@ -20,5 +26,4 @@ Rails.application.routes.draw do
       get 'create6'
     end
   end
-
 end
