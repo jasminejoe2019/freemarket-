@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   root to: 'items#index'
-  devise_for :users
-  resources :users
+  # resources :users
   resources :items
   resources :addresses
   resources :shipping_addresses
@@ -10,4 +9,12 @@ Rails.application.routes.draw do
   resources :cards
   resources :trades
   resources :logouts
+  resources :registrations, only:[:index,:create]
+  resources :sessions, only:[:index,:destroy,:create]
+  devise_for :users,
+  controllers: {
+    omniauth_callbacks: 'users/omniauth_callbacks',
+    # sessions: 'users/sessions',
+    # registrations: 'users/registrations'
+  }
 end

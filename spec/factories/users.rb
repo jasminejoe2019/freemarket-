@@ -9,7 +9,7 @@ FactoryBot.define do
     first_furigana        {"タケシ"}
     family_name           {"本田"}
     family_furigana       {"ホンダ"}
-    birthday              {"19790924"}
+    birthday              {"1979-09-24"}
     profile               {"aaaaaa"}
     sales                 {10000}
     mobile                {"09056464071"}
