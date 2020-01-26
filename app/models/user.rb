@@ -76,16 +76,17 @@ class User < ApplicationRecord
   has_many :shipping_addresses
   has_many :sns_credential
 
-  def date_valid?
-    # birthday = birthday_before_type_cast
-    # return if birthday.blank?
-    # y = birthday[0, 4].to_i
-    # m = birthday[5, 2].to_i
-    # d = birthday[8, 2].to_i
-    # unless Date.valid_date?(y, m, d)
-    #   errors.add(:birthday, "日付の値が不正です")
-    # end
-  end
+  # 調整中、後ほど利用します
+  # def date_valid?
+  #   # birthday = birthday_before_type_cast
+  #   # return if birthday.blank?
+  #   # y = birthday[0, 4].to_i
+  #   # m = birthday[5, 2].to_i
+  #   # d = birthday[8, 2].to_i
+  #   # unless Date.valid_date?(y, m, d)
+  #   #   errors.add(:birthday, "日付の値が不正です")
+  #   # end
+  # end
 
 
 
