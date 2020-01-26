@@ -1,19 +1,19 @@
 class SignupController < ApplicationController
-  before_action :entry, only: :create2
-  before_action :redirect, except: :create1
-  before_action :validates_create2, only: :create3
-  before_action :validates_create3, only: :create4
+  before_action :entry, only: :user_create_profile
+  before_action :redirect, except: :user_create
+  before_action :validates_create2, only: :user_create_telephone
+  before_action :validates_create3, only: :user_create_address
 
     def entry
       session[:token] = "true"
     end
 
-    def create2
+    def user_create_profile
       session[:token] = "true"
       @user = User.new
     end
 
-    def create3
+    def user_create_telephone
       session[:name] = user_params[:family_name]+user_params[:first_name]
       session[:furigana] = user_params[:family_furigana]+user_params[:first_furigana]
       session[:token] = "true"
@@ -42,12 +42,12 @@ class SignupController < ApplicationController
       birthday: session[:birthday],
       mobile: "09011112222"
       )
-      render '/signup/create2' unless @user.valid?
+      render '/signup/user_create_profile' unless @user.valid?
       session[:token] = "true"
     end
     
 
-    def create4
+    def user_create_address
       session[:token] = "true"
       @user = User.new
       @user.addresses.build
@@ -66,10 +66,10 @@ class SignupController < ApplicationController
       birthday: session[:birthday],
       mobile: session[:mobile]
       )
-      render '/signup/create3' unless @user.valid?
+      render '/signup/user_create_telephone' unless @user.valid?
     end
 
-    def create5
+    def user_create_payment
       session[:postal_code] = params[:user][:addresses][:postal_code]
       session[:prefecture] = params[:user][:addresses][:prefecture]
       session[:city] = params[:user][:addresses][:city]
@@ -80,7 +80,7 @@ class SignupController < ApplicationController
       @user.payments.build
     end
 
-    def create6
+    def user_create_finish
       session[:token] = "true"
       sign_in User.find(session[:id]) unless user_signed_in?
     end
@@ -113,12 +113,12 @@ class SignupController < ApplicationController
         )
         @payment = Payment.new(user_id: session[:id], customer_id: customer.id, card_id: customer.default_card)
         if @payment.save
-        redirect_to "/signup/create6"
+        redirect_to "/signup/user_create_finish"
         else
-        render '/signup/create5'
+        render '/signup/user_create_payment'
         end
       else
-        render '/signup/create2'
+        render '/signup/user_create_profile'
       end
     end
 
