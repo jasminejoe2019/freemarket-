@@ -1,3 +1,3 @@
 class DeliveryArea < ApplicationRecord
-  belongs to item
+  has_many :items
 end

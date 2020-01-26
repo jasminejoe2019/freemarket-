@@ -1,14 +1,16 @@
 class Item < ApplicationRecord
-  belongs_to :categories, dependent: :destroy
-  has_many :brands, dependent: :destroy
+  belongs_to :category, dependent: :destroy
+  belongs_to :brand, dependent: :destroy
   has_many :images, dependent: :destroy
-  has_many :sizes, dependent: :destroy
-  has_many :conditions, dependent: :destroy
-  has_many :shipping_charges, dependent: :destroy
-  has_many :shipping_methods, dependent: :destroy
-  has_many :delivery_areas, dependent: :destroy
-  has_many :estimated_shipping_dates, dependent: :destroy
-  has_many :statuses, dependent: :destroy
+  belongs_to :size, dependent: :destroy
+  belongs_to :condition, dependent: :destroy
+  belongs_to :shipping_charge, dependent: :destroy
+  belongs_to :shipping_method, dependent: :destroy
+  belongs_to :delivery_area, dependent: :destroy
+  belongs_to :estimated_shipping_date, dependent: :destroy
+  belongs_to :status, dependent: :destroy
   belongs_to :user
-  belongs_to :trade
+  has_one :trade
+  # trade_id にnullを許可する
+  # belongs_to :trade, optional: true
 end

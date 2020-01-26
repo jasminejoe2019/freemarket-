@@ -19,18 +19,18 @@ $(function(){
 $(function(){
   // カテゴリーセレクトボックスのオプションを作成
   function appendOption(category){
-    var html = `<option value="${category.name}" data-category="${category.id}">${category.name}</option>`;
+    var html = `<option value="${category.id}" data-category="${category.id}">${category.name}</option>`;
     return html;
   }
   function appendOptionSize(size){
-    var html = `<option value="${size.size}" data-category="${size.id}">${size.size}</option>`;
+    var html = `<option value="${size.id}" data-category="${size.id}">${size.size}</option>`;
     return html;
   }
 
   function appendChidrenBox(insertHTML){
     var childSelectHtml = '';
     childSelectHtml = `<div class='select-wrap' id= 'children_wrapper'>
-                        <select class="select-default select-product" id="child_category" name="category_id">
+                        <select class="select-default select-product" id="child_category">
                           <option value="--" data-category="--">---</option>
                           ${insertHTML}
                         <select>
@@ -41,7 +41,7 @@ $(function(){
   function appendGrandchidrenBox(insertHTML){
     var grandchildSelectHtml = '';
     grandchildSelectHtml = `<div class='select-wrap' id= 'grandchildren_wrapper'>
-                              <select class="select-default select-product" id="grandchild_category" name="category_id">
+                              <select class="select-default select-product" id="grandchild_category" name="item[category_id]">
                                 <option value="--" data-category="--">--</option>
                                 ${insertHTML}
                               <select>
@@ -59,7 +59,7 @@ $(function(){
                           必須
                         </span>
                         <div class='select-wrap'>
-                          <select class="select-default select-product" id="size" name="size_id">
+                          <select class="select-default select-product" id="size" name="item[size_id]">
                             ${insertHTML}
                           <select>
                         </div>
@@ -102,7 +102,6 @@ $(function(){
   $('#category_box').on('change', '#child_category', function(){
     var childId = $('#child_category option:selected').data('category');
     if (childId != "--"){
-      console.log(childId)
       $.ajax({
         url: 'get_category_grandchildren',
         type: 'GET',
@@ -135,7 +134,6 @@ $(function(){
   $('#category_box').on('change', '#grandchild_category', function(){
     var sizeId = $('#grandchild_category option:selected').data('category');
     if (sizeId != "--"){
-      console.log(sizeId)
       $.ajax({
         url: 'get_size',
         type: 'GET',
@@ -144,7 +142,6 @@ $(function(){
       })
       .done(function(size){
         if (size.length != 0) {
-          // $('#grandchildren_wrapper').remove();
           $('#size_wrapper').remove();
           $('#brand_wrapper').remove();
           var insertHTML2 = '';
@@ -153,7 +150,6 @@ $(function(){
           });
           appendSizeBox(insertHTML2);
         }
-        console.log("success")
       })
       .fail(function(){
         alert('カテゴリー取得に失敗しました');

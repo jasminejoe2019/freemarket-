@@ -25,15 +25,18 @@ class ItemsController < ApplicationController
   end
 
   def create
-    Item.create(item: item_params[:item])
-    redirect_to "/new"
+    @item = Item.new(item_params)
+    # binding.pry
+    if @item.save!
+    end
+    redirect_to "/"
   end
 
 
   private
 
   def item_params
-    params.permit(:item)
+    params.require(:item).permit(:name, :description, :category_id, :condition_id, :shipping_charge_id, :estimated_shipping_date_id, :price, :size_id).merge(user_id: 2, brand_id: 1, status_id: 1, delivery_area_id: 1, shipping_method_id: 1)
   end
 
 end

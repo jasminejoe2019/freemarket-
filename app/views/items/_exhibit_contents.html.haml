@@ -3,7 +3,7 @@
     .main__container
       %h2.main__container__head
         商品の情報を入力
-      = form_for @item do |f|
+      = form_for @item, method: :post do |f|
         .sell-form
           .sell-form__content
             %h3.item-upload-head
@@ -65,7 +65,7 @@
                 %span.form-require
                   必須
                 %select{name: "shipping", class: "select-default select-product"}
-                  %option(label="北海道")
+                  %option(label="--")
                   %option(label="青森")
                   %option(label="岩手")
                   %option(label="秋田")
@@ -92,7 +92,7 @@
                       必須
                   .l-right.sell-price-input
                     ¥
-                    = f.text_field :name, class: 'input-default2 half clearfix input_pricebox', placeholder: '例) 300', type: "text", id:"price_id"
+                    = f.number_field :price, class: 'input-default2 half clearfix input_pricebox', placeholder: '例) 300', type: "text", id:"price_id"
                   %li.clearfix
                     .l-left
                       販売手数料(10%)
@@ -101,7 +101,6 @@
                   %li.clearfix.bold
                     .l-left
                       販売利益
-                    = f.number_field :price, style: "display: none", id: "price"
                     .l-right.bold.right_bar_2
                       \-
         .sell-form
