@@ -124,7 +124,6 @@ class SignupController < ApplicationController
 
     private
     def redirect
-      binding.pry
       redirect_to create1_signup_index_path unless session[:token] == "true"
       session[:token] = "false"
     end
