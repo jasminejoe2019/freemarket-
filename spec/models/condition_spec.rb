@@ -1,5 +1,10 @@
 require 'rails_helper'
-
-RSpec.describe Condition, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Condition do
+  describe '#create' do
+    it "is invalid without a condition" do
+      condition = build(:condition,condition: "")
+      condition.valid?
+      expect(condition.errors[:condition]).to include("can't be blank")
+    end
+  end
 end

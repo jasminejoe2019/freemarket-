@@ -16,12 +16,12 @@ html{
   TODO test putting a class on HEAD.
       - Fails on FF.
 */
-body{
+
+body {
   margin:0;
   padding:0;
   background-color:#f5f5f5;
-  margin: 0;
-  padding: 0;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
 }
 div,
 dl,

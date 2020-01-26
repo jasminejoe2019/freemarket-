@@ -1,5 +1,10 @@
 require 'rails_helper'
-
-RSpec.describe Size, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Size do
+  describe '#create' do
+    it "is invalid without a size" do
+      size = build(:size,size: "")
+      size.valid?
+      expect(size.errors[:size]).to include("can't be blank")
+    end
+  end
 end

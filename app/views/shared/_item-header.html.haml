@@ -2,7 +2,7 @@
   .item-header__inner
     .item-header__upper
       .item-header__upper__logo
-        = link_to image_tag 'fmarket_logo_red.svg'
+        = link_to image_tag('fmarket_logo_red.svg'),root_path
       .item-header__upper__search-form
         %input.item-header__upper__search-form__text{type: "text",placeholder: "何かお探しですか？"}
         .item-header__upper__search-form__btn
@@ -54,6 +54,7 @@
                 ルイヴィトン
 
       - if user_signed_in?
+<<<<<<< HEAD
         .item-header__bottom__right
           %ul.item-header__login__list
             %li.item-header__iine
@@ -107,13 +108,72 @@
               .item-header__mypage__list
                 マイページで実装
       - else
+=======
+
+>>>>>>> master
         .item-header__bottom__right
           %ul.item-header__login__list
             %li.item-header__iine
               .item-header__iine__title
+<<<<<<< HEAD
                 = link_to new_user_registration_path, class: 'post' do
                   新規会員登録
             %li.item-header__info
               .item-header__info__title
                 =link_to new_user_session_path, class: 'post' do
                   ログイン
+=======
+                = link_to root_path do
+                  =icon 'far','heart'
+                  いいね！一覧
+            %li.item-header__info
+              .item-header__info__title
+                =link_to root_path do
+                  =icon 'far','bell'
+                  お知らせ
+                  %span.icon-batch
+                    99+
+              .item-header__info__list
+                %ul.item-header__info__list__topic
+                  %li.item-header__info__element
+                    = link_to root_path
+                    .item-header__info__element__logo
+                      = image_tag 'logo_red.svg'
+                    .item-header__info__element__text
+                      %p
+                        クーポンの有効期限が切れます
+                      %time
+                        =icon 'far','clock'
+                        1日前
+                  %li.item-header__info__element
+                    = link_to root_path
+                    .item-header__info__element__logo
+                      = image_tag 'logo_red.svg'
+                    .item-header__info__element__text
+                      %p
+                        クーポンの有効期限が切れます
+                      %time
+                        =icon 'far','clock'
+                        1日前
+              %li.item-header__todo
+                .item-header__todo__title
+                  =link_to root_path do
+                    =icon 'fas','check'
+                    やることリスト
+                .item-header__todo__list
+                  .item-header__todo__list__empty
+                    現在やることはありません
+              %li.item-header__mypage
+                .item-header__mypage__title
+                  =link_to mypages_path do
+                    =icon 'far','user-circle'
+                    マイページ
+                .item-header__mypage__list
+                  マイページで実装
+      - else
+        %ul.item-header__members
+          %li.item-header__signup
+            = link_to "新規会員登録",registrations_path
+          %li.item-header__signin
+            = link_to "ログイン",new_user_session_path,{class: "item-header__login"}
+>>>>>>> master

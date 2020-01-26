@@ -1,5 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe Status, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Status do
+  describe '#create' do
+    it "is invalid without a status" do
+      status = build(:status,status: "")
+      status.valid?
+      expect(status.errors[:status]).to include("can't be blank")
+    end
+  end
 end
