@@ -1,14 +1,22 @@
 class SignupController < ApplicationController
+  before_action :entry, only: :create2
+  before_action :redirect, except: :create1
   before_action :validates_create2, only: :create3
   before_action :validates_create3, only: :create4
 
+    def entry
+      session[:token] = "true"
+    end
+
     def create2
+      session[:token] = "true"
       @user = User.new
     end
 
     def create3
       session[:name] = user_params[:family_name]+user_params[:first_name]
       session[:furigana] = user_params[:family_furigana]+user_params[:first_furigana]
+      session[:token] = "true"
       @user = User.new
     end
 
@@ -35,10 +43,12 @@ class SignupController < ApplicationController
       mobile: "09011112222"
       )
       render '/signup/create2' unless @user.valid?
+      session[:token] = "true"
     end
     
 
     def create4
+      session[:token] = "true"
       @user = User.new
       @user.addresses.build
     end
@@ -65,16 +75,18 @@ class SignupController < ApplicationController
       session[:city] = params[:user][:addresses][:city]
       session[:address] = params[:user][:addresses][:address]
       session[:building_name] = params[:user][:addresses][:building_name]
+      session[:token] = "true"
       @user = User.new
       @user.payments.build
     end
 
     def create6
+      session[:token] = "true"
       sign_in User.find(session[:id]) unless user_signed_in?
-      redirect_to root_path
     end
 
     def create
+      session[:token] = "true"
       @user = User.new(
       nickname: session[:nickname],
       email: session[:email],
@@ -111,6 +123,11 @@ class SignupController < ApplicationController
     end
 
     private
+    def redirect
+      redirect_to create1_signup_index_path unless session[:token] == "true"
+      session[:token] = "false"
+    end
+
     def user_params
       params.require(:user).permit(
         :nickname,
