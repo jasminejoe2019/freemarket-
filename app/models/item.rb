@@ -11,7 +11,7 @@ class Item < ApplicationRecord
   # belongs_to :estimated_shipping_date, dependent: :destroy,optional: true
   # belongs_to :status, dependent: :destroy,optional: true
   # belongs to :user,dependent: :destroy,optional: true
-  # belongs to :trade,dependent: :destroy,optional: true
+  has_many :trades,dependent: :destroy,optional: true
   validates :name,presence: true,length: {maximum: 40}
   validates :price,presence: true
   validates :description,presence: true,length: {maximum: 1000}

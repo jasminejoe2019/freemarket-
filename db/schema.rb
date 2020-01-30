@@ -163,7 +163,6 @@ ActiveRecord::Schema.define(version: 2020_01_10_120622) do
   end
 
   create_table "trades", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.datetime "transaction_date", null: false
     t.datetime "trading_date"
     t.bigint "user_id", null: false
     t.bigint "item_id", null: false

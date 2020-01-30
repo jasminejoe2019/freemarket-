@@ -35,6 +35,8 @@
                 有効期限
                 = @card_information.exp_month.to_s + " / " + @card_information.exp_year.to_s.slice(2,3)
                 %br
+                カードブランド
+                = @card_information.brand
           %section.confirmMain__wrapper__buyerInfo__inner__shippingAddress
             .confirmMain__wrapper__buyerInfo__inner__shippingAddress__first
               %h3.confirmMain__wrapper__buyerInfo__inner__shippingAddress__first

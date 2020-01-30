@@ -7,7 +7,7 @@
         .confirmMain__wrapper__item__info__inner
           .confirmMain__wrapper__item__info__inner__box
             %h3.confirmMain__wrapper__item__info__inner__box__image
-              = image_tag image_tag @item.images[0]["image"], size: '80x80'
+              = image_tag @item.images[0]["image"], size: '80x80'
           .confirmMain__wrapper__item__info__inner__detail
             .confirmMain__wrapper__item__info__inner__detail__name
               = @item.name
@@ -16,7 +16,7 @@
               (税込み) 送料込み
     %section.confirmMain__wrapper__buyerInfo
       .confirmMain__wrapper__buyerInfo__inner
-        = form_with url: root_path do |form|
+        = form_with url: new_trade_path, method: :get, local: true do |form|
           .confirmMain__wrapper__buyerInfo__inner__price
             .confirmMain__wrapper__buyerInfo__inner__price__label
               支払い金額
@@ -50,6 +50,8 @@
                 有効期限
                 = @card_information.exp_month.to_s + " / " + @card_information.exp_year.to_s.slice(2,3)
                 %br
+                カードブランド
+                = @card_information.brand
           %section.confirmMain__wrapper__buyerInfo__inner__shippingAddress
             .confirmMain__wrapper__buyerInfo__inner__shippingAddress__first
               %h3.confirmMain__wrapper__buyerInfo__inner__shippingAddress__first
