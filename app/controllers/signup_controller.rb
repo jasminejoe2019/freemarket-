@@ -1,6 +1,6 @@
 class SignupController < ApplicationController
   before_action :entry, only: :user_create_profile
-  before_action :redirect, except: :user_create
+  before_action :skip_forbidden, except: :user_create
   before_action :user_profile_validates, only: :user_create_telephone
   before_action :user_telephone_validates, only: :user_create_address
 
@@ -122,8 +122,8 @@ class SignupController < ApplicationController
       end
     end
 
-    private
-    def redirect
+    private 
+    def skip_forbidden
       redirect_to create1_signup_index_path unless session[:token] == "true"
       session[:token] = "false"
     end
