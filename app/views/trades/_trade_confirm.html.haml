@@ -10,17 +10,19 @@
               = image_tag 'logo_red.svg'
           .confirmMain__wrapper__item__info__inner__detail
             .confirmMain__wrapper__item__info__inner__detail__name
-              商品名サンプル
+              = @item.name
             .confirmMain__wrapper__item__info__inner__detail__price
-              ¥ 6,000 (税込み) 送料込み
+              = number_to_currency @item.price
+              (税込み) 送料込み
     %section.confirmMain__wrapper__buyerInfo
       .confirmMain__wrapper__buyerInfo__inner
-        = form_with url: users_path do |form|
+        = form_with url: root_path do |form|
           .confirmMain__wrapper__buyerInfo__inner__price
             .confirmMain__wrapper__buyerInfo__inner__price__label
               支払い金額
             .confirmMain__wrapper__buyerInfo__inner__price__main
-              %span ¥ 6,000
+              %span
+                = number_to_currency @item.price
           .confirmMain__wrapper__buyerInfo__inner__point
             = form.check_box :pointUse, {checked: false}, "true", "false"
             = form.label :pointUse, "ポイントを使用 (所持ポイント: P1000)"
@@ -42,9 +44,11 @@
                 = link_to "#" do
                   変更する
               %p.confirmMain__wrapper__buyerInfo__inner__payMethod__wrapper__second
-                ************1234
+                ************
+                = @card_information.last4
                 %br
-                有効期限 01 / 99
+                有効期限
+                = @card_information.exp_month.to_s + " / " + @card_information.exp_year.to_s.slice(2,3)
                 %br
           %section.confirmMain__wrapper__buyerInfo__inner__shippingAddress
             .confirmMain__wrapper__buyerInfo__inner__shippingAddress__first
@@ -53,10 +57,15 @@
               = link_to "#" do
                 変更する
             %address.confirmMain__wrapper__buyerInfo__inner__shippingAddress__second
-              〒542-0076
+              〒
+              = current_user.shipping_addresses[0]["postal_code"]
               %br 
-              大阪府大阪市中央区難波５丁目１−６０
+              = current_user.shipping_addresses[0]["prefecture"]
+              = current_user.shipping_addresses[0]["city"]
+              = current_user.shipping_addresses[0]["address"]
+              = current_user.shipping_addresses[0]["building_name"]
               %br
-              中元一徹
+              = current_user.family_name
+              = current_user.first_name
           %section.confirmMain__wrapper__buyerInfo__inner__btn
             = form.submit "購入する",class: "confirmMain__wrapper__buyerInfo__inner__btn-red"
