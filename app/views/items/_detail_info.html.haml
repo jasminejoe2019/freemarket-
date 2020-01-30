@@ -4,7 +4,7 @@
       %th 出品者
       %td
         = link_to "https://www.mercari.com/" do
-          ししまる
+          = @user.nickname
         %div.itemInfo__table_ratings
           .itemInfo__table_ratings-good
             %i.fas.fa-laugh
@@ -33,18 +33,23 @@
       %td
     %tr
       %th 商品の状態
-      %td 新品、未使用
+      %td
+        -# = @condition.condition
+        -# -binding.pry
     %tr
       %th 配送料の負担
-      %td 送料込み(出品者負担)
+      %td 
+        = @shipping_charge.shipping_charge
     %tr
       %th 配送の方法
-      %td らくらくメルカリ便
+      %td
+        -# = @shipping_method.method
     %tr
       %th 配送元地域
       %td 
-        = link_to "#" do
-          大阪府
+        -# = link_to "#" do
+        -# -# =@delivery_area.delivery_area
     %tr
       %th 発送日の目安
-      %td 2~3日で発送
+      %td
+        = @estimated_shipping_date.estimated_shipping_date
