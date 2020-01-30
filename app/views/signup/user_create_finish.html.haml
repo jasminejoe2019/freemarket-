@@ -1,44 +1,47 @@
-.rapper
-  .single-container
-    .signup_address
-      .single-header
-        %h1.single-header__logo
-          = link_to "#" do
-            =image_tag "fmarket_logo_red.svg"
-        %nav.progress
-          %ul.progress-bar
-            %li.through#through.gray
-              会員情報
-              .progress-status
-              .progress-status_bar.red
-            %li.active#active.gray
-              電話番号認証
-              .progress-status.red
-              .progress-status_bar.red
-            %li.address#address.gray
-              お届け先住所入力
-              .progress-status.red
-              .progress-status_bar.red
-            %li.payment#payment.gray
-              支払い方法
-              .progress-status.red
-              .progress-status_bar.red
-            %li.end#end.red
-              完了
-              .progress-status.red
-              .progress-status_bar.red
-    .main
-      .main__container
-        %h2.main__container__head
-          会員登録完了
-        .main__container__form
-          .main__container__list
-            .form-groups
-              %h2.last-text
-                ありがとうございます。
-              %h2.last-text
-                会員登録が完了しました。
-            =link_to root_path, class:"btn-default btn-red" do
-              メルカリをはじめる
-              
-  = render '/devise/shared/user_footer'
+= render 'progress-bar'
+.main
+  .main__container
+    %h2.main__container__head
+      会員登録完了
+    .main__container__form
+      .main__container__list
+        .form-groups
+          %h2.last-text
+            ありがとうございます。
+          %h2.last-text
+            会員登録が完了しました。
+        =link_to root_path, class:"btn-default btn-red" do
+          メルカリをはじめる
+          
+= render '/devise/shared/user_footer'
+:css
+  li.through .progress-status{
+    background:#ea352d;
+  }
+  li.through .progress-status_bar{
+    background:#ea352d;
+  }
+  li.active .progress-status{
+    background:#ea352d;
+  }
+  li.active .progress-status_bar{
+    background:#ea352d;
+  }
+  li.address .progress-status{
+    background:#ea352d;
+  }
+  li.address .progress-status_bar{
+    background:#ea352d;
+  }
+  li.payment .progress-status{
+    background:#ea352d;
+  }
+  li.payment .progress-status_bar{
+    background:#ea352d;
+  }
+  li.end{
+    color:#ea352d;
+  }
+  li.end .progress-status{
+    background:#ea352d;
+  }

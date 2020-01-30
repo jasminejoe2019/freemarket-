@@ -1,8 +1,8 @@
 class SignupController < ApplicationController
   before_action :entry, only: :user_create_profile
   before_action :redirect, except: :user_create
-  before_action :validates_create2, only: :user_create_telephone
-  before_action :validates_create3, only: :user_create_address
+  before_action :user_profile_validates, only: :user_create_telephone
+  before_action :user_telephone_validates, only: :user_create_address
 
     def entry
       session[:token] = "true"
@@ -20,7 +20,7 @@ class SignupController < ApplicationController
       @user = User.new
     end
 
-    def validates_create2
+    def user_profile_validates
       session[:nickname] = user_params[:nickname]
       session[:email] = user_params[:email]
       session[:password] = user_params[:password]
@@ -32,15 +32,15 @@ class SignupController < ApplicationController
       session[:name] = user_params[:family_name]+user_params[:first_name]
       session[:furigana] = user_params[:family_furigana]+user_params[:first_furigana]
       @user = User.new(
-      nickname: session[:nickname],
-      email: session[:email],
-      password: session[:password],
-      family_name: session[:family_name],
-      first_name: session[:first_name],
-      family_furigana: session[:family_furigana],
-      first_furigana: session[:first_furigana],
-      birthday: session[:birthday],
-      mobile: "09011112222"
+        nickname: session[:nickname],
+        email: session[:email],
+        password: session[:password],
+        family_name: session[:family_name],
+        first_name: session[:first_name],
+        family_furigana: session[:family_furigana],
+        first_furigana: session[:first_furigana],
+        birthday: session[:birthday],
+        mobile: "09011112222"
       )
       render '/signup/user_create_profile' unless @user.valid?
       session[:token] = "true"
@@ -53,18 +53,18 @@ class SignupController < ApplicationController
       @user.addresses.build
     end
 
-    def validates_create3
+    def user_telephone_validates
       session[:mobile] = user_params[:mobile]
       @user = User.new(
-      nickname: session[:nickname],
-      email: session[:email],
-      password: session[:password],
-      family_name: session[:family_name],
-      first_name: session[:first_name],
-      family_furigana: session[:family_furigana],
-      first_furigana: session[:first_furigana],
-      birthday: session[:birthday],
-      mobile: session[:mobile]
+        nickname: session[:nickname],
+        email: session[:email],
+        password: session[:password],
+        family_name: session[:family_name],
+        first_name: session[:first_name],
+        family_furigana: session[:family_furigana],
+        first_furigana: session[:first_furigana],
+        birthday: session[:birthday],
+        mobile: session[:mobile]
       )
       render '/signup/user_create_telephone' unless @user.valid?
     end
@@ -88,15 +88,15 @@ class SignupController < ApplicationController
     def create
       session[:token] = "true"
       @user = User.new(
-      nickname: session[:nickname],
-      email: session[:email],
-      password: session[:password],
-      family_name: session[:family_name],
-      first_name: session[:first_name],
-      family_furigana: session[:family_furigana],
-      first_furigana: session[:first_furigana],
-      birthday: session[:birthday],
-      mobile: session[:mobile]
+        nickname: session[:nickname],
+        email: session[:email],
+        password: session[:password],
+        family_name: session[:family_name],
+        first_name: session[:first_name],
+        family_furigana: session[:family_furigana],
+        first_furigana: session[:first_furigana],
+        birthday: session[:birthday],
+        mobile: session[:mobile]
       )
       @user.addresses.build(
         postal_code: session[:postal_code],
@@ -107,7 +107,7 @@ class SignupController < ApplicationController
       )
       if @user.save
         session[:id] = @user.id
-        Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
+        Payjp.api_key = "sk_test_a02ac9116c8942dbec68459c"
         customer = Payjp::Customer.create(
           card: params[:payjpToken]
         )
