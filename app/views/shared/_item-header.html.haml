@@ -54,7 +54,6 @@
                 ルイヴィトン
 
       - if user_signed_in?
-
         .item-header__bottom__right
           %ul.item-header__login__list
             %li.item-header__iine
@@ -91,24 +90,30 @@
                       %time
                         =icon 'far','clock'
                         1日前
-              %li.item-header__todo
-                .item-header__todo__title
-                  =link_to root_path do
-                    =icon 'fas','check'
-                    やることリスト
-                .item-header__todo__list
-                  .item-header__todo__list__empty
-                    現在やることはありません
-              %li.item-header__mypage
-                .item-header__mypage__title
-                  =link_to mypages_path do
-                    =icon 'far','user-circle'
-                    マイページ
-                .item-header__mypage__list
-                  マイページで実装
+
+            %li.item-header__todo
+              .item-header__todo__title
+                =link_to root_path do
+                  =icon 'fas','check'
+                  やることリスト
+              .item-header__todo__list
+                .item-header__todo__list__empty
+                  現在やることはありません
+            %li.item-header__mypage
+              .item-header__mypage__title
+                =link_to root_path do
+                  =icon 'far','user-circle'
+                  マイページ
+              .item-header__mypage__list
+                マイページで実装
       - else
-        %ul.item-header__members
-          %li.item-header__signup
-            = link_to "新規会員登録",registrations_path
-          %li.item-header__signin
-            = link_to "ログイン",new_user_session_path,{class: "item-header__login"}
+        .item-header__bottom__right
+          %ul.item-header__login__list
+            %li.item-header__iine
+              .item-header__iine__title
+                = link_to new_user_registration_path, class: 'post' do
+                  新規会員登録
+            %li.item-header__info
+              .item-header__info__title
+                =link_to new_user_session_path, class: 'post' do
+                  ログイン

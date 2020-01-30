@@ -8,6 +8,16 @@ Rails.application.routes.draw do
   resources :mypages, only:[:edit,:index]
   resources :cards
   resources :trades
+  resources :signup do
+    collection do
+      get 'user_create'
+      get 'user_create_profile'
+      get 'user_create_telephone'
+      get 'user_create_address'
+      get 'user_create_payment'
+      get 'user_create_finish'
+    end
+  end
   resources :logouts
   resources :registrations, only:[:index,:create]
   resources :sessions, only:[:index,:destroy,:create]

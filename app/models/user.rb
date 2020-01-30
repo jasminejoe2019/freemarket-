@@ -66,8 +66,7 @@ class User < ApplicationRecord
   validates :family_name, presence: true
   validates :family_furigana, presence: true,format: { with: VALID_KANA_REGEX, message: 'はカタカナで入力して下さい。'}
   validates :birthday, presence: true
-  # validates :mobile,format: {with:VALID_MOBILE_REGEX,message: '携帯番号が正しくありません（ハイフンなし）。'}
-  validate :date_valid?
+  validates :mobile, presence: true,format: {with:VALID_MOBILE_REGEX,message: 'が正しくありません（ハイフンなし）。'}
   validates :sales, presence: true
   has_many :items
   has_many :trades
@@ -77,16 +76,17 @@ class User < ApplicationRecord
   has_many :shipping_addresses
   has_many :sns_credential
 
-  def date_valid?
-    # birthday = birthday_before_type_cast
-    # return if birthday.blank?
-    # y = birthday[0, 4].to_i
-    # m = birthday[5, 2].to_i
-    # d = birthday[8, 2].to_i
-    # unless Date.valid_date?(y, m, d)
-    #   errors.add(:birthday, "日付の値が不正です")
-    # end
-  end
+  # 調整中、後ほど利用します
+  # def date_valid?
+  #   # birthday = birthday_before_type_cast
+  #   # return if birthday.blank?
+  #   # y = birthday[0, 4].to_i
+  #   # m = birthday[5, 2].to_i
+  #   # d = birthday[8, 2].to_i
+  #   # unless Date.valid_date?(y, m, d)
+  #   #   errors.add(:birthday, "日付の値が不正です")
+  #   # end
+  # end
 
 
 
