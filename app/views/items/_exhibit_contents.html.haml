@@ -64,12 +64,7 @@
                   発送元の地域
                 %span.form-require
                   必須
-                %select{name: "shipping", class: "select-default select-product"}
-                  %option(label="--")
-                  %option(label="青森")
-                  %option(label="岩手")
-                  %option(label="秋田")
-                  %option(label="新潟")
+                = f.select :delivery_area_id, Product.delivery_areas, {}, {class: 'select-default select-product'}
               .form-groups.select-box
                 %label(for="days")
                   発送までの日数
