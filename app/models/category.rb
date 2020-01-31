@@ -1,5 +1,5 @@
 class Category < ApplicationRecord
-  # コメントアウト部分は段階的に実装予定です
-  # belongs_to :item
+  has_many :items
+  has_ancestry
   validates :category,presence: true
 end
