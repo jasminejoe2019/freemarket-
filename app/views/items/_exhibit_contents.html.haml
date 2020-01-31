@@ -70,12 +70,7 @@
                   発送元の地域
                 %span.form-require
                   必須
-                %select{name: "shipping", class: "select-default select-product"}
-                  %option(label="--")
-                  %option(label="青森")
-                  %option(label="岩手")
-                  %option(label="秋田")
-                  %option(label="新潟")
+                = f.select :delivery_area_id, Product.delivery_areas, {}, {class: 'select-default select-product'}
               .form-groups.select-box
                 %label(for="days")
                   発送までの日数
@@ -133,3 +128,14 @@
           = f.submit '出品する', class: 'btn-default btn-red shipping-wide'
           =link_to :back, class: "btn-default btn-gray" do
             もどる
+
+.moddal
+  .madal-inner
+    %div
+      %h3.madal-head
+        出品が完了しました
+      .sell-modal-body
+        あなたが出品した商品は「出品した商品一覧」からいつでも見ることができます。
+        =link_to '続けて出品する', new_item_path, class:'btn-default btn-red'
+        =link_to '商品ページへ行ってシェアする', item_path(params[:id])
+
