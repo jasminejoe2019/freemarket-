@@ -9,6 +9,7 @@ class ItemsController < ApplicationController
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
     end
+    @item.images.build
   end
 
   def get_category_children
@@ -25,18 +26,17 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(item_params)
-    # binding.pry
-    if @item.save!
-    end
-    redirect_to "/"
+    @item = Item.create(item_params)
+    # if @item.save!
+    # end
+    redirect_to root_path
   end
 
 
   private
 
   def item_params
-    params.require(:item).permit(:name, :description, :category_id, :condition_id, :shipping_charge_id, :estimated_shipping_date_id, :price, :size_id).merge(user_id: 2, brand_id: 1, status_id: 1, delivery_area_id: 1, shipping_method_id: 1)
+    params.require(:item).permit(:name, :description, :category_id, :condition_id, :shipping_charge_id, :estimated_shipping_date_id, :price, :size_id,images_attributes: [:image]).merge(user_id: 1, brand_id: 1, status_id: 1, delivery_area_id: 1, shipping_method_id: 1)
   end
 
 end

@@ -9,6 +9,8 @@ Rails.application.routes.draw do
       get 'get_category_grandchildren', defaults: { format: 'json' }
       get 'get_size', defaults: { format: 'json'}
     end
+    resources :images
+  end
   resources :addresses
   resources :shipping_addresses
   resources :payments
@@ -16,5 +18,4 @@ Rails.application.routes.draw do
   resources :cards
   resources :trades
   resources :logouts
-  end
 end
