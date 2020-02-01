@@ -14,4 +14,10 @@ class Item < ApplicationRecord
   has_one :trade
   # trade_id にnullを許可する
   # belongs_to :trade, optional: true
+
+  validates :name,presence: true,length: {maximum: 40}
+  validates :price,presence: true
+  validates :description,presence: true,length: {maximum: 1000}
+
+
 end

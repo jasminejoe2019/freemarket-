@@ -1,5 +1,5 @@
 $(function() {
-  $('.slider').slick({
+  $('#top').slick({
       prevArrow:'<i class="fa fa-angle-left arrow arrow-left"></i>',
       nextArrow:'<i class="fa fa-angle-right arrow arrow-right"></i>',
       dots: true,

@@ -1,0 +1,22 @@
+.wrapper
+  .container
+    = render '/devise/shared/user_header'
+
+    .contents
+      .contents__container
+
+        %h2.contents__title
+          新規会員登録
+        .contents__main
+          .contents__main__menu
+            =link_to "#", class: "btn-default link-mail" do
+              = icon('far', 'envelope', class: "mail-icon")
+              メールアドレスで登録する
+            =link_to user_facebook_omniauth_authorize_path,method: :post, class: "btn-default link-fb" do
+              = icon('fab', 'facebook-square',  class: "fb-icon")
+              Facebookで登録する
+            =link_to user_google_oauth2_omniauth_authorize_path,method: :post, class: "btn-default link-google" do
+              = icon('fab', 'google', class: "google-icon")
+              Googleで登録する
+
+  = render '/devise/shared/user_footer'

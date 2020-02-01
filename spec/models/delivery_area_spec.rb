@@ -1,5 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe DeliveryArea, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe DeliveryArea do
+  describe '#create' do
+    it "is invalid without a delivery_area" do
+      delivery_area = build(:delivery_area,delivery_area: "")
+      delivery_area.valid?
+      expect(delivery_area.errors[:delivery_area]).to include("can't be blank")
+    end
+  end
 end

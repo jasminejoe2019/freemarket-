@@ -1,10 +1,12 @@
 = render partial: "./shared/item-header"
+-breadcrumb :logouts
+= render partial: "./shared/breadcrumbs"
 .main_container
   = render partial: "./mypages/side_menu" 
   .profile
     .profile__container
       .profile__container__description
-        %button.btn-default.btn-red.logout-btn
-          ログアウト
+        .btn-default.btn-red.logout-btn
+          = link_to 'ログアウト',session_path(1),method: :delete
 = render partial: "./items/appbanner"
 = render partial: "./shared/item-footer"

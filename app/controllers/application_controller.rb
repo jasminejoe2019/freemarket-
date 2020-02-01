@@ -1,6 +1,11 @@
 class ApplicationController < ActionController::Base
 
   before_action :basic_auth,:set_parents
+  protect_from_forgery with: :exception
+  # before_action :authenticate_user!, except: :index
+  # before_action :configure_permitted_parameters, if: :devise_controller?
+
+
 
   private
 
@@ -16,5 +21,7 @@ class ApplicationController < ActionController::Base
 
   def set_parents
     @parents = Category.where(ancestry: nil)
+  def after_sign_in_path_for(resource)
+      root_path
   end
 end

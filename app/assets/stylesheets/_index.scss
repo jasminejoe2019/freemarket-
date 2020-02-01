@@ -95,8 +95,8 @@
   }
 
   &__login__form-inner {
+    padding: 0 64px 32px 64px;
     .form-group {
-      padding: 0 64px 32px 64px;
       margin-top: 24px;
 
       .input-default {
@@ -107,6 +107,7 @@
         background: #fff;
         line-height: 1.5;
         font-size: 16px;
+        padding: 10px 16px 8px;
       }
     }
     .form-group:first-child {
