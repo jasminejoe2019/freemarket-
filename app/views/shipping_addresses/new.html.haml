@@ -1,64 +1,60 @@
-.rapper
-  = render partial: "./shared/item-header"
-  -breadcrumb :shipping_addresses
-  = render partial: "./shared/breadcrumbs"
-  .main
-    = render partial: "./mypages/side_menu"
-    .main__container.all-contents
-      %h2.main__container__head.user-identification
-        本人情報の登録
-      .main__container__form
-        %div
-          %p お客さまの本人情報をご登録ください。
-          %br 登録されたお名前・生年月日を変更する場合、本人確認の提出が必要になります。
-          %p.text-right
-            = link_to "#" do
-              本人確認書類のアップロードについて >
-        .main__container__list.form-left
-          .form-groups.identity
-            %label お名前
-            %p ヴァレ 有生
-          .form-groups.identity
-            %label お名前カナ
-            %p ヴァレユウイ
-          .form-groups.identity
-            %label(for="birthday") 生年月日
-            %p 1987/05/27
-          .form-groups
-            %label(for="zip_code")
-              郵便番号
-            %span.form-require__option
-              任意
-            %input.input-default2{ placeholder: "例）1234567", type: "text", value:""}
-          .form-groups
-            %label(for="prefecture")
-              都道府県
-            %span.form-require__option
-              任意
-            %select{name: "year", class: "select-default"}
-              %option(label="--")
-              %option(label="北海道")
-              %option(label="青森")
-              %option(label="岩手")
-              %option(label="秋田")
-              %option(label="新潟")
-          .form-groups
-            %label(for="city")
-              市区町村
-            %span.form-require__option
-              任意
-            %input.input-default2{ placeholder: "例）青山1-1-1", type: "text", value:""}
-          .form-groups
-            %label(for="building")
-              建物名
-            %span.form-require__option
-              任意
-            %input.input-default2{ placeholder: "例）柳ビル103", type: "text", value:""}
-          %button{type:"submit", class:"btn-default btn-red register"}
-            登録する
-          %p.text-right
-            = link_to "#" do
-              本人情報の登録について >
-  = render partial: "./items/appbanner"
-  = render partial: "./shared/item-footer"
-
+= render '/devise/shared/user_header'
+.main
+  .main__container
+    %h2.main__container__head
+      住所入力
+    .main__container__form
+    = form_with model: @shipping_address, local: true do |f|
+      .main__container__list
+        .form-groups
+          %label(for="name")
+            お名前
+          %span.form-require
+            必須
+          =f.text_field :family_name, { placeholder: "例）山田", class:"input-default2"}
+          =f.text_field :first_name, { placeholder: "例）彩", class:"input-default2"}
+        .form-groups
+          %label(for="kana")
+            お名前カナ
+          %span.form-require
+            必須
+          =f.text_field :family_furigana, { placeholder: "例）ヤマダ", class:"input-default2"}
+          =f.text_field :first_furigana, { placeholder: "例）アヤ", class:"input-default2"}
+        .form-groups
+          %label(for="addnumber")
+            郵便番号
+          %span.form-require
+            必須
+          =f.text_field :postal_code, { placeholder: "例）123-4567", class:"input-default2"}
+        .form-groups
+          %label(for="prefecture")
+            都道府県
+          %span.form-require
+            必須
+          =f.select :prefecture, Product.delivery_areas.keys, {}, {class: 'select-default'}
+        .form-groups
+          %label(for="city")
+            市区町村
+          %span.form-require
+            必須
+          =f.text_field :city, { placeholder: "例）横浜市緑区", class:"input-default2"}
+        .form-groups
+          %label(for="address")
+            番地
+          %span.form-require
+            必須
+          =f.text_field :address, { placeholder: "例）青山1-1-1", class:"input-default2"}
+        .form-groups
+          %label(for="building")
+            建物名
+          %span.form-require__option
+            任意
+          =f.text_field :building_name, { placeholder: "例）柳ビル103", class:"input-default2"}
+        .form-groups
+          %label(for="tel")
+            電話
+          %span.form-require__option
+            任意
+          =f.text_field :telephone, { placeholder: "例 )09012345678", class:"input-default2"}
+          =f.submit "変更する", {class:"btn-default btn-red"}
+= render '/devise/shared/user_footer'

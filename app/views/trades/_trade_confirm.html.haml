@@ -41,8 +41,7 @@
               .confirmMain__wrapper__buyerInfo__inner__payMethod__wrapper__first
                 %h3.confirmMain__wrapper__buyerInfo__inner__payMethod__wrapper__first
                   支払い方法
-                = link_to "#" do
-                  変更する
+                = link_to "変更する", payment_path(@payment)
               %p.confirmMain__wrapper__buyerInfo__inner__payMethod__wrapper__second
                 ************
                 = @card_information.last4
@@ -50,13 +49,13 @@
                 有効期限
                 = @card_information.exp_month.to_s + " / " + @card_information.exp_year.to_s.slice(2,3)
                 %br
-                カードブランド
+                カードブランド名
                 = @card_information.brand
           %section.confirmMain__wrapper__buyerInfo__inner__shippingAddress
             .confirmMain__wrapper__buyerInfo__inner__shippingAddress__first
               %h3.confirmMain__wrapper__buyerInfo__inner__shippingAddress__first
                 配送先
-              = link_to "#" do
+              = link_to new_shipping_address_path do
                 変更する
             %address.confirmMain__wrapper__buyerInfo__inner__shippingAddress__second
               〒
@@ -67,7 +66,7 @@
               = current_user.shipping_addresses[0]["address"]
               = current_user.shipping_addresses[0]["building_name"]
               %br
-              = current_user.family_name
-              = current_user.first_name
+              = current_user.shipping_addresses[0]["family_name"]
+              = current_user.shipping_addresses[0]["first_name"]
           %section.confirmMain__wrapper__buyerInfo__inner__btn
             = form.submit "購入する",class: "confirmMain__wrapper__buyerInfo__inner__btn-red"
