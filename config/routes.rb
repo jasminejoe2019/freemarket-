@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   root to: 'items#index'
     get 'items/new'
-  devise_for :users
   resources :items, only: [:index, :show, :new, :edit, :destroy, :create] do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
