@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_05_070212) do
+ActiveRecord::Schema.define(version: 2020_01_10_120622) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "postal_code"
@@ -113,6 +113,10 @@ ActiveRecord::Schema.define(version: 2020_01_05_070212) do
     t.index ["user_id"], name: "index_payments_on_user_id"
   end
 
+  create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "delivery_area", default: 0, null: false
+  end
+
   create_table "shipping_addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "postal_code", null: false
     t.string "prefecture", null: false
@@ -182,13 +186,11 @@ ActiveRecord::Schema.define(version: 2020_01_05_070212) do
     t.date "birthday", null: false
     t.text "profile"
     t.bigint "sales", default: 0, null: false
-    t.string "mobile", null: false
-    t.bigint "payment_id"
+    t.string "mobile"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["payment_id"], name: "index_users_on_payment_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 

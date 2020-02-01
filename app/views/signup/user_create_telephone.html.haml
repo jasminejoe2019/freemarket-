@@ -1,0 +1,35 @@
+= render 'progress-bar'
+.main
+  .main__container
+    %h2.main__container__head
+      電話番号の確認
+    .main__container__form
+      =form_with model:@user,url: user_create_address_signup_index_path	, method: :get, local: true do |f|
+        .main__container__list
+          .form-groups
+            =f.label "携帯電話の番号",for: "tel"
+            =f.telephone_field :mobile,{placeholder: "携帯電話の番号を入力", class: "input-default2"}
+            = render partial: './shared/error', locals: {user: @user, column: "mobile"}
+            %p.form-info-text
+              本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+            =f.submit "SMSを送信する",{class:"btn-default btn-red"}
+            %p.form-info-text
+              ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーには公開されることはありません。
+            .form-groups.text-right
+              %p
+              =link_to "#" do
+                電話番号に確認が必要な理由 >
+= render '/devise/shared/user_footer'
+:css
+  li.through .progress-status{
+    background:#ea352d;
+  }
+  li.through .progress-status_bar{
+    background:#ea352d;
+  }
+  li.active{
+    color:#ea352d;
+  }
+  li.active .progress-status{
+    background:#ea352d;
+  }
