@@ -7,11 +7,6 @@ class ItemsController < ApplicationController
     @item = Item.new
     @category_parent_array = Category.where(ancestry: nil).pluck(:name)
     @category_parent_array.unshift("--")
-    # @category_parent_array = ["--"]
-    # #データベースから、親カテゴリーのみ抽出し、配列化
-    # Category.where(ancestry: nil).each do |parent|
-    #   @category_parent_array << parent.name
-    # end
     @item.images.build
   end
 
@@ -30,9 +25,12 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.create(item_params)
-    # if @item.save!
+    if @item.valid?
       redirect_to root_path
-    # end
+    else
+        flash[:alert] = 'エラーが発生しました'
+        redirect_to new_item_path
+    end
   end
   def show
   
