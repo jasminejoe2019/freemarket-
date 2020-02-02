@@ -18,16 +18,17 @@
     %tr
       %th カテゴリー
       %td.itemInfo__table__Category
-        = link_to "https://www.mercari.com/", class:"itemInfo__table__Category-mainCategory" do
-          おもちゃ・ホビー・グッズ
+        = link_to "https://www.mercari.com/", class: "itemInfo__table__Category-mainCategory"  do
+          = @grandchild.parent.parent.name
+          -# = f.select :category_id, @category_parent_array, {}, {class: 'select-default select-product', id: 'parent_category'}
         .itemInfo__table__Category-subCategory
           %i.fas.fa-chevron-right
           = link_to "https://www.mercari.com/" do
-            おもちゃ
+            = @grandchild.parent.name
         .itemInfo__table__Category-smallCategory
           %i.fas.fa-chevron-right
           = link_to "https://www.mercari.com/" do
-            キャラクターグッズ
+            = @grandchild.name
     %tr
       %th ブランド
       %td
