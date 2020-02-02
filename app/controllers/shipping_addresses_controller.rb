@@ -3,11 +3,15 @@ class ShippingAddressesController < ApplicationController
   end
 
   def new
-    @shipping_address = current_user.shipping_addresses.find(1)
+    @shipping_address = current_user.shipping_addresses.first
+  end
+
+  def create
+    
   end
 
   def update
-    @shipping_address = current_user.shipping_addresses.find(1)
+    @shipping_address = current_user.shipping_addresses.first
     @shipping_address.update(shipping_address_params)
     redirect_to root_path
   end
