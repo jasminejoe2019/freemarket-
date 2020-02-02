@@ -12,17 +12,19 @@
                 必須
               %p
                 最大10枚までアップロードできます
-            .dropbox-container#image-box-1
-              .item-num-0#image-box__container
-                =f.fields_for :images do |i|
-                  .input-area
-                    =i.file_field :image,type: 'file', name: "item[images_attributes][][image]", value:"", style: "display:none", id:"img-file"
-                  %label{for: "img-file"}
-                    %i.fas.fa-camera
-              -# .dropbox-text-container
-              -#   %pre.dropbox-text
-              -#     ドラッグアンドドロップ
-              -#     またはクリックしてファイルをアップロード
+            =f.fields_for :images do |i|
+              .dropbox-container
+                .dropbox-text-container
+                  =i.file_field :image,type: 'file',multiple: true, name: "item[images_attributes][][image]", value:"", style: "display:none", id:"img-file"
+                  =i.label "クリックしてファイルをアップロード",{for: "img-file",class: "dropbox-text"}
+                  -# .dropbox-text-container,{class: "dropbox-text-container dropbox-text"}
+                  -# #thumnail
+                  -# .dropbox-area2
+                  -#   =i.label :image, for: "image"
+                  -#     .dropbox-text-container
+                  -#       %p.dropbox-text
+                  -#         クリックしてファイルをアップロード
+
         .sell-form
           .form-groups.product-box
             %label(for="productname")
