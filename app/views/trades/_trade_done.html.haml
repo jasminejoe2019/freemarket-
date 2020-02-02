@@ -43,15 +43,15 @@
                 配送先
             %address.confirmMain__wrapper__buyerInfo__inner__shippingAddress__second
               〒
-              = current_user.shipping_addresses[0]["postal_code"]
+              = current_user.shipping_addresses.first["postal_code"]
               %br 
-              = current_user.shipping_addresses[0]["prefecture"]
-              = current_user.shipping_addresses[0]["city"]
-              = current_user.shipping_addresses[0]["address"]
-              = current_user.shipping_addresses[0]["building_name"]
+              = current_user.shipping_addresses.first["prefecture"]
+              = current_user.shipping_addresses.first["city"]
+              = current_user.shipping_addresses.first["address"]
+              = current_user.shipping_addresses.first["building_name"]
               %br
-              = current_user.family_name
-              = current_user.first_name
+              = current_user.shipping_addresses.first["family_name"]
+              = current_user.shipping_addresses.first["first_name"]
           %section.confirmMain__wrapper__buyerInfo__inner__btn
             発送通知後の流れ
             %br

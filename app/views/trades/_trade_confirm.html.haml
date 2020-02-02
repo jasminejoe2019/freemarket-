@@ -52,13 +52,13 @@
                 = @card_information.brand
           %section.confirmMain__wrapper__buyerInfo__inner__shippingAddress
           - if current_user.shipping_addresses.first == nil
-            = link_to new_shipping_address_path do
+            = link_to shipping_addresses_path do
               配送先住所を登録してください。
           - else
             .confirmMain__wrapper__buyerInfo__inner__shippingAddress__first
               %h3.confirmMain__wrapper__buyerInfo__inner__shippingAddress__first
                 配送先
-              = link_to new_shipping_address_path do
+              = link_to shipping_addresses_path do
                 変更する
           
             %address.confirmMain__wrapper__buyerInfo__inner__shippingAddress__second

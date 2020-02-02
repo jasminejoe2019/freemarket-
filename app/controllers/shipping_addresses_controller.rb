@@ -1,5 +1,6 @@
 class ShippingAddressesController < ApplicationController
   def index
+    @shipping_address = current_user.shipping_addresses.first
   end
 
   def new
@@ -7,7 +8,21 @@ class ShippingAddressesController < ApplicationController
   end
 
   def create
-    
+    @shipping_address = ShippingAddress.new(
+      first_name: params[:family_name],
+      first_furigana: params[:first_furigana],
+      family_name: params[:family_name],
+      family_furigana: params[:family_furigana],
+      postal_code: params[:postal_code],
+      prefecture: params[:prefecture],
+      city: params[:city],
+      address: params[:address],
+      building_name: params[:building_name],
+      telephone: params[:telephone],
+      user_id: current_user.id
+    )
+    @shipping_address.save
+    redirect_to root_path
   end
 
   def update
@@ -28,7 +43,8 @@ class ShippingAddressesController < ApplicationController
       :city,
       :address,
       :building_name,
-      :telephone
+      :telephone,
+      :user_id
     )
   end
 end

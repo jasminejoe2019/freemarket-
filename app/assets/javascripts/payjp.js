@@ -1,5 +1,5 @@
 $(function () {
-  Payjp.setPublicKey("pk_test_24dc7d60b27c76e0b2acdcdf");
+  Payjp.setPublicKey(Rails.application.credentials.payjp[: public_key]);
   var form = $("#charge-form"),
     number = form.find('input[name="number"]'),
     cvc = form.find('input[name="cvc"]'),
