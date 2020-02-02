@@ -21,6 +21,7 @@ class ApplicationController < ActionController::Base
 
   def set_parents
     @parents = Category.where(ancestry: nil)
+  end
   def after_sign_in_path_for(resource)
       root_path
   end
