@@ -8,6 +8,10 @@ ja:
     family_furigana: 姓カナ
     birthday: 誕生日
     mobile: 携帯電話の番号
+    postal_code: 郵便番号
+    prefecture: 都道府県
+    city: 市区町村
+    address: 番地
   activerecord:
     errors:
       messages:

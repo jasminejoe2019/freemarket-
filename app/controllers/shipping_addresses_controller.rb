@@ -21,14 +21,20 @@ class ShippingAddressesController < ApplicationController
       telephone: params[:telephone],
       user_id: current_user.id
     )
-    @shipping_address.save
-    redirect_to root_path
+    if @shipping_address.save
+      redirect_to root_path
+    else
+      render :index
+    end
   end
 
   def update
     @shipping_address = current_user.shipping_addresses.first
-    @shipping_address.update(shipping_address_params)
-    redirect_to root_path
+    if @shipping_address.update(shipping_address_params)
+      redirect_to root_path
+    else
+      render :index
+    end
   end
 
   private

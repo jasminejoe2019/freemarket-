@@ -11,38 +11,47 @@
           %span.form-require
             必須
           =f.text_field :family_name, { placeholder: "例）山田", class:"input-default2"}
+          = render partial: './shared/error', locals: {user: @shipping_address, column: "family_name"}
           =f.text_field :first_name, { placeholder: "例）彩", class:"input-default2"}
+          = render partial: './shared/error', locals: {user: @shipping_address, column: "first_name"}
         .form-groups
           %label(for="kana")
             お名前カナ
           %span.form-require
             必須
           =f.text_field :family_furigana, { placeholder: "例）ヤマダ", class:"input-default2"}
+          = render partial: './shared/error', locals: {user: @shipping_address, column: "family_furigana"}
           =f.text_field :first_furigana, { placeholder: "例）アヤ", class:"input-default2"}
+          = render partial: './shared/error', locals: {user: @shipping_address, column: "first_furigana"}
         .form-groups
           %label(for="addnumber")
             郵便番号
           %span.form-require
             必須
           =f.text_field :postal_code, { placeholder: "例）123-4567", class:"input-default2"}
+          = render partial: './shared/error', locals: {user: @shipping_address, column: "postal_code"}
         .form-groups
           %label(for="prefecture")
             都道府県
           %span.form-require
             必須
           =f.select :prefecture, Product.delivery_areas.keys, {}, {class: 'select-default'}
+          = render partial: './shared/error', locals: {user: @shipping_address, column: "prefecture"}
         .form-groups
           %label(for="city")
             市区町村
           %span.form-require
             必須
           =f.text_field :city, { placeholder: "例）横浜市緑区", class:"input-default2"}
+          = render partial: './shared/error', locals: {user: @shipping_address, column: "city"}
+          
         .form-groups
           %label(for="address")
             番地
           %span.form-require
             必須
           =f.text_field :address, { placeholder: "例）青山1-1-1", class:"input-default2"}
+          = render partial: './shared/error', locals: {user: @shipping_address, column: "address"}
         .form-groups
           %label(for="building")
             建物名

@@ -1,0 +1,11 @@
+.notifications {
+  background-color: white;
+  .alert {
+    height: 60px;
+    font-size: 20px;
+    background-color: orange;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
