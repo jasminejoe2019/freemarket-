@@ -31,25 +31,24 @@
     %tr
       %th ブランド
       %td
+        = @item.brand.brand if @item.brand_id
     %tr
       %th 商品の状態
       %td
-        -# = @condition.condition
-        -# -binding.pry
+        = @item.condition.condition if @item.condition_id
     %tr
       %th 配送料の負担
       %td 
-        = @shipping_charge.shipping_charge
+        = @item.shipping_charge.shipping_charge if @item.shipping_charge_id
     %tr
       %th 配送の方法
       %td
-        -# = @shipping_method.method
+        = @item.shipping_method.shipping_method if @item.shipping_method_id
     %tr
       %th 配送元地域
-      %td 
-        -# = link_to "#" do
-        -# -# =@delivery_area.delivery_area
+      %td
+        =@item.delivery_area.delivery_area if @item.delivery_area_id
     %tr
       %th 発送日の目安
       %td
-        = @estimated_shipping_date.estimated_shipping_date
+        = @item.estimated_shipping_date.estimated_shipping_date if @item.estimated_shipping_date_id
