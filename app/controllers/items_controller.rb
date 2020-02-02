@@ -5,11 +5,13 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @category_parent_array = ["--"]
-    #データベースから、親カテゴリーのみ抽出し、配列化
-    Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
-    end
+    @category_parent_array = Category.where(ancestry: nil).pluck(:name)
+    @category_parent_array.unshift("--")
+    # @category_parent_array = ["--"]
+    # #データベースから、親カテゴリーのみ抽出し、配列化
+    # Category.where(ancestry: nil).each do |parent|
+    #   @category_parent_array << parent.name
+    # end
     @item.images.build
   end
 
