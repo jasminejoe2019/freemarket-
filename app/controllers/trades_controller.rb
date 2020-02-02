@@ -1,6 +1,6 @@
 class TradesController < ApplicationController
   def index
-    @item = Item.find(1)
+    @item = Item.first  
     @payment = current_user.payments
 
     payment = Payment.where(user_id: current_user.id).first
@@ -10,7 +10,7 @@ class TradesController < ApplicationController
   end
 
   def new
-    @item = Item.find(1)
+    @item = Item.first  
     
     payment = Payment.where(user_id: current_user.id).first
       Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
