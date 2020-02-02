@@ -51,7 +51,7 @@
                 カードブランド名
                 = @card_information.brand
           %section.confirmMain__wrapper__buyerInfo__inner__shippingAddress
-          - if current_user.shipping_addresses[0] == nil
+          - if current_user.shipping_addresses.first == nil
             = link_to new_shipping_address_path do
               配送先住所を登録してください。
           - else
@@ -63,14 +63,14 @@
           
             %address.confirmMain__wrapper__buyerInfo__inner__shippingAddress__second
               〒
-              = current_user.shipping_addresses[0]["postal_code"]
+              = current_user.shipping_addresses.first["postal_code"]
               %br 
-              = current_user.shipping_addresses[0]["prefecture"]
-              = current_user.shipping_addresses[0]["city"]
-              = current_user.shipping_addresses[0]["address"]
-              = current_user.shipping_addresses[0]["building_name"]
+              = current_user.shipping_addresses.first["prefecture"]
+              = current_user.shipping_addresses.first["city"]
+              = current_user.shipping_addresses.first["address"]
+              = current_user.shipping_addresses.first["building_name"]
               %br
-              = current_user.shipping_addresses[0]["family_name"]
-              = current_user.shipping_addresses[0]["first_name"]
+              = current_user.shipping_addresses.first["family_name"]
+              = current_user.shipping_addresses.first["first_name"]
             %section.confirmMain__wrapper__buyerInfo__inner__btn
               = form.submit "購入する",class: "confirmMain__wrapper__buyerInfo__inner__btn-red"
