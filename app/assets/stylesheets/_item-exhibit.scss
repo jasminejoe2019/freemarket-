@@ -145,9 +145,6 @@
   margin: 0;
 }
 
-.form-groups.select-box {
-}
-
 .sell-form__content a {
   color: #0099e8;
   text-decoration: none;
@@ -162,4 +159,32 @@
   border: 1px solid #aaa;
   color: #fff;
   margin: 24px auto 0;
+}
+.input_area{
+  height:100%;
+}
+
+.modal{
+  position: fixed;
+  top: 0;
+  right:0 ;
+  bottom:0 ;
+  left: 0;
+  z-index: 3000;
+  overflow-x: hidden;
+  overflow-y: auto;
+  opacity: 1;
+  transform: tlanslate(0,0);
+  display: block;
+}
+
+.modal-head{
+  text-align: center;
+  line-height: 80;
+  font-size: 16px;
+}
+
+.modal-body{
+  border-top: 1px solid #eee;
+  padding: 40;
 }

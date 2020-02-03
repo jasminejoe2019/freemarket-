@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
   root to: 'items#index'
-  # resources :users
-  resources :items
+    get 'items/new'
+  resources :items, only: [:index, :show, :new, :edit, :destroy, :create] do
+    collection do
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+      get 'get_size', defaults: { format: 'json'}
+    end
+    resources :images
+  end
   resources :addresses
   resources :shipping_addresses
   resources :payments

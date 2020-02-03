@@ -80,14 +80,14 @@ gem 'mini_magick'
 gem 'pry-rails'
 gem 'fog-aws'
 gem 'sprockets-es6'
+gem 'ancestry'
+gem 'dropzonejs-rails'
+
+group :production do
+  gem 'unicorn', '5.4.1'
+end
 gem 'payjp'
 gem 'omniauth-rails_csrf_protection'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
-
-group :production do
-  gem 'unicorn', '5.4.1'
-
-end
-
 gem 'gretel'
