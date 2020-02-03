@@ -1,11 +1,3 @@
 %section.item-box
   %h1.item-box__title
     =@item.name
-  %p.item-box__wording
-    『#{@item.name}』は、#{@user.sales}回の取引実績を持つ
-    = link_to "https://18.176.249.67/", class: "item-box__wording-link" do
-      = @user.nickname
-    さんから出品されました。
-    = link_to "https://18.176.249.67/", class: "item-box__wording-link" do 
-      キャラクターグッズ/おもちゃ・ホビー・グッズ
-    の商品で、#{@estimated_shipping_date.estimated_shipping_date}日で発送されます。
