@@ -10,7 +10,8 @@ class ItemsController < ApplicationController
   def show
     @item =Item.find(params[:id])
     @user = User.find(@item.user_id)
-    @grandchild = Category.find(6)
+    @estimated_shipping_date = EstimatedShippingDate.find(@item.estimated_shipping_date_id)
+    @grandchild = Category.find(params[:id])
   end
 
 end
