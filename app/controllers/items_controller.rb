@@ -24,12 +24,14 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.create(item_params)
-    if @item.valid?
+    @item = Item.new(item_params)
+    if @item.save
       redirect_to root_path
     else
         flash[:alert] = 'エラーが発生しました'
-        redirect_to new_item_path
+        @category_parent_array = Category.where(ancestry: nil).pluck(:name)
+        @category_parent_array.unshift("--")
+        render :new
     end
   end
   def show
