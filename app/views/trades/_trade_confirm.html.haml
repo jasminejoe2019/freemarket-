@@ -58,7 +58,7 @@
             .confirmMain__wrapper__buyerInfo__inner__shippingAddress__first
               %h3.confirmMain__wrapper__buyerInfo__inner__shippingAddress__first
                 配送先
-              = link_to shipping_addresses_path do
+              = link_to edit_shipping_address_path(@shipping_address = current_user.shipping_addresses.first) do
                 変更する
           
             %address.confirmMain__wrapper__buyerInfo__inner__shippingAddress__second

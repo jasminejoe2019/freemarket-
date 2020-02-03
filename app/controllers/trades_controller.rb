@@ -16,8 +16,9 @@ class TradesController < ApplicationController
         item_id: @item.id
       )
       if @trade.save && @item.status_id == 1
+      # status_idをチェックし販売中の品物であるか確認。販売中だった場合は売買済みに更新。
+        @item.update(status_id: 2)
       elsif @item.status_id != 1
-      # status_idをチェックし販売中の品物であるか確認
         flash[:alert] = '申し訳ございません。商品は売買済み・または出品停止中です'
         redirect_to root_path
       else 
@@ -25,8 +26,7 @@ class TradesController < ApplicationController
         redirect_to root_path
       end
 
-
-    payment = Payment.where(user_id: current_user.id).first
+    payment = Payment.find_by(user_id: current_user.id)
       Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
       customer = Payjp::Customer.retrieve(payment.customer_id)
       @card_information = customer.cards.retrieve(payment.card_id)
@@ -36,7 +36,6 @@ class TradesController < ApplicationController
         customer: payment.customer_id,
         currency: 'jpy'
       )
-
   end
 
   private

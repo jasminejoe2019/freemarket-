@@ -1,7 +1,7 @@
 .form__error
-  - if user.errors.any?
-    - unless user.valid?
-      - if errors = user.errors.full_messages_for(column.to_sym)
+  - if model.errors.any?
+    - unless model.valid?
+      - if errors = model.errors.full_messages_for(column.to_sym)
         %ul
           - errors.each do |error|
             %li=error
