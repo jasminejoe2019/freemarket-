@@ -4,7 +4,7 @@
       %th 出品者
       %td
         = link_to "https://www.mercari.com/" do
-          ししまる
+          = @user.nickname
         %div.itemInfo__table_ratings
           .itemInfo__table_ratings-good
             %i.fas.fa-laugh
@@ -18,33 +18,37 @@
     %tr
       %th カテゴリー
       %td.itemInfo__table__Category
-        = link_to "https://www.mercari.com/", class:"itemInfo__table__Category-mainCategory" do
-          おもちゃ・ホビー・グッズ
+        = link_to "https://www.mercari.com/", class: "itemInfo__table__Category-mainCategory"  do
+          = @grandchild.parent.parent.name
         .itemInfo__table__Category-subCategory
           %i.fas.fa-chevron-right
           = link_to "https://www.mercari.com/" do
-            おもちゃ
+            = @grandchild.parent.name
         .itemInfo__table__Category-smallCategory
           %i.fas.fa-chevron-right
           = link_to "https://www.mercari.com/" do
-            キャラクターグッズ
+            = @grandchild.name
     %tr
       %th ブランド
       %td
+        = @item.brand.brand if @item.brand_id
     %tr
       %th 商品の状態
-      %td 新品、未使用
+      %td
+        = @item.condition.condition if @item.condition_id
     %tr
       %th 配送料の負担
-      %td 送料込み(出品者負担)
+      %td 
+        = @item.shipping_charge.shipping_charge if @item.shipping_charge_id
     %tr
       %th 配送の方法
-      %td らくらくメルカリ便
+      %td
+        = @item.shipping_method.shipping_method if @item.shipping_method_id
     %tr
       %th 配送元地域
-      %td 
-        = link_to "#" do
-          大阪府
+      %td
+        =@item.delivery_area.delivery_area if @item.delivery_area_id
     %tr
       %th 発送日の目安
-      %td 2~3日で発送
+      %td
+        = @item.estimated_shipping_date.estimated_shipping_date if @item.estimated_shipping_date_id

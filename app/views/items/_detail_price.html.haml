@@ -1,6 +1,6 @@
 .item-price-box
   %span.item-price
-    ¥3,100
+    = number_to_currency @item.price
   %span.item-tax
     (税込)
   %span.item-shipping
@@ -9,8 +9,7 @@
   購入画面に進む
 .item-info
   %p.item-info__inner
-    新品未使用です。
-    自宅保管ですので、神経質な方はご遠慮ください。
+    = @item.description
 .item-container
   .item-container__left
     %button{type:"button", class:"item-button-like"}
