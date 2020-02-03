@@ -12,4 +12,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require activestorage
+//= require dropzone
 //= require_tree .

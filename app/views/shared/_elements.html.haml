@@ -21,7 +21,7 @@
     %ul.items-elements
       - @item.each do |item|
         %li.items-element
-          = link_to image_tag(item.images[0].image ,class: 'items-element__image'),item_path(1)
+          = link_to image_tag(item.images[0].image.url ,class: 'items-element__image'),item_path(item.id)
           .items-element__name
             = item.name
           .items-element__price

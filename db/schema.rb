@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_10_120622) do
+ActiveRecord::Schema.define(version: 2020_01_14_075108) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "postal_code"
@@ -44,20 +44,14 @@ ActiveRecord::Schema.define(version: 2020_01_10_120622) do
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "category", null: false
-    t.integer "tree_parent"
+    t.string "name", null: false
+    t.string "ancestry"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "conditions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "condition", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "delivery_areas", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "delivery_area", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -84,7 +78,7 @@ ActiveRecord::Schema.define(version: 2020_01_10_120622) do
     t.bigint "condition_id", null: false
     t.bigint "shipping_charge_id", null: false
     t.bigint "shipping_method_id", null: false
-    t.bigint "delivery_area_id", null: false
+    t.integer "delivery_area_id", null: false
     t.bigint "status_id", null: false
     t.bigint "estimated_shipping_date_id", null: false
     t.bigint "category_id", null: false
@@ -95,7 +89,6 @@ ActiveRecord::Schema.define(version: 2020_01_10_120622) do
     t.index ["brand_id"], name: "index_items_on_brand_id"
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["condition_id"], name: "index_items_on_condition_id"
-    t.index ["delivery_area_id"], name: "index_items_on_delivery_area_id"
     t.index ["estimated_shipping_date_id"], name: "index_items_on_estimated_shipping_date_id"
     t.index ["shipping_charge_id"], name: "index_items_on_shipping_charge_id"
     t.index ["shipping_method_id"], name: "index_items_on_shipping_method_id"
@@ -204,7 +197,6 @@ ActiveRecord::Schema.define(version: 2020_01_10_120622) do
   add_foreign_key "items", "brands"
   add_foreign_key "items", "categories"
   add_foreign_key "items", "conditions"
-  add_foreign_key "items", "delivery_areas"
   add_foreign_key "items", "estimated_shipping_dates"
   add_foreign_key "items", "shipping_charges"
   add_foreign_key "items", "shipping_methods"

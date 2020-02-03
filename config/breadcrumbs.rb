@@ -31,6 +31,11 @@ crumb :newcards do
   parent :cards
 end
 
+crumb :itemdeatail do
+  link "#{Item.find(id = params[:id]).name}", item_path
+  parent :root
+end
+
 # crumb :profile do
 #   link "プロフィール", edit_mypage_path (current_user.id)
 #   parent :mypages
