@@ -1,10 +1,9 @@
-= render '/devise/shared/user_header'
 .main
   .main__container
     %h2.main__container__head
       住所入力
     .main__container__form
-    = form_with model:@shipping_address do |f|
+    = form_with model: @shipping_address, local: true do |f|
       .main__container__list
         .form-groups
           %label(for="name")
@@ -12,38 +11,47 @@
           %span.form-require
             必須
           =f.text_field :family_name, { placeholder: "例）山田", class:"input-default2"}
+          = render partial: './shared/error', locals: {model: @shipping_address, column: "family_name"}
           =f.text_field :first_name, { placeholder: "例）彩", class:"input-default2"}
+          = render partial: './shared/error', locals: {model: @shipping_address, column: "first_name"}
         .form-groups
           %label(for="kana")
             お名前カナ
           %span.form-require
             必須
           =f.text_field :family_furigana, { placeholder: "例）ヤマダ", class:"input-default2"}
+          = render partial: './shared/error', locals: {model: @shipping_address, column: "family_furigana"}
           =f.text_field :first_furigana, { placeholder: "例）アヤ", class:"input-default2"}
+          = render partial: './shared/error', locals: {model: @shipping_address, column: "first_furigana"}
         .form-groups
           %label(for="addnumber")
             郵便番号
           %span.form-require
             必須
           =f.text_field :postal_code, { placeholder: "例）123-4567", class:"input-default2"}
+          = render partial: './shared/error', locals: {model: @shipping_address, column: "postal_code"}
         .form-groups
           %label(for="prefecture")
             都道府県
           %span.form-require
             必須
           =f.select :prefecture, Product.delivery_areas.keys, {}, {class: 'select-default'}
+          = render partial: './shared/error', locals: {model: @shipping_address, column: "prefecture"}
         .form-groups
           %label(for="city")
             市区町村
           %span.form-require
             必須
           =f.text_field :city, { placeholder: "例）横浜市緑区", class:"input-default2"}
+          = render partial: './shared/error', locals: {model: @shipping_address, column: "city"}
+          
         .form-groups
           %label(for="address")
             番地
           %span.form-require
             必須
           =f.text_field :address, { placeholder: "例）青山1-1-1", class:"input-default2"}
+          = render partial: './shared/error', locals: {model: @shipping_address, column: "address"}
         .form-groups
           %label(for="building")
             建物名
@@ -56,5 +64,4 @@
           %span.form-require__option
             任意
           =f.text_field :telephone, { placeholder: "例 )09012345678", class:"input-default2"}
-          =f.submit "次へ進む", {class:"btn-default btn-red"}
-= render '/devise/shared/user_footer'
+          =f.submit "変更する", {class:"btn-default btn-red"}

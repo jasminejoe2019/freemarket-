@@ -111,11 +111,16 @@ ActiveRecord::Schema.define(version: 2020_01_14_075108) do
   end
 
   create_table "shipping_addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "first_name", null: false
+    t.string "first_furigana", null: false
+    t.string "family_name", null: false
+    t.string "family_furigana", null: false
     t.string "postal_code", null: false
     t.string "prefecture", null: false
     t.string "city", null: false
     t.string "address", null: false
     t.string "building_name"
+    t.string "telephone"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -156,7 +161,6 @@ ActiveRecord::Schema.define(version: 2020_01_14_075108) do
   end
 
   create_table "trades", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.datetime "transaction_date", null: false
     t.datetime "trading_date"
     t.bigint "user_id", null: false
     t.bigint "item_id", null: false
