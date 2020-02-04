@@ -42,15 +42,17 @@ class ItemsController < ApplicationController
     @grandchild = Category.find(params[:id])
   end
 
-  def status_change
+  def edit
     @item = Item.find(params[:id])
     @user = current_user
-      if @item.status.id == 1
+      if @item.status_id == 1
         @item.update(status_id: 3)
-        render :show, notice: '商品の出品を停止しました'
-      elsif @item.status.id == 3
+        flash.now[:notice] = '商品の出品を停止しました'
+        render :show 
+      elsif @item.status_id == 3
         @item.update(status_id: 1)
-        render :show, notice: '商品の出品を開始しました'
+        flash.now[:notice] = '商品の出品を開始しました'
+        render :show
       end
   end
 
