@@ -124,7 +124,7 @@ class SignupController < ApplicationController
 
     private 
     def skip_forbidden
-      redirect_to create1_signup_index_path unless session[:token] == "true"
+      redirect_to user_create_signup_index_path unless session[:token] == "true"
       session[:token] = "false"
     end
 

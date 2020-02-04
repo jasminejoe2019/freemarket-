@@ -11,13 +11,17 @@ class TradesController < ApplicationController
 
   def create
     @item = Item.first
+    @user = current_user
     @trade = Trade.new(
         user_id: current_user.id,
         item_id: @item.id
       )
       if @trade.save && @item.status_id == 1
       # status_idをチェックし販売中の品物であるか確認。販売中だった場合は売買済みに更新。
-        @item.update(status_id: 2)
+        ActiveRecord::Base.transaction do
+          @item.update!(status_id: 2)
+          @user.update!(sales: @user.sales + @item.price)
+        end
       elsif @item.status_id != 1
         flash[:alert] = '申し訳ございません。商品は売買済み・または出品停止中です'
         redirect_to root_path

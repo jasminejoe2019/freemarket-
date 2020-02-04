@@ -73,14 +73,9 @@
         プロフィール
         %i.fas.fa-chevron-right.fa-pull-right
     %li.menu__setting__deliverAddress
-      - if current_user.shipping_addresses == nil
-        =link_to shipping_addresses_path do
-          発送元・お届け先住所変更
-          %i.fas.fa-chevron-right.fa-pull-right
-      -else
-        = link_to edit_shipping_address_path(@shipping_address = current_user.shipping_addresses.first) do
-          発送元・お届け先住所変更
-          %i.fas.fa-chevron-right.fa-pull-right
+      =link_to shipping_addresses_path do
+        発送元・お届け先住所変更
+        %i.fas.fa-chevron-right.fa-pull-right
     %li.menu__setting__card
       =link_to "#" do
         支払い方法
