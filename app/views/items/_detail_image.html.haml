@@ -4,5 +4,5 @@
       .slider#detail
         - @item.images.each do |i|
           %li
-            = image_tag i.image, class: 'item__slider-images'
+            = image_tag i.image.url, class: 'item__slider-images'
     .item-sold-out-badge
