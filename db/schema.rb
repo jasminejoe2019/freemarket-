@@ -56,6 +56,12 @@ ActiveRecord::Schema.define(version: 2020_01_14_075108) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "delivery_areas", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "delivery_area", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "estimated_shipping_dates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "estimated_shipping_date", null: false
     t.datetime "created_at", null: false

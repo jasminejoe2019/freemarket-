@@ -6,11 +6,12 @@ Rails.application.routes.draw do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
       get 'get_size', defaults: { format: 'json'}
+      get 'status_change'
     end
     resources :images
   end
   resources :addresses
-  resources :shipping_addresses
+  resources :shipping_addresses, only: [:index, :create, :edit, :update]
   resources :payments
   resources :mypages, only:[:edit,:index]
   resources :cards

@@ -1,4 +1,6 @@
 class TradesController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @item = Item.first  
     @payment = current_user.payments

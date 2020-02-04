@@ -15,6 +15,32 @@
   }
 }
 
+.item-edit-btn {
+  font-size: 14px;
+  line-height: 60px;
+  display: block;
+  margin-top: 16px;
+  background: #ea352d;
+  color: #fff;
+  text-align: center;
+  font-weight: 600;
+  width: 620px;
+  margin: auto;
+}
+
+.item-delete-btn {
+  font-size: 14px;
+  line-height: 60px;
+  display: block;
+  margin-top: 16px;
+  background: #aaa;
+  color: #fff;
+  text-align: center;
+  font-weight: 600;
+  width: 620px;
+  margin: auto;
+}
+
 .item-buy-btn {
   font-size: 24px;
   line-height: 60px;
@@ -78,7 +104,6 @@
   .icon-flag {
     color: #333;
     width: 10px;
-    height: 10px;;
+    height: 10px;
   }
 }
-
