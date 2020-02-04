@@ -46,14 +46,32 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @user = current_user
       if @item.status_id == 1
-        @item.update(status_id: 3)
-        flash.now[:notice] = '商品の出品を停止しました'
-        render :show 
+        if @item.update(status_id: 3)
+          flash.now[:notice] = '商品の出品を停止しました'
+          render :show
+        else
+          flash.now[:alert] = '出品停止処理中にエラーが発生しました'
+          render :show
+        end
       elsif @item.status_id == 3
-        @item.update(status_id: 1)
-        flash.now[:notice] = '商品の出品を開始しました'
-        render :show
+        if @item.update(status_id: 1)
+          flash.now[:notice] = '商品の出品を開始しました'
+          render :show
+        else
+          flash.now[:alert] = '出品停止処理中にエラーが発生しました'
+          render :show
+        end
       end
+  end
+
+  def destroy
+    @item = Item.find(params[:id])
+    binding.pry
+    if @item.destroy
+      redirect_to root_path, notice: '商品が削除されました'
+    else
+      redirect_to root_path, alert: '商品の削除に失敗しました'
+    end
   end
 
   private
