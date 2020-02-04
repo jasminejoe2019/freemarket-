@@ -1,7 +1,7 @@
 .confirmMain
   %section.confirmMain__wrapper
     %h2.confirmMain__wrapper__head
-      購入内容の確認
+      購入が完了しました
     %section.confirmMain__wrapper__item
       .confirmMain__wrapper__item__info
         .confirmMain__wrapper__item__info__inner
@@ -16,26 +16,13 @@
               (税込み) 送料込み
     %section.confirmMain__wrapper__buyerInfo
       .confirmMain__wrapper__buyerInfo__inner
-        = form_with url: trades_path, local: true do |form|
+        = form_with url: root_path do |form|
           .confirmMain__wrapper__buyerInfo__inner__price
             .confirmMain__wrapper__buyerInfo__inner__price__label
               支払い金額
             .confirmMain__wrapper__buyerInfo__inner__price__main
               %span
                 = number_to_currency @item.price
-          .confirmMain__wrapper__buyerInfo__inner__point
-            = form.check_box :pointUse, {checked: false}, "true", "false"
-            = form.label :pointUse, "ポイントを使用 (所持ポイント: P1000)"
-            %br
-            .confirmMain__wrapper__buyerInfo__inner__point__use
-              = form.radio_button :point,"1"
-              すべてのポイント(P1000)を使う
-              %br
-              = form.radio_button :point,"2"
-              ポイントの一部を使う
-              %br
-              = form.label :point, "使用するポイント:"
-              = form.number_field :point,class: "confirmMain__wrapper__buyerInfo__inner__point__use__amount",min: 1
           %section.confirmMain__wrapper__buyerInfo__inner__payMethod
             .confirmMain__wrapper__buyerInfo__inner__payMethod__wrapper
               .confirmMain__wrapper__buyerInfo__inner__payMethod__wrapper__first
@@ -48,19 +35,12 @@
                 有効期限
                 = @card_information.exp_month.to_s + " / " + @card_information.exp_year.to_s.slice(2,3)
                 %br
-                カードブランド名
+                カードブランド
                 = @card_information.brand
           %section.confirmMain__wrapper__buyerInfo__inner__shippingAddress
-          - if current_user.shipping_addresses.first == nil
-            = link_to shipping_addresses_path do
-              配送先住所を登録してください。
-          - else
             .confirmMain__wrapper__buyerInfo__inner__shippingAddress__first
               %h3.confirmMain__wrapper__buyerInfo__inner__shippingAddress__first
                 配送先
-              = link_to edit_shipping_address_path(@shipping_address = current_user.shipping_addresses.first) do
-                変更する
-          
             %address.confirmMain__wrapper__buyerInfo__inner__shippingAddress__second
               〒
               = current_user.shipping_addresses.first["postal_code"]
@@ -72,5 +52,23 @@
               %br
               = current_user.shipping_addresses.first["family_name"]
               = current_user.shipping_addresses.first["first_name"]
-            %section.confirmMain__wrapper__buyerInfo__inner__btn
-              = form.submit "購入する",class: "confirmMain__wrapper__buyerInfo__inner__btn-red"
+          %section.confirmMain__wrapper__buyerInfo__inner__btn
+            発送通知後の流れ
+            %br
+            %div.itemInfo__table_ratings
+              .itemInfo__table_ratings-good
+                %i.fas.fa-laugh
+              .itemInfo__table_ratings-normal
+                %i.fas.fa-meh
+              .itemInfo__table_ratings-bad
+                %i.fas.fa-frown
+            商品を受け取ったら
+            %br
+            出品者の評価をしましょう。
+            %br
+            購入代金が出品者に振り込まれます。
+            %br
+            評価後に取引は完了です。
+            %br
+          = link_to "マイページへ戻る", root_path
+              

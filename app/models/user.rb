@@ -8,7 +8,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
   def self.without_sns_data(auth)
-    user=User.where(email:auth.info.email).first
+    user=User.find_by(email:auth.info.email)
 
     if user.present?
       sns=SnsCredential.create(

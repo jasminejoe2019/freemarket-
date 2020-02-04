@@ -1,7 +1,5 @@
 class ShippingAddress < ApplicationRecord
   belongs_to :user,optional: true
-  validates :postal_code,presence: true
-  validates :prefecture,presence: true
-  validates :city,presence: true
-  validates :address,presence: true
+  validates :first_name, :first_furigana, :family_name, :family_furigana, :postal_code, :prefecture, :city, :address,
+  presence: true
 end

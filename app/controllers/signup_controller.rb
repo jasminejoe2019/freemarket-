@@ -107,7 +107,7 @@ class SignupController < ApplicationController
       )
       if @user.save
         session[:id] = @user.id
-        Payjp.api_key = "sk_test_a02ac9116c8942dbec68459c"
+        Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
         customer = Payjp::Customer.create(
           card: params[:payjpToken]
         )
@@ -124,7 +124,7 @@ class SignupController < ApplicationController
 
     private 
     def skip_forbidden
-      redirect_to create1_signup_index_path unless session[:token] == "true"
+      redirect_to user_create_signup_index_path unless session[:token] == "true"
       session[:token] = "false"
     end
 

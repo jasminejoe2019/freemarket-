@@ -11,19 +11,19 @@
             %span.form-require
               必須
             = f.text_field :nickname, { placeholder: "例）メルカリ太郎", type: "text",class: "input-default2"}
-            = render partial: './shared/error', locals: {user: @user, column: "nickname"}
+            = render partial: './shared/error', locals: {model: @user, column: "nickname"}
           .form-groups
             =f.label "メールアドレス", for: "email"
             %span.form-require
               必須
             = f.text_field :email, { placeholder: "PC・携帯どちらでも可", type: "email", class: "input-default2"}
-            = render partial: './shared/error', locals: {user: @user, column: "email"}
+            = render partial: './shared/error', locals: {model: @user, column: "email"}
           .form-groups
             =f.label "パスワード", for: "password"
             %span.form-require
               必須
             = f.text_field :password ,{ placeholder: "７文字以上の半角英数字", type: "password",class: "input-default2"}
-            = render partial: './shared/error', locals: {user: @user, column: "password"}
+            = render partial: './shared/error', locals: {model: @user, column: "password"}
             %p.form-info-text
               ※ 英字と数字の両方を含めて設定してください
             .form-password-revelation-toggle
@@ -43,22 +43,22 @@
           .name-form
             = f.text_field :family_name,{type: "text", valuename: "famiry_name_kanji", placeholder: "例) 山田", class: "input-default2 half"}
             = f.text_field :first_name,{type: "text", valuename: "famiry_name_kanji", placeholder: "例) 彩", class: "input-default2 half"}
-          = render partial: './shared/error', locals: {user: @user, column: "family_name"}
-          = render partial: './shared/error', locals: {user: @user, column: "first_name"}
+          = render partial: './shared/error', locals: {model: @user, column: "family_name"}
+          = render partial: './shared/error', locals: {model: @user, column: "first_name"}
           .form-groups
             =f.label "お名前カナ(全角)"
             %span.form-require 必須
           .name-form
             = f.text_field :family_furigana ,class: "input-default2 half", placeholder: "例) ヤマダ"
             = f.text_field :first_furigana ,class: "input-default2 half", placeholder: "例) アヤ"
-          = render partial: './shared/error', locals: {user: @user, column: "family_furigana"}
-          = render partial: './shared/error', locals: {user: @user, column: "first_furigana"}
+          = render partial: './shared/error', locals: {model: @user, column: "family_furigana"}
+          = render partial: './shared/error', locals: {model: @user, column: "first_furigana"}
           .form-groups
             =f.label "生年月日"
             %span.form-require 必須
             .birthday-form
               != sprintf(f.date_select(:birthday, prompt: "--",use_month_numbers: true, start_year: Time.now.year, end_year: 1900, date_separator: '%s'),'年','月')+'日'
-              = render partial: './shared/error', locals: {user: @user, column: "birthday"}
+              = render partial: './shared/error', locals: {model: @user, column: "birthday"}
           %p.form-groups.info-text
             本人情報は正しく入力してください。会員登録後、修正するにはお時間をいただく場合があります。
           .form-groups.second
