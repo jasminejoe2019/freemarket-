@@ -19,15 +19,15 @@
       %th カテゴリー
       %td.itemInfo__table__Category
         = link_to "https://www.mercari.com/", class: "itemInfo__table__Category-mainCategory"  do
-          -# = @grandchild.parent.parent.name
+          = @grandchild.parent.parent.name
         .itemInfo__table__Category-subCategory
           %i.fas.fa-chevron-right
           = link_to "https://www.mercari.com/" do
-            -# = @grandchild.parent.name
+            = @grandchild.parent.name
         .itemInfo__table__Category-smallCategory
           %i.fas.fa-chevron-right
           = link_to "https://www.mercari.com/" do
-            -# = @grandchild.name
+            = @grandchild.name
     %tr
       %th ブランド
       %td
@@ -47,7 +47,7 @@
     %tr
       %th 配送元地域
       %td
-        -# =@item.delivery_area.delivery_area if @item.delivery_area_id
+        -# = @item.delivery_area.delivery_area if @item.delivery_area_id
     %tr
       %th 発送日の目安
       %td

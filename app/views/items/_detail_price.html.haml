@@ -26,19 +26,34 @@
         %i.fas.fa-lock
         %span あんしん・あんぜんへの取り組み
 - elsif (@item.status.id == 2)
-  この商品は売買済みです。
-- else
-  .item-edit-btn
-    商品の編集
-  %br
-    -if (@item.status.id == 1)
-      .item-delete-btn
-        =link_to "出品を一旦停止する", edit_item_path(@item)
-          
-    -elsif (@item.status.id == 3)
-      .item-edit-btn
-        =link_to "出品を再開する", edit_item_path(@item)
   .item-delete-btn
-    =link_to "この商品を削除する", item_path(@item), method: :delete
+    この商品は売買済みです。
+- else
+  .item-edit-box
+    .item-edit-btn
+      商品の編集
+    %br
+      -if (@item.status.id == 1)
+        .item-delete-btn
+          =link_to "出品を一旦停止する", edit_item_path(@item)
+            
+      -elsif (@item.status.id == 3)
+        .item-edit-btn
+          =link_to "出品を再開する", edit_item_path(@item)
+    .item-delete-btn
+      =link_to "この商品を削除する", "#modal01", class: "modal_open"
+  #modal01.modal
+    .overLay.modalClose
+    .inner
+      確認
+      %br
+      削除すると二度と復活できません。
+      %br
+      削除する代わりに停止することもできます。
+      %br
+      本当に削除しますか？
+      %br
+      = link_to "削除", item_path(@item), method: :delete
+      = link_to "キャンセル", class: "modal_close"
   %p.item-info__inner
     = @item.description
