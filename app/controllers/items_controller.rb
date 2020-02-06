@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :item_existed_check, except: [:index, :new, :create]
+  before_action :move_to_index, except: [:index, :new, :create]
 
   def index
     @item = Item.limit(10).order('id DESC')
@@ -81,11 +81,8 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name, :description, :category_id, :condition_id, :shipping_charge_id, :estimated_shipping_date_id, :price, :size_id,:brand_id, :delivery_area_id,images_attributes: [:image]).merge(user_id: current_user.id,brand_id: 1,status_id: 1,shipping_method_id: 1)
   end
 
-  def item_existed_check
-      @item =Item.find(params[:id])
-      if @item.id == nil
-        redirect_to root_path, alert: '指定された商品は存在しません' 
-      end
+  def move_to_index
+    redirect_to root_path, alert: '指定された商品は存在しません' unless Item.exists?(params)
   end
 
 end
