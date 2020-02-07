@@ -25,7 +25,6 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    # binding.pry
     if @item.save
       redirect_to root_path
     else
@@ -37,13 +36,21 @@ class ItemsController < ApplicationController
   end
 
   def show
-    # binding.pry
     @item =Item.find(params[:id])
     @user = @item.user
     @estimated_shipping_date = EstimatedShippingDate.find(@item.estimated_shipping_date_id)
     @grandchild = Category.find(@item.category_id)
   end
 
+  def edit
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    item = Item.find(params[:id])
+    item.update(item_params)
+    redirect_to ("/items/#{@item[:id]}")
+  end
 
   private
 
