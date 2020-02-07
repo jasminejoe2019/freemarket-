@@ -1,3 +1,4 @@
+= render '/devise/shared/user_header'
 .single-container
   .main
     .main__container
@@ -6,7 +7,7 @@
           =flash[:alert]
       %h2.main__container__head
         商品の情報を入力
-      = form_for @item, method: :post do |f|
+      = form_for @item, method: :patch do |f|
         .sell-form
           .sell-form__content
             %h3.item-upload-head
@@ -45,7 +46,9 @@
                 %span.form-require
                   必須
                 .select-wrap#category_box
-                  = f.select :category_id, @category_parent_array, {}, {class: 'select-default select-product', id: 'parent_category'}
+                  = f.collection_select :category_id, Category.roots, :id, :name, {incude_blank: "----", selected: @category_parent_array.id}, required: true, class: 'select-default select-product', id: 'parent_category'
+                  = f.collection_select :category_id, @category_child, :id, :name, {incude_blank: "----", selected: @item.category_id}, required: true,class: 'select-default select-product', id: 'child_category'
+                  = f.collection_select :category_id, @category_grandchild, :id, :name, {incude_blank: "----", selected: @item.category_id}, required: true, class: 'select-default select-product', id: 'grandchild_category'
               .form-groups.select-box
                 %label(for="status")
                   商品の状態
@@ -102,27 +105,8 @@
                       販売利益
                     .l-right.bold.right_bar_2
                       \-
-        .sell-form
           .sell-form__content
-            %p
-              =link_to "#" do
-                禁止されている出品
-              、
-              =link_to "#" do
-                行為
-              を必ずご確認ください。
-            %p
-              %div
-                またブランド品でシリアルナンバー等がある場合はご記載ください。
-                =link_to "#" do
-                  偽ブランドの販売
-                は犯罪であり処罰される可能性があります。
-            %p
-              また、出品をもちまして
-              =link_to "#" do
-                加盟店規約
-              に同意したことになります。
-          .sell-form__content
-          = f.submit '出品する', class: 'btn-default btn-red shipping-wide'
+          = f.submit '変更する', class: 'btn-default btn-red shipping-wide'
           =link_to :back, class: "btn-default btn-gray" do
-            もどる
+            キャンセル
+= render '/devise/shared/user_footer'

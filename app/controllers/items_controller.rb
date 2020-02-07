@@ -25,7 +25,6 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    # binding.pry
     if @item.save
       redirect_to root_path
     else
@@ -37,14 +36,39 @@ class ItemsController < ApplicationController
   end
 
   def show
-    # binding.pry
     @item =Item.find(params[:id])
     @user = @item.user
     @estimated_shipping_date = EstimatedShippingDate.find(@item.estimated_shipping_date_id)
     @grandchild = Category.find(@item.category_id)
   end
 
+  def edit
+    # binding.pry
+    @item = Item.find(params[:id])
+    @category_parent_array = @item.category.root
+    # @category_parent_array.unshift("--")
+    # @category_parent_array = []
+    # Category.where(ancestry: nil).each do |parent|
+    #   @category_parent_array << parent.name
+    # end
+    @category_parent = Category.where(ancestry: nil)
 
+    @grandchild = Category.find(@item.category_id)
+    @category_child = @item.category.parent.parent.children
+    @category_grandchild = @item.category.parent.children
+    # @category_child = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+    # @category_grandchild = Category.find("#{params[:child_id]}").children
+# binding.pry
+  end
+
+  def update
+    @item = Item.find(item_params[:id])
+    if @item.update(item_params)
+      redirect_to root_path
+    else
+      render :show
+    end
+  end
   private
 
   def item_params
