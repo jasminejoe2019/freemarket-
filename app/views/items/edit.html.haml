@@ -6,7 +6,7 @@
           =flash[:alert]
       %h2.main__container__head
         商品の情報を入力
-      = form_for @item, method: :post do |f|
+      = form_for @item, method: :patch do |f|
         .sell-form
           .sell-form__content
             %h3.item-upload-head
@@ -45,7 +45,7 @@
                 %span.form-require
                   必須
                 .select-wrap#category_box
-                  = f.select :category_id, @category_parent_array, {}, {class: 'select-default select-product', id: 'parent_category'}
+                  -# = f.select :category_id, @category_parent_array, {}, {class: 'select-default select-product', id: 'parent_category'}
               .form-groups.select-box
                 %label(for="status")
                   商品の状態
@@ -123,6 +123,6 @@
                 加盟店規約
               に同意したことになります。
           .sell-form__content
-          = f.submit '出品する', class: 'btn-default btn-red shipping-wide'
+          = f.submit '変更する', class: 'btn-default btn-red shipping-wide'
           =link_to :back, class: "btn-default btn-gray" do
-            もどる
+            キャンセル
