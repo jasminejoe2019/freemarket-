@@ -49,6 +49,7 @@
                   = f.collection_select :category_id, Category.roots, :id, :name, {incude_blank: "----", selected: @category_parent_array.id}, required: true, class: 'select-default select-product', id: 'parent_category'
                   = f.collection_select :category_id, @category_child, :id, :name, {incude_blank: "----", selected: @item.category_id}, required: true,class: 'select-default select-product', id: 'child_category'
                   = f.collection_select :category_id, @category_grandchild, :id, :name, {incude_blank: "----", selected: @item.category_id}, required: true, class: 'select-default select-product', id: 'grandchild_category'
+                  -# = f.select :category_id, @category_parent_array, {}, {class: 'select-default select-product', id: 'parent_category'}
               .form-groups.select-box
                 %label(for="status")
                   商品の状態
