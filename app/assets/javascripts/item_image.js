@@ -69,7 +69,6 @@ $(function(){
     var target_image=$(this).parent().parent();
     $.each(inputs,function(index,input){
       if ($(this).data('image')==target_image.data('image')){
-        console.log(this);
         $(this).remove();
         target_image.remove();
         var num=$(this).data('image');
