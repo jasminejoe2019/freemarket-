@@ -41,36 +41,29 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item =Item.find(params[:id])
+    set_item(params[:id])
     @user = @item.user
     @estimated_shipping_date = EstimatedShippingDate.find(@item.estimated_shipping_date_id)
     @grandchild = Category.find(@item.category_id)
   end
 
   def status_edit
-    @item = Item.find(params[:id])
-    @user = current_user
-      if @item.status_id == 1
-        if @item.update!(status_id: 3)
-          flash.now[:notice] = '商品の出品を停止しました'
-          render :show
-        else
-          flash.now[:alert] = '出品停止処理中にエラーが発生しました'
-          render :show
-        end
-      elsif @item.status_id == 3
-        if @item.update(status_id: 1)
-          flash.now[:notice] = '商品の出品を開始しました'
-          render :show
-        else
-          flash.now[:alert] = '出品開始処理中にエラーが発生しました'
-          render :show
-        end
-      end
+    set_item(params[:id])
+    @user = @item.user
+    update_status = @item.status_id == 1 ? 3 : 1
+    flash_message = @item.status_id == 1 ? '商品の出品を停止しました' :'商品の出品を開始しました'
+
+    if @item.update(status_id: update_status)
+      flash.now[:notice] = flash_message
+      render :show
+    else
+      flash.now[:alert] = '処理中にエラーが発生しました'
+      render :show
+    end
   end
 
   def destroy
-    @item = Item.find(params[:id])
+    set_item(params[:id])
     if @item.destroy
       redirect_to root_path, notice: '商品が削除されました'
     else
@@ -79,6 +72,9 @@ class ItemsController < ApplicationController
   end
 
   private
+  def set_item(params)
+    @item = Item.find(params)
+  end
 
   def item_params
     params.require(:item).permit(:name, :description, :category_id, :condition_id, :shipping_charge_id, :estimated_shipping_date_id, :price, :size_id,:brand_id, :delivery_area_id,images_attributes: [:image]).merge(user_id: current_user.id,brand_id: 1,status_id: 1,shipping_method_id: 1)
