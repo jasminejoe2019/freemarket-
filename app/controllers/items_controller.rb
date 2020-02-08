@@ -44,11 +44,11 @@ class ItemsController < ApplicationController
     @grandchild = Category.find(params[:id])
   end
 
-  def edit
+  def status_edit
     @item = Item.find(params[:id])
     @user = current_user
       if @item.status_id == 1
-        if @item.update(status_id: 3)
+        if @item.update!(status_id: 3)
           flash.now[:notice] = '商品の出品を停止しました'
           render :show
         else
@@ -60,7 +60,7 @@ class ItemsController < ApplicationController
           flash.now[:notice] = '商品の出品を開始しました'
           render :show
         else
-          flash.now[:alert] = '出品停止処理中にエラーが発生しました'
+          flash.now[:alert] = '出品開始処理中にエラーが発生しました'
           render :show
         end
       end
@@ -82,7 +82,7 @@ class ItemsController < ApplicationController
   end
 
   def move_to_index
-    redirect_to root_path, alert: '指定された商品は存在しません' unless Item.exists?(params)
+    redirect_to root_path, alert: '指定された商品は存在しません' unless @item = Item.exists?(params[:id])
   end
 
 end
