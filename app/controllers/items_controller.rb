@@ -27,13 +27,16 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    if @item.save
-      redirect_to root_path
-    else
+    respond_to do |format|
+      if @item.save
+        format.html{redirect_to root_path}
+      else
         flash[:alert] = 'エラーが発生しました'
+        @item.images.build
         @category_parent_array = Category.where(ancestry: nil).pluck(:name)
         @category_parent_array.unshift("--")
-        render :new
+        format.html{render :new}
+      end
     end
   end
 
@@ -41,7 +44,7 @@ class ItemsController < ApplicationController
     @item =Item.find(params[:id])
     @user = @item.user
     @estimated_shipping_date = EstimatedShippingDate.find(@item.estimated_shipping_date_id)
-    @grandchild = Category.find(params[:id])
+    @grandchild = Category.find(@item.category_id)
   end
 
   def status_edit
