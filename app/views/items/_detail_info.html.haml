@@ -19,15 +19,18 @@
       %th カテゴリー
       %td.itemInfo__table__Category
         = link_to "https://www.mercari.com/", class: "itemInfo__table__Category-mainCategory"  do
-          = @grandchild.parent.parent.name
+          -# = @grandchild.parent.parent.name
+          -# 別ブランチで調整中
         .itemInfo__table__Category-subCategory
           %i.fas.fa-chevron-right
           = link_to "https://www.mercari.com/" do
-            = @grandchild.parent.name
+            -# = @grandchild.parent.name
+            -# 別ブランチで調整中
         .itemInfo__table__Category-smallCategory
           %i.fas.fa-chevron-right
           = link_to "https://www.mercari.com/" do
-            = @grandchild.name
+            -# = @grandchild.name
+            -# 別ブランチで調整中
     %tr
       %th ブランド
       %td

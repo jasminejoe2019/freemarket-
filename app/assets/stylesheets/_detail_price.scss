@@ -15,6 +15,32 @@
   }
 }
 
+.item-edit-btn {
+  font-size: 14px;
+  line-height: 60px;
+  display: block;
+  margin-top: 16px;
+  background: #ea352d;
+  color: #fff;
+  text-align: center;
+  font-weight: 600;
+  width: 620px;
+  margin: auto;
+}
+
+.item-delete-btn {
+  font-size: 14px;
+  line-height: 60px;
+  display: block;
+  margin-top: 16px;
+  background: #aaa;
+  color: #fff;
+  text-align: center;
+  font-weight: 600;
+  width: 620px;
+  margin: auto;
+}
+
 .item-buy-btn {
   font-size: 24px;
   line-height: 60px;
@@ -78,7 +104,39 @@
   .icon-flag {
     color: #333;
     width: 10px;
-    height: 10px;;
+    height: 10px;
   }
 }
 
+body {
+  position: relative;
+  $width: 300px;
+  .modal {
+    position: fixed;
+    height: 500px;
+    top: 20%;
+    left: 10%;
+    margin-left: -($width / 2);
+    display: none;
+    background: #fff;
+  }
+  .modal .inner {
+    position: absolute;
+    z-index: 11;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+
+    a {
+      display: block;
+      width: 200px;
+      margin: 20px auto 0;
+      text-align: center;
+      color: #fff;
+      background: #ea352d;
+      text-decoration: none;
+      padding: 15px 0;
+    }
+  }
+}
