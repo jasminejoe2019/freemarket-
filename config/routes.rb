@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :mypages, only:[:edit,:index] do
     collection do
       get "purchase_list"
+      get "selling_item_list"
     end
   end
   resources :cards

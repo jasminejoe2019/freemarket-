@@ -4,6 +4,9 @@
 .mypage
   = render partial: "side_menu"
   .mypage__wrapper
-    = render partial: "itemList"
+    = render partial: "tradeList_header", locals: {title: "購入した商品", menu1: "取引中", menu2: "過去の取引"}
+    = render partial: "duringTrading"
+    %ul.mypage__itemList__contents__list
+      = render partial: "trade", collection: @trades
 = render partial: "./items/appbanner"
 = render partial: "./shared/item-footer"

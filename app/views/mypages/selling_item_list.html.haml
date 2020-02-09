@@ -1,0 +1,17 @@
+= render partial: "./shared/item-header"
+-breadcrumb :mypages
+= render partial: "./shared/breadcrumbs"
+.mypage
+  = render partial: "side_menu"
+  .mypage__wrapper
+    = render partial: "tradeList_header", locals: {title: "販売した商品",  menu1: "出品・出品停止中", menu2: "売却済み" }
+    %ul.mypage__itemList__contents__list.show2
+      - @items.each do |item|
+        -if(item.status_id == 1 || item.status_id == 3)
+          = render partial: "item", locals: { item: item }
+    %ul.mypage__itemList__contents__list
+      - @items.each do |item|
+        -if(item.status_id == 2)
+          = render partial: "item", locals: { item: item }
+= render partial: "./items/appbanner"
+= render partial: "./shared/item-footer"

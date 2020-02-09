@@ -1,24 +1,5 @@
-%section.mypage__itemList
-  %h2.mypage__itemList__head 購入した商品
-  %ul.mypage__itemList__tabs
-    %li
-      %h3.mypage__itemList__tabs__menu.active2  取引中
-    %li
-      %h3.mypage__itemList__tabs__menu  過去の取引
-  .mypage__itemList__contents
-    %ul.mypage__itemList__contents__list.show2
-      %li.mypage__itemList__contents__list__article
-        = image_tag 'logo_red.svg',size: "48x48"
-        .mypage__itemList__contents__list__article__sample
-          .mypage__itemList__contents__list__article__sample__text 取引中商品のサンプルです
-          .mypage__itemList__contents__list__article__sample__status
-            評価待ち
-        %i.fas.fa-chevron-right.fa-pull-right
-      %li.mypage__itemList__contents__list__link
-        =link_to purchase_list_mypages_path do
-          一覧を見る
-    %ul.mypage__itemList__contents__list
-      = render partial: "trade", collection: @trades
-      %li.mypage__itemList__contents__list__link 
-        =link_to purchase_list_mypages_path do
-          一覧を見る
+= render partial: "tradeList_header", locals: {title: "購入した商品", menu1: "取引中", menu2: "過去の取引"}
+= render partial: "duringTrading"
+%ul.mypage__itemList__contents__list
+  = render partial: "trade", collection: @trades
+= render partial: "ListButton", locals: {path: purchase_list_mypages_path}

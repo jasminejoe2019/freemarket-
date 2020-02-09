@@ -6,6 +6,10 @@ class MypagesController < ApplicationController
   def edit
   end
 
+  def selling_item_list
+    @items = Item.where(user_id: current_user.id)
+  end
+
   def purchase_list
     @trades = Trade.where(user_id: current_user.id)
   end

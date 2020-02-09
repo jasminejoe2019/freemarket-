@@ -1,7 +1,7 @@
 .menu
   %ul.menu__feature
     %li.menu__feature__myPage
-      =link_to "#" do
+      =link_to mypages_path do
         マイページ
         %i.fas.fa-chevron-right.fa-pull-right
     %li.menu__feature__notice
@@ -17,11 +17,11 @@
         いいね！一覧
         %i.fas.fa-chevron-right.fa-pull-right
     %li.menu__feature__trade
-      =link_to "#" do
+      =link_to items_new_path do
         出品する
         %i.fas.fa-chevron-right.fa-pull-right
     %li.menu__feature__tradingListing
-      =link_to "#" do
+      =link_to selling_item_list_mypages_path do
         出品した商品・出品中
         %i.fas.fa-chevron-right.fa-pull-right
     %li.menu__feature__tradingInProgress
@@ -49,7 +49,7 @@
         評価一覧
         %i.fas.fa-chevron-right.fa-pull-right
     %li.menu__feature__guide
-      =link_to "#" do
+      =link_to "https://www.mercari.com/jp/help_center/" do
         ガイド
         %i.fas.fa-chevron-right.fa-pull-right
     %li.menu__feature__support
