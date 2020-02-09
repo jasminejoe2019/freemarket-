@@ -62,6 +62,8 @@ class ItemsController < ApplicationController
     @category_child2 = @grandchild.parent
     @category_child = @item.category.parent.parent.children
     @category_grandchild = @item.category.parent.children
+  end
+
   def status_edit
     set_item(params[:id])
     @user = @item.user
