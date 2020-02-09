@@ -1,8 +1,8 @@
 class TradesController < ApplicationController
   before_action :authenticate_user!
 
-  def index
-    @item = Item.first  
+  def new
+    @item = Item.find(params[:item_id])
     @payment = current_user.payments
 
     payment = Payment.find_by(user_id: current_user.id)
@@ -12,7 +12,7 @@ class TradesController < ApplicationController
   end
 
   def create
-    @item = Item.first
+    @item = Item.find(params[:item_id])
     @user = @item.user
     @trade = Trade.new(
         user_id: current_user.id,
@@ -45,6 +45,10 @@ class TradesController < ApplicationController
   end
 
   private
+  def set_item(item_id)
+    @item = Item.find(params[:item_id])
+  end
+
   def trade_params
     params.require(:trade).permit(
       :user_id,

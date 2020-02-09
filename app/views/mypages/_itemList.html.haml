@@ -15,10 +15,10 @@
             評価待ち
         %i.fas.fa-chevron-right.fa-pull-right
       %li.mypage__itemList__contents__list__link
-        =link_to "#" do
+        =link_to purchase_list_mypages_path do
           一覧を見る
     %ul.mypage__itemList__contents__list
       = render partial: "trade", collection: @trades
       %li.mypage__itemList__contents__list__link 
-        =link_to "#" do
+        =link_to purchase_list_mypages_path do
           一覧を見る

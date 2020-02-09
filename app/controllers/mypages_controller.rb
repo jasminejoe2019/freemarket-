@@ -6,7 +6,7 @@ class MypagesController < ApplicationController
   def edit
   end
 
-  def show
+  def purchase_list
     @trades = Trade.where(user_id: current_user.id)
   end
 end

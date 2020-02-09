@@ -7,7 +7,7 @@
         .confirmMain__wrapper__item__info__inner
           .confirmMain__wrapper__item__info__inner__box
             %h3.confirmMain__wrapper__item__info__inner__box__image
-              = image_tag @item.images[0]["image"], size: '80x80'
+              = image_tag @item.images[0].image_url, size: '80x80'
           .confirmMain__wrapper__item__info__inner__detail
             .confirmMain__wrapper__item__info__inner__detail__name
               = @item.name
@@ -16,7 +16,7 @@
               (税込み) 送料込み
     %section.confirmMain__wrapper__buyerInfo
       .confirmMain__wrapper__buyerInfo__inner
-        = form_with url: trades_path, local: true do |form|
+        = form_with url: item_trades_path, local: true do |form|
           .confirmMain__wrapper__buyerInfo__inner__price
             .confirmMain__wrapper__buyerInfo__inner__price__label
               支払い金額
