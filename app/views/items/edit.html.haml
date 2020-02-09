@@ -50,6 +50,12 @@
                   = f.collection_select :category_id, @category_child, :id, :name, {incude_blank: "----", selected: @category_child2.id}, required: true,class: 'select-default select-product', id: 'children_wrapper'
                   = f.collection_select :category_id, @category_grandchild, :id, :name, {incude_blank: "----", selected: @item.category_id}, required: true, class: 'select-default select-product', id: 'grandchildren_wrapper'
               .form-groups.select-box
+                %label(for="brand")
+                  ブランド
+                %span.form-require__option
+                  任意
+                = f.text_field :brand_name, class: 'select-default select-product', placeholder: '例) シャネル', type: 'text', id: 'brand_box'
+              .form-groups.select-box
                 %label(for="status")
                   商品の状態
                 %span.form-require
