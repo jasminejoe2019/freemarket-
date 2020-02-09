@@ -17,10 +17,16 @@
                 最大10枚までアップロードできます
             =f.fields_for :images do |i|
               .dropbox-container
+                #thumnail
                 .dropbox-text-container
-                  =i.file_field :image,type: 'file', style: "display:none", id:"img-file"
-                  =i.label "クリックしてファイルをアップロード",{for: "img-file",class: "dropbox-text"}
-
+                  =i.label :image,for: "upload-image",class: "dropbox-text" do
+                    .input_area
+                      =i.file_field :image,type: 'file', id:"upload-image",class:"upload-image",'data-image':0
+                    %p ここをクリックしてください
+                #thumnail2
+                .dropbox-text-container2
+                  =i.label :image,for: "upload-image",class: "dropbox-text" do
+                    %p ここをクリックしてください
         .sell-form
           .form-groups.product-box
             %label(for="productname")
