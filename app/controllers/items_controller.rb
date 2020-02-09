@@ -81,7 +81,7 @@ class ItemsController < ApplicationController
   end
 
   def move_to_index
-    redirect_to root_path, alert: '指定された商品は存在しません' unless @item = Item.exists?(params[:id])
+    # redirect_to root_path, alert: '指定された商品は存在しません' unless @item = Item.exists?(params[:id])
   end
 
 end
