@@ -65,11 +65,11 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item = Item.find(item_params[:id])
+    @item = Item.find(params[:id])
     if @item.update(item_params)
       redirect_to root_path
     else
-      render :show
+      render :edit
     end
   end
   private

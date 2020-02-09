@@ -19,7 +19,7 @@
             =f.fields_for :images do |i|
               .dropbox-container
                 .dropbox-text-container
-                  =i.file_field :image,type: 'file',multiple: true, name: "item[images_attributes][][image]", value:"", style: "display:none", id:"img-file"
+                  =i.file_field :image,type: 'file',multiple: true, name: "item[images_attributes][][image]", value:"", id:"img-file"
                   =i.label "クリックしてファイルをアップロード",{for: "img-file",class: "dropbox-text"}
 
         .sell-form
@@ -46,10 +46,10 @@
                 %span.form-require
                   必須
                 .select-wrap#category_box
-                  = f.collection_select :category_id, Category.roots, :id, :name, {incude_blank: "----", selected: @category_parent_array.id}, required: true, class: 'select-default select-product', id: 'parent_category'
-                  = f.collection_select :category_id, @category_child, :id, :name, {incude_blank: "----", selected: @item.category_id}, required: true,class: 'select-default select-product', id: 'child_category'
-                  = f.collection_select :category_id, @category_grandchild, :id, :name, {incude_blank: "----", selected: @item.category_id}, required: true, class: 'select-default select-product', id: 'grandchild_category'
-                  -# = f.select :category_id, @category_parent_array, {}, {class: 'select-default select-product', id: 'parent_category'}
+                  -# = f.collection_select :category_id, Category.roots, :id, :name, {incude_blank: "----", selected: @grandchild.parent.parent.id}, required: true, class: 'select-default select-product', id: 'parent_category'
+                  -# = f.collection_select :category_id, @category_child, :id, :name, {incude_blank: "----", selected: @grandchild.parent.id}, required: true,class: 'select-default select-product', id: 'child_category'
+                  -# = f.collection_select :category_id, @category_grandchild, :id, :name, {incude_blank: "----", selected: @grandchild.id}, required: true, class: 'select-default select-product', id: 'grandchild_category'
+                  -# -# = f.select :category_id, @category_parent_array, {}, {class: 'select-default select-product', id: 'parent_category'}
               .form-groups.select-box
                 %label(for="status")
                   商品の状態
