@@ -36,12 +36,32 @@ crumb :itemdeatail do
   parent :root
 end
 
-# crumb :profile do
-#   link "プロフィール", edit_mypage_path (current_user.id)
+# crumb :exhibit_exhibiting do
+#   link "出品した商品 - 出品中",_path
 #   parent :mypages
 # end
 
-# crumb : do
-#   link "商品名", show_item_path
-#   parent :root
+# crumb :exhibit_during_trading do
+#   link "出品した商品 - 取引中",_path
+#   parent :mypages
+# end
+
+# crumb :exhibit_sold do
+#   link "出品した商品 - 売却済み",_path
+#   parent :mypages
+# end
+
+# crumb :buy_during_trading do
+#   link "購入した商品 - 取引中",_path
+#   parent :mypages
+# end
+
+# crumb :buy_past_trade do
+#   link "購入した商品 - 過去の取引",_path
+#   parent :mypages
+# end
+
+# crumb :profile do
+#   link "プロフィール", edit_mypage_path (current_user.id)
+#   parent :mypages
 # end
