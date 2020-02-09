@@ -28,7 +28,13 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     respond_to do |format|
-      if @item.save
+      if @item.images.length == 0
+        flash[:alert] = '画像は１枚以上登録してください'
+        @item.images.build
+        @category_parent_array = Category.where(ancestry: nil).pluck(:name)
+        @category_parent_array.unshift("--")
+        format.html{render :new}
+      elsif @item.save
         format.html{redirect_to root_path}
       else
         flash[:alert] = 'エラーが発生しました'
