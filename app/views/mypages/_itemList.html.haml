@@ -18,13 +18,7 @@
         =link_to "#" do
           一覧を見る
     %ul.mypage__itemList__contents__list
-      %li.mypage__itemList__contents__list__article
-        = image_tag 'logo_red.svg',size: "48x48"
-        .mypage__itemList__contents__list__article__sample
-          .mypage__itemList__contents__list__article__sample__text 購入した商品のサンプルです
-          .mypage__itemList__contents__list__article__sample__status
-            取引完了
-        %i.fas.fa-chevron-right.fa-pull-right
+      = render partial: "trade", collection: @trades
       %li.mypage__itemList__contents__list__link 
         =link_to "#" do
           一覧を見る

@@ -13,7 +13,7 @@ class TradesController < ApplicationController
 
   def create
     @item = Item.first
-    @user = current_user
+    @user = @item.user
     @trade = Trade.new(
         user_id: current_user.id,
         item_id: @item.id
