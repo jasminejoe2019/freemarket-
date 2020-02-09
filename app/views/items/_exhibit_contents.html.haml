@@ -1,9 +1,6 @@
 .single-container
   .main
     .main__container
-      .flashbox
-        .alert
-          =flash[:alert]
       %h2.main__container__head
         商品の情報を入力
       = form_for @item, method: :post do |f|
