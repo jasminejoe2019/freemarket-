@@ -1,15 +1,16 @@
-%li.mypage__itemList__contents__list__article
-  = image_tag item.images[0].image_url,size: "48x48"
-  .mypage__itemList__contents__list__article__sample
-    .mypage__itemList__contents__list__article__sample__text
-      = item.name
-    - if(item.status_id == 1)
-      .mypage__itemList__contents__list__article__sample__status
-        出品中
-    - elsif(item.status_id == 3)
-      .mypage__itemList__contents__list__article__sample__status
-        出品停止中
-    - else
-      .mypage__itemList__contents__list__article__sample__status
-        売却済み
-  %i.fas.fa-chevron-right.fa-pull-right
+=link_to item_path(item.id) do
+  %li.mypage__itemList__contents__list__article
+    = image_tag item.images[0].image_url,size: "48x48"
+    .mypage__itemList__contents__list__article__sample
+      .mypage__itemList__contents__list__article__sample__text
+        = item.name
+      - if(item.status_id == 1)
+        .mypage__itemList__contents__list__article__sample__status
+          出品中
+      - elsif(item.status_id == 3)
+        .mypage__itemList__contents__list__article__sample__status
+          出品停止中
+      - else
+        .mypage__itemList__contents__list__article__sample__status
+          売却済み
+    %i.fas.fa-chevron-right.fa-pull-right

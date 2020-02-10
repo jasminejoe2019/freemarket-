@@ -69,7 +69,7 @@
   %h3.menu__titleSetting 設定
   %ul.menu__setting
     %li.menu__setting__profile
-      =link_to "#" do
+      =link_to profile_mypage_path(current_user.id) do
         プロフィール
         %i.fas.fa-chevron-right.fa-pull-right
     %li.menu__setting__deliverAddress

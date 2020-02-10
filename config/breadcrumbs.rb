@@ -18,7 +18,7 @@ crumb :shipping_addresses do
 end
 
 crumb :profile do
-  link "プロフィール", edit_mypage_path
+  link "プロフィール", profile_mypage_path
   parent :mypages
 end
 

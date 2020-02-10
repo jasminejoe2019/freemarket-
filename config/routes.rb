@@ -21,6 +21,10 @@ Rails.application.routes.draw do
       get "purchase_list"
       get "selling_item_list"
     end
+    member do
+      get "profile"
+      post "profile_edit"
+    end
   end
   resources :cards
   resources :signup do
