@@ -7,11 +7,36 @@ $(function(){
   var input_area=$('.input_area');
   var thumnail=$('#thumnail');
   var thumnail2=$('#thumnail2');
+
+  function buildHTML(num){
+    var html = `<div class="img_view">
+                  <img src="">
+                  <div class="btn_wrapper">
+                    <div class="btn edit">編集</div>
+                    <div class="btn delete">削除</div>
+                  </div>
+                </div>`
+    return html;
+  }
+  if (window.location.href.match(/\/items\/\d+\/edit/)){
+    var numContents=$('.label-content').length;
+    dropbox.css({
+      'width': `calc(620px - (124px * ${numContents}))`
+    })
+    $('.img_view').each(function(index){
+      $(this).attr('data-image',index);
+      images.push(this);
+    })
+    $('input[name=]').each(function(index){
+      // console.log(this);
+    });
+
+  }
   $(document).on('change','input[type=file].upload-image',function(event){
     var file=$(this).prop('files')[0];
     var reader=new FileReader();
-    inputs.push($(this));
     var img=$('<div class="img_view"><img></div>');
+    inputs.push($(this));
     reader.onload=function(e){
       var btn_wrapper = $('<div class="btn_wrapper"><div class="btn edit">編集</div><div class="btn delete">削除</div><div class="btn edit">');
       img.append(btn_wrapper);
@@ -21,7 +46,6 @@ $(function(){
     }
     reader.readAsDataURL(file);
     images.push(img);
-
     if(images.length >= 5){
       dropbox2.css({
         'display': 'block'
@@ -47,6 +71,7 @@ $(function(){
         $('#thumnail').empty();
         $.each(images, function(index, image) {
           image.attr('data-image', index);
+          // image.append('.preview');
           thumnail.append(image);
         })
         dropbox.css({
@@ -67,6 +92,7 @@ $(function(){
   });
   $(document).on('click','.delete',function(){
     var target_image=$(this).parent().parent();
+    console.log(target_image);
     $.each(inputs,function(index,input){
       if ($(this).data('image')==target_image.data('image')){
         $(this).remove();
@@ -113,8 +139,9 @@ $(function(){
       'display': 'block'
     })
     $.each(images, function(index, image) {
-      image.attr('data-image', index);
-      thumnail.append(image);
+      console.log(image);
+      // image.attr('data-image', index);
+      // thumnail.append(image);
     })
     dropbox.css({
       'width': `calc(620px - (124px * ${images.length}))`
@@ -130,3 +157,6 @@ $(function(){
   }
 })
 });
+
+// $("").on("click", function())
+// ${.img_view}.remove()

@@ -31,7 +31,7 @@
 - else
   .item-edit-box
     .item-edit-btn
-      商品の編集
+      = link_to '商品の編集', edit_item_path(@item)
     %br
       -if (@item.status_id == 1)
         .item-delete-btn

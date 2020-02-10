@@ -102,8 +102,8 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name, :description, :category_id, :condition_id, :shipping_charge_id, :estimated_shipping_date_id, :price, :size_id,:brand_id, :brand_name, :delivery_area_id).merge(user_id: current_user.id,brand_id: 1,status_id: 1,shipping_method_id: 1)
-    # params.require(:item).permit(:name, :description, :category_id, :condition_id, :shipping_charge_id, :estimated_shipping_date_id, :price, :size_id,:brand_id, :brand_name, :delivery_area_id,images_attributes: [:image]).merge(user_id: current_user.id,brand_id: 1,status_id: 1,shipping_method_id: 1)
+    # params.require(:item).permit(:name, :description, :category_id, :condition_id, :shipping_charge_id, :estimated_shipping_date_id, :price, :size_id,:brand_id, :brand_name, :delivery_area_id).merge(user_id: current_user.id,brand_id: 1,status_id: 1,shipping_method_id: 1)
+    params.require(:item).permit(:name, :description, :category_id, :condition_id, :shipping_charge_id, :estimated_shipping_date_id, :price, :size_id, :brand_name, :delivery_area_id,images_attributes: [:image]).merge(user_id: current_user.id,brand_id: 1,status_id: 1,shipping_method_id: 1)
   end
 
   def move_to_index
