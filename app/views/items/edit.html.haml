@@ -27,13 +27,16 @@
                       .btn.delete
                         削除
               .dropbox-text-container
-                
-                =f.fields_for :images do |i|
-                  =i.label :image,for: "upload-image",class: "dropbox-text" do
-                    .input_area
-                      =i.file_field :image,type: 'file', id:"upload-image",class:"upload-image",'data-image':"#{@item.images.length}"
-                      =i.check_box :_destroy,class: "chk_delete"
-                    %p ここをクリックしてください
+                =label_tag :image,for: "upload-image",class: "dropbox-text" do
+                  %p ここをクリックしてください
+                  .input_area
+                    .input-files
+                      = file_field_tag :images,id: "upload-image", name: "item[images_attributes][#{@item.images.length}][image]",class: "upload-image"
+                    =f.fields_for :images do |i|
+                      .input-files
+                        =i.file_field :image,type: 'file',class:"upload-image",'data-image':"#{@item.images.length}"
+                        =i.check_box :_destroy,class: "chk_delete"
+                        = i.hidden_field :id
               #thumnail2
               .dropbox-text-container2
                 -# =i.label :image,for: "upload-image",class: "dropbox-text" do
