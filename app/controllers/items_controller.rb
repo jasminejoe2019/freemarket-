@@ -27,6 +27,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    binding.pry
     respond_to do |format|
       if @item.images.length == 0
         flash[:alert] = '画像は１枚以上登録してください'
@@ -54,7 +55,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    # binding.pry
     @item = Item.find(params[:id])
     @category_parent_array = @item.category.root
     @category_parent = Category.where(ancestry: nil)
@@ -90,6 +90,7 @@ class ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
+    binding.pry
     if @item.update(item_params)
       redirect_to "/items/#{@item.id}"
     else
@@ -103,7 +104,7 @@ class ItemsController < ApplicationController
 
   def item_params
     # params.require(:item).permit(:name, :description, :category_id, :condition_id, :shipping_charge_id, :estimated_shipping_date_id, :price, :size_id,:brand_id, :brand_name, :delivery_area_id).merge(user_id: current_user.id,brand_id: 1,status_id: 1,shipping_method_id: 1)
-    params.require(:item).permit(:name, :description, :category_id, :condition_id, :shipping_charge_id, :estimated_shipping_date_id, :price, :size_id, :brand_name, :delivery_area_id,images_attributes: [:image]).merge(user_id: current_user.id,brand_id: 1,status_id: 1,shipping_method_id: 1)
+    params.require(:item).permit(:name, :description, :category_id, :condition_id, :shipping_charge_id, :estimated_shipping_date_id, :price, :size_id, :brand_name, :delivery_area_id,images_attributes: [:id,:image,:_destroy]).merge(user_id: current_user.id,brand_id: 1,status_id: 1,shipping_method_id: 1)
   end
 
   def move_to_index

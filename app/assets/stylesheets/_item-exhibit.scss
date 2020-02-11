@@ -40,7 +40,7 @@
     text-align: center;
   }
   .dropbox-text {
-    position: absolute;
+    // position: absolute;
     top: 35%;
     left: 16px;
     right: 16px;
@@ -195,10 +195,13 @@
   display:flex;
 }
 .upload-image{
-  display:none;
+  display:block;
 }
 .label-content{
   display:none;
+}
+.chk_delete{
+  display:block;
 }
 
 .modal{

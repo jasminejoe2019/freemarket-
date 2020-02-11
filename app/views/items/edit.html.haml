@@ -20,7 +20,7 @@
               #thumnail
                 - @item.images.each do |img|
                   .img_view
-                    = image_tag img.image.url,class:"preview"
+                    = image_tag img.image.url
                     .btn_wrapper
                       .btn.edit
                         編集
@@ -30,7 +30,8 @@
                 =f.fields_for :images do |i|
                   =i.label :image,for: "upload-image",class: "dropbox-text" do
                     .input_area
-                      =i.file_field :image,type: 'file',name: "item[images_attributes][][image]", id:"upload-image",class:"upload-image",'data-image':"#{@item.images.length}"
+                      =i.file_field :image,type: 'file', id:"upload-image",class:"upload-image",'data-image':"#{@item.images.length}"
+                      =i.check_box :_destroy,class: "chk_delete"
                     %p ここをクリックしてください
               #thumnail2
               .dropbox-text-container2
