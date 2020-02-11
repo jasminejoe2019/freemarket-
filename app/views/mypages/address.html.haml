@@ -1,0 +1,65 @@
+= render partial: "./shared/item-header"
+-breadcrumb :mypages
+= render partial: "./shared/breadcrumbs"
+.mypage
+  = render partial: "side_menu"
+  .mypage__wrapper
+    .main
+      .main__container.all-contents
+        %h2.main__container__head.user-identification
+          本人情報の登録
+        .main__container__form
+          =form_with model:@address, url: address_edit_mypage_path, method: :post, local: true do |f|
+            %div
+              %p お客さまの本人情報をご登録ください。
+              %br 登録されたお名前・生年月日を変更する場合、本人確認の提出が必要になります。
+              %p.text-right
+                = link_to "#" do
+                  本人確認書類のアップロードについて >
+            .main__container__list.form-left
+              .form-groups.identity
+                %label お名前
+                %p= "#{current_user.family_name} #{current_user.first_name}" 
+              .form-groups.identity
+                %label お名前カナ
+                %p= "#{current_user.family_furigana} #{current_user.first_furigana}" 
+              .form-groups.identity
+                %label 生年月日 
+                %p= current_user.birthday
+              .form-groups
+                =f.label "郵便番号",for: "zip_code"
+                %span.form-require__option
+                  任意
+                =f.text_field :postal_code,{ placeholder: "例）1234567", class: "input-default2"}
+                .form-groups
+                  =f.label "都道府県",for:"prefecture"
+                  %span.form-require__option
+                    任意
+                  =f.select :prefecture, Product.delivery_areas.keys, {}, {class: 'select-default'}
+                .form-groups
+                  =f.label "市区町村",for:"city"
+                  %span.form-require__option
+                    任意
+                  =f.text_field :city, { placeholder: "例）横浜市緑区", class: "input-default2"}
+                .form-groups
+                  =f.label "番地",for:"address"
+                  %span.form-require__option
+                    任意
+                  =f.text_field :address, { placeholder: "例）青山1-1-1", class: "input-default2"}
+                .form-groups
+                  =f.label "建物名",for: "building_name"
+                  %span.form-require__option
+                    任意
+                  =f.text_field :building_name,{placeholder: "例）柳ビル103", class: "input-default2"}
+            =f.submit "更新する",{class:"btn-default btn-red register"}
+            %p.text-right
+              = link_to "#" do
+                本人情報の登録について >
+    .exhibit-btn
+      .exhibit-btn__text
+        = link_to items_new_path do
+          出品
+      .exhibit-btn__icon
+        =icon 'fas','camera'
+= render partial: "./items/appbanner"
+= render partial: "./shared/item-footer"

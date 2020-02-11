@@ -25,11 +25,11 @@
         出品した商品・出品中
         %i.fas.fa-chevron-right.fa-pull-right
     %li.menu__feature__tradingInProgress
-      =link_to "#" do
+      =link_to selling_item_list_mypages_path do
         出品した商品・取引中
         %i.fas.fa-chevron-right.fa-pull-right
     %li.menu__feature__tradingCompleted
-      =link_to "#" do
+      =link_to selling_item_list_mypages_path do
         出品した商品・売却済み
         %i.fas.fa-chevron-right.fa-pull-right
     %li.menu__feature__purchase
@@ -85,7 +85,7 @@
         メール・パスワード
         %i.fas.fa-chevron-right.fa-pull-right
     %li.menu__setting__identification
-      =link_to "#" do
+      =link_to address_mypage_path(current_user.id) do
         本人情報
         %i.fas.fa-chevron-right.fa-pull-right
     %li.menu__setting__smsConfirmation

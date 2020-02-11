@@ -8,5 +8,11 @@
       .profile__container__description
         .btn-default.btn-red.logout-btn
           = link_to 'ログアウト',session_path(1),method: :delete
+    .exhibit-btn
+      .exhibit-btn__text
+        = link_to items_new_path do
+          出品
+      .exhibit-btn__icon
+        =icon 'fas','camera'
 = render partial: "./items/appbanner"
 = render partial: "./shared/item-footer"

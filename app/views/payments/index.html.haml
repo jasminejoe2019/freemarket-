@@ -1,3 +1,15 @@
-= render '/devise/shared/user_header'
-= render partial: '/shared/card-registration'
-= render '/devise/shared/user_footer'
+= render partial: "./shared/item-header"
+-breadcrumb :mypages
+= render partial: "./shared/breadcrumbs"
+.mypage
+  = render partial: "./mypages/side_menu"
+  .exhibit-btn
+    .exhibit-btn__text
+      = link_to items_new_path do
+        出品
+    .exhibit-btn__icon
+      =icon 'fas','camera'
+  .mypage__wrapper
+    = render partial: '/shared/card-registration'
+= render partial: "./items/appbanner"
+= render partial: "./shared/item-footer"
