@@ -27,6 +27,7 @@
                       .btn.delete
                         削除
               .dropbox-text-container
+                
                 =f.fields_for :images do |i|
                   =i.label :image,for: "upload-image",class: "dropbox-text" do
                     .input_area

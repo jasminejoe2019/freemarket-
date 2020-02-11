@@ -27,7 +27,6 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    binding.pry
     respond_to do |format|
       if @item.images.length == 0
         flash[:alert] = '画像は１枚以上登録してください'
@@ -90,7 +89,6 @@ class ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
-    binding.pry
     if @item.update(item_params)
       redirect_to "/items/#{@item.id}"
     else

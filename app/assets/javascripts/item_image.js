@@ -33,9 +33,9 @@ $(function(){
     })
     $(document).on('click','.edit',function(){
       var target_image=$(this).parent().parent();
-       $(`input[name="item[images_attributes][${target_image.data('image')}][image]"]`).click;
-       console.log(target_image.data('image'));
-    })
+       $('input[name=\"item[images_attributes]['+target_image.data('image')+'][image]\"]').trigger('click');
+console.log($('input[name=\"item[images_attributes]['+target_image.data('image')+'][image]\"]').data('image'));
+      })
     $(document).on('click','.delete',function(){
       var target_image=$(this).parent().parent();
       $.each(inputs,function(index,input){
