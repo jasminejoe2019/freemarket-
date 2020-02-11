@@ -24,8 +24,10 @@ Rails.application.routes.draw do
     member do
       get "profile"
       get "address"
+      get "telephone"
       post "profile_edit"
       post "address_edit"
+      post "telephone_edit"
     end
   end
   resources :cards

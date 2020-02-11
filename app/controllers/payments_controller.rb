@@ -9,9 +9,6 @@ class PaymentsController < ApplicationController
     end
   end
 
-  def show
-  end
-
   def create
     Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
       customer = Payjp::Customer.create(
