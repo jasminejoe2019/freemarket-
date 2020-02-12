@@ -27,6 +27,24 @@ class MypagesController < ApplicationController
     end
   end
 
+  def login_info
+    @user = User.find(current_user.id)
+  end
+
+  def login_info_edit
+    binding.pry
+    @user = User.find(current_user.id)
+    ActiveRecord::Base.transaction do
+      if @user.update(email: user_params[:email], password: user_params[:password])
+        sign_in User.find(current_user.id) unless user_signed_in?
+        redirect_to mypages_path, notice: 'メール・パスワードが更新されました'
+      else
+        flash[:alert] = 'メール・パスワードの更新に失敗しました'
+        render :login_info
+      end
+    end
+  end
+
   def address
     @address = Address.find_by(user_id: current_user.id)
   end
@@ -36,7 +54,8 @@ class MypagesController < ApplicationController
     if @address.update(address_params)
       redirect_to mypages_path, notice: '住所が更新されました'
     else
-      redirect_to mypages_path, alert: '住所の更新に失敗しました'
+      flash[:alert] = '住所の更新に失敗しました'
+      render :address
     end
   end
 
@@ -46,18 +65,18 @@ class MypagesController < ApplicationController
 
   def telephone_edit
     @user = User.find(current_user.id)
-    binding.pry
-    if @user.update(user_params)
+    if @user.update(mobile: user_params[:mobile])
       redirect_to mypages_path, notice: '電話番号が更新されました'
     else
-      redirect_to mypages_path, alert: '電話番号の更新に失敗しました'
+      flash[:alert] = '電話番号の更新に失敗しました'
+      render :telephone
     end
   end
 
   private
     def user_params
       params.require(:user).permit(
-        :nickname, :profile, :mobile
+        :email, :password, :nickname, :profile, :mobile
       ).merge(id: current_user.id)
     end
 
