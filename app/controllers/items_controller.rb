@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
 
   def index
     @item = Item.limit(10).order('id DESC')
+    @trades = Trade.where(user_id: current_user.id)
   end
 
   def new

@@ -90,7 +90,6 @@
                       %time
                         =icon 'far','clock'
                         1日前
-
             %li.item-header__todo
               .item-header__todo__title
                 =link_to root_path do
@@ -105,7 +104,27 @@
                   =icon 'far','user-circle'
                   マイページ
               .item-header__mypage__list
-                マイページで実装
+                %ul.menu__feature
+                  %li.menu__feature__tradingListing
+                    =link_to selling_item_list_mypages_path do
+                      出品した商品・出品中
+                      %i.fas.fa-chevron-right.fa-pull-right
+                  %li.menu__feature__tradingInProgress
+                    =link_to selling_item_list_mypages_path do
+                      出品した商品・取引中
+                      %i.fas.fa-chevron-right.fa-pull-right
+                  %li.menu__feature__tradingCompleted
+                    =link_to selling_item_list_mypages_path do
+                      出品した商品・売却済み
+                      %i.fas.fa-chevron-right.fa-pull-right
+                  %li.menu__feature__purchase
+                    =link_to purchase_list_mypages_path do
+                      購入した商品・取引中
+                      %i.fas.fa-chevron-right.fa-pull-right
+                  %li.menu__feature__purchased
+                    =link_to purchase_list_mypages_path do
+                      購入した商品・過去の取引
+                      %i.fas.fa-chevron-right.fa-pull-right 
       - else
         %ul.item-header__members
           %li.item-header__signup
