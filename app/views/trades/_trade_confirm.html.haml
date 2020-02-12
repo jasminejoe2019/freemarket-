@@ -41,6 +41,11 @@
               .confirmMain__wrapper__buyerInfo__inner__payMethod__wrapper__first
                 %h3.confirmMain__wrapper__buyerInfo__inner__payMethod__wrapper__first
                   支払い方法
+            - if current_user.payments.first == nil
+              =link_to payments_path, class: "cardInfo__container__inner__list__btn" do	
+                %i.fas.fa-credit-card	
+                クレジットカードを追加する
+            - else
               %p.confirmMain__wrapper__buyerInfo__inner__payMethod__wrapper__second
                 ************
                 = @card_information.last4
@@ -59,7 +64,7 @@
               %h3.confirmMain__wrapper__buyerInfo__inner__shippingAddress__first
                 配送先
               = link_to edit_shipping_address_path(@shipping_address = current_user.shipping_addresses.first) do
-                変更する
+                .edit_shipping_address_path-btn 変更する
           
             %address.confirmMain__wrapper__buyerInfo__inner__shippingAddress__second
               〒
@@ -72,5 +77,6 @@
               %br
               = current_user.shipping_addresses.first["family_name"]
               = current_user.shipping_addresses.first["first_name"]
+          - if current_user.payments.first == true
             %section.confirmMain__wrapper__buyerInfo__inner__btn
               = form.submit "購入する",class: "confirmMain__wrapper__buyerInfo__inner__btn-red"

@@ -51,6 +51,9 @@
       &__inner {
         max-width: 343px;
         margin: 0 auto;
+        a {
+          color: #fff;
+        }
         &__price {
           display: flex;
           justify-content: space-between;
@@ -135,7 +138,7 @@
             cursor: pointer;
           }
         }
-        a {
+        &-btn {
           color: #0099e8;
         }
       }
