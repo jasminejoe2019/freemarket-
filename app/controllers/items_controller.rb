@@ -89,10 +89,19 @@ class ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
-    if @item.update(item_params)
-      redirect_to "/items/#{@item.id}"
-    else
-      render :edit
+    respond_to do |format|
+      if @item.images.length==0
+        flash[:alert] = '画像は１枚以上登録してください'
+        @item.images.build
+        @category_parent_array = Category.where(ancestry: nil).pluck(:name)
+        @category_parent_array.unshift("--")
+        format.html{render :edit}
+      elsif @item.update(item_params)
+        format.html{redirect_to item_path(@item)}
+      else
+        flash[:alert] = 'エラーが発生しました'
+        format.html{render :edit}
+      end
     end
   end
   private
@@ -101,12 +110,10 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    # params.require(:item).permit(:name, :description, :category_id, :condition_id, :shipping_charge_id, :estimated_shipping_date_id, :price, :size_id,:brand_id, :brand_name, :delivery_area_id).merge(user_id: current_user.id,brand_id: 1,status_id: 1,shipping_method_id: 1)
     params.require(:item).permit(:name, :description, :category_id, :condition_id, :shipping_charge_id, :estimated_shipping_date_id, :price, :size_id, :brand_name, :delivery_area_id,images_attributes: [:id,:image,:_destroy]).merge(user_id: current_user.id,brand_id: 1,status_id: 1,shipping_method_id: 1)
   end
-
   def move_to_index
-    # redirect_to root_path, alert: '指定された商品は存在しません' unless @item = Item.exists?(params[:id])
+    
   end
 
 end

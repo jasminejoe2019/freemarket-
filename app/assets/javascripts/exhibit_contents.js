@@ -134,7 +134,6 @@ $(function(){
 
   $('#category_box').on('change', '#grandchild_category', function(){
     var sizeId = $('#grandchild_category option:selected').data('category');
-    console.log(sizeId)
     if (sizeId != "--"){
       $.ajax({
         url: '/items/get_size',
