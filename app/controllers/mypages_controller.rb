@@ -32,11 +32,10 @@ class MypagesController < ApplicationController
   end
 
   def login_info_edit
-    binding.pry
     @user = User.find(current_user.id)
     ActiveRecord::Base.transaction do
       if @user.update(email: user_params[:email], password: user_params[:password])
-        sign_in User.find(current_user.id) unless user_signed_in?
+        sign_in User.find(@user.id) unless user_signed_in?
         redirect_to mypages_path, notice: 'メール・パスワードが更新されました'
       else
         flash[:alert] = 'メール・パスワードの更新に失敗しました'
@@ -76,7 +75,7 @@ class MypagesController < ApplicationController
   private
     def user_params
       params.require(:user).permit(
-        :email, :password, :nickname, :profile, :mobile
+        :email, :password, :password_confirmation, :nickname, :profile, :mobile
       ).merge(id: current_user.id)
     end
 
