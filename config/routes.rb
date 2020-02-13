@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: 'items#index'
     get 'items/new'
-  resources :items, only: [:index, :show, :new, :edit, :destroy, :create] do
+  resources :items do
     resources :trades
     collection do
       get 'get_category_children', defaults: { format: 'json' }

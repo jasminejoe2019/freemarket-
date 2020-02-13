@@ -178,7 +178,7 @@
 }
 .img_view img{
   width:124px;
-  min-height:124px;
+  height:124px;
 }
 .btn_wrapper{
   display:flex;
@@ -193,9 +193,11 @@
 }
 #thumnail2{
   display:flex;
-  flex-wrap: wrap;
 }
 .upload-image{
+  display:none;
+}
+.chk_delete{
   display:none;
 }
 

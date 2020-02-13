@@ -69,10 +69,10 @@ $(function(){
 
 
   $('#parent_category').on('change', function(){
-    var parentCategory = document.getElementById('parent_category').value; //選択された親カテゴリーの名前を取得
+    var parentCategory =$('#parent_category option:selected').text(); //選択された親カテゴリーの名前を取得
     if (parentCategory != "--"){
       $.ajax({
-        url: 'get_category_children',
+        url: '/items/get_category_children',
         type: 'GET',
         data: { parent_name: parentCategory },
         dataType: 'json'
@@ -83,6 +83,7 @@ $(function(){
         $('#size_wrapper').remove();
         $('#brand_wrapper').remove();
         var insertHTML = '';
+
         children.forEach(function(child){
           insertHTML += appendOption(child);
         });
@@ -103,7 +104,7 @@ $(function(){
     var childId = $('#child_category option:selected').data('category');
     if (childId != "--"){
       $.ajax({
-        url: 'get_category_grandchildren',
+        url: '/items/get_category_grandchildren',
         type: 'GET',
         data: { child_id: childId },
         dataType: 'json'
@@ -135,7 +136,7 @@ $(function(){
     var sizeId = $('#grandchild_category option:selected').data('category');
     if (sizeId != "--"){
       $.ajax({
-        url: 'get_size',
+        url: '/items/get_size',
         type: 'GET',
         data: { size_id: sizeId},
         dataType: 'json'
