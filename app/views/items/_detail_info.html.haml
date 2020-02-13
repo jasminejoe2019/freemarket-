@@ -19,29 +19,26 @@
       %th カテゴリー
       %td.itemInfo__table__Category
         = link_to "https://www.mercari.com/", class: "itemInfo__table__Category-mainCategory"  do
-          -# = @grandchild.parent.parent.name
-          -# 別ブランチで調整中
+          = @grandchild.parent.parent.name
         .itemInfo__table__Category-subCategory
           %i.fas.fa-chevron-right
           = link_to "https://www.mercari.com/" do
-            -# = @grandchild.parent.name
-            -# 別ブランチで調整中
+            = @grandchild.parent.name
         .itemInfo__table__Category-smallCategory
           %i.fas.fa-chevron-right
           = link_to "https://www.mercari.com/" do
-            -# = @grandchild.name
-            -# 別ブランチで調整中
+            = @grandchild.name
     %tr
       %th ブランド
       %td
-        = @item.brand.brand if @item.brand_id
+        = @item.brand_name
     %tr
       %th 商品の状態
       %td
         = @item.condition.condition if @item.condition_id
     %tr
       %th 配送料の負担
-      %td 
+      %td
         = @item.shipping_charge.shipping_charge if @item.shipping_charge_id
     %tr
       %th 配送の方法
@@ -50,6 +47,8 @@
     %tr
       %th 配送元地域
       %td
+        = Product.delivery_areas.keys[@item.delivery_area_id]
+
     %tr
       %th 発送日の目安
       %td
