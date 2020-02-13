@@ -33,7 +33,6 @@ class MypagesController < ApplicationController
 
   def login_info_edit
     @user = User.find(current_user.id)
-    binding.pry
     if @user.valid_password?(params[:user][:now_password])
       if @user.update(email: user_params[:email], password: user_params[:password])
       sign_in User.find(@user.id) unless user_signed_in?
