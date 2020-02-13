@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :new, :create]
+  before_action -> {set_item(params[:id])},only: [:edit, :update,:show,:destroy,:status_edit]
 
   def index
     @item = Item.limit(10).order('id DESC')
@@ -47,14 +48,21 @@ class ItemsController < ApplicationController
   end
 
   def show
-    set_item(params[:id])
     @user = @item.user
     @estimated_shipping_date = EstimatedShippingDate.find(@item.estimated_shipping_date_id)
     @grandchild = Category.find(@item.category_id)
   end
 
+  def edit
+    @category_parent_array = @item.category.root
+    @category_parent = Category.where(ancestry: nil)
+    @grandchild = Category.find(@item.category_id)
+    @category_child2 = @grandchild.parent
+    @category_child = @item.category.parent.parent.children
+    @category_grandchild = @item.category.parent.children
+  end
+
   def status_edit
-    set_item(params[:id])
     @user = @item.user
     update_status = @item.status_id == 1 ? 3 : 1
     flash_message = @item.status_id == 1 ? '商品の出品を停止しました' :'商品の出品を開始しました'
@@ -69,7 +77,6 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    set_item(params[:id])
     if @item.destroy
       redirect_to root_path, notice: '商品が削除されました'
     else
@@ -77,17 +84,33 @@ class ItemsController < ApplicationController
     end
   end
 
+  def update
+    @item = Item.find(params[:id])
+    respond_to do |format|
+      if @item.images.length==0
+        flash[:alert] = '画像は１枚以上登録してください'
+        @item.images.build
+        @category_parent_array = Category.where(ancestry: nil).pluck(:name)
+        @category_parent_array.unshift("--")
+        format.html{render :edit}
+      elsif @item.update(item_params)
+        format.html{redirect_to item_path(@item)}
+      else
+        flash[:alert] = 'エラーが発生しました'
+        format.html{render :edit}
+      end
+    end
+  end
   private
   def set_item(params)
     @item = Item.find(params)
   end
 
   def item_params
-    params.require(:item).permit(:name, :description, :category_id, :condition_id, :shipping_charge_id, :estimated_shipping_date_id, :price, :size_id,:brand_id, :delivery_area_id,images_attributes: [:image]).merge(user_id: current_user.id,brand_id: 1,status_id: 1,shipping_method_id: 1)
+    params.require(:item).permit(:name, :description, :category_id, :condition_id, :shipping_charge_id, :estimated_shipping_date_id, :price, :size_id, :brand_name, :delivery_area_id,images_attributes: [:id,:image,:_destroy]).merge(user_id: current_user.id,brand_id: 1,status_id: 1,shipping_method_id: 1)
   end
-
   def move_to_index
-    # redirect_to root_path, alert: '指定された商品は存在しません' unless @item = Item.exists?(params[:id])
+    
   end
 
 end

@@ -31,14 +31,14 @@
     %tr
       %th ブランド
       %td
-        = @item.brand.brand if @item.brand_id
+        = @item.brand_name
     %tr
       %th 商品の状態
       %td
         = @item.condition.condition if @item.condition_id
     %tr
       %th 配送料の負担
-      %td 
+      %td
         = @item.shipping_charge.shipping_charge if @item.shipping_charge_id
     %tr
       %th 配送の方法
