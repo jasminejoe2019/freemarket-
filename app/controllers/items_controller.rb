@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :new, :create]
+  before_action -> {set_item(params[:id])},only: [:edit, :update,:show,:destroy,:status_edit]
 
   def index
     @item = Item.limit(10).order('id DESC')
@@ -47,14 +48,12 @@ class ItemsController < ApplicationController
   end
 
   def show
-    set_item(params[:id])
     @user = @item.user
     @estimated_shipping_date = EstimatedShippingDate.find(@item.estimated_shipping_date_id)
     @grandchild = Category.find(@item.category_id)
   end
 
   def edit
-    @item = Item.find(params[:id])
     @category_parent_array = @item.category.root
     @category_parent = Category.where(ancestry: nil)
     @grandchild = Category.find(@item.category_id)
@@ -64,7 +63,6 @@ class ItemsController < ApplicationController
   end
 
   def status_edit
-    set_item(params[:id])
     @user = @item.user
     update_status = @item.status_id == 1 ? 3 : 1
     flash_message = @item.status_id == 1 ? '商品の出品を停止しました' :'商品の出品を開始しました'
@@ -79,7 +77,6 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    set_item(params[:id])
     if @item.destroy
       redirect_to root_path, notice: '商品が削除されました'
     else
