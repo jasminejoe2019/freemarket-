@@ -70,7 +70,7 @@ $(function(){
       reader.readAsDataURL(file);
       images.push(img);
       preview(images);
-      var new_image = $(`<input class="upload-image" name="item[images_attributes][${images.length-1}][image]" data-image= ${images.length-1} type="file" id="upload-image"></<input>`);
+      var new_image = $(`<input class="upload-image" name="item[images_attributes][${images.length}][image]" data-image= ${images.length} type="file" id="upload-image"></<input>`);
       input_area.prepend(new_image);
     }else{
       // .img_vieのdata-image=indexのもの の 直下のimgタグを取得
