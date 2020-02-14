@@ -10,12 +10,12 @@
         %h2.main__container__head
           メール・パスワード
         .main__container__form
-          =form_with model:@user,url: login_info_edit_mypage_path, method: :post, local: true do |f|
+          =form_with model:current_user,url: login_info_edit_mypage_path, method: :post, local: true do |f|
             .main__container__list
               .form-groups
                 =f.label "メールアドレス", for: "email"
                 = f.text_field :email, { placeholder: "PC・携帯どちらでも可", type: "email", class: "input-default2"}
-                = render partial: './shared/error', locals: {model: @user, column: "email"}
+                = render partial: './shared/error', locals: {model: current_user, column: "email"}
               .form-groups
                 =f.label "現在のパスワード", for: "password"
                 = f.text_field :now_password ,{type: "password",class: "input-default2"}
@@ -25,7 +25,7 @@
               .form-groups
                 =f.label "新しいパスワード確認", for: "password"
                 = f.text_field :password_confirmation ,{ placeholder: "新しいパスワードを再入力", type: "password",class: "input-default2"}
-                = render partial: './shared/error', locals: {model: @user, column: "password"}
+                = render partial: './shared/error', locals: {model: current_user, column: "password"}
               =f.submit "更新する",{class:"btn-default btn-red"}
 
 = render partial: "./items/appbanner"
