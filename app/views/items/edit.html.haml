@@ -2,9 +2,6 @@
 .single-container
   .main
     .main__container
-      .flashbox
-        .alert
-          =flash[:alert]
       %h2.main__container__head
         商品の情報を入力
       = form_for @item, method: :patch do |f|
@@ -131,7 +128,7 @@
                     .l-right.bold.right_bar_2
                       \-
           .sell-form__content
-          = f.submit '変更する', class: 'btn-default btn-red shipping-wide'
+          = f.submit '変更する', class: 'btn-default btn-red shipping-wide',id: 'item-update'
           =link_to :back, class: "btn-default btn-gray" do
             キャンセル
 = render '/devise/shared/user_footer'
