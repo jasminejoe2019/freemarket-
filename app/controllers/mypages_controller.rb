@@ -15,11 +15,11 @@ class MypagesController < ApplicationController
   end
 
   def profile
-    @user = User.find(current_user.id)
+    @user = current_user
   end
 
   def profile_edit
-    @user = User.find(current_user.id)
+    @user = current_user.id
     if @user.update(user_params)
       redirect_to mypages_path, notice: 'プロフィールが更新されました'
     else
@@ -28,11 +28,11 @@ class MypagesController < ApplicationController
   end
 
   def login_info
-    @user = User.find(current_user.id)
+    @user = current_user
   end
 
   def login_info_edit
-    @user = User.find(current_user.id)
+    @user = current_user
     if @user.valid_password?(params[:user][:now_password])
       if @user.update(email: user_params[:email], password: user_params[:password])
       sign_in User.find(@user.id) unless user_signed_in?
@@ -63,11 +63,11 @@ class MypagesController < ApplicationController
   end
 
   def telephone
-    @user = User.find(current_user.id)
+    @user = current_user
   end
 
   def telephone_edit
-    @user = User.find(current_user.id)
+    @user = current_user
     if @user.update(mobile: user_params[:mobile])
       redirect_to mypages_path, notice: '電話番号が更新されました'
     else

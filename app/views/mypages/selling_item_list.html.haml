@@ -3,12 +3,7 @@
 = render partial: "./shared/breadcrumbs"
 .mypage
   = render partial: "side_menu"
-  .exhibit-btn
-    .exhibit-btn__text
-      = link_to items_new_path do
-        出品
-    .exhibit-btn__icon
-      =icon 'fas','camera'
+  = render '/shared/exhibition_button'
   .mypage__wrapper
     = render partial: "tradeList_header", locals: {title: "販売した商品",  menu1: "出品・出品停止中", menu2: "売却済み" }
     %ul.mypage__itemList__contents__list.show2
