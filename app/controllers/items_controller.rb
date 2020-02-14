@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :new, :create]
+  before_action :valid_sign_in,only: [:show]
+  before_action :item_auth,only: [:edit]
   before_action -> {set_item(params[:id])},only: [:edit, :update,:show,:destroy,:status_edit]
 
   def index
@@ -109,8 +111,19 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:name, :description, :category_id, :condition_id, :shipping_charge_id, :estimated_shipping_date_id, :price, :size_id, :brand_name, :delivery_area_id,images_attributes: [:id,:image,:_destroy]).merge(user_id: current_user.id,brand_id: 1,status_id: 1,shipping_method_id: 1)
   end
+  def item_auth
+    if current_user.id != set_item(params[:id]).user_id
+      flash[:alert]='権限がありません'
+      redirect_to root_path
+    end
+  end
   def move_to_index
-    
+  end
+  def valid_sign_in
+    unless user_signed_in?
+      flash[:alert]='ログインしてください'
+      redirect_to root_path
+    end
   end
 
 end
