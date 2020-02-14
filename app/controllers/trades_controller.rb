@@ -4,8 +4,7 @@ class TradesController < ApplicationController
   def new
     @item = Item.find(params[:item_id])
     @payment = current_user.payments.first
-
-    if @payment == true
+    if @payment.present?
       payment = Payment.find_by(user_id: current_user.id)
       Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
       customer = Payjp::Customer.retrieve(payment.customer_id)
