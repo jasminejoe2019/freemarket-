@@ -61,7 +61,7 @@ $(function(){
     if(this.id == 'upload-image'){
       inputs.push($(this));
       reader.onload=function(e){
-        var btn_wrapper = $('<div class="btn_wrapper"><div class="btn edit">編集</div><div class="btn delete">削除</div><div class="btn edit">');
+        var btn_wrapper = $('<div class="btn_wrapper"><div class="btn edit">編集</div><div class="btn delete" id="new-image">削除</div><div class="btn edit">');
         img.append(btn_wrapper);
         img.find('img').attr({
           src: e.target.result
@@ -86,18 +86,16 @@ $(function(){
   $(document).on('click','.delete',function(){
     var target_image=$(this).parent().parent();
     $.each(inputs,function(index,input){
-      console.log(this);
       if ($(this).data('image')==target_image.data('image')){
-        if (this.id =='upload-image'){
-          console.log(this);
+        if ($(this).attr('id') =="upload-image"){
           $(this).remove();
         }else{
           $(`#item_images_attributes_${index}__destroy`).prop('checked', true)
         }
-        target_image.remove();
         var num=$(this).data('image');
-        images.splice(num,1);
-        inputs.splice(num,1);
+          images.splice(num,1);
+          inputs.splice(num,1);
+        target_image.remove();
         $(this).removeAttr('data-image');
         if(inputs.length==0){
           $('input[type="file"].upload-image').attr({
