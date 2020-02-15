@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
   before_action -> {set_item(params[:id])},only: [:edit, :update,:show,:destroy,:status_edit]
 
   def index
-    @item = Item.limit(10).order('id DESC')
+    @item = Item.where(status_id: 1).limit(10).order('id DESC')
     @trades = Trade.where(user_id: current_user.id) if user_signed_in?
   end
 
@@ -67,6 +67,7 @@ class ItemsController < ApplicationController
 
   def status_edit
     @user = @item.user
+    @grandchild = Category.find(@item.category_id)
     update_status = @item.status_id == 1 ? 3 : 1
     flash_message = @item.status_id == 1 ? '商品の出品を停止しました' :'商品の出品を開始しました'
 

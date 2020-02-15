@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root to: 'items#index'
     get 'items/new'
   resources :items do
-    resources :trades
+    resources :trades, only: [:index, :new, :create]
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
@@ -13,10 +13,9 @@ Rails.application.routes.draw do
     end
     resources :images
   end
-  resources :addresses
   resources :shipping_addresses, only: [:index, :create, :edit, :update]
-  resources :payments
-  resources :mypages, only:[:edit,:index] do
+  resources :payments, only: [:index, :create, :destroy]
+  resources :mypages, only:[:index] do
     collection do
       get "purchase_list"
       get "selling_item_list"
@@ -32,8 +31,7 @@ Rails.application.routes.draw do
       post "login_info_edit"
     end
   end
-  resources :cards
-  resources :signup do
+  resources :signup, only:[:create] do
     collection do
       get 'user_create'
       get 'user_create_profile'

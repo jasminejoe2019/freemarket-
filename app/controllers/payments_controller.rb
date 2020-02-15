@@ -34,7 +34,4 @@ class PaymentsController < ApplicationController
       redirect_to mypages_path, alert: 'クレジットカード情報の登録に失敗しました'
     end
   end
-
-  def update
-  end
 end
