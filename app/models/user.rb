@@ -5,8 +5,8 @@ class User < ApplicationRecord
   has_many :sns_credentials,dependent: :destroy
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
+        :recoverable, :rememberable, :validatable,
+        :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
   def self.without_sns_data(auth)
     user=User.find_by(email:auth.info.email)
 
