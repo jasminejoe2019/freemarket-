@@ -1,7 +1,7 @@
 .menu
   %ul.menu__feature
     %li.menu__feature__myPage
-      =link_to "#" do
+      =link_to mypages_path do
         マイページ
         %i.fas.fa-chevron-right.fa-pull-right
     %li.menu__feature__notice
@@ -17,27 +17,27 @@
         いいね！一覧
         %i.fas.fa-chevron-right.fa-pull-right
     %li.menu__feature__trade
-      =link_to "#" do
+      =link_to items_new_path do
         出品する
         %i.fas.fa-chevron-right.fa-pull-right
     %li.menu__feature__tradingListing
-      =link_to "#" do
+      =link_to selling_item_list_mypages_path do
         出品した商品・出品中
         %i.fas.fa-chevron-right.fa-pull-right
     %li.menu__feature__tradingInProgress
-      =link_to "#" do
+      =link_to selling_item_list_mypages_path do
         出品した商品・取引中
         %i.fas.fa-chevron-right.fa-pull-right
     %li.menu__feature__tradingCompleted
-      =link_to "#" do
+      =link_to selling_item_list_mypages_path do
         出品した商品・売却済み
         %i.fas.fa-chevron-right.fa-pull-right
     %li.menu__feature__purchase
-      =link_to "#" do
+      =link_to purchase_list_mypages_path do
         購入した商品・取引中
         %i.fas.fa-chevron-right.fa-pull-right
     %li.menu__feature__purchased
-      =link_to "#" do
+      =link_to purchase_list_mypages_path do
         購入した商品・過去の取引
         %i.fas.fa-chevron-right.fa-pull-right
     %li.menu__feature__news
@@ -49,7 +49,7 @@
         評価一覧
         %i.fas.fa-chevron-right.fa-pull-right
     %li.menu__feature__guide
-      =link_to "#" do
+      =link_to "https://www.mercari.com/jp/help_center/" do
         ガイド
         %i.fas.fa-chevron-right.fa-pull-right
     %li.menu__feature__support
@@ -69,7 +69,7 @@
   %h3.menu__titleSetting 設定
   %ul.menu__setting
     %li.menu__setting__profile
-      =link_to "#" do
+      =link_to profile_mypage_path(current_user.id) do
         プロフィール
         %i.fas.fa-chevron-right.fa-pull-right
     %li.menu__setting__deliverAddress
@@ -77,19 +77,19 @@
         発送元・お届け先住所変更
         %i.fas.fa-chevron-right.fa-pull-right
     %li.menu__setting__card
-      =link_to "#" do
+      =link_to payments_path do
         支払い方法
         %i.fas.fa-chevron-right.fa-pull-right
     %li.menu__setting__emailPassword
-      =link_to "#" do
+      =link_to login_info_mypage_path(current_user.id) do
         メール・パスワード
         %i.fas.fa-chevron-right.fa-pull-right
     %li.menu__setting__identification
-      =link_to "#" do
+      =link_to address_mypage_path(current_user.id) do
         本人情報
         %i.fas.fa-chevron-right.fa-pull-right
     %li.menu__setting__smsConfirmation
-      =link_to "#" do
+      =link_to telephone_mypage_path(current_user.id) do
         電話番号の確認
         %i.fas.fa-chevron-right.fa-pull-right
     %li.menu__setting__logout

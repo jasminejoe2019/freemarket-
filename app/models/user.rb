@@ -60,7 +60,7 @@ class User < ApplicationRecord
 
   validates :nickname, presence: true
   validates :email, presence: true,uniqueness: true,format: {with: VALID_EMAIL_REGEX,message: 'メールアドレスが正しくありません。'}
-  validates :encrypted_password, presence: true,length: { minimum: 7 }
+  validates :encrypted_password, presence: true,length: { minimum: 7 }, confirmation: true
   validates :first_name, presence: true
   validates :first_furigana, presence: true,format: { with: VALID_KANA_REGEX, message: 'はカタカナで入力して下さい。'}
   validates :family_name, presence: true
@@ -75,6 +75,8 @@ class User < ApplicationRecord
   has_many :addresses
   has_many :shipping_addresses
   has_many :sns_credential
+
+
 
   # 調整中、後ほど利用します
   # def date_valid?

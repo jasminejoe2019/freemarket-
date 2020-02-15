@@ -1,6 +1,11 @@
 class ShippingAddressesController < ApplicationController
+  before_action :authenticate_user!
+
   def index
+    @shipping_address = ShippingAddress.find_by(user_id: current_user.id)
+    if @shipping_address == nil
       @shipping_address = current_user.shipping_addresses.new
+    end
   end
 
   def create

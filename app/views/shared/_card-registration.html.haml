@@ -1,32 +1,58 @@
-.main__container
-  %h2.main__container__head
-    支払い方法
-  .main__container__form
-    = form_with url: payment_path, method: :patch, class: "main__container__list", id: "charge-form", local: true do |f|
-      .form-groups
-        %label(for="credit")
-          カード番号
-        %span.form-require
-          必須
-        = f.text_field :number, {class: "input-default2", placeholder: "半角数字のみ", maxlength: "16" , minlength: "16", required: "true"}
-        %h3
-          = image_tag("card_5brand", class: "credit-logo")
-      .form-groups
-        %div
-          %label 有効期限
-          %span.form-require 必須
-        .name-form
-          = f.select :exp_month, [[01,01],[02,02],[3,3],[4,4],[5,5],[6,6],[7,7],[8,8],[9,9],[10,10],[11,11],[12,12]], {}, {class: "input-select" , required: "true"}
-          %span.input-select__data 月
-          = f.select :exp_year, [[19,2019],[20,2020],[21,2021],[22,2022],[23,2023],[24,2024],[25,2025],[26,2026],[27,2027]], {}, {class: "input-select" , required: "true"}
-          %span.input-select__data 年
+- if (@payment.length == 1)
+  .cardInfo
+    %section.cardInfo__container
+      %h2.cardInfo__container__head
+        支払い方法
+      %section.cardInfo__container__inner
+        .cardInfo__container__inner__content
+          %h3.cardInfo__container__inner__content__subHead
+            クレジットカード情報
+        %ul.cardInfo__container__inner__list
+          %li
+            = form_with model: @payment, url: payment_path(@payment.ids), method: :delete, local: true, class: "cardInfo__container__inner__list__form" do |form|
+              .cardInfo__container__inner__list__form__item
+                = @card_information.brand
+                .cardInfo__container__inner__list__form__item__num
+                  ************
+                  = @card_information.last4
+                .cardInfo__container__inner__list__form__item__expirationDate 
+                  = @card_information.exp_month.to_s + " / " + @card_information.exp_year.to_s.slice(2,3)
+              .cardInfo__container__inner__list__form__delete
+                = form.submit "削除する"
+        .cardInfo__container__foot
+          =link_to "#" do
+            %span 支払い方法について
+            %i.fas.fa-chevron-right.fa-pull-right
+- else
+  .main__container
+    %h2.main__container__head
+      支払い方法
+    .main__container__form
+      = form_with url: payments_path, method: :post, class: "main__container__list", id: "charge-form", local: true do |f|
         .form-groups
-          %label(for="security")
-            セキュリティコード
+          %label(for="credit")
+            カード番号
           %span.form-require
             必須
-          = f.text_field :cvc,{class: "input-default2", placeholder: "カード背面４桁もしくは３桁の番号" , maxlength: "4" , minlength: "3", required: "true"}
-          .signup-seqcode
-            %span.question ?
-            カードの背面の番号とは？
-        = f.submit "変更する", class:"btn-default btn-red"
+          = f.text_field :number, {class: "input-default2", placeholder: "半角数字のみ", maxlength: "16" , minlength: "16", required: "true"}
+          %h3
+            = image_tag("card_5brand", class: "credit-logo")
+        .form-groups
+          %div
+            %label 有効期限
+            %span.form-require 必須
+          .name-form
+            = f.select :exp_month, [[01,01],[02,02],[3,3],[4,4],[5,5],[6,6],[7,7],[8,8],[9,9],[10,10],[11,11],[12,12]], {}, {class: "input-select" , required: "true"}
+            %span.input-select__data 月
+            = f.select :exp_year, [[19,2019],[20,2020],[21,2021],[22,2022],[23,2023],[24,2024],[25,2025],[26,2026],[27,2027]], {}, {class: "input-select" , required: "true"}
+            %span.input-select__data 年
+          .form-groups
+            %label(for="security")
+              セキュリティコード
+            %span.form-require
+              必須
+            = f.text_field :cvc,{class: "input-default2", placeholder: "カード背面４桁もしくは３桁の番号" , maxlength: "4" , minlength: "3", required: "true"}
+            .signup-seqcode
+              %span.question ?
+              カードの背面の番号とは？
+          = f.submit "変更する", class:"btn-default btn-red"

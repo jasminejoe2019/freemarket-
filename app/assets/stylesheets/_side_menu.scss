@@ -4,6 +4,7 @@
   margin-right: 40px;
   order: 0;
   &__feature {
+    margin: 0;
     &__myPage {
       @include sideMenuForm();
     }
@@ -48,9 +49,11 @@
     }
   }
   &__titleReceipt {
+    margin: 0;
     @include sideMenuFormTitle();
   }
   .menu__receipt {
+    margin: 0;
     &__sales {
       @include sideMenuForm();
     }
@@ -59,11 +62,13 @@
     }
   }
   &__titleSetting {
+    margin: 0;
     @include sideMenuFormTitle();
   }
   .menu__setting {
+    margin: 0;
     &__profile {
-      @include sideMenuFormSelected();
+      @include sideMenuForm();
     }
     &__deliverAddress {
       @include sideMenuForm();

@@ -1,19 +1,19 @@
 class TradesController < ApplicationController
   before_action :authenticate_user!
+  before_action -> {set_item(params[:item_id])}
 
-  def index
-    @item = Item.first  
-    @payment = current_user.payments
-
-    payment = Payment.find_by(user_id: current_user.id)
+  def new
+    @payment = current_user.payments.first
+    if @payment.present?
+      payment = Payment.find_by(user_id: current_user.id)
       Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
       customer = Payjp::Customer.retrieve(payment.customer_id)
       @card_information = customer.cards.retrieve(payment.card_id)
+    end
   end
 
   def create
-    @item = Item.first
-    @user = current_user
+    @user = @item.user
     @trade = Trade.new(
         user_id: current_user.id,
         item_id: @item.id
@@ -45,6 +45,10 @@ class TradesController < ApplicationController
   end
 
   private
+  def set_item(item_id)
+    @item = Item.find(params[:item_id])
+  end
+
   def trade_params
     params.require(:trade).permit(
       :user_id,

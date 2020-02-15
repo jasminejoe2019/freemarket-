@@ -18,14 +18,20 @@ crumb :shipping_addresses do
 end
 
 crumb :profile do
-  link "プロフィール", edit_mypage_path
+  link "プロフィール", profile_mypage_path(current_user.id)
   parent :mypages
 end
 
-crumb :cards do
-  link "支払い方法",cards_path
+crumb :shipping_addresses do
+  link "発送元・お届け先住所変更", shipping_addresses_path
   parent :mypages
 end
+
+crumb :payments do
+  link "支払い方法", payments_path
+  parent :mypages
+end
+
 crumb :newcards do
   link "クレジットカード情報登録",new_card_path
   parent :cards

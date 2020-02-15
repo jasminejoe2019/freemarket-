@@ -5,8 +5,6 @@
   = render partial: "side_menu"
   = render '/shared/exhibition_button'
   .mypage__wrapper
-    = render partial: "user"
-    = render partial: "notification"
-    = render partial: "itemList"
+    = render partial: "./shared/phone_number_input",locals: {path: telephone_edit_mypage_path, method: :post}
 = render partial: "./items/appbanner"
 = render partial: "./shared/item-footer"
