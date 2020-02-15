@@ -1,6 +1,7 @@
 class TradesController < ApplicationController
   before_action :authenticate_user!
   before_action -> {set_item(params[:item_id])}
+  before_action :move_to_home, only:[:index]
 
   def new
     @payment = current_user.payments.first
@@ -54,5 +55,9 @@ class TradesController < ApplicationController
       :user_id,
       :item_id,
     )
+  end
+
+  def move_to_home
+    redirect_to root_path unless @payment.present?
   end
 end

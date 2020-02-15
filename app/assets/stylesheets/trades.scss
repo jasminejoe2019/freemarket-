@@ -51,9 +51,6 @@
       &__inner {
         max-width: 343px;
         margin: 0 auto;
-        a {
-          color: #fff;
-        }
         &__price {
           display: flex;
           justify-content: space-between;
@@ -117,6 +114,9 @@
             font-size: 14px;
             line-height: 1.5;
           }
+          &__btn {
+            color: #0099e8;
+          }
         }
         &__btn {
           padding: 32px 0;
@@ -139,6 +139,9 @@
           }
         }
         &-btn {
+          color: #0099e8;
+        }
+        &__backmypage {
           color: #0099e8;
         }
       }

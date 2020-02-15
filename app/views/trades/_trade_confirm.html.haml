@@ -57,7 +57,7 @@
                 = @card_information.brand
           %section.confirmMain__wrapper__buyerInfo__inner__shippingAddress
           - if current_user.shipping_addresses.first == nil
-            = link_to shipping_addresses_path do
+            = link_to shipping_addresses_path, class: "confirmMain__wrapper__buyerInfo__inner__shippingAddress__btn"  do
               配送先住所を登録してください。
           - else
             .confirmMain__wrapper__buyerInfo__inner__shippingAddress__first
