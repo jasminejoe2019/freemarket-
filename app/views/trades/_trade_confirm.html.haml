@@ -77,6 +77,6 @@
               %br
               = current_user.shipping_addresses.first["family_name"]
               = current_user.shipping_addresses.first["first_name"]
-          - if current_user.payments.first == true
+          - if (current_user.payments.first != nil) && (current_user.shipping_addresses.first != nil)
             %section.confirmMain__wrapper__buyerInfo__inner__btn
               = form.submit "購入する",class: "confirmMain__wrapper__buyerInfo__inner__btn-red"

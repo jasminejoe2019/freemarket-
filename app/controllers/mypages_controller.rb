@@ -2,15 +2,15 @@ class MypagesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @trades = Trade.where(user_id: current_user.id).limit(3)
+    @trades = current_user.trades.limit(3)
   end
 
   def selling_item_list
-    @items = Item.where(user_id: current_user.id)
+    @items = current_user.items
   end
 
   def purchase_list
-    @trades = Trade.where(user_id: current_user.id)
+    @trades = current_user.trades
   end
 
   def profile
@@ -44,11 +44,11 @@ class MypagesController < ApplicationController
   end
 
   def address
-    @address = Address.find_by(user_id: current_user.id)
+    @address = current_user.addresses.first
   end
 
   def address_edit
-    @address = Address.find_by(user_id: current_user.id)
+    @address = current_user.addresses.first
     if @address.update(address_params)
       redirect_to mypages_path, notice: '住所が更新されました'
     else
